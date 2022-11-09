@@ -1,7 +1,19 @@
-subprojects {
-    repositories {
-        mavenCentral()
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'junit:junit:4.13.2'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.9.0')
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
     }
-    group 'recipes.foodbar'
-    version 'unspecified'
 }
