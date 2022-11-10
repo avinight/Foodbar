@@ -7,7 +7,7 @@ Foodbar is an easy to use, all-in-one recipe organizer that lets create and shar
 - JDK 11
 
 ``` shell
-foo@bar ~ % java -version
+$ java -version
 openjdk version "11.0.16.1" 2022-08-12 LTS
 OpenJDK Runtime Environment Corretto-11.0.16.9.1 (build 11.0.16.1+9-LTS)
 OpenJDK 64-Bit Server VM Corretto-11.0.16.9.1 (build 11.0.16.1+9-LTS, mixed mode)
