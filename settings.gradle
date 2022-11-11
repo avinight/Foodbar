@@ -11,7 +11,7 @@ include ':encoder-sha256'
 include ':jug'
 include ':uuid'
 include ':simpleDB'
-include 'h2DB'
+include ':h2DB'
 
 include ':ManualConfig'
 
@@ -23,7 +23,7 @@ project(":encoder-sha256").projectDir = file("adapter/encoder/sha256")
 project(":jug").projectDir = file("adapter/id-generator/jug")
 project(":uuid").projectDir = file("adapter/id-generator/uuid")
 project(":simpleDB").projectDir = file("adapter/repository/simpleDB")
-project(":simpleDB").projectDir = file("adapter/repository/h2DB")
+project(":h2DB").projectDir = file("adapter/repository/h2DB")
 
 project(":ManualConfig").projectDir = file("config/ManualConfig")
 
