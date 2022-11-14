@@ -1,10 +1,12 @@
-package entities;
+package recipes.foodbar.entities;
 
+import java.util.Arrays;
 import java.util.Date;
+
 
 public class Recipe {
     private String title;
-    // private User author;
+    private User author;
     private String[] instructions;
     private String cuisine;
     private int likes;
@@ -21,13 +23,24 @@ public class Recipe {
     // TODO: Likes and Dislikes need to be tracked on a per-user-like/dislike basis and not simply iterated or
     //  deiterated within the Recipe object
 
+    private Recipe(String title, final User author, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
+        this.title = title;
+        this.author = author;
+        this.instructions = instructions;
+        this.cuisine = cuisine;
+        this.likes = 0;
+        this.dislikes = 0;
+        this.dietaryRestrictions = dietaryRestrictions;
+        this.dateCreated = dateCreated;
+    }
+
     public String getTitle() {
         return title;
     }
 
-//    public User getAuthor() {
-//        return author;
-//    }
+    public User getAuthor() {
+        return author;
+    }
 
     public String[] getInstructions() {
         return instructions;
@@ -41,12 +54,12 @@ public class Recipe {
         likes -= 1;
     }
 
-    public void undislike() {
-        dislikes -=1 ;
-    }
-
     public void dislike() {
         dislikes += 1;
+    }
+
+    public void undislike() {
+        dislikes -=1 ;
     }
 
     public int getRating() {
@@ -61,9 +74,18 @@ public class Recipe {
         return dateCreated;
     }
 
-    public void addReview(Review newReview) {
-        ...
+//    public void addReview(Review newReview) {
+//        //pass
+//    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "title = " + title + '\'' +
+                ", author = " + author + '\'' +
+                ", cuisine = " + cuisine + '\'' +
+                ", likes = " + likes + '\'' +
+                ", dislikes = " + dislikes + '\'' +
+                "}";
     }
-
-
 }
