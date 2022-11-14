@@ -7,7 +7,6 @@ import java.util.Date;
 public class Recipe {
     private String title;
     private User author;
-
     private float portionSize;
     private String[] instructions;
     private String cuisine;
@@ -106,6 +105,10 @@ public class Recipe {
 
     public String[] getInstructions() {
         return instructions;
+    }
+
+    public String getCuisine() {
+        return cuisine;
     }
 
     public void like() {
