@@ -7,6 +7,8 @@ import java.util.Date;
 public class Recipe {
     private String title;
     private User author;
+
+    private float portionSize;
     private String[] instructions;
     private String cuisine;
     private int likes;
@@ -26,6 +28,7 @@ public class Recipe {
     private Recipe(String title, final User author, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
         this.title = title;
         this.author = author;
+        this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
         this.likes = 0;
@@ -34,12 +37,77 @@ public class Recipe {
         this.dateCreated = dateCreated;
     }
 
+    public static RecipeBuilder builder() { return new RecipeBuilder();}
+
+    public static class RecipeBuilder {
+        private String title;
+        private User author;
+        private float portionSize;
+        private String[] instructions;
+        private String cuisine;
+        private int likes;
+        private int dislikes;
+        private String[] dietaryRestrictions;
+        private Date dateCreated;
+
+        RecipeBuilder() {}
+
+        public RecipeBuilder title(final String title) {
+            this.title = title;
+            return this;
+        }
+
+        public RecipeBuilder author(final User author) {
+            this.author = author;
+            return this;
+        }
+
+        public RecipeBuilder portionSize(final float portionSize) {
+            this.portionSize = portionSize;
+            return this;
+        }
+
+        public RecipeBuilder instructions(final String[] instructions) {
+            this.instructions = instructions;
+            return this;
+        }
+
+        public RecipeBuilder cuisine(final String cuisine) {
+            this.cuisine = cuisine;
+            return this;
+        }
+
+        public RecipeBuilder likes(final int likes) {
+            this.likes = likes;
+            return this;
+        }
+
+        public RecipeBuilder dislikes(final int dislikes) {
+            this.dislikes = dislikes;
+            return this;
+        }
+
+        public RecipeBuilder dietaryRestrictions(final String[] dietaryRestrictions) {
+            this.dietaryRestrictions = dietaryRestrictions;
+            return this;
+        }
+
+        public RecipeBuilder dateCreated(final Date dateCreated) {
+            this.dateCreated = dateCreated;
+            return this;
+        }
+    }
+
     public String getTitle() {
         return title;
     }
 
     public User getAuthor() {
         return author;
+    }
+
+    public float getPortionSize() {
+        return portionSize;
     }
 
     public String[] getInstructions() {
