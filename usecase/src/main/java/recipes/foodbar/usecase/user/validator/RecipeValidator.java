@@ -16,4 +16,8 @@ public class RecipeValidator {
         if (recipe.getInstructions().length == 0) throw new RecipeValidationException("There should be at least one instruction.");
         if (isBlank(recipe.getCuisine())) throw new RecipeValidationException("Cuisine should not be null.");
     }
+
+    private RecipeValidator() {
+
+    }
 }
