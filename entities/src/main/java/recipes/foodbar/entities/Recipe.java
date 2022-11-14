@@ -25,7 +25,7 @@ public class Recipe {
     // TODO: Likes and Dislikes need to be tracked on a per-user-like/dislike basis and not simply iterated or
     //  deiterated within the Recipe object
 
-    private Recipe(String title, final User author, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
+    private Recipe(String title, final User author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
@@ -77,16 +77,6 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder likes(final int likes) {
-            this.likes = likes;
-            return this;
-        }
-
-        public RecipeBuilder dislikes(final int dislikes) {
-            this.dislikes = dislikes;
-            return this;
-        }
-
         public RecipeBuilder dietaryRestrictions(final String[] dietaryRestrictions) {
             this.dietaryRestrictions = dietaryRestrictions;
             return this;
@@ -95,6 +85,10 @@ public class Recipe {
         public RecipeBuilder dateCreated(final Date dateCreated) {
             this.dateCreated = dateCreated;
             return this;
+        }
+
+        public Recipe build() {
+            return new Recipe(title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated);
         }
     }
 
@@ -132,6 +126,14 @@ public class Recipe {
 
     public int getRating() {
         return likes - dislikes;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public int getDislikes() {
+        return dislikes;
     }
 
     public String[] getDietaryRestrictions() {
