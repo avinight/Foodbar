@@ -17,12 +17,6 @@ public class Recipe {
     // private Review[] reviews;
     // private Ingredient ingredients;
 
-    // TODO: Constructor doesn't exist as we may be using a factory- look into how this will work
-    // TODO: Review, User, and Ingredient classes yet to exist- need to create those so that attributes of this class can be
-    //  added correctly
-    // TODO: Implement the Shareable interface when that is created, and add the associated Share method
-    // TODO: Likes and Dislikes need to be tracked on a per-user-like/dislike basis and not simply iterated or
-    //  deiterated within the Recipe object
 
     private Recipe(String title, final User author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
         this.title = title;
