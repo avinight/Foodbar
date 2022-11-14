@@ -1,4 +1,4 @@
-package recipes.foodbar.usecase.user.port;
+package recipe.foodbar.usecase.recipe.port;
 
 import recipes.foodbar.entities.Recipe;
 

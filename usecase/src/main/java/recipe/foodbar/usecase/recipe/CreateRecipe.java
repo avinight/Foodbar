@@ -1,7 +1,7 @@
-package recipes.foodbar.usecase.user;
+package recipe.foodbar.usecase.recipe;
 
 import recipes.foodbar.entities.Recipe;
-import recipes.foodbar.usecase.user.port.RecipeRepository;
+import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 public class CreateRecipe {
     private final RecipeRepository repository;
