@@ -1,8 +1,7 @@
 package recipes.foodbar.entities;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
-
 
 public class Recipe {
     private String title;
@@ -15,15 +14,16 @@ public class Recipe {
     private String[] dietaryRestrictions;
     private Date dateCreated;
     // private Review[] reviews;
-    // private Ingredient ingredients;
+    private ArrayList<Ingredient> ingredients;
 
 
-    private Recipe(String title, final User author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
+    private Recipe(String title, final User author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients) {
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
+        this.ingredients = ingredients;
         this.likes = 0;
         this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
@@ -42,6 +42,7 @@ public class Recipe {
         private int dislikes;
         private String[] dietaryRestrictions;
         private Date dateCreated;
+        private ArrayList<Ingredient> ingredients;
 
         RecipeBuilder() {}
 
@@ -80,8 +81,13 @@ public class Recipe {
             return this;
         }
 
+        public RecipeBuilder ingredients(final ArrayList<Ingredient> ingredients){
+            this.ingredients = ingredients;
+            return this;
+        }
+
         public Recipe build() {
-            return new Recipe(title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated);
+            return new Recipe(title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients);
         }
     }
 
@@ -144,6 +150,26 @@ public class Recipe {
 //    public void addReview(Review newReview) {
 //        //pass
 //    }
+
+    /**
+     * Sets the portionSize and
+     * modifies each ingredient based on the portionSize multiplier.
+     * @param portionSize   The portion size of the Recipe.
+     */
+    public void modifyIngredients(int portionSize){
+        this.portionSize = portionSize;
+        for (Ingredient ingredient : ingredients){
+            ingredient.setSize(portionSize * ingredient.getSize());
+        }
+    }
+
+    /**
+     * Adds new ingredients to the ingredients ArrayList.
+     * @param ingredient    An ingredient.
+     */
+    public void addIngredient(Ingredient ingredient){
+        this.ingredients.add(ingredient);
+    }
 
     @Override
     public String toString() {
