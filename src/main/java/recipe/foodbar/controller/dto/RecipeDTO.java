@@ -1,6 +1,7 @@
 package recipe.foodbar.controller.dto;
 
 import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.UserExample;
 
 import java.util.Date;
@@ -16,8 +17,8 @@ public class RecipeDTO {
     private int dislikes;
     private String[] dietaryRestrictions;
     private Date dateCreated;
-    // private Review[] reviews;
-    // private Ingredient[] ingredients
+    private Review[] reviews;
+//    private Ingredient[] ingredients
 
     public static RecipeDTO toRecipeDTO(final Recipe recipe) {
         var userWeb = new RecipeDTO();
