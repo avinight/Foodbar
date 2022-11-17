@@ -1,5 +1,5 @@
 plugins {
-    id 'application'
+    id 'java-library'
 }
 
 dependencies {
@@ -8,8 +8,4 @@ dependencies {
             project(':entities'),
             project(':usecase')
     )
-}
-
-application {
-    mainClass.set("recipes.foodbar.manual.Main")
 }

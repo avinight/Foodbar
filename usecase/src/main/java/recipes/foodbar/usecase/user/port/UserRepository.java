@@ -1,6 +1,6 @@
-package recipes.foodbar.usecase.user.port;
+package recipe.foodbar.usecase.user.port;
 
-import recipes.foodbar.entities.User;
+import recipe.foodbar.entities.User;
 
 import java.util.List;
 import java.util.Optional;

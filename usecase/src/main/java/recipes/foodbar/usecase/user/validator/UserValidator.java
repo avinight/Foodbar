@@ -1,7 +1,7 @@
-package recipes.foodbar.usecase.user.validator;
+package recipe.foodbar.usecase.user.validator;
 
-import recipes.foodbar.entities.User;
-import recipes.foodbar.usecase.user.exception.UserValidationException;
+import recipe.foodbar.entities.User;
+import recipe.foodbar.usecase.user.exception.UserValidationException;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 

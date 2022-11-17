@@ -1,9 +1,9 @@
-package recipes.foodbar.controller;
+package recipe.foodbar.controller;
 
-import recipes.foodbar.controller.dto.UserDTO;
-import recipes.foodbar.usecase.user.CreateUser;
-import recipes.foodbar.usecase.user.FindUser;
-import recipes.foodbar.usecase.user.LoginUser;
+import recipe.foodbar.controller.dto.UserDTO;
+import recipe.foodbar.usecase.user.CreateUser;
+import recipe.foodbar.usecase.user.FindUser;
+import recipe.foodbar.usecase.user.LoginUser;
 
 import java.util.List;
 import java.util.stream.Collectors;

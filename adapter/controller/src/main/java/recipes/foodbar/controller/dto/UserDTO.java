@@ -1,6 +1,6 @@
-package recipes.foodbar.controller.dto;
+package recipe.foodbar.controller.dto;
 
-import recipes.foodbar.entities.User;
+import recipe.foodbar.entities.User;
 
 public class UserDTO {
     private String id;

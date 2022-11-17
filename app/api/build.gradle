@@ -3,5 +3,6 @@ plugins {
 }
 
 application {
-    mainClass.set("recipes.foodbar.api.RecipeAPI")
+    // Don't worry, we're about to create this class in a sec :-)
+    mainClass = "recipe.foodbar.api.RecipeAPI"
 }

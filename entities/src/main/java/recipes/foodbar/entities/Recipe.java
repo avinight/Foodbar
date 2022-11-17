@@ -1,4 +1,4 @@
-package recipes.foodbar.entities;
+package recipe.foodbar.entities;
 
 import java.util.Arrays;
 import java.util.Date;

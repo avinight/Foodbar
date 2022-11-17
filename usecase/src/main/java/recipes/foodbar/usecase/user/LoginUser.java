@@ -1,9 +1,9 @@
-package recipes.foodbar.usecase.user;
+package recipe.foodbar.usecase.user;
 
-import recipes.foodbar.entities.User;
-import recipes.foodbar.usecase.user.exception.NotAllowedException;
-import recipes.foodbar.usecase.user.port.PasswordEncoder;
-import recipes.foodbar.usecase.user.port.UserRepository;
+import recipe.foodbar.entities.User;
+import recipe.foodbar.usecase.user.exception.NotAllowedException;
+import recipe.foodbar.usecase.user.port.PasswordEncoder;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 public final class LoginUser {
 
