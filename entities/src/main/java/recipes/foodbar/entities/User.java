@@ -1,4 +1,4 @@
-package recipes.foodbar.entities;
+package recipe.foodbar.entities;
 
 public class User {
 

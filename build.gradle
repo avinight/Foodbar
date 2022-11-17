@@ -2,6 +2,6 @@ subprojects {
     repositories {
         mavenCentral()
     }
-    group 'recipes.foodbar.entities'
+    group 'recipe.foodbar.entities'
     version 'unspecified'
 }

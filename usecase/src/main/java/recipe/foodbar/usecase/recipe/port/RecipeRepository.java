@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.port;
 
-import recipes.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe;
 
 public interface RecipeRepository {
     Recipe create(Recipe recipe);

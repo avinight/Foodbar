@@ -1,6 +1,6 @@
-package recipes.foodbar.uuid;
+package recipe.foodbar.uuid;
 
-import recipes.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 import java.util.UUID;
 

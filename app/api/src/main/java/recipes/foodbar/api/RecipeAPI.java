@@ -1,4 +1,4 @@
-package recipes.foodbar.api;
+package recipe.foodbar.api;
 
 public class RecipeAPI {
     public static void main(String[] args) {
