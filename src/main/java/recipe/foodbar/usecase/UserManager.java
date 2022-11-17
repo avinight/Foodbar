@@ -7,44 +7,21 @@ package recipe.foodbar.usecase;
 
 public class UserManager implements UserCreatorInputBoundary{
 
-//    private String username;
-//    private String password;
-//    private String passwordShadow;
-//    private String firstName;
-//    private String lastName;
-//    private String email;
+
     private UserCreatorOutputBoundary output;
+    private UserRepositoryInterface repo;
 
-
-//    /**
-//     * Constructor for UserManager
-//     *
-//     * @param username String representing the username of the object
-//     * @param password String representing the password of the object
-//     * @param passwordShadow String representing the passwordShadow of the object
-//     * @param first String representing the firstname of the object
-//     * @param last String representing the lastname of the object
-//     * @param email String representing the email of the object
-//     */
-
-
-//    public UserManager (String username, String password, String passwordShadow, String first,
-//                        String last, String email){
-//        this.username = username;
-//        this.password = password;
-//        this.passwordShadow = passwordShadow;
-//        this.firstName = first;
-//        this.lastName = last;
-//        this.email = email;
-//
-//    }
 
     /**
+     * Constructor for UserManager object taking both output boundary and
+     * repository interface objects
      *
      * @param output UserCreatorOutputBoundary object to follow dependency rules
+     * @param repo UserRepositoryInterface type to allow interactions with repository indirectly
      */
-    public UserManager (UserCreatorOutputBoundary output){
+    public UserManager (UserCreatorOutputBoundary output, UserRepositoryInterface repo) {
         this.output = output;
+        this.repo = repo;
     }
 
 
@@ -65,26 +42,26 @@ public class UserManager implements UserCreatorInputBoundary{
 
         Boolean[] nullChecks = UserChecker.checkNullEntries(input);
 
+        UserChecker repoChecker = new UserChecker(repo);
+        UserFactory repoFactory = new UserFactory(repo);
+
         //if code works fix the password parameter
         if (nullChecks[0] || nullChecks[1] || nullChecks[2] ||
                 nullChecks[3] || nullChecks[4] || nullChecks[5]) {
-//            return UserConfirmer.userInformationNull(nullChecks);
             return output.present(UserConfirmer.userInformationNull(nullChecks));
 
         }  else if (!(UserChecker.checkPasswordMatch(password, passwordShadow))) {
-//            return UserConfirmer.passwordConfirmation();
             return output.present(UserConfirmer.passwordConfirmation());
 
 
-        } else if (UserChecker.checkUserTaken(input)){
-//            return UserConfirmer.userTakenError();
+        } else if (repoChecker.checkUserTaken(input)){
             return output.present(UserConfirmer.userTakenError());
 
 
         } else {
 
             //creation of the account and added to the repository
-            UserFactory.createAccount(id, password, firstName, lastName, email);
+            repoFactory.createAccount(id, password, firstName, lastName, email);
 
             return output.present("UserCreation Successful, no problems encountered.");
         }

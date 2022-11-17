@@ -12,7 +12,7 @@ public class UserInputData{
     private String lastName;
 
     /**
-     * Constructor for UserInputData
+     * Constructor for UserInputData to be bundled to the usecase interactor
      *
      * @param username String representing the username
      * @param password String representing the password

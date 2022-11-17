@@ -4,12 +4,19 @@ Class to check the validity of the information provided and return the results
 
 package recipe.foodbar.usecase;
 import recipe.foodbar.entities.RegisteredUser;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class UserChecker {
 
-    private UserChecker(){
+    private UserRepositoryInterface repo;
+
+
+    /**
+     * Constructor for UserChecker to allow the class to use repository methods.
+     * @param repo the interface representing a repository with methods.
+     */
+    public UserChecker(UserRepositoryInterface repo){
+        this.repo = repo;
 
     }
 
@@ -19,8 +26,8 @@ public class UserChecker {
      * @param userInput bundled data in a UserInputData object
      * @return boolean for the results of if the username is taken
      */
-    public static boolean checkUserTaken(UserInputData userInput){
-        ArrayList<RegisteredUser> allUsers = InMemoryUserRepository.findAllUsers();
+    public boolean checkUserTaken(UserInputData userInput){
+        List<RegisteredUser> allUsers = repo.findAllUsers();
         for (RegisteredUser user : allUsers){
             if (user.getUsername().equals(userInput.getUsername())){
                 return true;
