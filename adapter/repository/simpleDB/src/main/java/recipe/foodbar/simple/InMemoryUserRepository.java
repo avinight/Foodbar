@@ -1,7 +1,7 @@
 package recipe.foodbar.simple;
 
-import recipes.foodbar.entities.User;
-import recipes.foodbar.usecase.user.port.UserRepository;
+import recipe.foodbar.entities.User;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.*;
 

@@ -1,7 +1,7 @@
-package recipes.foodbar.encoder;
+package recipe.foodbar.encoder;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import recipes.foodbar.usecase.user.port.PasswordEncoder;
+import recipe.foodbar.usecase.user.port.PasswordEncoder;
 
 public class Sha256PasswordEncoder implements PasswordEncoder {
     @Override

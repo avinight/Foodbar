@@ -4,5 +4,5 @@ plugins {
 
 application {
     // Don't worry, we're about to create this class in a sec :-)
-    mainClass = "recipes.foodbar.api.RecipeAPI"
+    mainClass = "recipe.foodbar.api.RecipeAPI"
 }

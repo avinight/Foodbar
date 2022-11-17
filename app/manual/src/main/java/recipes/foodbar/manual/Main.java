@@ -1,7 +1,7 @@
-package recipes.foodbar.manual;
+package recipe.foodbar.manual;
 
 import recipe.foodbar.config.ManualConfig;
-import recipes.foodbar.entities.User;
+import recipe.foodbar.entities.User;
 
 public class Main {
     public static void main(String[] args) {

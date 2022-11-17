@@ -1,9 +1,9 @@
-package recipes.foodbar.jug;
+package recipe.foodbar.jug;
 
 import com.fasterxml.uuid.EthernetAddress;
 import com.fasterxml.uuid.Generators;
 import com.fasterxml.uuid.NoArgGenerator;
-import recipes.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class JugIdGenerator implements IdGenerator {
 
