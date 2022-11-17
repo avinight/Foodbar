@@ -1,5 +1,6 @@
 package recipe.foodbar.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -16,6 +17,9 @@ public class Recipe {
     private final String[] dietaryRestrictions;
     private final Date dateCreated;
     // private Review[] reviews;
+    private String[] dietaryRestrictions;
+    private Date dateCreated;
+    private ArrayList<Review> reviews;
     // private Ingredient ingredients;
 
 
@@ -30,6 +34,7 @@ public class Recipe {
         this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
+        this.reviews = reviews;
     }
 
     public static RecipeBuilder builder() {
@@ -94,6 +99,10 @@ public class Recipe {
 
     public Date getDateCreated() {
         return dateCreated;
+    }
+
+    public void addReview(Review newReview) {
+        this.reviews.add(newReview);
     }
 
     @Override
