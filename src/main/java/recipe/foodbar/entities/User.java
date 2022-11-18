@@ -1,5 +1,7 @@
 package recipe.foodbar.entities;
 
+import java.util.ArrayList;
+
 public class User {
 
     private String id;
@@ -8,12 +10,17 @@ public class User {
     private String lastName;
     private String firstName;
 
+    private ArrayList<User> following;
+    private ArrayList<User> followers;
+
     private User(final String id, final String email, final String password, final String lastName, final String firstName) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.lastName = lastName;
         this.firstName = firstName;
+        this.followers = new ArrayList<User>();
+        this.following = new ArrayList<User>();
     }
 
     public static UserBuilder builder() {
@@ -26,6 +33,8 @@ public class User {
         private String password;
         private String lastName;
         private String firstName;
+        private ArrayList<User> following;
+        private ArrayList<User> followers;
 
         UserBuilder() {
         }
@@ -55,6 +64,16 @@ public class User {
             return this;
         }
 
+        public UserBuilder followers() {
+            this.followers = new ArrayList<User>();
+            return this;
+        }
+
+        public UserBuilder following() {
+            this.following = new ArrayList<User>();
+            return this;
+        }
+
         public User build() {
             return new User(id, email, password, lastName, firstName);
         }
@@ -78,6 +97,20 @@ public class User {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public ArrayList<User> getFollowers() { return followers; }
+    public ArrayList<User> getFollowing() { return following; }
+
+    public boolean follow(User userToFollow) {
+        this.following.add(userToFollow);
+        userToFollow.addFollower(this);
+        return this.following.contains(userToFollow);
+    }
+
+    public boolean addFollower(User follower) {
+        this.followers.add(follower);
+        return this.followers.contains(follower);
     }
 
     @Override
