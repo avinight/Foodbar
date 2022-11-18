@@ -1,27 +1,5 @@
 rootProject.name = 'course-project-group-92'
 
-include 'entities'
-include 'usecase'
-include ':controller'
+include 'src'
 
-include ':manual'
-include ':api'
-
-include ':encoder-sha256'
-include ':jug'
-include ':uuid'
-include ':simpleDB'
-
-include ':ManualConfig'
-
-project(":api").projectDir = file("app/api")
-project(":manual").projectDir = file("app/manual")
-
-project(":controller").projectDir = file("adapter/controller")
-project(":encoder-sha256").projectDir = file("adapter/encoder/sha256")
-project(":jug").projectDir = file("adapter/id-generator/jug")
-project(":uuid").projectDir = file("adapter/id-generator/uuid")
-project(":simpleDB").projectDir = file("adapter/repository/simpleDB")
-
-project(":ManualConfig").projectDir = file("config/ManualConfig")
 
