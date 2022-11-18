@@ -17,5 +17,5 @@ OpenJDK 64-Bit Server VM Corretto-11.0.16.9.1 (build 11.0.16.1+9-LTS, mixed mode
 ```shell
 git clone https://github.com/CSC207-2022F-UofT/course-project-group-92.git
 cd course-project-group-92
-./gradlew :manual:run
+./gradlew run
 ```
