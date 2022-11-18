@@ -4,6 +4,8 @@ import recipe.foodbar.controller.dto.UserDTO;
 import recipe.foodbar.usecase.user_example.CreateUser;
 import recipe.foodbar.usecase.user_example.FindUser;
 import recipe.foodbar.usecase.user_example.LoginUser;
+import recipe.foodbar.usecase.user_example.FollowUser;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,11 +15,13 @@ public class UserController {
     private final CreateUser createUser;
     private final FindUser findUser;
     private final LoginUser loginUser;
+    private final FollowUser followUser;
 
-    public UserController(final CreateUser createUser, final FindUser findUser, final LoginUser loginUser) {
+    public UserController(final CreateUser createUser, final FindUser findUser, final LoginUser loginUser, final FollowUser followUser) {
         this.createUser = createUser;
         this.findUser = findUser;
         this.loginUser = loginUser;
+        this.followUser = followUser;
     }
 
     public UserDTO createUser(final UserDTO UserDTO) {
@@ -31,6 +35,11 @@ public class UserController {
 
     public UserDTO getUser(final String userId) {
         return UserDTO.toUserDTO(findUser.findById(userId).orElseThrow(() -> new RuntimeException("user not found")));
+    }
+
+    public boolean followUser(String userId1, String userId2) {
+        //return FollowUser(userId1, userId2, ).follow();
+        return followUser.follow(userId1, userId2);
     }
 
     public List<UserDTO> allUsers() {

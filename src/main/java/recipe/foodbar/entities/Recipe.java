@@ -5,11 +5,13 @@ import java.util.Date;
 
 
 public class Recipe {
+
+    private String id;
     private String title;
     private User author;
     private float portionSize;
     private String[] instructions;
-    private String cuisine;
+    private String cuisineId;
     private int likes;
     private int dislikes;
     private String[] dietaryRestrictions;
@@ -18,12 +20,13 @@ public class Recipe {
     // private Ingredient ingredients;
 
 
-    private Recipe(String title, final User author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated) {
+    private Recipe(String id, String title, final User author, float portionSize, String[] instructions, String cuisineId, String[] dietaryRestrictions, final Date dateCreated) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
         this.instructions = instructions;
-        this.cuisine = cuisine;
+        this.cuisineId = cuisineId;
         this.likes = 0;
         this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
@@ -33,11 +36,13 @@ public class Recipe {
     public static RecipeBuilder builder() { return new RecipeBuilder();}
 
     public static class RecipeBuilder {
+
+        private String id;
         private String title;
         private User author;
         private float portionSize;
         private String[] instructions;
-        private String cuisine;
+        private String cuisineId;
         private int likes;
         private int dislikes;
         private String[] dietaryRestrictions;
@@ -45,6 +50,10 @@ public class Recipe {
 
         RecipeBuilder() {}
 
+        public RecipeBuilder id(final String id) {
+            this.id = id;
+            return this;
+        }
         public RecipeBuilder title(final String title) {
             this.title = title;
             return this;
@@ -65,8 +74,8 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder cuisine(final String cuisine) {
-            this.cuisine = cuisine;
+        public RecipeBuilder cuisineId(final String cuisineId) {
+            this.cuisineId = cuisineId;
             return this;
         }
 
@@ -81,9 +90,11 @@ public class Recipe {
         }
 
         public Recipe build() {
-            return new Recipe(title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated);
+            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated);
         }
     }
+
+    public String getId() { return id; }
 
     public String getTitle() {
         return title;
@@ -101,8 +112,8 @@ public class Recipe {
         return instructions;
     }
 
-    public String getCuisine() {
-        return cuisine;
+    public String getCuisineId() {
+        return cuisineId;
     }
 
     public void like() {
@@ -149,8 +160,9 @@ public class Recipe {
     public String toString() {
         return "Recipe{" +
                 "title = " + title + '\'' +
+                ", id = " + id + '\'' +
                 ", author = " + author + '\'' +
-                ", cuisine = " + cuisine + '\'' +
+                ", cuisineId = " + cuisineId + '\'' +
                 ", likes = " + likes + '\'' +
                 ", dislikes = " + dislikes + '\'' +
                 "}";

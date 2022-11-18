@@ -14,7 +14,7 @@ public class RecipeValidator {
         if (isBlank(recipe.getAuthor().getId())) throw new RecipeValidationException("Author should not be blank.");
         if (recipe.getPortionSize() <= 0) throw new RecipeValidationException("Portion Size should be a positive value.");
         if (recipe.getInstructions().length == 0) throw new RecipeValidationException("There should be at least one instruction.");
-        if (isBlank(recipe.getCuisine())) throw new RecipeValidationException("Cuisine should not be null.");
+        if (isBlank(recipe.getCuisineId())) throw new RecipeValidationException("Cuisine should not be null.");
     }
 
     private RecipeValidator() {
