@@ -43,7 +43,7 @@ public class UserConfirmer {
         if (array[5]) {
             returnMessage.append("Last Name field is empty, ");
         }
-        if (returnMessage.length() == 0) {
+        if (!(returnMessage.length() == 0)) {
             returnMessage.deleteCharAt(returnMessage.lastIndexOf(","));
         }
         return returnMessage.toString();
