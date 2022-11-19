@@ -1,8 +1,0 @@
-plugins {
-    id 'application'
-}
-
-application {
-    // Don't worry, we're about to create this class in a sec :-)
-    mainClass = "recipe.foodbar.api.RecipeAPI"
-}
