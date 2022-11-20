@@ -1,11 +1,10 @@
-package recipe.foodbar.controller;
+package recipe.foodbar.controller.user_example;
 
 import recipe.foodbar.controller.dto.UserDTO;
 import recipe.foodbar.usecase.user_example.CreateUser;
 import recipe.foodbar.usecase.user_example.FindUser;
-import recipe.foodbar.usecase.user_example.LoginUser;
 import recipe.foodbar.usecase.user_example.FollowUser;
-
+import recipe.foodbar.usecase.user_example.LoginUser;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +25,7 @@ public class UserController {
 
     public UserDTO createUser(final UserDTO UserDTO) {
         var user = UserDTO.toUser();
-        return UserDTO.toUserDTO(createUser.create(user));
+        return recipe.foodbar.controller.dto.UserDTO.toUserDTO(createUser.create(user));
     }
 
     public UserDTO login(final String email, final String password) {

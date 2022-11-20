@@ -1,7 +1,7 @@
 package recipe.foodbar.app.manual;
 
-import recipe.foodbar.controller.AccountController;
-import recipe.foodbar.controller.AccountPresenter;
+import recipe.foodbar.controller.user.AccountController;
+import recipe.foodbar.controller.user.AccountPresenter;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.InMemoryUserRepository;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
@@ -9,7 +9,7 @@ import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user_example.port.IdGenerator;
 
-public class UserMain {
+public class User {
     public static void main(String[] args) {
         InMemoryUserRepository repo = new InMemoryUserRepository();
         final IdGenerator idGenerator = new JugIdGenerator();
