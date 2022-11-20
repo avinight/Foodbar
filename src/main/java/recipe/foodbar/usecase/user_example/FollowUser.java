@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class FollowUser {
 
-    private UserRepository repository;
+    private final UserRepository repository;
 
     public FollowUser(UserRepository repository) { this.repository = repository; }
 
