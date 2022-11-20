@@ -1,11 +1,13 @@
-package recipe.foodbar;
+package recipe.foodbar.app.manual;
 
 import recipe.foodbar.controller.AccountController;
 import recipe.foodbar.controller.AccountPresenter;
 import recipe.foodbar.repository.InMemoryUserRepository;
-import recipe.foodbar.usecase.*;
+import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
+import recipe.foodbar.usecase.user.UserInputData;
+import recipe.foodbar.usecase.user.UserManager;
 
-public class Main {
+public class UserMain {
     public static void main(String[] args) {
         InMemoryUserRepository repo = new InMemoryUserRepository();
         System.out.println("Test Account creation");

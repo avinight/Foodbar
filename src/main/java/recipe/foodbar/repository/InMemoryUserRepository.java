@@ -4,7 +4,7 @@ The in memory repository which implements the UserRepositoryInterface
 package recipe.foodbar.repository;
 
 import recipe.foodbar.entities.RegisteredUser;
-import recipe.foodbar.usecase.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
 import java.util.*;
 

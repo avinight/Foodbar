@@ -2,14 +2,18 @@
  * using all the separate classes to run the necessary code for the use case
  */
 
-package recipe.foodbar.usecase;
+package recipe.foodbar.usecase.user;
 
 
-public class UserManager implements UserCreatorInputBoundary{
+import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
+import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;
+import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+
+public class UserManager implements UserCreatorInputBoundary {
 
 
-    private UserCreatorOutputBoundary output;
-    private UserRepositoryInterface repo;
+    private final UserCreatorOutputBoundary output;
+    private final UserRepositoryInterface repo;
 
 
     /**
@@ -17,9 +21,9 @@ public class UserManager implements UserCreatorInputBoundary{
      * repository interface objects
      *
      * @param output UserCreatorOutputBoundary object to follow dependency rules
-     * @param repo UserRepositoryInterface type to allow interactions with repository indirectly
+     * @param repo   UserRepositoryInterface type to allow interactions with repository indirectly
      */
-    public UserManager (UserCreatorOutputBoundary output, UserRepositoryInterface repo) {
+    public UserManager(UserCreatorOutputBoundary output, UserRepositoryInterface repo) {
         this.output = output;
         this.repo = repo;
     }
@@ -50,11 +54,11 @@ public class UserManager implements UserCreatorInputBoundary{
                 nullChecks[3] || nullChecks[4] || nullChecks[5]) {
             return output.present(UserConfirmer.userInformationNull(nullChecks));
 
-        }  else if (!(UserChecker.checkPasswordMatch(password, passwordShadow))) {
+        } else if (!(UserChecker.checkPasswordMatch(password, passwordShadow))) {
             return output.present(UserConfirmer.passwordConfirmation());
 
 
-        } else if (repoChecker.checkUserTaken(input)){
+        } else if (repoChecker.checkUserTaken(input)) {
             return output.present(UserConfirmer.userTakenError());
 
 
@@ -67,6 +71,4 @@ public class UserManager implements UserCreatorInputBoundary{
         }
 
     }
-
-
 }

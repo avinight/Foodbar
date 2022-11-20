@@ -1,15 +1,15 @@
 /*
 Class for the input data passed through to the usecase interactor of usercreation
  */
-package recipe.foodbar.usecase;
+package recipe.foodbar.usecase.user;
 
 public class UserInputData{
-    private String username;
-    private String password;
-    private String passwordShadow;
-    private String email;
-    private String firstName;
-    private String lastName;
+    private final String username;
+    private final String password;
+    private final String passwordShadow;
+    private final String email;
+    private final String firstName;
+    private final String lastName;
 
     /**
      * Constructor for UserInputData to be bundled to the usecase interactor

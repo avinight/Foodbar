@@ -3,7 +3,7 @@ AccountPresenter class to present the appropriate information from the user crea
  */
 package recipe.foodbar.controller;
 
-import recipe.foodbar.usecase.UserCreatorOutputBoundary;
+import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;
 
 public class AccountPresenter implements UserCreatorOutputBoundary {
 

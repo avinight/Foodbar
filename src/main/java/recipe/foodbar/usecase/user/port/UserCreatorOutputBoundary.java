@@ -2,7 +2,7 @@
 UserCreatorOutputBoundary interface used to allow upwards communication from
 usecase to presenter without dependency
  */
-package recipe.foodbar.usecase;
+package recipe.foodbar.usecase.user.port;
 
 
 public interface UserCreatorOutputBoundary {

@@ -1,7 +1,9 @@
 /*
 Interface for the usecase interactor
  */
-package recipe.foodbar.usecase;
+package recipe.foodbar.usecase.user.port;
+
+import recipe.foodbar.usecase.user.UserInputData;
 
 public interface UserCreatorInputBoundary {
 

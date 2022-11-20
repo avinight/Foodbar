@@ -1,7 +1,7 @@
 package recipe.foodbar.controller;
 
-import recipe.foodbar.usecase.UserCreatorInputBoundary;
-import recipe.foodbar.usecase.UserInputData;
+import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
+import recipe.foodbar.usecase.user.UserInputData;
 
 /*
  * Controller is to pass the username, password and passwordShadow required by the UserManager,

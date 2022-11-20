@@ -2,8 +2,10 @@
 Class to check the validity of the information provided and return the results
  */
 
-package recipe.foodbar.usecase;
+package recipe.foodbar.usecase.user;
 import recipe.foodbar.entities.RegisteredUser;
+import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+
 import java.util.List;
 
 public class UserChecker {

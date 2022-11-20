@@ -1,7 +1,7 @@
 /*
 The interface laying in the usecase layer that allows the usecase layer to interact with the repository
  */
-package recipe.foodbar.usecase;
+package recipe.foodbar.usecase.user.port;
 
 import recipe.foodbar.entities.RegisteredUser;
 
