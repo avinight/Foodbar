@@ -13,6 +13,8 @@ public class Cuisine {
         this.recipes = new ArrayList<Recipe>();
     }
 
+    public static CuisineBuilder builder() { return new CuisineBuilder();}
+
     public static class CuisineBuilder {
 
         private String name;
@@ -35,6 +37,8 @@ public class Cuisine {
             this.id = id;
             return this;
         }
+
+        public Cuisine build() { return new Cuisine(name, id);}
 
     }
 
