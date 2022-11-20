@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.user_example;
 
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
 import recipe.foodbar.usecase.user_example.exception.NotAllowedException;
 import recipe.foodbar.usecase.user_example.port.PasswordEncoder;
 import recipe.foodbar.usecase.user_example.port.UserRepository;
@@ -15,7 +15,7 @@ public final class LoginUser {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User login(final String email, final String password) {
+    public UserExample login(final String email, final String password) {
         var user = userRepository.findByEmail(email).orElseThrow(() -> new NotAllowedException("Not allowed"));
         var hashedPassword = passwordEncoder.encode(email + password);
         if (!user.getPassword().equals(hashedPassword)) throw new NotAllowedException("Not allowed");

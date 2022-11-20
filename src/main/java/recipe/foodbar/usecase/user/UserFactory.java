@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.user;
 
-import recipe.foodbar.entities.RegisteredUser;
+import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
 
@@ -29,7 +29,7 @@ public class UserFactory {
      * @param email    String representation for the email
      */
     public void createAccount(String id, String username, String password, String first, String last, String email) {
-        RegisteredUser user = new RegisteredUser(id, username, password, first, last, email);
+        User user = new User(id, username, password, first, last, email);
         repo.create(user);
         //code to add the user to the repository
         //

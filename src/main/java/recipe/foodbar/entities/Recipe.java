@@ -1,6 +1,5 @@
 package recipe.foodbar.entities;
 
-import java.util.Arrays;
 import java.util.Date;
 
 
@@ -8,7 +7,7 @@ public class Recipe {
 
     private String id;
     private String title;
-    private User author;
+    private UserExample author;
     private float portionSize;
     private String[] instructions;
     private String cuisineId;
@@ -20,7 +19,7 @@ public class Recipe {
     // private Ingredient ingredients;
 
 
-    private Recipe(String id, String title, final User author, float portionSize, String[] instructions, String cuisineId, String[] dietaryRestrictions, final Date dateCreated) {
+    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisineId, String[] dietaryRestrictions, final Date dateCreated) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -39,7 +38,7 @@ public class Recipe {
 
         private String id;
         private String title;
-        private User author;
+        private UserExample author;
         private float portionSize;
         private String[] instructions;
         private String cuisineId;
@@ -59,7 +58,7 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder author(final User author) {
+        public RecipeBuilder author(final UserExample author) {
             this.author = author;
             return this;
         }
@@ -100,7 +99,7 @@ public class Recipe {
         return title;
     }
 
-    public User getAuthor() {
+    public UserExample getAuthor() {
         return author;
     }
 

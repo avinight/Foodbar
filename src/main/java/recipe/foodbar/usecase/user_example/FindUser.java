@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.user_example;
 
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
 import recipe.foodbar.usecase.user_example.port.UserRepository;
 
 import java.util.List;
@@ -14,11 +14,11 @@ public final class FindUser {
         this.repository = repository;
     }
 
-    public Optional<User> findById(final String id) {
+    public Optional<UserExample> findById(final String id) {
         return repository.findById(id);
     }
 
-    public List<User> findAllUsers() {
+    public List<UserExample> findAllUsers() {
         return repository.findAllUsers();
     }
 }

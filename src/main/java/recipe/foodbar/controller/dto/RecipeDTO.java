@@ -1,13 +1,14 @@
 package recipe.foodbar.controller.dto;
 
 import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
+
 import java.util.Date;
 
 public class RecipeDTO {
     private String id;
     private String title;
-    private User author;
+    private UserExample author;
     private float portionSize;
     private String[] instructions;
     private String cuisineId;
@@ -35,11 +36,11 @@ public class RecipeDTO {
         this.title = title;
     }
 
-    public User getAuthor() {
+    public UserExample getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(UserExample author) {
         this.author = author;
     }
 

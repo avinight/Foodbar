@@ -3,7 +3,7 @@ Class to check the validity of the information provided and return the results
  */
 
 package recipe.foodbar.usecase.user;
-import recipe.foodbar.entities.RegisteredUser;
+import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
 import java.util.List;
@@ -29,8 +29,8 @@ public class UserChecker {
      * @return boolean for the results of if the username is taken
      */
     public boolean checkUserTaken(UserInputData userInput){
-        List<RegisteredUser> allUsers = repo.findAllUsers();
-        for (RegisteredUser user : allUsers){
+        List<User> allUsers = repo.findAllUsers();
+        for (User user : allUsers){
             if (user.getUsername().equals(userInput.getUsername())){
                 return true;
             }

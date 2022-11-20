@@ -3,14 +3,14 @@ The in memory repository which implements the UserRepositoryInterface
  */
 package recipe.foodbar.repository;
 
-import recipe.foodbar.entities.RegisteredUser;
+import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
 import java.util.*;
 
 public class InMemoryUserRepository implements UserRepositoryInterface {
 
-    private final Map<String, RegisteredUser> inMemoryDb = new HashMap<>();
+    private final Map<String, User> inMemoryDb = new HashMap<>();
 
 
     /**
@@ -20,7 +20,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      *
      */
     @Override
-    public void create(final RegisteredUser user) {
+    public void create(final User user) {
         inMemoryDb.put(user.getUsername(), user);
     }
 
@@ -31,7 +31,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      * user object if no user was found.
      */
     @Override
-    public Optional<RegisteredUser> findByUsername(final String username) {
+    public Optional<User> findByUsername(final String username) {
         return Optional.ofNullable(inMemoryDb.get(username));
     }
 
@@ -41,7 +41,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      * @return The RegisteredUser object with the matching email provided.
      */
     @Override
-    public Optional<RegisteredUser> findByEmail(final String email) {
+    public Optional<User> findByEmail(final String email) {
         return inMemoryDb.values().stream()
                 .filter(user -> user.getEmail().equals(email))
                 .findAny();
@@ -53,7 +53,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      * @return An ArrayList of all users in the repository.
      */
     @Override
-    public ArrayList<RegisteredUser> findAllUsers() {
+    public ArrayList<User> findAllUsers() {
         return new ArrayList<>(inMemoryDb.values());
     }
 
@@ -66,8 +66,8 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      */
     @Override
     public boolean existsByUsername(String username) {
-        Collection<RegisteredUser> userCollection = inMemoryDb.values();
-        for (RegisteredUser user : userCollection){
+        Collection<User> userCollection = inMemoryDb.values();
+        for (User user : userCollection){
             if (user.getUsername().equals(username)){
                 return true;
             }

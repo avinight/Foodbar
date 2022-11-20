@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.user_example;
 
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
 import recipe.foodbar.usecase.user_example.exception.UserAlreadyExistsException;
 import recipe.foodbar.usecase.user_example.port.IdGenerator;
 import recipe.foodbar.usecase.user_example.port.PasswordEncoder;
@@ -19,18 +19,18 @@ public final class CreateUser {
         this.idGenerator = idGenerator;
     }
 
-    public User create(final User user) {
-        UserValidator.validateCreateUser(user);
-        if (repository.findByEmail(user.getEmail()).isPresent()) {
-            throw new UserAlreadyExistsException(user.getEmail());
+    public UserExample create(final UserExample userExample) {
+        UserValidator.validateCreateUser(userExample);
+        if (repository.findByEmail(userExample.getEmail()).isPresent()) {
+            throw new UserAlreadyExistsException(userExample.getEmail());
         }
-        User userToSave = User.builder()
+        UserExample userExampleToSave = UserExample.builder()
                 .id(idGenerator.generate())
-                .email(user.getEmail())
-                .password(passwordEncoder.encode(user.getEmail() + user.getPassword()))
-                .lastName(user.getLastName())
-                .firstName(user.getFirstName())
+                .email(userExample.getEmail())
+                .password(passwordEncoder.encode(userExample.getEmail() + userExample.getPassword()))
+                .lastName(userExample.getLastName())
+                .firstName(userExample.getFirstName())
                 .build();
-        return repository.create(userToSave);
+        return repository.create(userExampleToSave);
     }
 }
