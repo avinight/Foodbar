@@ -8,24 +8,28 @@ package recipe.foodbar.usecase.user;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user_example.port.IdGenerator;
 
 public class UserManager implements UserCreatorInputBoundary {
 
 
     private final UserCreatorOutputBoundary output;
     private final UserRepositoryInterface repo;
+    private final IdGenerator idGenerator;
 
 
     /**
      * Constructor for UserManager object taking both output boundary and
      * repository interface objects
      *
-     * @param output UserCreatorOutputBoundary object to follow dependency rules
-     * @param repo   UserRepositoryInterface type to allow interactions with repository indirectly
+     * @param output      UserCreatorOutputBoundary object to follow dependency rules
+     * @param repo        UserRepositoryInterface type to allow interactions with repository indirectly
+     * @param idGenerator IdGenerator interface to allow easy creation of id
      */
-    public UserManager(UserCreatorOutputBoundary output, UserRepositoryInterface repo) {
+    public UserManager(UserCreatorOutputBoundary output, UserRepositoryInterface repo, IdGenerator idGenerator) {
         this.output = output;
         this.repo = repo;
+        this.idGenerator = idGenerator;
     }
 
 
@@ -37,7 +41,8 @@ public class UserManager implements UserCreatorInputBoundary {
      */
     @Override
     public String create(UserInputData input) {
-        String id = input.getUsername();
+        String id = idGenerator.generate();
+        String username = input.getUsername();
         String password = input.getPassword();
         String passwordShadow = input.getPasswordShadow();
         String email = input.getEmail();
@@ -65,7 +70,7 @@ public class UserManager implements UserCreatorInputBoundary {
         } else {
 
             //creation of the account and added to the repository
-            repoFactory.createAccount(id, password, firstName, lastName, email);
+            repoFactory.createAccount(id, username, password, firstName, lastName, email);
 
             return output.present("UserCreation Successful, no problems encountered.");
         }

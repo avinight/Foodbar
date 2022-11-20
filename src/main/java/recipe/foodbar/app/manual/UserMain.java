@@ -2,14 +2,17 @@ package recipe.foodbar.app.manual;
 
 import recipe.foodbar.controller.AccountController;
 import recipe.foodbar.controller.AccountPresenter;
+import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.InMemoryUserRepository;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
+import recipe.foodbar.usecase.user_example.port.IdGenerator;
 
 public class UserMain {
     public static void main(String[] args) {
         InMemoryUserRepository repo = new InMemoryUserRepository();
+        final IdGenerator idGenerator = new JugIdGenerator();
         System.out.println("Test Account creation");
 
         String username = "Arthur123";
@@ -19,7 +22,7 @@ public class UserMain {
         String passwordShadow = "123";
         String email = "a@gmail.com";
         AccountPresenter accountPresenter = new AccountPresenter();
-        UserCreatorInputBoundary data = new UserManager(accountPresenter, repo);
+        UserCreatorInputBoundary data = new UserManager(accountPresenter, repo, idGenerator);
         AccountController accountController = new AccountController(data);
         UserInputData user = accountController.create(username, password, passwordShadow, firstName, lastName, email);
 
