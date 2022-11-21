@@ -26,4 +26,6 @@ public class ManualConfig {
     public LoginUser loginUser() {
         return new LoginUser(userRepository, passwordEncoder);
     }
+
+
 }
