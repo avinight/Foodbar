@@ -14,7 +14,7 @@ public class User {
     private ArrayList<User> followers;
 
     public User(final String id, final String username, final String password,
-                final String first, final String last, final String email) {
+                final String first, final String email, final String last) {
         this.id = id;
         this.username = username;
         this.password = password;

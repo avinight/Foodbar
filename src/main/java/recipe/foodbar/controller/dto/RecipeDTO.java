@@ -4,7 +4,7 @@ import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.UserExample;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class RecipeDTO {
     private String id;
@@ -16,7 +16,7 @@ public class RecipeDTO {
     private int likes;
     private int dislikes;
     private String[] dietaryRestrictions;
-    private Date dateCreated;
+    private LocalDate dateCreated;
     private Review[] reviews;
 //    private Ingredient[] ingredients
 
@@ -105,11 +105,11 @@ public class RecipeDTO {
         this.dietaryRestrictions = dietaryRestrictions;
     }
 
-    public Date getDateCreated() {
+    public LocalDate getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
     }
 
