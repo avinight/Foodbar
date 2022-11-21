@@ -16,9 +16,6 @@ public class Recipe {
     private final Date dateCreated;
     private int likes;
     private int dislikes;
-    // private Review[] reviews;
-    private final String[] dietaryRestrictions;
-    private final Date dateCreated;
     private ArrayList<Review> reviews;
     // private Ingredient ingredients;
 
@@ -34,7 +31,7 @@ public class Recipe {
         this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
-        this.reviews = reviews;
+        this.reviews = new ArrayList<>();
     }
 
     public static RecipeBuilder builder() {
