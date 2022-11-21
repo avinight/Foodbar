@@ -12,13 +12,13 @@ public class Recipe {
     private final float portionSize;
     private final String[] instructions;
     private final String cuisineId;
-    private int likes;
-    private int dislikes;
     private final String[] dietaryRestrictions;
     private final Date dateCreated;
+    private int likes;
+    private int dislikes;
     // private Review[] reviews;
-    private String[] dietaryRestrictions;
-    private Date dateCreated;
+    private final String[] dietaryRestrictions;
+    private final Date dateCreated;
     private ArrayList<Review> reviews;
     // private Ingredient ingredients;
 
