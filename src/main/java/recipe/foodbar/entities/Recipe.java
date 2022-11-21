@@ -9,30 +9,24 @@ public class Recipe {
     private final String id;
     private final String title;
     private final UserExample author;
-    private final float portionSize;
     private final String[] instructions;
     private final String cuisineId;
     private final String[] dietaryRestrictions;
     private final Date dateCreated;
+    private float portionSize;
     private int likes;
     private int dislikes;
-    private ArrayList<Review> reviews;
-    // private Ingredient ingredients;
-    private String[] dietaryRestrictions;
-    private Date dateCreated;
-    // private Review[] reviews;
-    private ArrayList<Ingredient> ingredients;
+    private final ArrayList<Review> reviews;
+    private final ArrayList<Ingredient> ingredients;
 
 
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisineId, String[] dietaryRestrictions, final Date dateCreated) {
+    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients) {
         this.id = id;
-    private Recipe(String title, final User author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients) {
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
         this.instructions = instructions;
-        this.cuisineId = cuisineId;
-        this.cuisine = cuisine;
+        this.cuisineId = cuisine;
         this.ingredients = ingredients;
         this.likes = 0;
         this.dislikes = 0;
@@ -40,62 +34,6 @@ public class Recipe {
         this.dateCreated = dateCreated;
         this.reviews = new ArrayList<>();
     }
-
-    public static RecipeBuilder builder() { return new RecipeBuilder();}
-
-    public static class RecipeBuilder {
-        private String title;
-        private User author;
-        private float portionSize;
-        private String[] instructions;
-        private String cuisine;
-        private int likes;
-        private int dislikes;
-        private String[] dietaryRestrictions;
-        private Date dateCreated;
-        private ArrayList<Ingredient> ingredients;
-
-        RecipeBuilder() {}
-
-        public RecipeBuilder title(final String title) {
-            this.title = title;
-            return this;
-        }
-
-        public RecipeBuilder author(final User author) {
-            this.author = author;
-            return this;
-        }
-
-        public RecipeBuilder portionSize(final float portionSize) {
-            this.portionSize = portionSize;
-            return this;
-        }
-
-        public RecipeBuilder instructions(final String[] instructions) {
-            this.instructions = instructions;
-            return this;
-        }
-
-        public RecipeBuilder cuisine(final String cuisine) {
-            this.cuisine = cuisine;
-            return this;
-        }
-
-        public RecipeBuilder dietaryRestrictions(final String[] dietaryRestrictions) {
-            this.dietaryRestrictions = dietaryRestrictions;
-            return this;
-        }
-
-        public RecipeBuilder dateCreated(final Date dateCreated) {
-            this.dateCreated = dateCreated;
-            return this;
-        }
-
-        public RecipeBuilder ingredients(final ArrayList<Ingredient> ingredients){
-            this.ingredients = ingredients;
-            return this;
-        }
 
     public static RecipeBuilder builder() {
         return new RecipeBuilder();
@@ -165,26 +103,6 @@ public class Recipe {
         this.reviews.add(newReview);
     }
 
-    /**
-     * Sets the portionSize and
-     * modifies each ingredient based on the portionSize multiplier.
-     * @param portionSize   The portion size of the Recipe.
-     */
-    public void modifyIngredients(int portionSize){
-        this.portionSize = portionSize;
-        for (Ingredient ingredient : ingredients){
-            ingredient.setSize(portionSize * ingredient.getSize());
-        }
-    }
-
-    /**
-     * Adds new ingredients to the ingredients ArrayList.
-     * @param ingredient    An ingredient.
-     */
-    public void addIngredient(Ingredient ingredient){
-        this.ingredients.add(ingredient);
-    }
-
     @Override
     public String toString() {
         return "Recipe{" +
@@ -197,9 +115,27 @@ public class Recipe {
                 "}";
     }
 
-//    public void addReview(Review newReview) {
-//        //pass
-//    }
+    /**
+     * Sets the portionSize and
+     * modifies each ingredient based on the portionSize multiplier.
+     *
+     * @param portionSize The portion size of the Recipe.
+     */
+    public void modifyIngredients(int portionSize) {
+        this.portionSize = portionSize;
+        for (Ingredient ingredient : ingredients) {
+            ingredient.setSize(portionSize * ingredient.getSize());
+        }
+    }
+
+    /**
+     * Adds new ingredients to the ingredients ArrayList.
+     *
+     * @param ingredient An ingredient.
+     */
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
 
     public static class RecipeBuilder {
 
@@ -213,6 +149,7 @@ public class Recipe {
         private int dislikes;
         private String[] dietaryRestrictions;
         private Date dateCreated;
+        private ArrayList<Ingredient> ingredients;
 
         RecipeBuilder() {
         }
@@ -258,7 +195,7 @@ public class Recipe {
         }
 
         public Recipe build() {
-            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated);
+            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated, ingredients);
         }
     }
 }

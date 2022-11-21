@@ -1,7 +1,5 @@
 package recipe.foodbar.entities;
 
-import recipe.foodbar.entities.UserExample;
-
 public class Review {
     public static final int MAX_LENGTH = 300;
     private final String title;

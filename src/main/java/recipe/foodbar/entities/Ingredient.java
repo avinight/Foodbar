@@ -1,4 +1,4 @@
-package recipes.foodbar.entities;
+package recipe.foodbar.entities;
 
 public class Ingredient {
     private final String name;
@@ -13,6 +13,17 @@ public class Ingredient {
         return new IngredientBuilder();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public float getSize() {
+        return size;
+    }
+
+    public void setSize(float size) {
+        this.size = size;
+    }
 
     public static class IngredientBuilder {
         private String name;
@@ -34,16 +45,5 @@ public class Ingredient {
         public Ingredient build() {
             return new Ingredient(name, size);
         }
-    }
-    public String getName() {
-        return name;
-    }
-
-    public float getSize() {
-        return size;
-    }
-
-    public void setSize(float size){
-        this.size = size;
     }
 }
