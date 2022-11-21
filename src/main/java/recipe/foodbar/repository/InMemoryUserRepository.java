@@ -17,7 +17,6 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      * Method for adding the Registered user object to the repository.
      *
      * @param user the provided RegisteredUser object
-     *
      */
     @Override
     public void create(final User user) {
@@ -26,6 +25,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
 
     /**
      * Method for finding a user by their username in the repository
+     *
      * @param username the String representation of the username
      * @return The RegisteredUser Object of the user found, or an empty
      * user object if no user was found.
@@ -37,6 +37,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
 
     /**
      * Method for finding a user by their email in the repository
+     *
      * @param email the String representation of the username
      * @return The RegisteredUser object with the matching email provided.
      */
@@ -50,6 +51,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
 
     /**
      * Method for finding all users in the repository
+     *
      * @return An ArrayList of all users in the repository.
      */
     @Override
@@ -60,6 +62,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
 
     /**
      * Method for finding if a user exists by their username
+     *
      * @param username the String representation of the username
      * @return boolean representation of the existence of a RegisteredUser
      * with a matching username.
@@ -67,8 +70,8 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
     @Override
     public boolean existsByUsername(String username) {
         Collection<User> userCollection = inMemoryDb.values();
-        for (User user : userCollection){
-            if (user.getUsername().equals(username)){
+        for (User user : userCollection) {
+            if (user.getUsername().equals(username)) {
                 return true;
             }
         }

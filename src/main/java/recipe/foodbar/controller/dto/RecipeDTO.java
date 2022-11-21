@@ -19,6 +19,18 @@ public class RecipeDTO {
     // private Review[] reviews;
     // private Ingredient[] ingredients
 
+    public static RecipeDTO toRecipeDTO(final Recipe recipe) {
+        var userWeb = new RecipeDTO();
+        userWeb.setId(recipe.getId());
+        userWeb.setTitle(recipe.getTitle());
+        userWeb.setAuthor(recipe.getAuthor());
+        userWeb.setPortionSize(recipe.getPortionSize());
+        userWeb.setInstructions(recipe.getInstructions());
+        userWeb.setCuisineId(recipe.getCuisineId());
+        userWeb.setDietaryRestrictions(recipe.getDietaryRestrictions());
+        userWeb.setDateCreated(recipe.getDateCreated());
+        return userWeb;
+    }
 
     public String getId() {
         return id;
@@ -111,18 +123,5 @@ public class RecipeDTO {
                 .dietaryRestrictions(dietaryRestrictions)
                 .dateCreated(dateCreated)
                 .build();
-    }
-
-    public static RecipeDTO toRecipeDTO(final Recipe recipe) {
-        var userWeb = new RecipeDTO();
-        userWeb.setId(recipe.getId());
-        userWeb.setTitle(recipe.getTitle());
-        userWeb.setAuthor(recipe.getAuthor());
-        userWeb.setPortionSize(recipe.getPortionSize());
-        userWeb.setInstructions(recipe.getInstructions());
-        userWeb.setCuisineId(recipe.getCuisineId());
-        userWeb.setDietaryRestrictions(recipe.getDietaryRestrictions());
-        userWeb.setDateCreated(recipe.getDateCreated());
-        return userWeb;
     }
 }

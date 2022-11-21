@@ -1,10 +1,13 @@
 package recipe.foodbar.repository.simpleDB;
 
-import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class InMemoryRecipeRepository implements RecipeRepository {
 
@@ -19,7 +22,7 @@ public class InMemoryRecipeRepository implements RecipeRepository {
     @Override
     public ArrayList<Recipe> getByCuisine(Cuisine cuisine) {
         ArrayList<Recipe> filteredRecipes = new ArrayList<Recipe>();
-        for (Recipe recipe: this.inMemoryDb.values()) {
+        for (Recipe recipe : this.inMemoryDb.values()) {
             if (recipe.getCuisineId().equals(cuisine.getId())) {
                 filteredRecipes.add(recipe);
             }
@@ -27,7 +30,9 @@ public class InMemoryRecipeRepository implements RecipeRepository {
         return filteredRecipes;
     }
 
-    public Optional<Recipe> findById(final String id) { return Optional.ofNullable(inMemoryDb.get(id));}
+    public Optional<Recipe> findById(final String id) {
+        return Optional.ofNullable(inMemoryDb.get(id));
+    }
 
 }
 

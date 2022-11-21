@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class UserExample {
 
-    private String id;
-    private String email;
-    private String password;
-    private String lastName;
-    private String firstName;
+    private final String id;
+    private final String email;
+    private final String password;
+    private final String lastName;
+    private final String firstName;
 
-    private ArrayList<UserExample> following;
-    private ArrayList<UserExample> followers;
+    private final ArrayList<UserExample> following;
+    private final ArrayList<UserExample> followers;
 
     private UserExample(final String id, final String email, final String password, final String lastName, final String firstName) {
         this.id = id;
@@ -25,6 +25,61 @@ public class UserExample {
 
     public static UserBuilder builder() {
         return new UserBuilder();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public ArrayList<UserExample> getFollowers() {
+        return followers;
+    }
+
+    public ArrayList<UserExample> getFollowing() {
+        return following;
+    }
+
+    public void follow(UserExample userExampleToFollow) {
+        this.following.add(userExampleToFollow);
+    }
+
+    public void addFollower(UserExample follower) {
+        this.followers.add(follower);
+    }
+
+    public void unFollow(UserExample userExampleToFollow) {
+        this.following.remove(userExampleToFollow);
+    }
+
+    public void removeFollower(UserExample follower) {
+        this.followers.remove(follower);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                '}';
     }
 
     public static class UserBuilder {
@@ -77,50 +132,5 @@ public class UserExample {
         public UserExample build() {
             return new UserExample(id, email, password, lastName, firstName);
         }
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public ArrayList<UserExample> getFollowers() { return followers; }
-    public ArrayList<UserExample> getFollowing() { return following; }
-
-    public boolean follow(UserExample userExampleToFollow) {
-        this.following.add(userExampleToFollow);
-        userExampleToFollow.addFollower(this);
-        return this.following.contains(userExampleToFollow);
-    }
-
-    public boolean addFollower(UserExample follower) {
-        this.followers.add(follower);
-        return this.followers.contains(follower);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                '}';
     }
 }

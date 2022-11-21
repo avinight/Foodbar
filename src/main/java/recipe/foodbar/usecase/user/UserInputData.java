@@ -3,7 +3,7 @@ Class for the input data passed through to the usecase interactor of usercreatio
  */
 package recipe.foodbar.usecase.user;
 
-public class UserInputData{
+public class UserInputData {
     private final String username;
     private final String password;
     private final String passwordShadow;
@@ -14,12 +14,12 @@ public class UserInputData{
     /**
      * Constructor for UserInputData to be bundled to the usecase interactor
      *
-     * @param username String representing the username
-     * @param password String representing the password
+     * @param username       String representing the username
+     * @param password       String representing the password
      * @param passwordShadow String representing the passwordShadow
-     * @param first String representing the firstname
-     * @param last String representing the lastname
-     * @param email String representing the email
+     * @param first          String representing the firstname
+     * @param last           String representing the lastname
+     * @param email          String representing the email
      */
 
     public UserInputData(String username, String password, String passwordShadow, String first, String last, String email) {
@@ -38,7 +38,7 @@ public class UserInputData{
      *
      * @return the username variable
      */
-    public String getUsername(){
+    public String getUsername() {
         return this.username;
     }
 
@@ -47,7 +47,7 @@ public class UserInputData{
      *
      * @return the password variable
      */
-    public String getPassword(){
+    public String getPassword() {
         return this.password;
     }
 
@@ -56,8 +56,11 @@ public class UserInputData{
      *
      * @return the passwordShadow variable
      */
-    public String getPasswordShadow(){return this.passwordShadow;}
-    public String getFirstName(){
+    public String getPasswordShadow() {
+        return this.passwordShadow;
+    }
+
+    public String getFirstName() {
         return this.firstName;
     }
 
@@ -66,8 +69,11 @@ public class UserInputData{
      *
      * @return the lastName variable
      */
-    public String getLastName(){return this.lastName;}
-    public String getEmail(){
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public String getEmail() {
         return this.email;
     }
 }

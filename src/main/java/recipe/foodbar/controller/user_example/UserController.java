@@ -38,7 +38,7 @@ public class UserController {
 
     public boolean followUser(String userId1, String userId2) {
         //return FollowUser(userId1, userId2, ).follow();
-        return followUser.follow(userId1, userId2);
+        return followUser.followUnfollowUser(userId1, userId2, true);
     }
 
     public List<UserDTO> allUsers() {

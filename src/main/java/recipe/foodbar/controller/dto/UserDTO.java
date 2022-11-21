@@ -9,6 +9,16 @@ public class UserDTO {
     private String lastName;
     private String firstName;
 
+    public static UserDTO toUserDTO(final UserExample userExample) {
+        var userWeb = new UserDTO();
+        userWeb.setId(userExample.getId());
+        userWeb.setEmail(userExample.getEmail());
+        // do not map password
+        userWeb.setLastName(userExample.getLastName());
+        userWeb.setFirstName(userExample.getFirstName());
+        return userWeb;
+    }
+
     public String getId() {
         return id;
     }
@@ -56,15 +66,5 @@ public class UserDTO {
                 .lastName(lastName)
                 .firstName(firstName)
                 .build();
-    }
-
-    public static UserDTO toUserDTO(final UserExample userExample) {
-        var userWeb = new UserDTO();
-        userWeb.setId(userExample.getId());
-        userWeb.setEmail(userExample.getEmail());
-        // do not map password
-        userWeb.setLastName(userExample.getLastName());
-        userWeb.setFirstName(userExample.getFirstName());
-        return userWeb;
     }
 }

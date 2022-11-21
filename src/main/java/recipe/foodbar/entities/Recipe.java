@@ -5,16 +5,16 @@ import java.util.Date;
 
 public class Recipe {
 
-    private String id;
-    private String title;
-    private UserExample author;
-    private float portionSize;
-    private String[] instructions;
-    private String cuisineId;
+    private final String id;
+    private final String title;
+    private final UserExample author;
+    private final float portionSize;
+    private final String[] instructions;
+    private final String cuisineId;
     private int likes;
     private int dislikes;
-    private String[] dietaryRestrictions;
-    private Date dateCreated;
+    private final String[] dietaryRestrictions;
+    private final Date dateCreated;
     // private Review[] reviews;
     // private Ingredient ingredients;
 
@@ -32,7 +32,85 @@ public class Recipe {
         this.dateCreated = dateCreated;
     }
 
-    public static RecipeBuilder builder() { return new RecipeBuilder();}
+    public static RecipeBuilder builder() {
+        return new RecipeBuilder();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public UserExample getAuthor() {
+        return author;
+    }
+
+    public float getPortionSize() {
+        return portionSize;
+    }
+
+    public String[] getInstructions() {
+        return instructions;
+    }
+
+    public String getCuisineId() {
+        return cuisineId;
+    }
+
+    public void like() {
+        likes += 1;
+    }
+
+    public void unlike() {
+        likes -= 1;
+    }
+
+    public void dislike() {
+        dislikes += 1;
+    }
+
+    public void undislike() {
+        dislikes -= 1;
+    }
+
+    public int getRating() {
+        return likes - dislikes;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public int getDislikes() {
+        return dislikes;
+    }
+
+    public String[] getDietaryRestrictions() {
+        return dietaryRestrictions;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "title = " + title + '\'' +
+                ", id = " + id + '\'' +
+                ", author = " + author + '\'' +
+                ", cuisineId = " + cuisineId + '\'' +
+                ", likes = " + likes + '\'' +
+                ", dislikes = " + dislikes + '\'' +
+                "}";
+    }
+
+//    public void addReview(Review newReview) {
+//        //pass
+//    }
 
     public static class RecipeBuilder {
 
@@ -47,12 +125,14 @@ public class Recipe {
         private String[] dietaryRestrictions;
         private Date dateCreated;
 
-        RecipeBuilder() {}
+        RecipeBuilder() {
+        }
 
         public RecipeBuilder id(final String id) {
             this.id = id;
             return this;
         }
+
         public RecipeBuilder title(final String title) {
             this.title = title;
             return this;
@@ -91,79 +171,5 @@ public class Recipe {
         public Recipe build() {
             return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated);
         }
-    }
-
-    public String getId() { return id; }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public UserExample getAuthor() {
-        return author;
-    }
-
-    public float getPortionSize() {
-        return portionSize;
-    }
-
-    public String[] getInstructions() {
-        return instructions;
-    }
-
-    public String getCuisineId() {
-        return cuisineId;
-    }
-
-    public void like() {
-        likes += 1;
-    }
-
-    public void unlike() {
-        likes -= 1;
-    }
-
-    public void dislike() {
-        dislikes += 1;
-    }
-
-    public void undislike() {
-        dislikes -=1 ;
-    }
-
-    public int getRating() {
-        return likes - dislikes;
-    }
-
-    public int getLikes() {
-        return likes;
-    }
-
-    public int getDislikes() {
-        return dislikes;
-    }
-
-    public String[] getDietaryRestrictions() {
-        return dietaryRestrictions;
-    }
-
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-//    public void addReview(Review newReview) {
-//        //pass
-//    }
-
-    @Override
-    public String toString() {
-        return "Recipe{" +
-                "title = " + title + '\'' +
-                ", id = " + id + '\'' +
-                ", author = " + author + '\'' +
-                ", cuisineId = " + cuisineId + '\'' +
-                ", likes = " + likes + '\'' +
-                ", dislikes = " + dislikes + '\'' +
-                "}";
     }
 }

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class User {
 
-    private String id;
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String email;
+    private final String id;
+    private final String username;
+    private final String password;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
     private ArrayList<User> following;
     private ArrayList<User> followers;
 
@@ -53,12 +53,12 @@ public class User {
         return following;
     }
 
-    public ArrayList<User> getFollowers() {
-        return followers;
-    }
-
     public void setFollowing(ArrayList<User> following) {
         this.following = following;
+    }
+
+    public ArrayList<User> getFollowers() {
+        return followers;
     }
 
     public void setFollowers(ArrayList<User> followers) {

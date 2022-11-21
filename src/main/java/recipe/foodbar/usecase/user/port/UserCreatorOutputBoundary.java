@@ -10,6 +10,7 @@ public interface UserCreatorOutputBoundary {
     /**
      * Method to receive a String representation of the success or
      * error messages needed to be displayed
+     *
      * @param message the String message given
      * @return The message to be displayed
      */
