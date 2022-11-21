@@ -30,6 +30,12 @@ public class InMemoryRecipeRepository implements RecipeRepository {
         return filteredRecipes;
     }
 
+    @Override
+    public Recipe update(final Recipe recipe) {
+        inMemoryDb.remove(recipe.getId());
+        return create(recipe);
+    }
+
     public Optional<Recipe> findById(final String id) {
         return Optional.ofNullable(inMemoryDb.get(id));
     }

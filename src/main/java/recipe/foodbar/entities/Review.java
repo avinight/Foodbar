@@ -1,12 +1,16 @@
 package recipe.foodbar.entities;
 
 public class Review {
+    private final String id;
+    private final String recipeId;
     public static final int MAX_LENGTH = 300;
     private final String title;
     private final String text;
     private final UserExample author;
 
-    private Review(String title, String text, UserExample author) {
+    private Review(String id, String recipeId, String title, String text, UserExample author) {
+        this.id = id;
+        this.recipeId = recipeId;
         this.title = title;
         this.text = text;
         this.author = author;
@@ -14,6 +18,14 @@ public class Review {
 
     public static ReviewBuilder builder() {
         return new ReviewBuilder();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getRecipeIdId() {
+        return id;
     }
 
     public String getTitle() {
@@ -35,11 +47,23 @@ public class Review {
     }
 
     public static class ReviewBuilder {
+        private String id;
+        private String recipeId;
         private String title;
         private String text;
         private UserExample author;
 
         ReviewBuilder() {
+        }
+
+        public ReviewBuilder id(final String id) {
+            this.id = id;
+            return this;
+        }
+
+        public ReviewBuilder recipeId(final String id) {
+            this.recipeId = id;
+            return this;
         }
 
         public ReviewBuilder title(String title) {
@@ -58,7 +82,7 @@ public class Review {
         }
 
         public Review build() {
-            return new Review(title, text, author);
+            return new Review(id, recipeId, title, text, author);
         }
     }
 }

@@ -15,8 +15,7 @@ public final class FilterByCuisine {
         this.repository = repository;
     }
 
-    public ArrayList<Recipe> filterrecipe(Cuisine cuisine) {
+    public ArrayList<Recipe> filterRecipe(Cuisine cuisine) {
         return repository.getByCuisine(cuisine);
     }
-
 }

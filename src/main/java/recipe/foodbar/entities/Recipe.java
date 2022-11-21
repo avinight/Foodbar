@@ -19,7 +19,6 @@ public class Recipe {
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 
-
     private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients) {
         this.id = id;
         this.title = title;
@@ -99,8 +98,12 @@ public class Recipe {
         return dateCreated;
     }
 
-    public void addReview(Review newReview) {
-        this.reviews.add(newReview);
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
+    public ArrayList<Review> getReviews() {
+        return reviews;
     }
 
     @Override
@@ -112,6 +115,7 @@ public class Recipe {
                 ", cuisineId = " + cuisineId + '\'' +
                 ", likes = " + likes + '\'' +
                 ", dislikes = " + dislikes + '\'' +
+                ", review = " + reviews + '\'' +
                 "}";
     }
 

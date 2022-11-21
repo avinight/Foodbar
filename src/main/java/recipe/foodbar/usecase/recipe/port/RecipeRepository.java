@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface RecipeRepository {
     Recipe create(Recipe recipe);
 
+    Recipe update(Recipe recipe);
+
     ArrayList<Recipe> getByCuisine(Cuisine cuisine);
 
     Optional<Recipe> findById(final String id);

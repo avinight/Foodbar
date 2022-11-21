@@ -26,7 +26,9 @@ public class Cuisine {
     }
 
     public void addRecipe(Recipe recipe) {
-        this.recipes.add(recipe);
+        if (!recipeExists(recipe)) {
+            this.recipes.add(recipe);
+        }
     }
 
     public ArrayList<Recipe> getRecipes() {

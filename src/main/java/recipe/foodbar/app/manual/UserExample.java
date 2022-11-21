@@ -31,5 +31,8 @@ public class UserExample {
         // Login
         loginUser.login("john.doe@gmail.com", "mypassword");
         System.out.println("Allowed to login with email 'john.doe@gmail.com' and password  'mypassword'");
+
+//      // Create a cusine
+
     }
 }
