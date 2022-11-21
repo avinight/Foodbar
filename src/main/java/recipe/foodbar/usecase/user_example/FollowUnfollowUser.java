@@ -5,11 +5,11 @@ import recipe.foodbar.usecase.user_example.port.UserRepository;
 
 import java.util.Optional;
 
-public class FollowUser {
+public class FollowUnfollowUser {
 
     private final UserRepository repository;
 
-    public FollowUser(UserRepository repository) {
+    public FollowUnfollowUser(UserRepository repository) {
         this.repository = repository;
     }
 
