@@ -1,12 +1,14 @@
-package recipes.foodbar.entities;
+package recipe.foodbar.entities;
+
+import recipe.foodbar.entities.UserExample;
 
 public class Review {
     public static final int MAX_LENGTH = 300;
     private final String title;
     private final String text;
-    private final User author;
+    private final UserExample author;
 
-    private Review(String title, String text, User author) {
+    private Review(String title, String text, UserExample author) {
         this.title = title;
         this.text = text;
         this.author = author;
@@ -24,7 +26,7 @@ public class Review {
         return text;
     }
 
-    public User getAuthor() {
+    public UserExample getAuthor() {
         return author;
     }
 
@@ -37,7 +39,7 @@ public class Review {
     public static class ReviewBuilder {
         private String title;
         private String text;
-        private User author;
+        private UserExample author;
 
         ReviewBuilder() {
         }
@@ -52,7 +54,7 @@ public class Review {
             return this;
         }
 
-        public ReviewBuilder author(User author) {
+        public ReviewBuilder author(UserExample author) {
             this.author = author;
             return this;
         }

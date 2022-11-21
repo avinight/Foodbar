@@ -1,9 +1,9 @@
 package recipe.foodbar.usecase.review;
 
+import recipe.foodbar.entities.Review;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.exception.CharLimitException;
 import recipe.foodbar.usecase.review.validator.ReviewValidator;
-import recipes.foodbar.entities.Review;
 
 public class CreateReview {
     private final RecipeRepository repository;
