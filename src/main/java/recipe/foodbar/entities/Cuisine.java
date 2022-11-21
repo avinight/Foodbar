@@ -3,17 +3,46 @@ package recipe.foodbar.entities;
 import java.util.ArrayList;
 
 public class Cuisine {
-    private String name;
-    private String id;
-    private ArrayList<Recipe> recipes;
+    private final String name;
+    private final String id;
+    private final ArrayList<Recipe> recipes;
 
-    private Cuisine(String name, String id){
+    private Cuisine(String name, String id) {
         this.name = name;
         this.id = id;
         this.recipes = new ArrayList<Recipe>();
     }
 
-    public static CuisineBuilder builder() { return new CuisineBuilder();}
+    public static CuisineBuilder builder() {
+        return new CuisineBuilder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void addRecipe(Recipe recipe) {
+        if (!recipeExists(recipe)) {
+            this.recipes.add(recipe);
+        }
+    }
+
+    public ArrayList<Recipe> getRecipes() {
+        return this.recipes;
+    }
+
+    public boolean recipeExists(Recipe recipe) {
+        for (Recipe r : this.recipes) {
+            if (r.getId().equals(recipe.getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static class CuisineBuilder {
 
@@ -21,7 +50,8 @@ public class Cuisine {
         private String id;
         private ArrayList<Recipe> recipes;
 
-        CuisineBuilder() {}
+        CuisineBuilder() {
+        }
 
         public CuisineBuilder name(final String name) {
             this.name = name;
@@ -38,28 +68,10 @@ public class Cuisine {
             return this;
         }
 
-        public Cuisine build() { return new Cuisine(name, id);}
-
-    }
-
-    public String getId() { return this.id;}
-    public String getName() {
-        return this.name;
-    }
-
-    public void addRecipe(Recipe recipe){
-        this.recipes.add(recipe);
-    }
-
-    public ArrayList<Recipe> getRecipes(){
-        return this.recipes;
-    }
-
-    public boolean recipeExists(Recipe recipe){
-        for (Recipe r: this.recipes){
-            if (r.getId().equals(recipe.getId())){return true;}
+        public Cuisine build() {
+            return new Cuisine(name, id);
         }
-        return false;
+
     }
 
 

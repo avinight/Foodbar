@@ -4,123 +4,80 @@ import java.util.ArrayList;
 
 public class User {
 
-    private String id;
-    private String email;
-    private String password;
-    private String lastName;
-    private String firstName;
-
+    private final String id;
+    private final String username;
+    private final String password;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
     private ArrayList<User> following;
     private ArrayList<User> followers;
 
-    private User(final String id, final String email, final String password, final String lastName, final String firstName) {
+    public User(final String id, final String username, final String password,
+                final String first, final String last, final String email) {
         this.id = id;
-        this.email = email;
+        this.username = username;
         this.password = password;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.followers = new ArrayList<User>();
+        this.firstName = first;
+        this.lastName = last;
+        this.email = email;
         this.following = new ArrayList<User>();
-    }
-
-    public static UserBuilder builder() {
-        return new UserBuilder();
-    }
-
-    public static class UserBuilder {
-        private String id;
-        private String email;
-        private String password;
-        private String lastName;
-        private String firstName;
-        private ArrayList<User> following;
-        private ArrayList<User> followers;
-
-        UserBuilder() {
-        }
-
-        public UserBuilder id(final String id) {
-            this.id = id;
-            return this;
-        }
-
-        public UserBuilder email(final String email) {
-            this.email = email;
-            return this;
-        }
-
-        public UserBuilder password(final String password) {
-            this.password = password;
-            return this;
-        }
-
-        public UserBuilder lastName(final String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public UserBuilder firstName(final String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public UserBuilder followers() {
-            this.followers = new ArrayList<User>();
-            return this;
-        }
-
-        public UserBuilder following() {
-            this.following = new ArrayList<User>();
-            return this;
-        }
-
-        public User build() {
-            return new User(id, email, password, lastName, firstName);
-        }
+        this.followers = new ArrayList<User>();
     }
 
     public String getId() {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return this.username;
     }
 
     public String getPassword() {
-        return password;
-    }
-
-    public String getLastName() {
-        return lastName;
+        return this.password;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
-    public ArrayList<User> getFollowers() { return followers; }
-    public ArrayList<User> getFollowing() { return following; }
-
-    public boolean follow(User userToFollow) {
-        this.following.add(userToFollow);
-        userToFollow.addFollower(this);
-        return this.following.contains(userToFollow);
+    public String getLastName() {
+        return this.lastName;
     }
 
-    public boolean addFollower(User follower) {
-        this.followers.add(follower);
-        return this.followers.contains(follower);
+    public String getEmail() {
+        return this.email;
+    }
+
+    public ArrayList<User> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(ArrayList<User> following) {
+        this.following = following;
+    }
+
+    public ArrayList<User> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(ArrayList<User> followers) {
+        this.followers = followers;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
+                ", following='" + following + '\'' +
+                ", followers='" + followers + '\'' +
                 '}';
     }
+
 }

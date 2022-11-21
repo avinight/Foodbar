@@ -20,12 +20,12 @@ public class CreateCuisine {
         if (repository.findById(cuisine.getId()).isPresent()) {
             throw new CuisineAlreadyExistsException("Cuisine already exists");
         }
-        Cuisine cuisineTosave = Cuisine.builder()
+        Cuisine cuisineToSave = Cuisine.builder()
                 .name(cuisine.getName())
                 .id(cuisine.getId())
                 .recipes()
                 .build();
 
-        return repository.create(cuisineTosave);
+        return repository.create(cuisineToSave);
     }
 }

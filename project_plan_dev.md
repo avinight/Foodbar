@@ -21,7 +21,7 @@ In this course project, you are expected to use Github to manage your code. This
 5. The project will show up in the the list below.
 
 ## Define Your Features for the Implementation Plan
-As a part of the project planning, you are required to record all features formulated from your user stories, as **issues** in your Github repository.
+As a part of the project planning, you are required to record all features formulated from your userExample stories, as **issues** in your Github repository.
 
 1. Navigate to your repository and select **Issues** tab, then click **New issue**.
 
