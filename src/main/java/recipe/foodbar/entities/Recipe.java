@@ -1,5 +1,6 @@
 package recipe.foodbar.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,7 +20,7 @@ public class Recipe {
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients) {
+    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -98,8 +99,8 @@ public class Recipe {
         return dateCreated;
     }
 
-    public void addReview(Review review) {
-        this.reviews.add(review);
+    public ArrayList<Ingredient> getIngredients() {
+        return ingredients;
     }
 
     public ArrayList<Review> getReviews() {
@@ -108,15 +109,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return "Recipe{" +
-                "title = " + title + '\'' +
-                ", id = " + id + '\'' +
-                ", author = " + author + '\'' +
-                ", cuisineId = " + cuisineId + '\'' +
-                ", likes = " + likes + '\'' +
-                ", dislikes = " + dislikes + '\'' +
-                ", review = " + reviews + '\'' +
-                "}";
+        return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisineId + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
     }
 
     /**
@@ -154,6 +147,7 @@ public class Recipe {
         private String[] dietaryRestrictions;
         private Date dateCreated;
         private ArrayList<Ingredient> ingredients;
+        private ArrayList<Review> reviews;
 
         RecipeBuilder() {
         }
@@ -193,13 +187,23 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder dateCreated(final Date dateCreated) {
+        public RecipeBuilder dateCreated(final LocalDate dateCreated) {
             this.dateCreated = dateCreated;
             return this;
         }
 
+        public RecipeBuilder ingredients(final ArrayList<Ingredient> ingredients) {
+            this.ingredients = ingredients;
+            return this;
+        }
+
+        public RecipeBuilder review(final ArrayList<Review> reviews) {
+            this.reviews = reviews;
+            return this;
+        }
+
         public Recipe build() {
-            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated, ingredients);
+            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated, ingredients, reviews);
         }
     }
 }

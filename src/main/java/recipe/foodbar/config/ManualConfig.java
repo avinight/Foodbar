@@ -8,6 +8,7 @@ import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
 import recipe.foodbar.usecase.cuisine.CreateCuisine;
 import recipe.foodbar.usecase.cuisine.port.CuisineRepository;
 import recipe.foodbar.usecase.recipe.CreateRecipe;
+import recipe.foodbar.usecase.recipe.UpdateRecipe;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.CreateReview;
 import recipe.foodbar.usecase.user_example.CreateUser;
@@ -43,6 +44,10 @@ public class ManualConfig {
 
     public CreateRecipe createRecipe() {
         return new CreateRecipe(recipeRepository, idGenerator);
+    }
+
+    public UpdateRecipe updateRecipe() {
+        return new UpdateRecipe(recipeRepository, idGenerator);
     }
 
     public CreateReview createReview(String recipeId) {
