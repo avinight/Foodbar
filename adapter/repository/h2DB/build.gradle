@@ -1,8 +1,0 @@
-plugins {
-    id 'java-library'
-}
-
-dependencies {
-    implementation 'org.jdbi:jdbi3-core:3.34.0'
-    implementation 'org.jdbi:jdbi3-core:3.34.0'
-}
