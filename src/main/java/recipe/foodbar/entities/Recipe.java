@@ -13,14 +13,14 @@ public class Recipe {
     private final String[] instructions;
     private final String cuisineId;
     private final String[] dietaryRestrictions;
-    private final Date dateCreated;
+    private final LocalDate dateCreated;
     private float portionSize;
     private int likes;
     private int dislikes;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
+    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final LocalDate dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -187,7 +187,7 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder dateCreated(final LocalDate dateCreated) {
+        public RecipeBuilder dateCreated(final Date dateCreated) {
             this.dateCreated = dateCreated;
             return this;
         }
