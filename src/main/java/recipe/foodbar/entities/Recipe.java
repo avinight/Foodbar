@@ -187,7 +187,7 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder dateCreated(final LocalDate dateCreated) {
+        public RecipeBuilder dateCreated(final Date dateCreated) {
             this.dateCreated = dateCreated;
             return this;
         }
