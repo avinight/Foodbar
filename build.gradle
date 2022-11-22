@@ -20,5 +20,5 @@ dependencies {
 }
 
 application {
-    mainClass = 'recipe.foodbar.app.manual.Main'
+    mainClass = 'recipe.foodbar.app.manual.UserExample'
 }

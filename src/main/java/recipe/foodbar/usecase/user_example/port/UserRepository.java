@@ -1,17 +1,17 @@
 package recipe.foodbar.usecase.user_example.port;
 
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository {
 
-    User create(User user);
+    UserExample create(UserExample userExample);
 
-    Optional<User> findById(String id);
+    Optional<UserExample> findById(String id);
 
-    Optional<User> findByEmail(String email);
+    Optional<UserExample> findByEmail(String email);
 
-    List<User> findAllUsers();
+    List<UserExample> findAllUsers();
 }

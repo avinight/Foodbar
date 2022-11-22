@@ -1,13 +1,15 @@
 package recipe.foodbar.controller.dto;
 
 import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.Review;
+import recipe.foodbar.entities.UserExample;
+
 import java.util.Date;
 
 public class RecipeDTO {
     private String id;
     private String title;
-    private User author;
+    private UserExample author;
     private float portionSize;
     private String[] instructions;
     private String cuisineId;
@@ -15,9 +17,21 @@ public class RecipeDTO {
     private int dislikes;
     private String[] dietaryRestrictions;
     private Date dateCreated;
-    // private Review[] reviews;
-    // private Ingredient[] ingredients
+    private Review[] reviews;
+//    private Ingredient[] ingredients
 
+    public static RecipeDTO toRecipeDTO(final Recipe recipe) {
+        var userWeb = new RecipeDTO();
+        userWeb.setId(recipe.getId());
+        userWeb.setTitle(recipe.getTitle());
+        userWeb.setAuthor(recipe.getAuthor());
+        userWeb.setPortionSize(recipe.getPortionSize());
+        userWeb.setInstructions(recipe.getInstructions());
+        userWeb.setCuisineId(recipe.getCuisineId());
+        userWeb.setDietaryRestrictions(recipe.getDietaryRestrictions());
+        userWeb.setDateCreated(recipe.getDateCreated());
+        return userWeb;
+    }
 
     public String getId() {
         return id;
@@ -35,11 +49,11 @@ public class RecipeDTO {
         this.title = title;
     }
 
-    public User getAuthor() {
+    public UserExample getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(UserExample author) {
         this.author = author;
     }
 
@@ -110,18 +124,5 @@ public class RecipeDTO {
                 .dietaryRestrictions(dietaryRestrictions)
                 .dateCreated(dateCreated)
                 .build();
-    }
-
-    public static RecipeDTO toRecipeDTO(final Recipe recipe) {
-        var userWeb = new RecipeDTO();
-        userWeb.setId(recipe.getId());
-        userWeb.setTitle(recipe.getTitle());
-        userWeb.setAuthor(recipe.getAuthor());
-        userWeb.setPortionSize(recipe.getPortionSize());
-        userWeb.setInstructions(recipe.getInstructions());
-        userWeb.setCuisineId(recipe.getCuisineId());
-        userWeb.setDietaryRestrictions(recipe.getDietaryRestrictions());
-        userWeb.setDateCreated(recipe.getDateCreated());
-        return userWeb;
     }
 }

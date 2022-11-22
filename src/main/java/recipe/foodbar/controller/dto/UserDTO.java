@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.dto;
 
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
 
 public class UserDTO {
     private String id;
@@ -8,6 +8,16 @@ public class UserDTO {
     private String password;
     private String lastName;
     private String firstName;
+
+    public static UserDTO toUserDTO(final UserExample userExample) {
+        var userWeb = new UserDTO();
+        userWeb.setId(userExample.getId());
+        userWeb.setEmail(userExample.getEmail());
+        // do not map password
+        userWeb.setLastName(userExample.getLastName());
+        userWeb.setFirstName(userExample.getFirstName());
+        return userWeb;
+    }
 
     public String getId() {
         return id;
@@ -49,22 +59,12 @@ public class UserDTO {
         this.firstName = firstName;
     }
 
-    public User toUser() {
-        return User.builder()
+    public UserExample toUser() {
+        return UserExample.builder()
                 .email(email)
                 .password(password)
                 .lastName(lastName)
                 .firstName(firstName)
                 .build();
-    }
-
-    public static UserDTO toUserDTO(final User user) {
-        var userWeb = new UserDTO();
-        userWeb.setId(user.getId());
-        userWeb.setEmail(user.getEmail());
-        // do not map password
-        userWeb.setLastName(user.getLastName());
-        userWeb.setFirstName(user.getFirstName());
-        return userWeb;
     }
 }

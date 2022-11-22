@@ -1,16 +1,15 @@
 package recipe.foodbar.app.manual;
 
 import recipe.foodbar.config.ManualConfig;
-import recipe.foodbar.entities.User;
 
-public class Main {
+public class UserExample {
     public static void main(String[] args) {
         // Setup
         var config = new ManualConfig();
         var createUser = config.createUser();
         var findUser = config.findUser();
         var loginUser = config.loginUser();
-        var user = User.builder()
+        var user = recipe.foodbar.entities.UserExample.builder()
                 .email("john.doe@gmail.com")
                 .password("mypassword")
                 .lastName("doe")
@@ -32,5 +31,8 @@ public class Main {
         // Login
         loginUser.login("john.doe@gmail.com", "mypassword");
         System.out.println("Allowed to login with email 'john.doe@gmail.com' and password  'mypassword'");
+
+//      // Create a cusine
+
     }
 }
