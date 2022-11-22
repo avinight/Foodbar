@@ -25,7 +25,7 @@ public class CreateRecipe {
                 .title(recipe.getTitle())
                 .author(recipe.getAuthor())
                 .instructions(recipe.getInstructions())
-                .cuisineId(recipe.getCuisineId())
+                .cuisine(recipe.getCuisine())
                 .portionSize(recipe.getPortionSize())
                 .dietaryRestrictions(recipe.getDietaryRestrictions())
                 .dateCreated(recipe.getDateCreated())

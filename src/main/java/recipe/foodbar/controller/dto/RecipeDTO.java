@@ -1,5 +1,6 @@
 package recipe.foodbar.controller.dto;
 
+import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.UserExample;
@@ -12,7 +13,7 @@ public class RecipeDTO {
     private UserExample author;
     private float portionSize;
     private String[] instructions;
-    private String cuisineId;
+    private Cuisine cuisine;
     private int likes;
     private int dislikes;
     private String[] dietaryRestrictions;
@@ -27,7 +28,7 @@ public class RecipeDTO {
         userWeb.setAuthor(recipe.getAuthor());
         userWeb.setPortionSize(recipe.getPortionSize());
         userWeb.setInstructions(recipe.getInstructions());
-        userWeb.setCuisineId(recipe.getCuisineId());
+        userWeb.setCuisine(recipe.getCuisine());
         userWeb.setDietaryRestrictions(recipe.getDietaryRestrictions());
         userWeb.setDateCreated(recipe.getDateCreated());
         return userWeb;
@@ -73,12 +74,12 @@ public class RecipeDTO {
         this.instructions = instructions;
     }
 
-    public String getCuisineId() {
-        return cuisineId;
+    public Cuisine getcuisine() {
+        return cuisine;
     }
 
-    public void setCuisineId(String cuisineId) {
-        this.cuisineId = cuisineId;
+    public void setCuisine(Cuisine cuisine) {
+        this.cuisine = cuisine;
     }
 
     public int getLikes() {
@@ -120,7 +121,7 @@ public class RecipeDTO {
                 .author(author)
                 .portionSize(portionSize)
                 .instructions(instructions)
-                .cuisineId(cuisineId)
+                .cuisine(cuisine)
                 .dietaryRestrictions(dietaryRestrictions)
                 .dateCreated(dateCreated)
                 .build();

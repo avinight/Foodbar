@@ -28,8 +28,7 @@ public class UserExample {
 
         // Review Setup
 //        var createReview = config.createReview();
-        LocalDate localDate = LocalDate.now();
-        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        LocalDate date = LocalDate.now();
 
         var user1 = recipe.foodbar.entities.UserExample.builder()
                 .email("john.doe@gmail.com")
@@ -71,7 +70,7 @@ public class UserExample {
 
         var recipeToSave1 = recipe.foodbar.entities.Recipe.builder()
                 .author(user1)
-                .cuisineId(italianCusine.getId())
+                .cuisine(italianCusine)
                 .title("Ravioli di Zucca")
                 .dateCreated(date)
                 .portionSize(4)
@@ -80,7 +79,7 @@ public class UserExample {
 
         var recipeToSave2 = recipe.foodbar.entities.Recipe.builder()
                 .author(user1)
-                .cuisineId(italianCusine.getId())
+                .cuisine(italianCusine)
                 .title("Italian Roast Beef")
                 .dateCreated(date)
                 .portionSize(4)
@@ -117,8 +116,8 @@ public class UserExample {
         var cuisine = createCusine.create(italianCusine);
 
         // Create a recipe
-        var recipe1 = createRecipe.create(recipeToSave1);
-        var recipe2 = createRecipe.create(recipeToSave2);
+//        var recipe1 = createRecipe.create(recipeToSave1);
+//        var recipe2 = createRecipe.create(recipeToSave2);
 
         // Create a review
 //        createRecipe
