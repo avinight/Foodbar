@@ -4,8 +4,10 @@ import recipe.foodbar.config.ManualConfig;
 import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class UserExample {
     public static void main(String[] args) throws RecipeAlreadyExistsException {
@@ -26,6 +28,8 @@ public class UserExample {
 
         // Review Setup
 //        var createReview = config.createReview();
+        LocalDate localDate = LocalDate.now();
+        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
         var user1 = recipe.foodbar.entities.UserExample.builder()
                 .email("john.doe@gmail.com")
@@ -69,7 +73,7 @@ public class UserExample {
                 .author(user1)
                 .cuisineId(italianCusine.getId())
                 .title("Ravioli di Zucca")
-                .dateCreated(LocalDate.now())
+                .dateCreated(date)
                 .portionSize(4)
                 .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
                 .build();
@@ -78,7 +82,7 @@ public class UserExample {
                 .author(user1)
                 .cuisineId(italianCusine.getId())
                 .title("Italian Roast Beef")
-                .dateCreated(LocalDate.now())
+                .dateCreated(date)
                 .portionSize(4)
                 .ingredients(new ArrayList<>(Arrays.asList(roastBeef, rosemary)))
                 .dietaryRestrictions(new String[]{

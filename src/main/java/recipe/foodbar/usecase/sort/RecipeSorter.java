@@ -1,16 +1,17 @@
 package recipe.foodbar.usecase.sort;
 
-import java.util.ArrayList;
+import recipe.foodbar.entities.Recipe;
+
 import java.util.List;
 
 public class RecipeSorter implements Sorter{
-    private Sorting<Object> comparator = null;
+    private final AbstractComparator comparator;
 
-    public RecipeSorter(List<Object> array, Sorting<Object> comparator) {
+    public RecipeSorter(AbstractComparator comparator) {
         this.comparator = comparator;
     }
 
-    public <T> void sortBy(List<Object> array) {
+    public <T> void sortBy(List<Recipe> array) {
         array.sort(this.comparator);
     }
 }

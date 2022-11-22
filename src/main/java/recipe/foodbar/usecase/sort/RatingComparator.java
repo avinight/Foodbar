@@ -2,7 +2,7 @@ package recipe.foodbar.usecase.sort;
 
 import recipe.foodbar.entities.Recipe;
 
-public class RatingComparator implements Sorting<Recipe>{
+public class RatingComparator extends AbstractComparator {
 
     /**
      * Compares its two arguments for order.  Returns a negative integer,
