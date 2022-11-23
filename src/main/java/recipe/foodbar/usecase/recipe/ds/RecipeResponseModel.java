@@ -1,21 +1,15 @@
-package recipe.foodbar.usecase.recipe;
+package recipe.foodbar.usecase.recipe.ds;
 
+/**
+ * The output data for recipes.
+ */
 public class RecipeResponseModel {
-    public enum RecipeDataType {
-        ID,
-        TITLE,
-        AUTHOR,
-        PORTIONSIZE,
-        INSTRUCTIONS,
-        CUISINE,
-        DIETARYRESTRICTIONS,
-        DATECREATED,
-        INGREDIENTS,
-        REVIEWS
+    public static String getRecipeResponseText(ResponseDataType type) {
+        return switch (type) {
+            case EDIT -> "Recipe has been edited successfully.";
+        };
     }
-    public enum ResponseDataType {
-        EDIT
-    }
+
     public String getRecipeDataText(RecipeDataType type) {
         return switch (type) {
             case ID -> "Id: ";
@@ -31,9 +25,20 @@ public class RecipeResponseModel {
         };
     }
 
-    public static String getRecipeResponseText(ResponseDataType type){
-        return switch (type) {
-            case EDIT -> "Recipe has been edited successfully.";
-        };
+    public enum RecipeDataType {
+        ID,
+        TITLE,
+        AUTHOR,
+        PORTIONSIZE,
+        INSTRUCTIONS,
+        CUISINE,
+        DIETARYRESTRICTIONS,
+        DATECREATED,
+        INGREDIENTS,
+        REVIEWS
+    }
+
+    public enum ResponseDataType {
+        EDIT
     }
 }

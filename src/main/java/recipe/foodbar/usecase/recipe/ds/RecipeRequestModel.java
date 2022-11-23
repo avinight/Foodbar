@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.recipe;
+package recipe.foodbar.usecase.recipe.ds;
 
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;

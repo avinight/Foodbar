@@ -1,25 +1,22 @@
-package recipe.foodbar.usecase.recipe;
+package recipe.foodbar.usecase.recipe.manager;
 
 import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
+import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
 import recipe.foodbar.usecase.user_example.port.IdGenerator;
 
-public class CreateRecipe {
+public class UpdateRecipe {
     private final RecipeRepository repository;
     private final IdGenerator idGenerator;
 
-    public CreateRecipe(final RecipeRepository repository, final IdGenerator idGenerator) {
+    public UpdateRecipe(final RecipeRepository repository, final IdGenerator idGenerator) {
         this.repository = repository;
         this.idGenerator = idGenerator;
     }
 
-    public Recipe create(final Recipe recipe) throws RecipeAlreadyExistsException {
+    public Recipe update(final Recipe recipe) throws RecipeValidationException {
         RecipeValidator.validateCreateRecipe(recipe);
-        if (repository.findById(recipe.getId()).isPresent()) {
-            throw new RecipeAlreadyExistsException("Recipe already exists");
-        }
         Recipe recipeToSave = Recipe.builder()
                 .id(idGenerator.generate())
                 .title(recipe.getTitle())
@@ -29,8 +26,9 @@ public class CreateRecipe {
                 .portionSize(recipe.getPortionSize())
                 .dietaryRestrictions(recipe.getDietaryRestrictions())
                 .dateCreated(recipe.getDateCreated())
+                .ingredients(recipe.getIngredients())
+                .review(recipe.getReviews())
                 .build();
-
 
         return repository.create(recipeToSave);
     }

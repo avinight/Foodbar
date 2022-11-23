@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-
+/**
+ * The recipe class.
+ */
 public class Recipe {
     private final String id;
     private final String title;
