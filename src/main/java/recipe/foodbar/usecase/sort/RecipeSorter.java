@@ -5,13 +5,13 @@ import recipe.foodbar.entities.Recipe;
 import java.util.List;
 
 public class RecipeSorter implements Sorter{
-    private final AbstractComparator comparator;
-
-    public RecipeSorter(AbstractComparator comparator) {
-        this.comparator = comparator;
+    private final List<Recipe> array;
+    /* Depends on DAI */
+    public RecipeSorter(List<Recipe> array) {
+        this.array = array;
     }
 
-    public <T> void sortBy(List<Recipe> array) {
-        array.sort(this.comparator);
+    public <T> void sortBy(AbstractComparator comparator) {
+        this.array.sort(comparator);
     }
 }

@@ -13,5 +13,5 @@ public interface RecipeRepository {
 
     ArrayList<Recipe> getByCuisine(Cuisine cuisine);
 
-    Optional<Recipe> findById(final String id);
+    Recipe findById(final String id);
 }

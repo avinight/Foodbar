@@ -2,6 +2,10 @@ package recipe.foodbar.usecase.sort;
 
 import recipe.foodbar.entities.Recipe;
 
+/**
+ * This comparator class is responsible for comparing two recipes and returning an ordering based on rating
+ * (used to reorder by rating)
+ */
 public class RatingComparator extends AbstractComparator {
 
     /**
@@ -20,6 +24,9 @@ public class RatingComparator extends AbstractComparator {
      */
     @Override
     public int compare(Recipe r1, Recipe r2) {
+        /*
+        Comparable recipe?
+         */
         return r1.getRating() - r2.getRating();
     }
 }

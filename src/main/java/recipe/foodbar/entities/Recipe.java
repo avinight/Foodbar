@@ -20,7 +20,16 @@ public class Recipe {
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
+    private Recipe(String id,
+                   String title,
+                   final UserExample author,
+                   float portionSize,
+                   String[] instructions,
+                   String cuisine,
+                   String[] dietaryRestrictions,
+                   final Date dateCreated,
+                   ArrayList<Ingredient> ingredients,
+                   ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -203,7 +212,17 @@ public class Recipe {
         }
 
         public Recipe build() {
-            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated, ingredients, reviews);
+            return new Recipe(id,
+                    title,
+                    author,
+                    portionSize,
+                    instructions,
+                    cuisineId,
+                    dietaryRestrictions,
+                    dateCreated,
+                    ingredients,
+                    reviews
+            );
         }
     }
 }
