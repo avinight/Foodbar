@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.sort;
+package recipe.foodbar.usecase.recipe.sort;
 
 import recipe.foodbar.entities.Recipe;
 
