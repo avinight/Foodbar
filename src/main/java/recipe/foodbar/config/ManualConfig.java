@@ -4,7 +4,7 @@ import recipe.foodbar.encoder.sha256.Sha256PasswordEncoder;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.simpleDB.InMemoryCuisineRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryRecipeRepository;
-import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
+import recipe.foodbar.repository.simpleDB.InMemoryUserExampleRepository;
 import recipe.foodbar.usecase.cuisine.CreateCuisine;
 import recipe.foodbar.usecase.cuisine.port.CuisineRepository;
 import recipe.foodbar.usecase.recipe.CreateRecipe;
@@ -20,7 +20,7 @@ import recipe.foodbar.usecase.user_example.port.UserRepository;
 
 
 public class ManualConfig {
-    private final UserRepository userRepository = new InMemoryUserRepository();
+    private final UserRepository userRepository = new InMemoryUserExampleRepository();
     private final CuisineRepository cuisineRepository = new InMemoryCuisineRepository();
     private final RecipeRepository recipeRepository = new InMemoryRecipeRepository();
     private final IdGenerator idGenerator = new JugIdGenerator();
