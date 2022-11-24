@@ -21,7 +21,7 @@ public class CreateReview {
 
     public Recipe createReview(Review review) {
         ReviewValidator.validateCreateReview(review);
-        if (review.getText().length() > Review.MAX_LENGTH) {
+        if (review.getText().length() > review.getMaxLength()) {
             throw new CharLimitException("Exceeded the maximum character limit");
         }
         Review reviewToSave = Review.builder()

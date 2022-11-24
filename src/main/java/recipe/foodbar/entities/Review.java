@@ -3,12 +3,12 @@ package recipe.foodbar.entities;
 public class Review {
     private final String id;
     private final String recipeId;
-    public static final int MAX_LENGTH = 300;
+    private static final int MAX_LENGTH = 300;
     private final String title;
     private final String text;
-    private final UserExample author;
+    private final User author;
 
-    private Review(String id, String recipeId, String title, String text, UserExample author) {
+    private Review(String id, String recipeId, String title, String text, User author) {
         this.id = id;
         this.recipeId = recipeId;
         this.title = title;
@@ -24,7 +24,7 @@ public class Review {
         return id;
     }
 
-    public String getRecipeIdId() {
+    public String getRecipeId() {
         return id;
     }
 
@@ -36,9 +36,11 @@ public class Review {
         return text;
     }
 
-    public UserExample getAuthor() {
+    public User getAuthor() {
         return author;
     }
+
+    public int getMaxLength() { return MAX_LENGTH; }
 
     @Override
     public String toString() {
@@ -51,7 +53,7 @@ public class Review {
         private String recipeId;
         private String title;
         private String text;
-        private UserExample author;
+        private User author;
 
         ReviewBuilder() {
         }
@@ -76,7 +78,7 @@ public class Review {
             return this;
         }
 
-        public ReviewBuilder author(UserExample author) {
+        public ReviewBuilder author(User author) {
             this.author = author;
             return this;
         }
