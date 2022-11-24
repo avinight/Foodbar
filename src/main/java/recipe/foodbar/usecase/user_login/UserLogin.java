@@ -34,11 +34,11 @@ public class UserLogin implements UserLoginInputBoundary {
         UserLoginValidator userValidator = new UserLoginValidator(userRepo);
 
         if ((userValidator.fullEntries(username, password)) && (userValidator.validateExist(username))
-        && userRepo.findByUsername(username).isPresent()){
+        && userRepo.getByUsername(username).isPresent()){
 
 
             String token = this.generator.generate();
-            loginRepo.add(userRepo.findByUsername(username).get(), token);
+            loginRepo.add(userRepo.getByUsername(username).get(), token);
 
             return token;
 
