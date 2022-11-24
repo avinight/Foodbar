@@ -56,6 +56,9 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public boolean existsByUsername(String username) {
+        if (collection.countDocuments(eq("username", username)) > 0) {
+            return true;
+        }
         return false;
     }
 }

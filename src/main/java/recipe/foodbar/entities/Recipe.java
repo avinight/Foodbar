@@ -2,36 +2,37 @@ package recipe.foodbar.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Recipe {
 
     private final String id;
     private final String title;
-    private final UserExample author;
+    private final User author;
     private final String[] instructions;
     private final Cuisine cuisine;
     private final String[] dietaryRestrictions;
-    private final LocalDate dateCreated;
+    private final Date dateCreated;
     private float portionSize;
     private int likes;
     private int dislikes;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, Cuisine cuisine, String[] dietaryRestrictions, final LocalDate dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
+    public Recipe(String id, String title, User author, String[] instructions, Cuisine cuisine, String[] dietaryRestrictions, Date dateCreated, float portionSize, int likes, int dislikes, ArrayList<Review> reviews, ArrayList<Ingredient> ingredients) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
-        this.ingredients = ingredients;
-        this.likes = 0;
-        this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
-        this.reviews = new ArrayList<>();
+        this.portionSize = portionSize;
+        this.likes = likes;
+        this.dislikes = dislikes;
+        this.reviews = reviews;
+        this.ingredients = ingredients;
     }
 
     public static RecipeBuilder builder() {
@@ -46,7 +47,7 @@ public class Recipe {
         return title;
     }
 
-    public UserExample getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
@@ -94,7 +95,7 @@ public class Recipe {
         return dietaryRestrictions;
     }
 
-    public LocalDate getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 
@@ -137,14 +138,14 @@ public class Recipe {
 
         private String id;
         private String title;
-        private UserExample author;
+        private User author;
         private float portionSize;
         private String[] instructions;
         private Cuisine cuisine;
         private int likes;
         private int dislikes;
         private String[] dietaryRestrictions;
-        private LocalDate dateCreated;
+        private Date dateCreated;
         private ArrayList<Ingredient> ingredients;
         private ArrayList<Review> reviews;
 
@@ -161,7 +162,7 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder author(final UserExample author) {
+        public RecipeBuilder author(final User author) {
             this.author = author;
             return this;
         }
@@ -186,7 +187,7 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder dateCreated(final LocalDate dateCreated) {
+        public RecipeBuilder dateCreated(final Date dateCreated) {
             this.dateCreated = dateCreated;
             return this;
         }
@@ -202,7 +203,7 @@ public class Recipe {
         }
 
         public Recipe build() {
-            return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews);
+            return new Recipe(id, title, author, instructions, cuisine, dietaryRestrictions, dateCreated, portionSize, likes, dislikes, reviews, ingredients);
         }
     }
 }

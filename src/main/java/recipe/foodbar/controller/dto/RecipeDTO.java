@@ -3,21 +3,21 @@ package recipe.foodbar.controller.dto;
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.UserExample;
+import recipe.foodbar.entities.User;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class RecipeDTO {
     private String id;
     private String title;
-    private UserExample author;
+    private User author;
     private float portionSize;
     private String[] instructions;
     private Cuisine cuisine;
     private int likes;
     private int dislikes;
     private String[] dietaryRestrictions;
-    private LocalDate dateCreated;
+    private Date dateCreated;
     private Review[] reviews;
 //    private Ingredient[] ingredients
 
@@ -50,11 +50,11 @@ public class RecipeDTO {
         this.title = title;
     }
 
-    public UserExample getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserExample author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 
@@ -106,11 +106,11 @@ public class RecipeDTO {
         this.dietaryRestrictions = dietaryRestrictions;
     }
 
-    public LocalDate getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(LocalDate dateCreated) {
+    public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
 
