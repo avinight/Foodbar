@@ -3,7 +3,6 @@ The in memory repository which implements the UserRepositoryInterface
  */
 package recipe.foodbar.repository;
 
-import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
@@ -12,7 +11,6 @@ import java.util.*;
 public class InMemoryUserRepository implements UserRepositoryInterface {
 
     private final Map<String, User> inMemoryDb = new HashMap<>();
-//    private final
 
 
     /**
@@ -22,7 +20,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      */
     @Override
     public void create(final User user) {
-        inMemoryDb.put(user.getId(), user);
+        inMemoryDb.put(user.getUsername(), user);
     }
 
     /**
@@ -33,8 +31,20 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      * user object if no user was found.
      */
     @Override
-    public Optional<User> findByUsername(final String id) {
+    public Optional<User> findById(final String id) {
         return Optional.ofNullable(inMemoryDb.get(id));
+    }
+
+
+    /**
+     * Method for getting the password of the matchingusername in repository
+     *
+     * @param username the String representation of the username to be checked in the repository
+     * @return the password of the matching user object
+     */
+    @Override
+    public String getPassword(final String username){
+        return inMemoryDb.get(username).getPassword();
     }
 
     /**
@@ -48,17 +58,6 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
         return inMemoryDb.values().stream()
                 .filter(user -> user.getEmail().equals(email))
                 .findAny();
-    }
-
-    /**
-     * Abstract method for finding a user by their ID in the repository
-     *
-     * @param ID the String representation of the username
-     * @return to be implemented by InMemoryUserRepository
-     */
-    @Override
-    public Optional<User> findByID(String ID) {
-        return Optional.empty();
     }
 
 
@@ -91,13 +90,21 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
         return false;
     }
 
+    /**
+     * Method for returning a user if they exist by their username
+     *
+     * @param username the String representation of the username
+     * @return user object if it exists, empty user otherwise
+     */
     @Override
-    public void saveRecipe(Recipe recipe) {
-
+    public Optional<User> getByUsername(String username) {
+        Collection<User> userCollection = inMemoryDb.values();
+        for (User user : userCollection) {
+            if (user.getUsername().equals(username)) {
+                return Optional.of(user);
+            }
+        }
+        return Optional.empty();
     }
 
-    @Override
-    public void unsaveRecipe(Recipe recipe) {
-
-    }
 }

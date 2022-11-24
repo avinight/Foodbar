@@ -23,7 +23,7 @@ public class InMemoryRecipeRepository implements RecipeRepository {
     public ArrayList<Recipe> getByCuisine(Cuisine cuisine) {
         ArrayList<Recipe> filteredRecipes = new ArrayList<Recipe>();
         for (Recipe recipe : this.inMemoryDb.values()) {
-            if (recipe.getCuisineId().equals(cuisine.getId())) {
+            if (recipe.getCuisine().equals(cuisine.getId())) {
                 filteredRecipes.add(recipe);
             }
         }

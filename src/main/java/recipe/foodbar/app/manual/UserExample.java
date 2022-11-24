@@ -4,8 +4,10 @@ import recipe.foodbar.config.ManualConfig;
 import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class UserExample {
     public static void main(String[] args) throws RecipeAlreadyExistsException {
@@ -26,6 +28,7 @@ public class UserExample {
 
         // Review Setup
 //        var createReview = config.createReview();
+        LocalDate date = LocalDate.now();
 
         var user1 = recipe.foodbar.entities.UserExample.builder()
                 .email("john.doe@gmail.com")
@@ -67,18 +70,18 @@ public class UserExample {
 
         var recipeToSave1 = recipe.foodbar.entities.Recipe.builder()
                 .author(user1)
-                .cuisineId(italianCusine.getId())
+                .cuisine(italianCusine)
                 .title("Ravioli di Zucca")
-                .dateCreated(LocalDate.now())
+                .dateCreated(date)
                 .portionSize(4)
                 .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
                 .build();
 
         var recipeToSave2 = recipe.foodbar.entities.Recipe.builder()
                 .author(user1)
-                .cuisineId(italianCusine.getId())
+                .cuisine(italianCusine)
                 .title("Italian Roast Beef")
-                .dateCreated(LocalDate.now())
+                .dateCreated(date)
                 .portionSize(4)
                 .ingredients(new ArrayList<>(Arrays.asList(roastBeef, rosemary)))
                 .dietaryRestrictions(new String[]{
@@ -113,8 +116,8 @@ public class UserExample {
         var cuisine = createCusine.create(italianCusine);
 
         // Create a recipe
-        var recipe1 = createRecipe.create(recipeToSave1);
-        var recipe2 = createRecipe.create(recipeToSave2);
+//        var recipe1 = createRecipe.create(recipeToSave1);
+//        var recipe2 = createRecipe.create(recipeToSave2);
 
         // Create a review
 //        createRecipe

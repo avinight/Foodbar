@@ -2,7 +2,6 @@ package recipe.foodbar.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class Recipe {
@@ -11,22 +10,22 @@ public class Recipe {
     private final String title;
     private final UserExample author;
     private final String[] instructions;
-    private final String cuisineId;
+    private final Cuisine cuisine;
     private final String[] dietaryRestrictions;
-    private final Date dateCreated;
+    private final LocalDate dateCreated;
     private float portionSize;
     private int likes;
     private int dislikes;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, String cuisine, String[] dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
+    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions, Cuisine cuisine, String[] dietaryRestrictions, final LocalDate dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
         this.instructions = instructions;
-        this.cuisineId = cuisine;
+        this.cuisine = cuisine;
         this.ingredients = ingredients;
         this.likes = 0;
         this.dislikes = 0;
@@ -59,8 +58,8 @@ public class Recipe {
         return instructions;
     }
 
-    public String getCuisineId() {
-        return cuisineId;
+    public Cuisine getCuisine() {
+        return cuisine;
     }
 
     public void like() {
@@ -95,7 +94,7 @@ public class Recipe {
         return dietaryRestrictions;
     }
 
-    public Date getDateCreated() {
+    public LocalDate getDateCreated() {
         return dateCreated;
     }
 
@@ -109,7 +108,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisineId + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
+        return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisine + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
     }
 
     /**
@@ -141,11 +140,11 @@ public class Recipe {
         private UserExample author;
         private float portionSize;
         private String[] instructions;
-        private String cuisineId;
+        private Cuisine cuisine;
         private int likes;
         private int dislikes;
         private String[] dietaryRestrictions;
-        private Date dateCreated;
+        private LocalDate dateCreated;
         private ArrayList<Ingredient> ingredients;
         private ArrayList<Review> reviews;
 
@@ -177,8 +176,8 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder cuisineId(final String cuisineId) {
-            this.cuisineId = cuisineId;
+        public RecipeBuilder cuisine(final Cuisine cusine) {
+            this.cuisine = cusine;
             return this;
         }
 
@@ -203,7 +202,7 @@ public class Recipe {
         }
 
         public Recipe build() {
-            return new Recipe(id, title, author, portionSize, instructions, cuisineId, dietaryRestrictions, dateCreated, ingredients, reviews);
+            return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews);
         }
     }
 }

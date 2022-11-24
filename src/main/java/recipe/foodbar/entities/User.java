@@ -27,6 +27,7 @@ public class User {
         this.savedRecipes = new ArrayList<Recipe>();
     }
 
+
     public String getId() {
         return id;
     }
