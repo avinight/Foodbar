@@ -9,9 +9,13 @@ public interface LoginRepositoryInterface {
 
     void add(final User user, final String cookie);
 
+
     Optional<User> findByCookie(final String cookie);
 
     ArrayList<User> findAllActive();
 
 
+    Optional<User> findByUsername(String username);
+
+    void remove(String cookie);
 }
