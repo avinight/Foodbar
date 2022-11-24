@@ -29,7 +29,7 @@ public class UserFactory {
      * @param email    String representation for the email
      */
     public void createAccount(String id, String username, String password, String first, String last, String email) {
-        User user = new User(id, username, password, first, email, last);
+        User user = new User(id, username, password, first, last, email);
         repo.create(user);
         //code to add the user to the repository
         //
