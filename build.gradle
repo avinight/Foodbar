@@ -16,9 +16,11 @@ dependencies {
             'commons-codec:commons-codec:1.15',
             'org.jdbi:jdbi3-core:3.34.0',
             'org.apache.commons:commons-lang3:3.12.0',
-            'com.h2database:h2:2.1.214'
+            'com.h2database:h2:2.1.214',
+            'io.javalin:javalin:5.2.0',
+            'org.slf4j:slf4j-simple:2.0.4'
     )
-    implementation 'junit:junit:4.13.1'
+    implementation 'junit:junit:4.13.2'
 }
 
 application {
