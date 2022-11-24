@@ -4,6 +4,7 @@ import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe.Recipe;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public interface RecipeRepository {
 
@@ -15,5 +16,5 @@ public interface RecipeRepository {
 
     ArrayList<Recipe> getByCuisine(Cuisine cuisine);
 
-    Recipe findById(final String id);
+    Optional<Recipe> findById(final String id);
 }

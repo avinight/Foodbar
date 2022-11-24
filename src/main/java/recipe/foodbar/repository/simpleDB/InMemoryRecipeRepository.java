@@ -13,8 +13,9 @@ public class InMemoryRecipeRepository implements RecipeRepository {
 
     private final Map<String, Recipe> inMemoryDb = new HashMap<>();
 
+    @Override
     public ArrayList<Recipe> getAllRecipes() {
-        return new ArrayList<Recipe>(this.inMemoryDb.values());
+        return new ArrayList<>(this.inMemoryDb.values());
     }
 
     @Override
