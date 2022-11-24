@@ -22,7 +22,7 @@ public class CreateCuisine {
         }
         Cuisine cuisineToSave = Cuisine.builder()
                 .name(cuisine.getName())
-                .id(cuisine.getId())
+                .id(idGenerator.generate())
                 .recipes()
                 .build();
 

@@ -21,6 +21,6 @@ public class CuisineComparator extends AbstractComparator {
      */
     @Override
     public int compare(Recipe r1, Recipe r2) {
-        return String.CASE_INSENSITIVE_ORDER.compare(r1.getCuisineId(), r2.getCuisineId());
+        return String.CASE_INSENSITIVE_ORDER.compare(r1.getCuisine().getName(), r2.getCuisine().getName());
     }
 }
