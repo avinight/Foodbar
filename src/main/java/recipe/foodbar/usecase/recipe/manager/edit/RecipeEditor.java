@@ -1,6 +1,10 @@
 package recipe.foodbar.usecase.recipe.manager.edit;
 
+import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
+import recipe.foodbar.repository.mongo.mapper.RecipeMapper;
+import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 import recipe.foodbar.usecase.recipe.ds.RecipeResponseModel;
 import recipe.foodbar.usecase.recipe.manager.edit.IRecipeEditor;
@@ -30,18 +34,39 @@ public class RecipeEditor implements IRecipeEditor {
     /**
      * Edits the portionSize of a Recipe object.
      *
-     * @param rrm The request model.
+     * @param rm The request model.
      */
-    public void editPortionSize(RecipeRequestModel rrm) {
+    public void editPortionSize(RecipeModel rm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
-        recipeRepo.findById(rrm.getId()).get().modifyIngredients((int) rrm.getPortionSize());
+        recipeRepo.findById(rm.get_id()).get().modifyIngredients((int) rm.getPortionSize());
 
         /* Create a response model and display */
         rp.displayEdited(RecipeResponseModel.ResponseDataType.EDIT);
     }
-    /
 
-    public void editTitle(RecipeRequestModel rrm) {
-        recipeRepo.findById(rrm.getId()).get().setTitle();
+    public void editTitle(RecipeModel rm) {
+        recipeRepo.findById(rm.get_id()).get().setTitle(rm.getTitle());
+    }
+
+    public void editCuisine(RecipeModel rm) {
+        recipeRepo.findById(rm.get_id()).get().setCuisine(rm.getCuisine());
+    }
+
+    public void editDietaryRestrictions(RecipeModel rm) {
+        recipeRepo.findById(rm.get_id()).get().setDietaryRestrictions(rm.getDietaryRestrictions());
+    }
+
+    public void editIngredients(RecipeModel rm) {
+        Recipe rr = recipeRepo.findById(rm.get_id()).get();
+        for (Ingredient ingredient : rm.getIngredients()){
+            if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
+                rr.addIngredient(ingredient);
+            } else-if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
+                rr.removeIngredient(ingredient);
+            } else {
+
+            }
+
+        }
     }
 }

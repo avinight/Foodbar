@@ -19,8 +19,6 @@ public class RecipeModel {
     private final String[] dietaryRestrictions;
     private final Date dateCreated;
     private final float portionSize;
-    private final int likes;
-    private final int dislikes;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
 }

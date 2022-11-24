@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Recipe {
     private final String id;
-    private final Cuisine cuisine;
+    private Cuisine cuisine;
     private final Date dateCreated;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
@@ -54,7 +54,7 @@ public class Recipe {
         this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
-        this.reviews = new ArrayList<>();
+        this.reviews = reviews;
     }
 
     public static RecipeBuilder builder() {
@@ -140,6 +140,7 @@ public class Recipe {
         return cuisine;
     }
 
+    public void setCuisine(Cuisine cuisine) { this.cuisine = cuisine; }
     /**
      * Returns the rating of the recipe.
      *
