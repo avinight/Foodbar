@@ -27,8 +27,9 @@ public class User {
         UserInputData user = accountController.create(username, password, passwordShadow, firstName, lastName, email);
 
 
+
         System.out.println(accountController.data.create(user));
-        System.out.println(repo.findByUsername("Arthur123"));
+        System.out.println(repo.getByUsername("Arthur123"));
         System.out.println(repo.existsByUsername("Arthur123"));
 
         System.out.println("**********************************************************************************");
@@ -46,7 +47,7 @@ public class User {
 
 
         System.out.println(accountController.data.create(user2));
-        System.out.println(repo.findByUsername("Arthur2"));
+        System.out.println(repo.getByUsername("Arthur2"));
         System.out.println(repo.existsByUsername("Arthur2"));
 
         System.out.println("**********************************************************************************");
@@ -70,7 +71,7 @@ public class User {
         //accountController.data.create(user);
 
         System.out.println(accountController.data.create(user3));
-        System.out.println(repo.findByUsername("Arthur3"));
+        System.out.println(repo.getByUsername("Arthur3"));
         System.out.println(repo.findAllUsers());
     }
 }

@@ -4,6 +4,7 @@ Class for the input data passed through to the usecase interactor of usercreatio
 package recipe.foodbar.usecase.user;
 
 public class UserInputData {
+
     private final String username;
     private final String password;
     private final String passwordShadow;
