@@ -4,12 +4,12 @@ import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
-public class RecipeRecipeSorter extends Sorter implements IRecipeSorter {
+public class RecipeSorter extends Sorter implements IRecipeSorter {
 
     private final RecipeRepository recipeRepo;
     private final RecipePresenter rp;
     /* Depends on DAI */
-    public RecipeRecipeSorter(RecipeRepository recipeRepo, RecipePresenter rp) {
+    public RecipeSorter(RecipeRepository recipeRepo, RecipePresenter rp) {
         this.recipeRepo = recipeRepo;
         this.rp = rp;
     }

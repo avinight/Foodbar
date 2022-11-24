@@ -34,9 +34,14 @@ public class RecipeEditor implements IRecipeEditor {
      */
     public void editPortionSize(RecipeRequestModel rrm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
-        recipeRepo.findById(rrm.getId()).modifyIngredients((int) rrm.getPortionSize());
+        recipeRepo.findById(rrm.getId()).get().modifyIngredients((int) rrm.getPortionSize());
 
         /* Create a response model and display */
         rp.displayEdited(RecipeResponseModel.ResponseDataType.EDIT);
+    }
+    /
+
+    public void editTitle(RecipeRequestModel rrm) {
+        recipeRepo.findById(rrm.getId()).get().setTitle();
     }
 }

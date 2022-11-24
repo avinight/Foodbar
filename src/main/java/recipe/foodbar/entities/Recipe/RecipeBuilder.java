@@ -19,52 +19,52 @@ public class RecipeBuilder {
     private ArrayList<Ingredient> ingredients;
     private ArrayList<Review> reviews;
 
-    public RecipeBuilder setId(String id) {
+    public RecipeBuilder id(String id) {
         this.id = id;
         return this;
     }
 
-    public RecipeBuilder setTitle(String title) {
+    public RecipeBuilder title(String title) {
         this.title = title;
         return this;
     }
 
-    public RecipeBuilder setAuthor(UserExample author) {
+    public RecipeBuilder author(UserExample author) {
         this.author = author;
         return this;
     }
 
-    public RecipeBuilder setPortionSize(float portionSize) {
+    public RecipeBuilder portionSize(float portionSize) {
         this.portionSize = portionSize;
         return this;
     }
 
-    public RecipeBuilder setInstructions(String[] instructions) {
+    public RecipeBuilder instructions(String[] instructions) {
         this.instructions = instructions;
         return this;
     }
 
-    public RecipeBuilder setCuisine(String cuisine) {
+    public RecipeBuilder cuisineId(String cuisine) {
         this.cuisine = cuisine;
         return this;
     }
 
-    public RecipeBuilder setDietaryRestrictions(String[] dietaryRestrictions) {
+    public RecipeBuilder dietaryRestrictions(String[] dietaryRestrictions) {
         this.dietaryRestrictions = dietaryRestrictions;
         return this;
     }
 
-    public RecipeBuilder setDateCreated(Date dateCreated) {
+    public RecipeBuilder dateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
         return this;
     }
 
-    public RecipeBuilder setIngredients(ArrayList<Ingredient> ingredients) {
+    public RecipeBuilder ingredients(ArrayList<Ingredient> ingredients) {
         this.ingredients = ingredients;
         return this;
     }
 
-    public RecipeBuilder setReviews(ArrayList<Review> reviews) {
+    public RecipeBuilder reviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
         return this;
     }

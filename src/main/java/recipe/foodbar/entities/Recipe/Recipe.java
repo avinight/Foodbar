@@ -12,32 +12,32 @@ import java.util.Date;
  */
 public class Recipe {
     private final String id;
-    private final String title;
-    private final UserExample author;
-    private final String[] instructions;
     private final String cuisineId;
-    private final String[] dietaryRestrictions;
     private final Date dateCreated;
+    private final ArrayList<Review> reviews;
+    private final ArrayList<Ingredient> ingredients;
+    private String title;
+    private UserExample author;
+    private String[] instructions;
+    private String[] dietaryRestrictions;
     private float portionSize;
     private int likes;
     private int dislikes;
-    private final ArrayList<Review> reviews;
-    private final ArrayList<Ingredient> ingredients;
 
     /**
      * Constructs a Recipe with id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated,
      * ingredients, and reviews.
      *
-     * @param id                    The id of the recipe.
-     * @param title                 The title of the recipe.
-     * @param author                The author of the recipe.
-     * @param portionSize           The portion size of the recipe.
-     * @param instructions          The instructions of the recipe.
-     * @param cuisine               The cuisine of the recipe.
-     * @param dietaryRestrictions   The dietary restrictions of the recipe.
-     * @param dateCreated           The date the recipe was created.
-     * @param ingredients           The ingredients of the recipe.
-     * @param reviews               The reviews of the recipe.
+     * @param id                  The id of the recipe.
+     * @param title               The title of the recipe.
+     * @param author              The author of the recipe.
+     * @param portionSize         The portion size of the recipe.
+     * @param instructions        The instructions of the recipe.
+     * @param cuisine             The cuisine of the recipe.
+     * @param dietaryRestrictions The dietary restrictions of the recipe.
+     * @param dateCreated         The date the recipe was created.
+     * @param ingredients         The ingredients of the recipe.
+     * @param reviews             The reviews of the recipe.
      */
     Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions,
            String cuisine, String[] dietaryRestrictions, final Date dateCreated,
@@ -78,6 +78,10 @@ public class Recipe {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     /**
      * Returns the author of the recipe.
      *
@@ -85,6 +89,10 @@ public class Recipe {
      */
     public UserExample getAuthor() {
         return author;
+    }
+
+    public void setAuthor(UserExample ue) {
+        this.author = ue;
     }
 
     /**
@@ -97,12 +105,29 @@ public class Recipe {
     }
 
     /**
+     * Sets the portionSize and
+     * modifies each ingredient based on the portionSize multiplier.
+     *
+     * @param portionSize The portion size of the Recipe.
+     */
+    public void modifyIngredients(int portionSize) {
+        this.portionSize = portionSize;
+        for (Ingredient ingredient : ingredients) {
+            ingredient.setSize(portionSize * ingredient.getSize());
+        }
+    }
+
+    /**
      * Returns the instructions of the recipe.
      *
      * @return the instructions of the recipe.
      */
     public String[] getInstructions() {
         return instructions;
+    }
+
+    public void setInstructions(String[] i) {
+        this.instructions = i;
     }
 
     /**
@@ -114,37 +139,81 @@ public class Recipe {
         return cuisineId;
     }
 
+    /**
+     * Returns the rating of the recipe.
+     *
+     * @return int likes - dislikes
+     */
     public int getRating() {
         return likes - dislikes;
     }
 
+    /**
+     * Returns the likes of the recipe.
+     *
+     * @return int likes
+     */
     public int getLikes() {
         return likes;
     }
 
+    /**
+     * Returns the dislikes of the recipe.
+     *
+     * @return int dislikes
+     */
     public int getDislikes() {
         return dislikes;
     }
 
+    /**
+     * Returns the dietary restrictions of the recipe.
+     *
+     * @return String[]
+     */
     public String[] getDietaryRestrictions() {
         return dietaryRestrictions;
     }
 
+    /**
+     * Sets the dietary restrictions of the recipe.
+     *
+     * @param dr    Dietary Restrictions.
+     */
+    public void setDietaryRestrictions(String[] dr) {
+        this.dietaryRestrictions = dr;
+    }
+
+    /**
+     * Returns the date this recipe was created.
+     *
+     * @return Date
+     */
     public Date getDateCreated() {
         return dateCreated;
     }
 
+    /**
+     * Returns this recipe's ingredients.
+     *
+     * @return ArrayList<Ingredient>
+     */
     public ArrayList<Ingredient> getIngredients() {
         return ingredients;
     }
 
+    /**
+     * Returns this recipe's reviews.
+     *
+     * @return ArrayList<Review>
+     */
     public ArrayList<Review> getReviews() {
         return reviews;
     }
 
+
     /**
      * Adds a like to the recipe.
-     *
      */
     public void like() {
         likes += 1;
@@ -152,7 +221,6 @@ public class Recipe {
 
     /**
      * Unlikes the recipe.
-     *
      */
     public void unlike() {
         likes -= 1;
@@ -172,28 +240,43 @@ public class Recipe {
         dislikes -= 1;
     }
 
-    /**
-     * Sets the portionSize and
-     * modifies each ingredient based on the portionSize multiplier.
-     *
-     * @param portionSize The portion size of the Recipe.
-     */
-    public void modifyIngredients(int portionSize) {
-        this.portionSize = portionSize;
-        for (Ingredient ingredient : ingredients) {
-            ingredient.setSize(portionSize * ingredient.getSize());
-        }
-    }
+
     /**
      * Adds new ingredients to the ingredients ArrayList.
      *
      * @param ingredient An ingredient.
      */
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
+    public boolean addIngredient(Ingredient ingredient) {
+        if (this.ingredients.contains(ingredient)) {
+            return true;
+        } else {
+            this.ingredients.add(ingredient);
+            return false;
+        }
     }
+
+    /**
+     * Removes ingredient from ingredients ArrayList.
+     *
+     * @param ingredient An ingredient.
+     */
+    public boolean removeIngredient(Ingredient ingredient) {
+        if (this.ingredients.contains(ingredient)) {
+            this.ingredients.remove(ingredient);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Return a string representation of this Recipe.
+     *
+     * @return String
+     */
     @Override
     public String toString() {
         return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisineId + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
     }
+
 }

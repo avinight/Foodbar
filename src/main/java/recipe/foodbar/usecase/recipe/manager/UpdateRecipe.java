@@ -18,7 +18,7 @@ public class UpdateRecipe {
     public Recipe update(final Recipe recipe) throws RecipeValidationException {
         RecipeValidator.validateCreateRecipe(recipe);
         Recipe recipeToSave = Recipe.builder()
-                .id(idGenerator.generate())
+                .id(recipe.getId())
                 .title(recipe.getTitle())
                 .author(recipe.getAuthor())
                 .instructions(recipe.getInstructions())
@@ -27,8 +27,8 @@ public class UpdateRecipe {
                 .dietaryRestrictions(recipe.getDietaryRestrictions())
                 .dateCreated(recipe.getDateCreated())
                 .ingredients(recipe.getIngredients())
-                .review(recipe.getReviews())
-                .build();
+                .reviews(recipe.getReviews())
+                .createRecipe();
 
         return repository.create(recipeToSave);
     }
