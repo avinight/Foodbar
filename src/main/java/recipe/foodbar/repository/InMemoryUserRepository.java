@@ -4,6 +4,7 @@ The in memory repository which implements the UserRepositoryInterface
 package recipe.foodbar.repository;
 
 import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.UserExample;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
 import java.util.*;
@@ -33,6 +34,18 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
     @Override
     public Optional<User> findByUsername(final String username) {
         return Optional.ofNullable(inMemoryDb.get(username));
+    }
+
+
+    /**
+     * Method for getting the password of the matchingusername in repository
+     *
+     * @param username the String representation of the username to be checked in the repository
+     * @return the password of the matching user object
+     */
+    @Override
+    public String getPassword(final String username){
+        return inMemoryDb.get(username).getPassword();
     }
 
     /**

@@ -24,7 +24,7 @@ public interface UserRepositoryInterface {
      * @param username the String representation of the username
      * @return to be implemented by classes which implement the interface.
      */
-    Optional<User> findByUsername(String username);
+    Optional <User> findByUsername(String username);
 
     /**
      * Abstract method for finding a user by their email in the repository
@@ -45,8 +45,17 @@ public interface UserRepositoryInterface {
      * Abstract method for finding if a user exists by their username
      *
      * @param username the String representation of the username
-     * @return to be implemented by classes which implement the interface.
+     * @return to be implemented by classes which implement the interface
      */
     boolean existsByUsername(String username);
+
+
+    /**
+     * Abstract method for getting password
+     *
+     * @param username the String representation of the username
+     * @return to be implemented
+     */
+    String getPassword(final String username);
 
 }

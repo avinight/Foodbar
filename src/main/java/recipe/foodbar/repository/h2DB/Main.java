@@ -7,9 +7,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Jdbi jdbi = Jdbi.create("jdbc:h2:mem:test"); // (H2 in-memory database)
 
+        System.out.println("Hello world!");
+
+        Jdbi jdbi = Jdbi.create("jdbc:h2:file:" + System.getProperty("user.dir") +
+                        "/src/main/java/recipe.foodbar/repository/h2DB/database");
+
+        //Jdbi jdbi = Jdbi.create("jdbc:h2:file:src/main/java/recipe.foodbar/repository/h2DB/databse");
+       // Jdbi jdbi = Jdbi.create("jdbc:h2:mem:test"); // (H2 in-memory database)
+
+//        List<UserExample> users = jdbi.withHandle(handle -> {
+//            handle.execute("CREATE TABLE \"user\" (id INTEGER PRIMARY KEY, \"name\" VARCHAR)");
         List<UserExample> users = jdbi.withHandle(handle -> {
             handle.execute("CREATE TABLE \"user\" (id INTEGER PRIMARY KEY, \"name\" VARCHAR)");
 
