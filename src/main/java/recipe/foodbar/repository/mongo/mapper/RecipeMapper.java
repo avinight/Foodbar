@@ -16,7 +16,9 @@ public class RecipeMapper {
                 recipeModelModel.getDietaryRestrictions(),
                 recipeModelModel.getDateCreated(),
                 recipeModelModel.getIngredients(),
-                recipeModelModel.getReviews());
+                recipeModelModel.getReviews(),
+                recipeModelModel.getLikes(),
+                recipeModelModel.getDislikes());
     }
 
     @NonNull
@@ -29,8 +31,6 @@ public class RecipeMapper {
                 recipe.getDietaryRestrictions(),
                 recipe.getDateCreated(),
                 recipe.getPortionSize(),
-                recipe.getLikes(),
-                recipe.getDislikes(),
                 recipe.getReviews(),
                 recipe.getIngredients());
     }

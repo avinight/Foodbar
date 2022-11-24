@@ -54,7 +54,7 @@ public class Recipe {
         this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
-        this.reviews = new ArrayList<>();
+        this.reviews = reviews;
     }
 
     public static RecipeBuilder builder() {

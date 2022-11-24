@@ -1,6 +1,7 @@
 package recipe.foodbar.usecase.cuisine;
 
 import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 import java.util.ArrayList;
