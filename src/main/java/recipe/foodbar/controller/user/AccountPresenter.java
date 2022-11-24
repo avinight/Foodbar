@@ -18,5 +18,4 @@ public class AccountPresenter implements UserCreatorOutputBoundary {
     public String present(String message) {
         return message;
     }
-
 }
