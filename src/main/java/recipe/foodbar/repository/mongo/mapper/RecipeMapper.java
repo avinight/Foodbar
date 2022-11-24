@@ -1,7 +1,7 @@
 package recipe.foodbar.repository.mongo.mapper;
 
 import lombok.NonNull;
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.repository.mongo.model.RecipeModel;
 
 public class RecipeMapper {
@@ -10,15 +10,13 @@ public class RecipeMapper {
         return new Recipe(recipeModelModel.get_id(),
                 recipeModelModel.getTitle(),
                 recipeModelModel.getAuthor(),
+                recipeModelModel.getPortionSize(),
                 recipeModelModel.getInstructions(),
                 recipeModelModel.getCuisine(),
                 recipeModelModel.getDietaryRestrictions(),
                 recipeModelModel.getDateCreated(),
-                recipeModelModel.getPortionSize(),
-                recipeModelModel.getLikes(),
-                recipeModelModel.getDislikes(),
-                recipeModelModel.getReviews(),
-                recipeModelModel.getIngredients());
+                recipeModelModel.getIngredients(),
+                recipeModelModel.getReviews());
     }
 
     @NonNull

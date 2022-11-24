@@ -1,8 +1,9 @@
 package recipe.foodbar.entities.Recipe;
 
+import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.UserExample;
+import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,10 +11,10 @@ import java.util.Date;
 public class RecipeBuilder {
     private String id;
     private String title;
-    private UserExample author;
+    private User author;
     private float portionSize;
     private String[] instructions;
-    private String cuisine;
+    private Cuisine cuisine;
     private String[] dietaryRestrictions;
     private Date dateCreated;
     private ArrayList<Ingredient> ingredients;
@@ -29,7 +30,7 @@ public class RecipeBuilder {
         return this;
     }
 
-    public RecipeBuilder author(UserExample author) {
+    public RecipeBuilder author(User author) {
         this.author = author;
         return this;
     }
@@ -44,7 +45,7 @@ public class RecipeBuilder {
         return this;
     }
 
-    public RecipeBuilder cuisineId(String cuisine) {
+    public RecipeBuilder cuisine(Cuisine cuisine) {
         this.cuisine = cuisine;
         return this;
     }

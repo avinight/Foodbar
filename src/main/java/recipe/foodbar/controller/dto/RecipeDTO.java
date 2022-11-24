@@ -1,7 +1,7 @@
 package recipe.foodbar.controller.dto;
 
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 
@@ -124,6 +124,6 @@ public class RecipeDTO {
                 .cuisine(cuisine)
                 .dietaryRestrictions(dietaryRestrictions)
                 .dateCreated(dateCreated)
-                .build();
+                .createRecipe();
     }
 }

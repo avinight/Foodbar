@@ -1,8 +1,9 @@
 package recipe.foodbar.entities.Recipe;
 
+import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.UserExample;
+import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,12 +13,12 @@ import java.util.Date;
  */
 public class Recipe {
     private final String id;
-    private final String cuisineId;
+    private final Cuisine cuisine;
     private final Date dateCreated;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
     private String title;
-    private UserExample author;
+    private User author;
     private String[] instructions;
     private String[] dietaryRestrictions;
     private float portionSize;
@@ -39,15 +40,15 @@ public class Recipe {
      * @param ingredients         The ingredients of the recipe.
      * @param reviews             The reviews of the recipe.
      */
-    Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions,
-           String cuisine, String[] dietaryRestrictions, final Date dateCreated,
+    public Recipe(String id, String title, final User author, float portionSize, String[] instructions,
+           Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
            ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
         this.instructions = instructions;
-        this.cuisineId = cuisine;
+        this.cuisine = cuisine;
         this.ingredients = ingredients;
         this.likes = 0;
         this.dislikes = 0;
@@ -87,11 +88,11 @@ public class Recipe {
      *
      * @return the author of the recipe.
      */
-    public UserExample getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserExample ue) {
+    public void setAuthor(User ue) {
         this.author = ue;
     }
 
@@ -131,12 +132,12 @@ public class Recipe {
     }
 
     /**
-     * Returns the cuisineId of the recipe.
+     * Returns the cuisine of the recipe.
      *
-     * @return the cuisineId of the recipe.
+     * @return the cuisine of the recipe.
      */
-    public String getCuisineId() {
-        return cuisineId;
+    public Cuisine getCuisine() {
+        return cuisine;
     }
 
     /**
@@ -276,7 +277,7 @@ public class Recipe {
      */
     @Override
     public String toString() {
-        return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisineId + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
+        return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisine + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
     }
 
 }

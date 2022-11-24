@@ -2,7 +2,7 @@ package recipe.foodbar.usecase.recipe.ds;
 
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.UserExample;
+import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class RecipeRequestModel {
     private final String id;
     private final String title;
-    private final UserExample author;
+    private final User author;
     private final String[] instructions;
     private final String cuisineId;
     private final String[] dietaryRestrictions;
@@ -22,7 +22,7 @@ public class RecipeRequestModel {
     private final ArrayList<Ingredient> ingredients;
     public RecipeRequestModel(String id,
                               String title,
-                              final UserExample author,
+                              final User author,
                               float portionSize,
                               String[] instructions,
                               String cuisineId,
@@ -56,7 +56,7 @@ public class RecipeRequestModel {
         return cuisineId;
     }
 
-    public UserExample getAuthor() {
+    public User getAuthor() {
         return author;
     }
 

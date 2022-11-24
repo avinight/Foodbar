@@ -29,7 +29,7 @@ public class CreateRecipe {
                 .portionSize(recipe.getPortionSize())
                 .dietaryRestrictions(recipe.getDietaryRestrictions())
                 .dateCreated(recipe.getDateCreated())
-                .build();
+                .createRecipe();
 
 
         return repository.create(recipeToSave);

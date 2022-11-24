@@ -1,7 +1,5 @@
 package recipe.foodbar.entities;
 
-import recipe.foodbar.entities.Recipe.Recipe;
-
 import java.util.ArrayList;
 
 public class Cuisine {
