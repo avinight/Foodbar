@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.sort;
 
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 
 /**
  * This comparator class is responsible for comparing two recipes and returning an ordering based on rating

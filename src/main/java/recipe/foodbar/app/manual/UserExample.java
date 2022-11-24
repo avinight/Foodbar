@@ -1,6 +1,7 @@
 package recipe.foodbar.app.manual;
 
 import recipe.foodbar.config.ManualConfig;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
 
 import java.time.LocalDate;
@@ -69,7 +70,7 @@ public class UserExample {
                 .size(6)
                 .build();
 
-        var recipeToSave1 = recipe.foodbar.entities.Recipe.builder()
+        var recipeToSave1 = Recipe.builder()
                 .author(user1)
                 .cuisineId(italianCusine.getId())
                 .title("Ravioli di Zucca")
@@ -78,7 +79,7 @@ public class UserExample {
                 .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
                 .build();
 
-        var recipeToSave2 = recipe.foodbar.entities.Recipe.builder()
+        var recipeToSave2 = Recipe.builder()
                 .author(user1)
                 .cuisineId(italianCusine.getId())
                 .title("Italian Roast Beef")

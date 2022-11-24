@@ -1,6 +1,9 @@
-package recipe.foodbar.entities;
+package recipe.foodbar.entities.Recipe;
 
-import java.time.LocalDate;
+import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Review;
+import recipe.foodbar.entities.UserExample;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,9 +39,9 @@ public class Recipe {
      * @param ingredients           The ingredients of the recipe.
      * @param reviews               The reviews of the recipe.
      */
-    private Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions,
-                   String cuisine, String[] dietaryRestrictions, final Date dateCreated,
-                   ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
+    Recipe(String id, String title, final UserExample author, float portionSize, String[] instructions,
+           String cuisine, String[] dietaryRestrictions, final Date dateCreated,
+           ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -181,7 +184,6 @@ public class Recipe {
             ingredient.setSize(portionSize * ingredient.getSize());
         }
     }
-
     /**
      * Adds new ingredients to the ingredients ArrayList.
      *
@@ -193,89 +195,5 @@ public class Recipe {
     @Override
     public String toString() {
         return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisineId + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
-    }
-
-
-    public static class RecipeBuilder {
-
-        private String id;
-        private String title;
-        private UserExample author;
-        private float portionSize;
-        private String[] instructions;
-        private String cuisineId;
-        private int likes;
-        private int dislikes;
-        private String[] dietaryRestrictions;
-        private Date dateCreated;
-        private ArrayList<Ingredient> ingredients;
-        private ArrayList<Review> reviews;
-
-        RecipeBuilder() {
-        }
-
-        public RecipeBuilder id(final String id) {
-            this.id = id;
-            return this;
-        }
-
-        public RecipeBuilder title(final String title) {
-            this.title = title;
-            return this;
-        }
-
-        public RecipeBuilder author(final UserExample author) {
-            this.author = author;
-            return this;
-        }
-
-        public RecipeBuilder portionSize(final float portionSize) {
-            this.portionSize = portionSize;
-            return this;
-        }
-
-        public RecipeBuilder instructions(final String[] instructions) {
-            this.instructions = instructions;
-            return this;
-        }
-
-        public RecipeBuilder cuisineId(final String cuisineId) {
-            this.cuisineId = cuisineId;
-            return this;
-        }
-
-        public RecipeBuilder dietaryRestrictions(final String[] dietaryRestrictions) {
-            this.dietaryRestrictions = dietaryRestrictions;
-            return this;
-        }
-
-        public RecipeBuilder dateCreated(final Date dateCreated) {
-            this.dateCreated = dateCreated;
-            return this;
-        }
-
-        public RecipeBuilder ingredients(final ArrayList<Ingredient> ingredients) {
-            this.ingredients = ingredients;
-            return this;
-        }
-
-        public RecipeBuilder review(final ArrayList<Review> reviews) {
-            this.reviews = reviews;
-            return this;
-        }
-
-        public Recipe build() {
-            return new Recipe(id,
-                    title,
-                    author,
-                    portionSize,
-                    instructions,
-                    cuisineId,
-                    dietaryRestrictions,
-                    dateCreated,
-                    ingredients,
-                    reviews
-            );
-        }
     }
 }

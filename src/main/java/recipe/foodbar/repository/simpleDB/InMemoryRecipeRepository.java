@@ -1,7 +1,7 @@
 package recipe.foodbar.repository.simpleDB;
 
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 import java.util.ArrayList;
@@ -12,6 +12,10 @@ import java.util.Optional;
 public class InMemoryRecipeRepository implements RecipeRepository {
 
     private final Map<String, Recipe> inMemoryDb = new HashMap<>();
+
+    public ArrayList<Recipe> getAllRecipes() {
+        return new ArrayList<Recipe>(this.inMemoryDb.values());
+    }
 
     @Override
     public Recipe create(final Recipe recipe) {

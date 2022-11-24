@@ -34,9 +34,7 @@ public class RecipeEditor implements IRecipeEditor {
      */
     public void editPortionSize(RecipeRequestModel rrm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
-        /* If recipe exists */
         recipeRepo.findById(rrm.getId()).modifyIngredients((int) rrm.getPortionSize());
-        /* If recipe does not exist, throw an exception */
 
         /* Create a response model and display */
         rp.displayEdited(RecipeResponseModel.ResponseDataType.EDIT);

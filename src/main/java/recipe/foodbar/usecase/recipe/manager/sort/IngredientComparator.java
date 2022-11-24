@@ -1,7 +1,7 @@
 package recipe.foodbar.usecase.recipe.manager.sort;
 
 import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 
 public class IngredientComparator extends AbstractComparator{
     /**
