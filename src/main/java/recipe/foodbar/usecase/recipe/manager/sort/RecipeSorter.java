@@ -1,6 +1,7 @@
 package recipe.foodbar.usecase.recipe.manager.sort;
 
 import recipe.foodbar.presenter.RecipePresenter;
+import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
@@ -14,12 +15,13 @@ public class RecipeSorter extends Sorter implements IRecipeSorter {
         this.rp = rp;
     }
 
-
+    @Override
     public void sortByCuisine() {
         this.recipeRepo.getAllRecipes().sort(new CuisineComparator());
     }
 
-    public void sortByRating(RecipeRequestModel rrm) {
+    @Override
+    public void sortByRating() {
         this.recipeRepo.getAllRecipes().sort(new RatingComparator());
     }
 }

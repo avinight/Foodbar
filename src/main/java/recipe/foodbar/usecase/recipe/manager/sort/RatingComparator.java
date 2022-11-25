@@ -1,5 +1,7 @@
 package recipe.foodbar.usecase.recipe.manager.sort;
 
+import recipe.foodbar.entities.Recipe.Recipe;
+
 /**
  * This comparator class is responsible for comparing two recipes and returning an ordering based on rating
  * (used to reorder by rating)
