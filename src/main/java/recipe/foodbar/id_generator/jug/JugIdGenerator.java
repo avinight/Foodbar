@@ -3,7 +3,7 @@ package recipe.foodbar.id_generator.jug;
 import com.fasterxml.uuid.EthernetAddress;
 import com.fasterxml.uuid.Generators;
 import com.fasterxml.uuid.NoArgGenerator;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class JugIdGenerator implements IdGenerator {
 

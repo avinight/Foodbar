@@ -4,7 +4,7 @@ import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.usecase.cuisine.exception.CuisineAlreadyExistsException;
 import recipe.foodbar.usecase.cuisine.port.CuisineRepository;
 import recipe.foodbar.usecase.cuisine.validator.CuisineValidator;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class CreateCuisine {
     private final CuisineRepository repository;
@@ -22,7 +22,7 @@ public class CreateCuisine {
         }
         Cuisine cuisineToSave = Cuisine.builder()
                 .name(cuisine.getName())
-                .id(cuisine.getId())
+                .id(idGenerator.generate())
                 .recipes()
                 .build();
 

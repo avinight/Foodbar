@@ -1,5 +1,7 @@
 package recipe.foodbar.entities;
 
+import recipe.foodbar.entities.Recipe.Recipe;
+
 import java.util.ArrayList;
 
 public class Cuisine {
@@ -7,7 +9,7 @@ public class Cuisine {
     private final String id;
     private final ArrayList<Recipe> recipes;
 
-    private Cuisine(String name, String id) {
+    Cuisine(String name, String id) {
         this.name = name;
         this.id = id;
         this.recipes = new ArrayList<Recipe>();
@@ -69,7 +71,7 @@ public class Cuisine {
         }
 
         public Cuisine build() {
-            return new Cuisine(name, id);
+            return new recipe.foodbar.entities.CuisineBuilder().setName(name).setId(id).createCuisine();
         }
 
     }
