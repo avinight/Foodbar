@@ -1,7 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.edit;
 
-import recipe.foodbar.repository.mongo.model.RecipeModel;
-import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 
 /**
  * An input boundary for editing recipes.

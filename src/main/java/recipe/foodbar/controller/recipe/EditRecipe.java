@@ -1,7 +1,6 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.repository.mongo.model.RecipeModel;
-import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.manager.edit.IRecipeEditor;
 
 /**

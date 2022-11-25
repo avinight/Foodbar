@@ -1,13 +1,14 @@
-package recipe.foodbar.repository.mongo.mapper;
+package recipe.foodbar.repository.mongoDB.mapper;
 
 import lombok.NonNull;
+import org.bson.types.ObjectId;
 import recipe.foodbar.entities.Recipe.Recipe;
-import recipe.foodbar.repository.mongo.model.RecipeModel;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 
 public class RecipeMapper {
     @NonNull
     public static Recipe toEntity(RecipeModel recipeModelModel) {
-        return new Recipe(recipeModelModel.get_id(),
+        return new Recipe(recipeModelModel.get_id().toHexString(),
                 recipeModelModel.getTitle(),
                 recipeModelModel.getAuthor(),
                 recipeModelModel.getPortionSize(),
@@ -23,7 +24,7 @@ public class RecipeMapper {
 
     @NonNull
     public static RecipeModel toUserModel(Recipe recipe) {
-        return new RecipeModel(recipe.getId(),
+        return new RecipeModel(new ObjectId(recipe.getId()),
                 recipe.getTitle(),
                 recipe.getAuthor(),
                 recipe.getInstructions(),

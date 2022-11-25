@@ -1,4 +1,4 @@
-package recipe.foodbar.repository.mongo.repository;
+package recipe.foodbar.repository.mongoDB.repository;
 
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
@@ -9,9 +9,9 @@ import com.mongodb.client.result.UpdateResult;
 import org.bson.conversions.Bson;
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe.Recipe;
-import recipe.foodbar.repository.mongo.MongoDB;
-import recipe.foodbar.repository.mongo.mapper.RecipeMapper;
-import recipe.foodbar.repository.mongo.model.RecipeModel;
+import recipe.foodbar.repository.mongoDB.MongoDB;
+import recipe.foodbar.repository.mongoDB.mapper.RecipeMapper;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 import java.util.ArrayList;

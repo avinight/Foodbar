@@ -1,6 +1,5 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.manager.sort.IRecipeSorter;
 
 /**

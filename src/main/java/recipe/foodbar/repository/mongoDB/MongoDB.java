@@ -1,4 +1,4 @@
-package recipe.foodbar.repository.mongo;
+package recipe.foodbar.repository.mongoDB;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -43,7 +43,7 @@ public class MongoDB {
         if (db == null) {
             try (MongoClient mongoClient = MongoClients.create(uri)) {
                 // Creates a database named recipe
-                db = mongoClient.getDatabase("recipe");
+                db = mongoClient.getDatabase("recipe").withCodecRegistry(pojoCodecRegistry);
                 return db;
             }
         }

@@ -2,7 +2,7 @@ package recipe.foodbar.usecase.review;
 
 import recipe.foodbar.controller.dto.ReviewDTO;
 import recipe.foodbar.entities.Review;
-import recipe.foodbar.repository.mongo.model.RecipeModel;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.usecase.review.exception.CharLimitException;
 import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
 import recipe.foodbar.usecase.user.port.IdGenerator;
