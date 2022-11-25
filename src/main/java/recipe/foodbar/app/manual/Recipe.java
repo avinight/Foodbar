@@ -2,7 +2,7 @@ package recipe.foodbar.app.manual;
 
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.simpleDB.InMemoryRecipeRepository;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class Recipe {
     public static void main(String[] args) {
