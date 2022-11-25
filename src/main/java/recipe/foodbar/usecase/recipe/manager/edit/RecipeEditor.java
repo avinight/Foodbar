@@ -61,12 +61,15 @@ public class RecipeEditor implements IRecipeEditor {
         for (Ingredient ingredient : rm.getIngredients()){
             if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
                 rr.addIngredient(ingredient);
-            } else-if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
+            } else if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
                 rr.removeIngredient(ingredient);
-            } else {
-
             }
 
         }
+    }
+
+    @Override
+    public void editPortionSize(RecipeRequestModel rrm) {
+
     }
 }
