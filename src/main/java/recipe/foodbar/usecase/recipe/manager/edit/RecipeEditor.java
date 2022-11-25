@@ -92,9 +92,4 @@ public class RecipeEditor implements IRecipeEditor {
         }
         return true;
     }
-
-    @Override
-    public void editPortionSize(RecipeRequestModel rrm) {
-
-    }
 }
