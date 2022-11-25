@@ -1,9 +1,11 @@
-package recipe.foodbar.usecase.recipe.manager.sort;
+package recipe.foodbar.usecase.recipe.manager.sort.comparators;
 
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Recipe.Recipe;
 
-public class IngredientComparator extends AbstractComparator{
+import java.util.Comparator;
+
+public class IngredientComparator implements Comparator<Recipe> {
     /**
      * @param r1 the first object to be compared.
      * @param r2 the second object to be compared.

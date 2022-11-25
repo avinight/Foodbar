@@ -3,11 +3,8 @@ package recipe.foodbar.usecase.recipe.manager.edit;
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
-import recipe.foodbar.repository.mongo.mapper.RecipeMapper;
-import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 import recipe.foodbar.usecase.recipe.ds.RecipeResponseModel;
-import recipe.foodbar.usecase.recipe.manager.edit.IRecipeEditor;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 /**
@@ -37,7 +34,7 @@ public class RecipeEditor implements IRecipeEditor {
      * @param rm The request model.
      */
     @Override
-    public void editPortionSize(RecipeModel rm) {
+    public void editPortionSize(RecipeRequestModel rm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
         recipeRepo.findById(rm.get_id()).get().modifyIngredients((int) rm.getPortionSize());
 
@@ -51,7 +48,7 @@ public class RecipeEditor implements IRecipeEditor {
      * @param rm The request model.
      */
     @Override
-    public void editTitle(RecipeModel rm) {
+    public void editTitle(RecipeRequestModel rm) {
         recipeRepo.findById(rm.get_id()).get().setTitle(rm.getTitle());
     }
 
@@ -61,7 +58,7 @@ public class RecipeEditor implements IRecipeEditor {
      * @param rm The request model.
      */
     @Override
-    public void editCuisine(RecipeModel rm) {
+    public void editCuisine(RecipeRequestModel rm) {
         recipeRepo.findById(rm.get_id()).get().setCuisine(rm.getCuisine());
     }
 
@@ -71,7 +68,7 @@ public class RecipeEditor implements IRecipeEditor {
      * @param rm The request model.
      */
     @Override
-    public void editDietaryRestrictions(RecipeModel rm) {
+    public void editDietaryRestrictions(RecipeRequestModel rm) {
         recipeRepo.findById(rm.get_id()).get().setDietaryRestrictions(rm.getDietaryRestrictions());
     }
 
@@ -81,7 +78,7 @@ public class RecipeEditor implements IRecipeEditor {
      * @param rm The request model.
      */
     @Override
-    public boolean editIngredients(RecipeModel rm) {
+    public boolean editIngredients(RecipeRequestModel rm) {
         Recipe rr = recipeRepo.findById(rm.get_id()).get();
         for (Ingredient ingredient : rm.getIngredients()){
             if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
