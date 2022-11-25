@@ -1,5 +1,6 @@
 package recipe.foodbar.controller.recipe;
 
+import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 import recipe.foodbar.usecase.recipe.manager.edit.IRecipeEditor;
 
@@ -7,17 +8,17 @@ import recipe.foodbar.usecase.recipe.manager.edit.IRecipeEditor;
  * A controller to edit a recipe.
  */
 public class EditRecipe {
-    private final RecipeRequestModel rrm;
+    private final RecipeModel rm;
     private final IRecipeEditor e;
 
     /**
      * Constructor for EditRecipe
      *
-     * @param rrm request to edit.
+     * @param rm request to edit.
      * @param e   An editor interface.
      */
-    public EditRecipe(RecipeRequestModel rrm, IRecipeEditor e) {
-        this.rrm = rrm;
+    public EditRecipe(RecipeModel rm, IRecipeEditor e) {
+        this.rm = rm;
         this.e = e;
 
     }
@@ -26,6 +27,10 @@ public class EditRecipe {
      * Edits the portion size of a recipe.
      */
     public void edit() {
-        e.editPortionSize(this.rrm);
+        e.editTitle(this.rm);
+        e.editPortionSize(this.rm);
+        e.editCuisine(this.rm);
+        e.editDietaryRestrictions(this.rm);
+        e.editIngredients(this.rm);
     }
 }
