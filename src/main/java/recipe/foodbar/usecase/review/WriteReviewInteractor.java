@@ -1,9 +1,11 @@
 package recipe.foodbar.usecase.review;
 
+import recipe.foodbar.controller.dto.ReviewDTO;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
+import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
 import recipe.foodbar.usecase.user_example.port.IdGenerator;
 
-public class WriteReviewInteractor {
+public class WriteReviewInteractor implements ReviewInputBoundary {
     private final RecipeRepository repository;
     private final IdGenerator idGenerator;
 
@@ -15,5 +17,8 @@ public class WriteReviewInteractor {
         this.recipeId = recipeId;
     }
 
-    // public ()
+    @Override
+    public ReviewDTO writeReview(ReviewDTO reviewDTO) {
+        return null;
+    }
 }

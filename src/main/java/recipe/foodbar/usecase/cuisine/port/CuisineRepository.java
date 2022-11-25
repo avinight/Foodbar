@@ -8,6 +8,4 @@ public interface CuisineRepository {
     Cuisine create(Cuisine cuisine);
 
     Optional<Cuisine> findById(final String id);
-
-
 }
