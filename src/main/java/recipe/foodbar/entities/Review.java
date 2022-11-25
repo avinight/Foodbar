@@ -44,6 +44,7 @@ public class Review {
 
     public static class ReviewBuilder {
         private String recipeId;
+        public static final int MAX_LENGTH = 300;
         private String title;
         private String text;
         private User author;
