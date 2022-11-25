@@ -1,12 +1,14 @@
-package recipe.foodbar.usecase.recipe.manager.sort;
+package recipe.foodbar.usecase.recipe.manager.sort.comparators;
 
 import recipe.foodbar.entities.Recipe;
+
+import java.util.Comparator;
 
 /**
  * This comparator class is responsible for comparing two recipes and returning an ordering based on rating
  * (used to reorder by rating)
  */
-public class RatingComparator extends AbstractComparator {
+public class RatingComparator implements Comparator<Recipe> {
 
     /**
      * Compares its two arguments for order.  Returns a negative integer,
