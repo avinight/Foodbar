@@ -36,6 +36,7 @@ public class RecipeEditor implements IRecipeEditor {
      *
      * @param rm The request model.
      */
+    @Override
     public void editPortionSize(RecipeModel rm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
         recipeRepo.findById(rm.get_id()).get().modifyIngredients((int) rm.getPortionSize());
@@ -44,29 +45,56 @@ public class RecipeEditor implements IRecipeEditor {
         rp.displayEdited(RecipeResponseModel.ResponseDataType.EDIT);
     }
 
+    /**
+     * Edits the title of a Recipe object.
+     *
+     * @param rm The request model.
+     */
+    @Override
     public void editTitle(RecipeModel rm) {
         recipeRepo.findById(rm.get_id()).get().setTitle(rm.getTitle());
     }
 
+    /**
+     * Edits the cuisine of a Recipe object.
+     *
+     * @param rm The request model.
+     */
+    @Override
     public void editCuisine(RecipeModel rm) {
         recipeRepo.findById(rm.get_id()).get().setCuisine(rm.getCuisine());
     }
 
+    /**
+     * Edits the dietary restrictions of a Recipe object.
+     *
+     * @param rm The request model.
+     */
+    @Override
     public void editDietaryRestrictions(RecipeModel rm) {
         recipeRepo.findById(rm.get_id()).get().setDietaryRestrictions(rm.getDietaryRestrictions());
     }
 
-    public void editIngredients(RecipeModel rm) {
+    /**
+     * Edits the ingredients of a Recipe object.
+     *
+     * @param rm The request model.
+     */
+    @Override
+    public boolean editIngredients(RecipeModel rm) {
         Recipe rr = recipeRepo.findById(rm.get_id()).get();
         for (Ingredient ingredient : rm.getIngredients()){
             if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
                 rr.addIngredient(ingredient);
-            } else-if (rr.getIngredients().contains(ingredient) && !rm.getIngredients().contains(ingredient)) {
+            } else if (rr.getIngredients().contains(ingredient) && !rm.getIngredients().contains(ingredient)) {
                 rr.removeIngredient(ingredient);
-            } else { return true;
-
             }
-
         }
+        return true;
+    }
+
+    @Override
+    public void editPortionSize(RecipeRequestModel rrm) {
+
     }
 }

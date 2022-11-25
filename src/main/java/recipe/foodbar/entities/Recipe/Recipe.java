@@ -39,10 +39,12 @@ public class Recipe {
      * @param dateCreated         The date the recipe was created.
      * @param ingredients         The ingredients of the recipe.
      * @param reviews             The reviews of the recipe.
+     * @param likes               The count of likes for recipe
+     * @param dislikes            The count of dislikes for recipe
      */
     public Recipe(String id, String title, final User author, float portionSize, String[] instructions,
            Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
-           ArrayList<Ingredient> ingredients, ArrayList<Review> reviews) {
+           ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, int likes, int dislikes) {
         this.id = id;
         this.title = title;
         this.author = author;

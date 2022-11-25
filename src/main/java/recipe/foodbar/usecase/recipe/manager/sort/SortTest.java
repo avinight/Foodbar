@@ -2,6 +2,7 @@ package recipe.foodbar.usecase.recipe.manager.sort;
 
 import org.junit.Before;
 import org.junit.Test;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
@@ -23,12 +24,12 @@ public class SortTest {
         rlst = new ArrayList<>();
         LocalDate localDate = LocalDate.now();
         Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        var user1 = recipe.foodbar.entities.UserExample.builder()
-                .email("john.doe@gmail.com")
-                .password("mypassword")
-                .lastName("doe")
-                .firstName("john")
-                .build();
+//        var user1 = recipe.foodbar.entities.UserExample.builder()
+//                .email("john.doe@gmail.com")
+//                .password("mypassword")
+//                .lastName("doe")
+//                .firstName("john")
+//                .build();
 
         var italianCuisine = recipe.foodbar.entities.Cuisine.builder()
                 .name("Italian")
@@ -48,43 +49,43 @@ public class SortTest {
                 .size(1.25F)
                 .build();
 
-        var recipe1 = Recipe.builder()
-                .author(user1)
-                .cuisineId(italianCuisine.getName())
-                .title("Ravioli di Zucca")
-                .dateCreated(date)
-                .portionSize(4)
-                .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
-                .build();
+//        var recipe1 = Recipe.builder()
+//                .author(user1)
+//                .cuisineId(italianCuisine.getName())
+//                .title("Ravioli di Zucca")
+//                .dateCreated(date)
+//                .portionSize(4)
+//                .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
+//                .build();
 
-        var recipe2 = Recipe.builder()
-                .author(user1)
-                .cuisineId(italianCuisine.getName())
-                .title("pee")
-                .dateCreated(date)
-                .portionSize(4)
-                .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
-                .build();
+//        var recipe2 = Recipe.builder()
+//                .author(user1)
+//                .cuisineId(italianCuisine.getName())
+//                .title("pee")
+//                .dateCreated(date)
+//                .portionSize(4)
+//                .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
+//                .build();
 
-        var recipe3 = Recipe.builder()
-                .author(user1)
-                .cuisineId(frenchCuisine.getName())
-                .title("poo")
-                .dateCreated(date)
-                .portionSize(4)
-                .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
-                .build();
-
-        recipe1.like();
-        recipe1.like();
-        recipe3.like();
-
-        rlst.add(recipe1);
-        rlst.add(recipe2);
-        rlst.add(recipe3);
-        System.out.println(rlst);
-        rs.sortBy(rlst);
-        System.out.println(rlst);
+//        var recipe3 = Recipe.builder()
+//                .author(user1)
+//                .cuisineId(frenchCuisine.getName())
+//                .title("poo")
+//                .dateCreated(date)
+//                .portionSize(4)
+//                .ingredients(new ArrayList<>(Arrays.asList(pastaDough, cheese)))
+//                .build();
+//
+//        recipe1.like();
+//        recipe1.like();
+//        recipe3.like();
+//
+//        rlst.add(recipe1);
+//        rlst.add(recipe2);
+//        rlst.add(recipe3);
+//        System.out.println(rlst);
+//        rs.sortBy(rlst);
+//        System.out.println(rlst);
 
     }
 }

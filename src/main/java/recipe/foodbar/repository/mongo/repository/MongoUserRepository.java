@@ -4,6 +4,7 @@ import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.InsertOneResult;
+import org.bson.conversions.Bson;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.repository.mongo.MongoDB;
 import recipe.foodbar.repository.mongo.mapper.UserMapper;
@@ -35,30 +36,29 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public Optional<User> findByUsername(String username) {
-        Optional<UserModel> um = Optional.ofNullable(collection.find(eq("username", username))
+        Bson query = eq("username", username);
+        Optional<UserModel> um = Optional.ofNullable(collection.find(query)
                 .first());
         return um.map(UserMapper::toEntity);
     }
 
     @Override
     public Optional<User> findByEmail(String email) {
-        Optional<UserModel> um = Optional.ofNullable(collection.find(eq("email", email))
+        Bson query = eq("email", email);
+        Optional<UserModel> um = Optional.ofNullable(collection.find(query)
                 .first());
         return um.map(UserMapper::toEntity);
     }
 
     @Override
     public ArrayList<User> findAllUsers() {
-        List<UserModel> userModelList = collection.find().into(new ArrayList<UserModel>());
+        List<UserModel> userModelList = collection.find().into(new ArrayList<>());
         List<User> userList = userModelList.stream().map(UserMapper::toEntity).collect(Collectors.toList());
         return (ArrayList<User>) userList;
     }
 
     @Override
     public boolean existsByUsername(String username) {
-        if (collection.countDocuments(eq("username", username)) > 0) {
-            return true;
-        }
-        return false;
+        return collection.countDocuments(eq("username", username)) > 0;
     }
 }
