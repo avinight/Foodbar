@@ -19,7 +19,6 @@ projects {
 
 dependencies {
     implementation(
-            'com.fasterxml.uuid:java-uuid-generator:4.0.1',
             'commons-codec:commons-codec:1.15',
             'org.apache.commons:commons-lang3:3.12.0',
             'io.javalin:javalin:5.2.0',
