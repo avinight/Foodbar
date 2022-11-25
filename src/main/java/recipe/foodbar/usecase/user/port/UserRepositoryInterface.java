@@ -5,6 +5,7 @@ package recipe.foodbar.usecase.user.port;
 
 import recipe.foodbar.entities.User;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +40,7 @@ public interface UserRepositoryInterface {
      *
      * @return to be implemented by classes which implement the interface.
      */
-    List<User> findAllUsers();
+    ArrayList<User> findAllUsers();
 
     /**
      * Abstract method for finding if a user exists by their username
