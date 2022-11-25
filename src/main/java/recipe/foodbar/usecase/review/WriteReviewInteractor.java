@@ -3,7 +3,7 @@ package recipe.foodbar.usecase.review;
 import recipe.foodbar.controller.dto.ReviewDTO;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class WriteReviewInteractor implements ReviewInputBoundary {
     private final RecipeRepository repository;
