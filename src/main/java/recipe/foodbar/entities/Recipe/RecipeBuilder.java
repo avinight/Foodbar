@@ -19,6 +19,8 @@ public class RecipeBuilder {
     private Date dateCreated;
     private ArrayList<Ingredient> ingredients;
     private ArrayList<Review> reviews;
+    private int likes;
+    private int dislikes;
 
     public RecipeBuilder id(String id) {
         this.id = id;
@@ -70,7 +72,23 @@ public class RecipeBuilder {
         return this;
     }
 
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
+    }
+
     public Recipe createRecipe() {
-        return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews);
+        return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likes, dislikes);
     }
 }

@@ -4,7 +4,7 @@ import recipe.foodbar.entities.Review;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.exception.CharLimitException;
 import recipe.foodbar.usecase.review.validator.ReviewValidator;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class CreateReview {
     private final IdGenerator idGenerator;

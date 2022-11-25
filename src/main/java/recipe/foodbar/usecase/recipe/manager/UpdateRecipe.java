@@ -4,7 +4,7 @@ import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class UpdateRecipe {
     private final RecipeRepository repository;
