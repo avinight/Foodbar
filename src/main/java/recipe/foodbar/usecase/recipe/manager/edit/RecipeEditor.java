@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.edit;
 
-import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Ingredient.Ingredient;
 import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
@@ -8,7 +8,7 @@ import recipe.foodbar.usecase.recipe.ds.RecipeResponseModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 /**
- * This class is responsible for performing all direct interactions with the Recipe entity class.
+ * This interactor is responsible for performing all direct interactions with the Recipe entity class.
  */
 public class RecipeEditor implements IRecipeEditor {
     private final RecipeRepository recipeRepo;
@@ -36,7 +36,7 @@ public class RecipeEditor implements IRecipeEditor {
     @Override
     public void editPortionSize(RecipeRequestModel rm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
-        recipeRepo.findById(rm.get_id()).get().modifyIngredients((int) rm.getPortionSize());
+        recipeRepo.findById(rm._id()).get().modifyIngredients((int) rm.portionSize());
 
         /* Create a response model and display */
         rp.displayEdited(RecipeResponseModel.ResponseDataType.EDIT);
@@ -49,7 +49,7 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public void editTitle(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.get_id()).get().setTitle(rm.getTitle());
+        recipeRepo.findById(rm._id()).get().setTitle(rm.title());
     }
 
     /**
@@ -59,7 +59,7 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public void editCuisine(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.get_id()).get().setCuisine(rm.getCuisine());
+        recipeRepo.findById(rm._id()).get().setCuisine(rm.cuisine());
     }
 
     /**
@@ -69,7 +69,7 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public void editDietaryRestrictions(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.get_id()).get().setDietaryRestrictions(rm.getDietaryRestrictions());
+        recipeRepo.findById(rm._id()).get().setDietaryRestrictions(rm.dietaryRestrictions());
     }
 
     /**
@@ -79,16 +79,24 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public boolean editIngredients(RecipeRequestModel rm) {
-        Recipe rr = recipeRepo.findById(rm.get_id()).get();
-        for (Ingredient ingredient : rm.getIngredients()){
-            if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
+        Recipe rr = recipeRepo.findById(rm._id()).get();
+        for (Ingredient ingredient : rm.ingredients()){
+            if (!rr.getIngredients().contains(ingredient) && rm.ingredients().contains(ingredient)) {
                 rr.addIngredient(ingredient);
-            } else if (rr.getIngredients().contains(ingredient) && !rm.getIngredients().contains(ingredient)) {
+            } else if (rr.getIngredients().contains(ingredient) && !rm.ingredients().contains(ingredient)) {
                 rr.removeIngredient(ingredient);
             }
         }
         return true;
     }
+    @Override
+    public boolean editInstructions(RecipeRequestModel rm) {
+        Recipe rr = recipeRepo.findById(rm._id()).get();
+
+        return true;
+    }
+
+
     /*
     TODO: not sure if i need to return edited recipe, boolean to the presenter or something else.
      */

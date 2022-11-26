@@ -1,5 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.edit;
 
+import recipe.foodbar.interfaces.Editor;
 import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 
 /**
@@ -21,4 +22,6 @@ public interface IRecipeEditor extends Editor {
     void editDietaryRestrictions(RecipeRequestModel rm);
 
     boolean editIngredients(RecipeRequestModel rm);
+
+    boolean editInstructions(RecipeRequestModel rm);
 }

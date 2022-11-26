@@ -30,6 +30,7 @@ public class SortRecipes {
             case "by_cuisine":
                 s.sortByCuisine();
             case "by_date_created":
+                s.sortByDate();
         }
     }
 
