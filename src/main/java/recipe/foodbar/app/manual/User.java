@@ -7,7 +7,7 @@ import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class User {
     public static void main(String[] args) {
