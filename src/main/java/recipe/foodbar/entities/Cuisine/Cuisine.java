@@ -1,4 +1,4 @@
-package recipe.foodbar.entities;
+package recipe.foodbar.entities.Cuisine;
 
 import recipe.foodbar.entities.Recipe.Recipe;
 
@@ -71,7 +71,7 @@ public class Cuisine {
         }
 
         public Cuisine build() {
-            return new recipe.foodbar.entities.CuisineBuilder().setName(name).setId(id).createCuisine();
+            return new recipe.foodbar.entities.Cuisine.CuisineBuilder().setName(name).setId(id).createCuisine();
         }
 
     }

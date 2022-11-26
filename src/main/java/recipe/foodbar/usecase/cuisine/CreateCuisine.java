@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.cuisine;
 
-import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 import recipe.foodbar.usecase.cuisine.exception.CuisineAlreadyExistsException;
 import recipe.foodbar.usecase.cuisine.port.CuisineRepository;
 import recipe.foodbar.usecase.cuisine.validator.CuisineValidator;

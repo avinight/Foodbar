@@ -1,26 +1,13 @@
 package recipe.foodbar.usecase.recipe.ds;
 
 import lombok.Data;
-import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.Cuisine.Cuisine;
+import recipe.foodbar.entities.Ingredient.Ingredient;
+
 
 import java.util.ArrayList;
-import java.util.Date;
 
 @Data
-public class RecipeRequestModel {
-    private final String _id;
-    private final String title;
-    private final User author;
-    private final String[] instructions;
-    private final Cuisine cuisine;
-    private final String[] dietaryRestrictions;
-    private final Date dateCreated;
-    private final float portionSize;
-    private final ArrayList<Review> reviews;
-    private final ArrayList<Ingredient> ingredients;
-    private int likes;
-    private int dislikes;
+public record RecipeRequestModel(String _id, String title, String[] instructions, Cuisine cuisine,
+                                 String[] dietaryRestrictions, float portionSize, ArrayList<Ingredient> ingredients) {
 }

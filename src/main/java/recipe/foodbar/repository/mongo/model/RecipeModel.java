@@ -1,8 +1,8 @@
 package recipe.foodbar.repository.mongo.model;
 
 import lombok.Data;
-import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Cuisine.Cuisine;
+import recipe.foodbar.entities.Ingredient.Ingredient;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 

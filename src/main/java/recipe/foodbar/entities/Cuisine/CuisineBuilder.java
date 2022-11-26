@@ -1,4 +1,4 @@
-package recipe.foodbar.entities;
+package recipe.foodbar.entities.Cuisine;
 
 public class CuisineBuilder {
     private String name;

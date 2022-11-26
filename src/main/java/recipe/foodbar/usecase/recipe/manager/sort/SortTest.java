@@ -2,6 +2,9 @@ package recipe.foodbar.usecase.recipe.manager.sort;
 
 import org.junit.Before;
 import org.junit.Test;
+import recipe.foodbar.entities.Cuisine.Cuisine;
+import recipe.foodbar.entities.Ingredient.Ingredient;
+
 import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
@@ -31,23 +34,23 @@ public class SortTest {
 //                .firstName("john")
 //                .build();
 
-        var italianCuisine = recipe.foodbar.entities.Cuisine.builder()
+        var italianCuisine = Cuisine.builder()
                 .name("Italian")
                 .build();
 
-        var frenchCuisine = recipe.foodbar.entities.Cuisine.builder()
+        var frenchCuisine = Cuisine.builder()
                 .name("French")
                 .build();
 
-        var pastaDough = recipe.foodbar.entities.Ingredient.builder()
+        var pastaDough = Ingredient.builder()
                 .name("Basic Egg Pasta Dough")
                 .size(1)
-                .build();
+                .createIngredient();
 
-        var cheese = recipe.foodbar.entities.Ingredient.builder()
+        var cheese = Ingredient.builder()
                 .name("Parmigiano Reggiano")
                 .size(1.25F)
-                .build();
+                .createIngredient();
 
 //        var recipe1 = Recipe.builder()
 //                .author(user1)

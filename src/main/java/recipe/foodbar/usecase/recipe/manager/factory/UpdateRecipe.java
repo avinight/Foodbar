@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.recipe.manager;
+package recipe.foodbar.usecase.recipe.manager.factory;
 
 import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;

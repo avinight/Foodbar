@@ -7,7 +7,7 @@ import com.mongodb.client.model.ReplaceOptions;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.conversions.Bson;
-import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.repository.mongo.MongoDB;
 import recipe.foodbar.repository.mongo.mapper.RecipeMapper;

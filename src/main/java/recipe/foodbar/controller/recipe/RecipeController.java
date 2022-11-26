@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.usecase.recipe.manager.CreateRecipe;
+import recipe.foodbar.usecase.recipe.manager.factory.CreateRecipe;
 
 public class RecipeController {
 

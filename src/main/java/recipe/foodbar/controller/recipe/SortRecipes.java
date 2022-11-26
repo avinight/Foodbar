@@ -1,6 +1,5 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.manager.sort.IRecipeSorter;
 
 /**
@@ -30,6 +29,7 @@ public class SortRecipes {
             case "by_cuisine":
                 s.sortByCuisine();
             case "by_date_created":
+                s.sortByDate();
         }
     }
 
