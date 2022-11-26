@@ -8,11 +8,11 @@ import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.conversions.Bson;
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.repository.mongo.MongoDB;
 import recipe.foodbar.repository.mongo.mapper.RecipeMapper;
 import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
+import recipe.foodbar.entities.Recipe.Recipe;
 
 import java.util.ArrayList;
 import java.util.List;

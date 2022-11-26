@@ -2,7 +2,7 @@
 Output boundary interface allows for dependency inversion so that it can be used by the presenter in the
 outer layer
  */
-package recipe.foodbar.usecase.user_example;
+package recipe.foodbar.usecase.user;
 
 public interface SaveRecipeOutputBoundary {
 

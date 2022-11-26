@@ -1,7 +1,7 @@
 package recipe.foodbar.usecase.user_login;
 
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
-import recipe.foodbar.usecase.user_example.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user_login.port.LoginRepositoryInterface;
 import recipe.foodbar.usecase.user_login.port.UserLoginInputBoundary;
 import recipe.foodbar.usecase.user_login.port.UserLoginOutputBoundary;

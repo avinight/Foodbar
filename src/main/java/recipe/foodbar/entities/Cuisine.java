@@ -1,8 +1,7 @@
 package recipe.foodbar.entities;
 
-import recipe.foodbar.entities.Recipe.Recipe;
-
 import java.util.ArrayList;
+import recipe.foodbar.entities.Recipe.Recipe;
 
 public class Cuisine {
     private final String name;

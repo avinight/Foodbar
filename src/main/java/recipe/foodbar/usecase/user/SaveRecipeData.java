@@ -2,9 +2,9 @@
 A data structure that indicates the recipe to be saved
  */
 
-package recipe.foodbar.usecase.user_example;
+package recipe.foodbar.usecase.user;
 
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.entities.User;
 
 public class SaveRecipeData {

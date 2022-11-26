@@ -1,16 +1,15 @@
-package recipe.foodbar.usecase.user_example;
+package recipe.foodbar.usecase.user;
 
-import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
-import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
-import recipe.foodbar.usecase.user_example.SaveRecipeOutputBoundary;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.SaveRecipeData;
+//import
 
-import java.util.ArrayList;
 import java.util.Optional;
 
-public class SaveRecipeInteractor implements SaveRecipeInputBoundary{
+public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
 
     private final SaveRecipeOutputBoundary presenterInterface;
     private final UserRepositoryInterface userRepo;
