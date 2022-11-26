@@ -395,5 +395,14 @@ public class Recipe {
         public String toString() {
             return "Recipe.RecipeBuilder(id=" + this.id + ", cuisine=" + this.cuisine + ", dateCreated=" + this.dateCreated + ", reviews=" + this.reviews + ", ingredients=" + this.ingredients + ", title=" + this.title + ", author=" + this.author + ", instructions=" + this.instructions + ", dietaryRestrictions=" + this.dietaryRestrictions + ", portionSize=" + this.portionSize + ", likers=" + this.likers + ", dislikers=" + this.dislikers + ")";
         }
+
+        @Override
+        public boolean equals(Object o){
+            if(o instanceof Recipe){
+                Recipe p = (Recipe) o;
+                return this.id.equals(p.getId());
+            } else
+                return false;
+        }
     }
 }
