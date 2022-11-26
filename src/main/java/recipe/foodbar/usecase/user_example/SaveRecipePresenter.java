@@ -9,6 +9,8 @@ public class SaveRecipePresenter implements SaveRecipeOutputBoundary {
      * @param message the String message to be displayed
      * @return The message to be displayed upon successful saving/unsaving of the recipe
      */
+
+    // TODO: should i have a constructor object? What attributes if any?
     @Override
     public String present(String message) {
         return message;

@@ -204,5 +204,14 @@ public class Recipe {
         public Recipe build() {
             return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews);
         }
+
+        @Override
+        public boolean equals(Object o){
+            if(o instanceof Recipe){
+                Recipe p = (Recipe) o;
+                return this.id.equals(p.getId());
+            } else
+                return false;
+        }
     }
 }
