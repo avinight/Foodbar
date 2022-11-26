@@ -1,12 +1,18 @@
 plugins {
     id 'application'
     id "io.freefair.lombok" version "6.6-rc1"
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(18)
     }
+}
+
+javafx {
+    version = "18"
+    modules = [ 'javafx.controls' ]
 }
 
 projects {
