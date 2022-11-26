@@ -2,10 +2,7 @@
 Input Boundary interface for the SaveRecipeInteractor
  */
 
-package recipe.foodbar.usecase.user_example;
-
-import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
+package recipe.foodbar.usecase.user;
 
 public interface SaveRecipeInputBoundary {
 

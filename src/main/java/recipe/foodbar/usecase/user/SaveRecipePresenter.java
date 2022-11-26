@@ -1,6 +1,6 @@
-package recipe.foodbar.usecase.user_example;
+package recipe.foodbar.usecase.user;
 
-import recipe.foodbar.usecase.user_example.SaveRecipeOutputBoundary;
+import recipe.foodbar.usecase.user.SaveRecipeOutputBoundary;
 
 public class SaveRecipePresenter implements SaveRecipeOutputBoundary {
     /**
