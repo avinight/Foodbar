@@ -312,7 +312,7 @@ public class Recipe {
                 "id = " + id + '\'' +
                 ", title = '" + title + '\'' +
                 ", authorID = '" + author.getId() + '\'' +
-                ", cuisineId = '" + cuisine.toString() + '\'' +
+                ", cuisine = '" + cuisine.toString() + '\'' +
                 ", likes = '" + this.getLikes() + '\'' +
                 ", dislikes = '" + this.getDislikes() + '\'' +
                 ", review = '" + reviews + '\'' + "}";

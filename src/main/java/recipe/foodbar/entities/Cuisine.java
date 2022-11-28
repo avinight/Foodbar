@@ -76,6 +76,11 @@ public class Cuisine {
 
     }
 
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 
 }
 
