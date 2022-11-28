@@ -53,6 +53,7 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
 
         RecipeValidator.validateCreateRecipe(recipeToSave);
 
+        repository.create(recipeToSave);
 
         return "Alrighty mayte, it's done!";
     }
