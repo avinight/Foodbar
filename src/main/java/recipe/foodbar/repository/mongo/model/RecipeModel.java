@@ -14,13 +14,13 @@ public class RecipeModel {
     private final String _id;
     private final String title;
     private final User author;
+    private final float portionSize;
     private final String[] instructions;
     private final Cuisine cuisine;
     private final String[] dietaryRestrictions;
     private final Date dateCreated;
-    private final float portionSize;
-    private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
-    private int likes;
-    private int dislikes;
+    private final ArrayList<String> likers;
+    private final ArrayList<String> dislikers;
+    private final ArrayList<Review> reviews;
 }

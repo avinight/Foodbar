@@ -13,17 +13,18 @@ import java.util.Date;
  */
 public class Recipe {
     private final String id;
-    private Cuisine cuisine;
-    private final Date dateCreated;
-    private final ArrayList<Review> reviews;
-    private final ArrayList<Ingredient> ingredients;
     private String title;
     private User author;
-    private String[] instructions;
-    private String[] dietaryRestrictions;
     private float portionSize;
-    private int likes;
-    private int dislikes;
+    private String[] instructions;
+    private Cuisine cuisine;
+    private String[] dietaryRestrictions;
+    private final Date dateCreated;
+    private final ArrayList<Ingredient> ingredients;
+    private final ArrayList<String> likers;
+    private final ArrayList<String> dislikers;
+    private final ArrayList<Review> reviews;
+
 
     /**
      * Constructs a Recipe with id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated,
@@ -38,24 +39,25 @@ public class Recipe {
      * @param dietaryRestrictions The dietary restrictions of the recipe.
      * @param dateCreated         The date the recipe was created.
      * @param ingredients         The ingredients of the recipe.
+     * @param likers              The ID of Users who have liked this recipe.
+     * @param dislikers           The ID of Users who have disliked this recipe.
      * @param reviews             The reviews of the recipe.
-     * @param likes               The count of likes for recipe
-     * @param dislikes            The count of dislikes for recipe
      */
     public Recipe(String id, String title, final User author, float portionSize, String[] instructions,
            Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
-           ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, int likes, int dislikes) {
+           ArrayList<Ingredient> ingredients, ArrayList<String> likers, ArrayList<String> dislikers,
+           ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
-        this.ingredients = ingredients;
-        this.likes = 0;
-        this.dislikes = 0;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
+        this.ingredients = ingredients;
+        this.likers = likers;
+        this.dislikers = dislikers;
         this.reviews = reviews;
     }
 
@@ -146,28 +148,82 @@ public class Recipe {
     /**
      * Returns the rating of the recipe.
      *
-     * @return int likes - dislikes
+     * @return int likers.size() - dislikers.size()
      */
     public int getRating() {
-        return likes - dislikes;
+        return likers.size() - dislikers.size();
     }
 
     /**
      * Returns the likes of the recipe.
      *
-     * @return int likes
+     * @return int likers.size
      */
     public int getLikes() {
-        return likes;
+        return likers.size();
     }
 
     /**
      * Returns the dislikes of the recipe.
      *
-     * @return int dislikes
+     * @return int dislikers.size
      */
     public int getDislikes() {
-        return dislikes;
+        return dislikers.size();
+    }
+
+    /**
+     * Adds the voter to the list of Users who like this recipe. If the voter has previously liked or disliked this recipe,
+     * remove that like or dislike before liking this recipe.
+     *
+     * @param voterID User who liked this recipe
+     */
+    public void like(String voterID) {
+        if (this.likers.contains(voterID)) {
+            this.likers.remove(voterID);
+        } else if (this.dislikers.contains(voterID)) {
+            this.dislikers.remove(voterID);
+            this.likers.add(voterID);
+        }
+        else {
+            this.likers.add(voterID);
+        }
+    }
+
+    /**
+     * Adds the voter to the list of Users who dislike this recipe. If the voter has previously liked or disliked this recipe,
+     * remove that like or dislike before disliking this recipe.
+     *
+     * @param voterID User who disliked this recipe
+     */
+    public void dislike(String voterID) {
+        if (this.dislikers.contains(voterID)) {
+            this.dislikers.remove(voterID);
+        } else if (this.likers.contains(voterID)) {
+            this.likers.remove(voterID);
+            this.dislikers.add(voterID);
+        }
+        else {
+            this.dislikers.add(voterID);
+        }
+    }
+
+    /**
+     * Returns this recipe's likers
+     *
+     * @return ArrayList<User>
+     */
+    public ArrayList<String> getLikers() {
+        return likers;
+    }
+
+    /**
+     * Returns this recipe's dislikers
+     *
+     * @return ArrayList<User>
+     */
+    public ArrayList<String> getDislikers() {
+        return dislikers;
     }
 
     /**
@@ -206,6 +262,7 @@ public class Recipe {
         return ingredients;
     }
 
+
     /**
      * Returns this recipe's reviews.
      *
@@ -213,35 +270,6 @@ public class Recipe {
      */
     public ArrayList<Review> getReviews() {
         return reviews;
-    }
-
-
-    /**
-     * Adds a like to the recipe.
-     */
-    public void like() {
-        likes += 1;
-    }
-
-    /**
-     * Unlikes the recipe.
-     */
-    public void unlike() {
-        likes -= 1;
-    }
-
-    /**
-     * Adds a dislike to the recipe
-     */
-    public void dislike() {
-        dislikes += 1;
-    }
-
-    /**
-     * Undislikes the recipe.
-     */
-    public void undislike() {
-        dislikes -= 1;
     }
 
 
@@ -280,7 +308,14 @@ public class Recipe {
      */
     @Override
     public String toString() {
-        return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisine + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
+        return "Recipe{" +
+                "id = " + id + '\'' +
+                ", title = '" + title + '\'' +
+                ", authorID = '" + author.getId() + '\'' +
+                ", cuisineId = '" + cuisine.toString() + '\'' +
+                ", likes = '" + this.getLikes() + '\'' +
+                ", dislikes = '" + this.getDislikes() + '\'' +
+                ", review = '" + reviews + '\'' + "}";
     }
 
 }

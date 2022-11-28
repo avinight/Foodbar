@@ -5,6 +5,7 @@ import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,9 +19,9 @@ public class RecipeBuilder {
     private String[] dietaryRestrictions;
     private Date dateCreated;
     private ArrayList<Ingredient> ingredients;
+    private ArrayList<String> likers;
+    private ArrayList<String> dislikers;
     private ArrayList<Review> reviews;
-    private int likes;
-    private int dislikes;
 
     public RecipeBuilder id(String id) {
         this.id = id;
@@ -73,22 +74,22 @@ public class RecipeBuilder {
     }
 
     public int getLikes() {
-        return likes;
+        return likers.size();
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setLikerss(ArrayList<String> likers) {
+        this.likers = likers;
     }
 
     public int getDislikes() {
-        return dislikes;
+        return dislikers.size();
     }
 
-    public void setDislikes(int dislikes) {
-        this.dislikes = dislikes;
+    public void setDislikes(ArrayList<String> dislikers) {
+        this.dislikers = dislikers;
     }
 
     public Recipe createRecipe() {
-        return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likes, dislikes);
+        return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, likers, dislikers, reviews);
     }
 }
