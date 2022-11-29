@@ -4,7 +4,7 @@ public class Ingredient {
     private final String name;
     private float size;
 
-    Ingredient(String name, float size) {
+    public Ingredient(String name, float size) {
         this.name = name;
         this.size = size;
     }

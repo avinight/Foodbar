@@ -8,7 +8,7 @@ public class Cuisine {
     private final String id;
     private final ArrayList<Recipe> recipes;
 
-    Cuisine(String name, String id) {
+    public Cuisine(String name, String id) {
         this.name = name;
         this.id = id;
         this.recipes = new ArrayList<Recipe>();
@@ -73,6 +73,11 @@ public class Cuisine {
             return new recipe.foodbar.entities.CuisineBuilder().setName(name).setId(id).createCuisine();
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 
 
