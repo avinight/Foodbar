@@ -4,6 +4,7 @@ import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+
 import recipe.foodbar.usecase.user.SaveRecipeData;
 //import
 
@@ -54,15 +55,17 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
             // Check if the recipe being passed in has already been saved or not
             if (saverUser.containsRecipe(recipe)){
                 return presenterInterface.present("Recipe is already saved");
-            } else {
+            } else if (recipe.getAuthor().equals(saverUser)) {
+                return presenterInterface.present("You can't save a recipe that you have created");
+            }
+            else {
                 // if recipe is not in the list of saved recipes then we save it and return the message below
                 saverUser.addRecipe(recipe);
                 return presenterInterface.present("Recipe successfully saved");
             }
         }
 
-        // TODO: This is the case when one of the User or Recipe object being passed in is null.
-        return "";
+        return presenterInterface.present("User or recipe object is invalid");
     }
 
     @Override
@@ -82,14 +85,14 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
                 // since the recipe that needs to be saved in is in the list of savedRecipes we can successfully
                 // remove it and return a message reporting the success of recipe being unsaved
                 saverUser.removeRecipe(recipe);
-                return presenterInterface.present("Recipe successfully nsaved");
+                return presenterInterface.present("Recipe successfully unsaved");
             } else {
                 // if recipe is not in the list of saved recipes then there's nothing to un-save, and we report
                 // this back
                 return presenterInterface.present("Recipe is not in the list of savedRecipes");
             }
         }
-        return "";
+        return presenterInterface.present("User or recipe object is invalid");
 
     }
 }

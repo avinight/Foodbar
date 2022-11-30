@@ -9,7 +9,7 @@ import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.IdGenerator;
 
-public class User {
+public class UserTest {
     public static void main(String[] args) {
         InMemoryUserRepository repo = new InMemoryUserRepository();
         final IdGenerator idGenerator = new JugIdGenerator();

@@ -1,8 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager;
 
 import recipe.foodbar.entities.Recipe.Recipe;
-import recipe.foodbar.usecase.recipe.RecipeInputData;
-import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
 import recipe.foodbar.usecase.user.port.IdGenerator;
@@ -10,12 +8,13 @@ import recipe.foodbar.usecase.user.port.IdGenerator;
 public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
     private final RecipeRepository repository;
     private final IdGenerator idGenerator;
-    private final CreateRecipeOutputBoundary outputBoundary;
+    private final CreateRecipeOutputBoundary presenter;
 
-    public CreateRecipeInteractor(RecipeRepository repository, IdGenerator idGenerator, CreateRecipeOutputBoundary outputBoundary) {
+    public CreateRecipeInteractor(RecipeRepository repository, IdGenerator idGenerator, CreateRecipeOutputBoundary presenter) {
         this.repository = repository;
         this.idGenerator = idGenerator;
-        this.outputBoundary = outputBoundary;
+//        this.presenter = presenter1;
+        this.presenter = presenter;
     }
 
 //    public Recipe create(final Recipe recipe) throws RecipeAlreadyExistsException {
@@ -53,8 +52,13 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
 
         RecipeValidator.validateCreateRecipe(recipeToSave);
 
+        // TODO: Assuming the validator above throws the appropriate exception, we can present a
+        //  message of the recipe being successfully created through the presenter. I think that
+        //  the exceptions thrown by the validator above in case of an invalid entry should also
+        //  be passed out through the presenter attribute of this interactor since it's job is communicating
+        //  with the UI. Confirm with Roney!!
         repository.create(recipeToSave);
 
-        return "Alrighty mayte, it's done!";
+        return presenter.present("Recipe successfully created and uploaded");
     }
 }
