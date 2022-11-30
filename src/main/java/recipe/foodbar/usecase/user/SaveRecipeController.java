@@ -13,7 +13,6 @@ public class SaveRecipeController {
 
 
     public SaveRecipeData saveRecipe(User saver, Recipe recipeGiven) {
-        SaveRecipeData saveRecipeData = new SaveRecipeData(saver, recipeGiven);
-        return saveRecipeData;
+        return new SaveRecipeData(saver, recipeGiven);
     }
 }
