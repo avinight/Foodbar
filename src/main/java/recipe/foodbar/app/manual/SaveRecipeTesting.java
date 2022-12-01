@@ -1,5 +1,6 @@
 package recipe.foodbar.app.manual;
 
+import recipe.foodbar.controller.recipe.CreateRecipeController;
 import recipe.foodbar.controller.user.AccountController;
 import recipe.foodbar.controller.user.AccountPresenter;
 import recipe.foodbar.entities.Recipe.Recipe;
@@ -8,6 +9,10 @@ import recipe.foodbar.repository.mongo.*;
 import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
 import recipe.foodbar.repository.mongo.repository.MongoRecipeRepository;
 import recipe.foodbar.repository.mongo.repository.MongoUserRepository;
+import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
+import recipe.foodbar.usecase.recipe.manager.CreateRecipeInteractor;
+import recipe.foodbar.usecase.recipe.manager.CreateRecipePresenter;
+import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
@@ -63,15 +68,16 @@ public class SaveRecipeTesting {
         String lastName2 = "razor2";
         String passwordShadow2 = "1232";
         String email2 = "a2@gmail.com";
-        UserInputData user22 = accountController.create(username2, password2, passwordShadow2, firstName2, lastName2, email2);
-        String userCreationConfirmation2 = accountController.data.create(user22);
+        UserInputData user2Data = accountController.create(username2, password2, passwordShadow2, firstName2, lastName2, email2);
+        String userCreationConfirmation2 = accountController.data.create(user2Data);
 
-        System.out.println(repo.getByUsername("Bartholomew"));
+        System.out.println(repo.getByUsername("Bartholomew"));  // TODO: to be fixed as the repo returns null here
 
         //
         Optional<User> user1 = repo.findByEmail("a@gmail.com");
-        if (user1.isPresent()){
-            User user2 = user1.get();}
+        Optional<User> user2 = repo.findByEmail("a2@gmail.com");
+//        if (user1.isPresent()){
+//            User user22 = user1.get();}
 
         ArrayList<Recipe> actArray = user1.get().getSavedRecipes();
 
@@ -79,8 +85,49 @@ public class SaveRecipeTesting {
 //        assertEquals(expArray, actArray);
         System.out.println(expArray.equals((ArrayList<Recipe>) actArray));
 
-        // TODO: need to finalize what concrete method there is for saving. The methodology below is incorrect
-//        Recipe r1 = new Recipe("123", "pasta", user1, 2.5, )
+        // TODO: Creating presenter for the create recipe use case. Using the same ID generator and recipe
+        //  repository as the one defined above. the things below only need to be created once for the creation of
+        //  all recipes
+        CreateRecipePresenter createRecipePresenter = new CreateRecipePresenter();
+        CreateRecipeInputBoundary recipeData = new CreateRecipeInteractor(recipeRepo, idGenerator, createRecipePresenter);
+        CreateRecipeController recipeController = new CreateRecipeController(recipeData);
+
+        // TODO: The lines above only need to be defined once to create a recipe. After this we repeat the following
+        //  template for creating a recipe and saving it to the repo
+        String rTitle = "curry";
+        User rAuthor = user1.get();
+        float rPortionSize = (float) 2.55;
+        String[] instructions = new String[]{"idk bro. add salt", "do the rest idk"};
+        Cuisine cui = new Cuisine("Indian", "1");
+        String[] dr = new String[]{"Vegan", "Halal"};
+        Date rDate = new Date();
+        ArrayList<Ingredient> ing = new ArrayList<>();
+        Ingredient ing1 = new Ingredient("Potatoes", 69);
+        ing.add(ing1);
+        ArrayList<String> rLikers = new ArrayList<>();
+        ArrayList<String> rDislikers = new ArrayList<>();
+        ArrayList<Review> rReviews = new ArrayList<>();
+
+
+
+        RecipeInputData recipe = recipeController.createRecipe(rTitle, rAuthor, rPortionSize, instructions, cui, dr,
+                rDate, ing, rLikers, rDislikers, rReviews);
+
+        String recipeCreationConfirmation = recipeController.inputBoundary.create(recipe);
+
+        System.out.println("ooga booga");
+
+
+
+
+//        RecipeInputData recipe = recipeController.createRecipe()
+
+
+
+
+
+
+
 
     }
 
