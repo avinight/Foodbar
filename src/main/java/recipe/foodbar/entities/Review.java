@@ -8,7 +8,7 @@ public class Review {
     private final String text;
     private final User author;
 
-    private Review(String id, String recipeId, String title, String text, User author) {
+    public Review(String id, String recipeId, String title, String text, User author) {
         this.id = id;
         this.recipeId = recipeId;
         this.title = title;
