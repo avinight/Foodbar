@@ -11,7 +11,7 @@ import java.util.Date;
 public class RecipeDTO {
     private String id;
     private String title;
-    private User author;
+    private String userId;
     private float portionSize;
     private ArrayList<String> instructions;
     private Cuisine cuisine;
@@ -51,12 +51,12 @@ public class RecipeDTO {
         this.title = title;
     }
 
-    public User getAuthor() {
-        return author;
+    public String getAuthor() {
+        return userId;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setAuthor(String authorId) {
+        this.userId = authorId;
     }
 
     public float getPortionSize() {
@@ -119,7 +119,7 @@ public class RecipeDTO {
         return Recipe.builder()
                 .id(id)
                 .title(title)
-                .author(author)
+                .author(userId)
                 .portionSize(portionSize)
                 .instructions(instructions)
                 .cuisine(cuisine)
