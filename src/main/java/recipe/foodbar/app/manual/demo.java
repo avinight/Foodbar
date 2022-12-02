@@ -20,7 +20,7 @@ public class demo {
         ArrayList<Ingredient> ing = new ArrayList<>();
         Ingredient ing1 = new Ingredient("Potatoes", 69);
         ing.add(ing1);
-        Recipe curry = new Recipe("001", "Aloo Curry", junaid, 1, instr, cui, dr, new Date(), ing, new ArrayList<String>(), new ArrayList<String>(), new ArrayList<Review>());
+        Recipe curry = new Recipe("001", "Aloo Curry", junaid.getId(), 1, instr, cui, dr, new Date(), ing, new ArrayList<String>(), new ArrayList<String>(), new ArrayList<Review>());
 
         // Use builder rather than constructor so that unnecessary inputs aren't required
 

@@ -9,7 +9,7 @@ public class RecipeMapper {
     public static Recipe toEntity(RecipeModel recipeModel) {
         return new Recipe(recipeModel.get_id(),
                 recipeModel.getTitle(),
-                recipeModel.getAuthor(),
+                recipeModel.get_id(),
                 recipeModel.getPortionSize(),
                 recipeModel.getInstructions(),
                 recipeModel.getCuisine(),

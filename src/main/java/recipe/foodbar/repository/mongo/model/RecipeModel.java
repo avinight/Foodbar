@@ -13,7 +13,7 @@ import java.util.Date;
 public class RecipeModel {
     private final String _id;
     private final String title;
-    private final User author;
+    private final String userID;
     private final float portionSize;
     private final String[] instructions;
     private final Cuisine cuisine;

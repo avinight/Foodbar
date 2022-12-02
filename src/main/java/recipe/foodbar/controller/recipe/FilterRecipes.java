@@ -9,7 +9,7 @@ import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
  * A controller to filter recipes.
  */
 public class FilterRecipes {
-    private final CuisineFilterInputBoundary f;
+    public final CuisineFilterInputBoundary f;
 
     /**
      * Constructor for FilterRecipes
@@ -21,7 +21,7 @@ public class FilterRecipes {
     }
 
     /**
-     * Creates and returns Cuisine input d  ata
+     * Creates and returns Cuisine input data
      * @param cuisine
      * @return
      */

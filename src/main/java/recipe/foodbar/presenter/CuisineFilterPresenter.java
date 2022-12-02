@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 /* Presenter class for recipes filtered by a cuisine
 * */
+
 public class CuisineFilterPresenter implements CuisineFilterOutputBoundary {
 
     /**

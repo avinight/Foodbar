@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class RecipeInputData {
     private final String title;
-    private final User author;
+    private final String userId;
     private final float portionSize;
     private final String[] instructions;
     private final Cuisine cuisine;
@@ -21,12 +21,12 @@ public class RecipeInputData {
     private final ArrayList<String> dislikers;
     private final ArrayList<Review> reviews;
 
-    public RecipeInputData(String title, final User author, float portionSize, String[] instructions,
+    public RecipeInputData(String title, final String userId, float portionSize, String[] instructions,
                            Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
                            ArrayList<Ingredient> ingredients, ArrayList<String> likers, ArrayList<String> dislikers,
                            ArrayList<Review> reviews) {
         this.title = title;
-        this.author = author;
+        this.userId = userId;
         this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
@@ -42,8 +42,8 @@ public class RecipeInputData {
         return title;
     }
 
-    public User getAuthor() {
-        return author;
+    public String getAuthor() {
+        return userId;
     }
 
     public float getPortionSize() {

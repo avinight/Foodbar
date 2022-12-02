@@ -14,7 +14,7 @@ import java.util.Date;
 public class Recipe {
     private final String id;
     private String title;
-    private User author;
+    private String userId;
     private float portionSize;
     private String[] instructions;
     private Cuisine cuisine;
@@ -32,7 +32,7 @@ public class Recipe {
      *
      * @param id                  The id of the recipe.
      * @param title               The title of the recipe.
-     * @param author              The author of the recipe.
+     * @param userId              The author of the recipe.
      * @param portionSize         The portion size of the recipe.
      * @param instructions        The instructions of the recipe.
      * @param cuisine             The cuisine of the recipe.
@@ -43,13 +43,13 @@ public class Recipe {
      * @param dislikers           The ID of Users who have disliked this recipe.
      * @param reviews             The reviews of the recipe.
      */
-    public Recipe(String id, String title, final User author, float portionSize, String[] instructions,
+    public Recipe(String id, String title, final String userId, float portionSize, String[] instructions,
            Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
            ArrayList<Ingredient> ingredients, ArrayList<String> likers, ArrayList<String> dislikers,
            ArrayList<Review> reviews) {
         this.id = id;
         this.title = title;
-        this.author = author;
+        this.userId = userId;
         this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
@@ -92,12 +92,12 @@ public class Recipe {
      *
      * @return the author of the recipe.
      */
-    public User getAuthor() {
-        return author;
+    public String getAuthor() {
+        return userId;
     }
 
-    public void setAuthor(User ue) {
-        this.author = ue;
+    public void setAuthor(String id) {
+        this.userId = id;
     }
 
     /**
@@ -311,7 +311,7 @@ public class Recipe {
         return "Recipe{" +
                 "id = " + id + '\'' +
                 ", title = '" + title + '\'' +
-                ", authorID = '" + author.getId() + '\'' +
+                ", authorID = '" + userId + '\'' +
                 ", cuisine = '" + cuisine.toString() + '\'' +
                 ", likes = '" + this.getLikes() + '\'' +
                 ", dislikes = '" + this.getDislikes() + '\'' +

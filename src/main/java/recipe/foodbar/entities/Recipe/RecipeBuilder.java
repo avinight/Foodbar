@@ -12,7 +12,7 @@ import java.util.Date;
 public class RecipeBuilder {
     private String id;
     private String title;
-    private User author;
+    private String userId;
     private float portionSize;
     private String[] instructions;
     private Cuisine cuisine;
@@ -33,8 +33,8 @@ public class RecipeBuilder {
         return this;
     }
 
-    public RecipeBuilder author(User author) {
-        this.author = author;
+    public RecipeBuilder author(String Id) {
+        this.userId = Id;
         return this;
     }
 
@@ -90,6 +90,6 @@ public class RecipeBuilder {
     }
 
     public Recipe createRecipe() {
-        return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, likers, dislikers, reviews);
+        return new Recipe(id, title, userId, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, likers, dislikers, reviews);
     }
 }

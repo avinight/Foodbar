@@ -3,15 +3,76 @@ package recipe.foodbar.app.manual;
 //import recipe.foodbar.config.ManualConfig;
 import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
+import recipe.foodbar.controller.recipe.FilterRecipes;
+import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Review;
+import recipe.foodbar.id_generator.jug.JugIdGenerator;
+import recipe.foodbar.repository.mongo.repository.MongoRecipeRepository;
+import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
+import recipe.foodbar.usecase.cuisine.FilterByCuisine;
+import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
+import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
+import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.entities.User;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 public class UserExample {
     public static void main(String[] args) throws RecipeAlreadyExistsException {
+        InMemoryUserRepository repo = new InMemoryUserRepository();
+        MongoRecipeRepository recipeRepo = new MongoRecipeRepository();
+        final IdGenerator idGenerator = new JugIdGenerator();
 
+        Cuisine chineseCuisine = new Cuisine("Chinese", "10");
+        Cuisine italianCuisine = new Cuisine("Italian", "11");
+
+        //Create Users (authors)
+        User u1 = new User("12", "pp", "pp", "pp", "pp","pp");
+        User u2 = new User("13", "pp", "pp", "pp", "pp","pp");
+        User u3 = new User("14", "pp", "pp", "pp", "pp","pp");
+        User u4 = new User("15", "pp", "pp", "pp", "pp","pp");
+        User u5 = new User("16", "pp", "pp", "pp", "pp","pp");
+
+
+
+        //Create the recipes and add them to recipeRepo
+        Recipe chickenAlfredo = new Recipe("1", "Chicken Alfredo", u1.getId(),
+                (float) 1.0, new String[0], italianCuisine, new String[0], new Date(), new ArrayList<Ingredient>(), new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<Review>());
+        Recipe pizza = new Recipe("2", "Pizza", u2.getId(),
+                (float) 1.0, new String[0], italianCuisine, new String[0], new Date(), new ArrayList<Ingredient>(), new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<Review>());
+        Recipe generalTao = new Recipe("3", "General Tao", u3.getId(),
+                (float) 1.0, new String[0], chineseCuisine, new String[0], new Date(), new ArrayList<Ingredient>(), new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<Review>());
+        Recipe dumplings = new Recipe("4", "Dumplings", u4.getId(),
+                (float) 1.0, new String[0], chineseCuisine, new String[0], new Date(), new ArrayList<Ingredient>(), new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<Review>());
+        Recipe rice = new Recipe("5", "Rice", u5.getId(),
+                (float) 1.0, new String[0], chineseCuisine, new String[0], new Date(), new ArrayList<Ingredient>(), new ArrayList<String>(), new ArrayList<String>(),
+                new ArrayList<Review>());
+
+        Recipe r1 = recipeRepo.create(chickenAlfredo);
+        Recipe r2 = recipeRepo.create(pizza);
+        Recipe r3 = recipeRepo.create(generalTao);
+        Recipe r4 = recipeRepo.create(dumplings);
+        Recipe r5 = recipeRepo.create(rice);
+
+        //Input Boundary, Controller, Input Data
+        CuisineFilterInputBoundary inputBoundary = new FilterByCuisine(recipeRepo);
+        FilterRecipes filterController = new FilterRecipes(inputBoundary);
+
+        CuisineFilterData chineseInputData = filterController.data(chineseCuisine);
+
+        //Use case interactor
+        FilterByCuisine interactor = new FilterByCuisine(recipeRepo);
+
+        ArrayList<Recipe> filteredRecipes = interactor.filterByCuisine(chineseInputData);
+
+        System.out.println(filteredRecipes);
 
         // Setup
 //        var config = new ManualConfig();
