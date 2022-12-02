@@ -6,6 +6,7 @@ import recipe.foodbar.controller.user.AccountPresenter;
 import recipe.foodbar.entities.Recipe.Recipe;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongo.*;
+import recipe.foodbar.repository.simpleDB.InMemoryRecipeRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
 import recipe.foodbar.repository.mongo.repository.MongoRecipeRepository;
 import recipe.foodbar.repository.mongo.repository.MongoUserRepository;
@@ -42,7 +43,10 @@ public class SaveRecipeTesting {
         InMemoryUserRepository repo = new InMemoryUserRepository();
         // can't create an interface an object as then we would have to implement the methods from that repo here
 //        MongoUserRepository repo = new MongoUserRepository();
-        MongoRecipeRepository recipeRepo = new MongoRecipeRepository();
+        // TODO: using mongo repo yields an error so reverting to inMemoryRecipeRepo for now
+//        MongoRecipeRepository recipeRepo = new MongoRecipeRepository();
+        InMemoryRecipeRepository recipeRepo = new InMemoryRecipeRepository();
+        // initializing an id generator for user and recipe creation
         final IdGenerator idGenerator = new JugIdGenerator();
         System.out.println("Test recipe saving");
 
