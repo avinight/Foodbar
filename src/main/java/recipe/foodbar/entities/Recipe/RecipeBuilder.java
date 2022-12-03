@@ -73,6 +73,16 @@ public class RecipeBuilder {
         return this;
     }
 
+    public RecipeBuilder likers(ArrayList<String> likers){
+        this.likers = likers;
+        return this;
+    }
+
+    public RecipeBuilder dislikers(ArrayList<String> dislikers) {
+        this.dislikers = dislikers;
+        return this;
+    }
+
     public int getLikes() {
         return likers.size();
     }

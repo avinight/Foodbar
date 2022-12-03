@@ -32,6 +32,7 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      */
     @Override
     public Optional<User> findById(final String id) {
+        System.out.println(inMemoryDb.get(id));
         return Optional.ofNullable(inMemoryDb.get(id));
     }
 
