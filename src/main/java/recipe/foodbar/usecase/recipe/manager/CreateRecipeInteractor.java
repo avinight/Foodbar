@@ -54,7 +54,7 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
         String[] rDR = input.getDietaryRestrictions();
         ArrayList<Ingredient> rIng = input.getIngredients();
         Date rDate = input.getDateCreated();
-        // TODO: the bottom assignment statements assume that at the time of recipe creattion, the likes, dislikes are
+        // TODO: the bottom assignment statements assume that at the time of recipe creation, the likes, dislikes are
         //  both zero and the list of reviews is empty
         ArrayList<String> rLikers = input.getLikers();
         ArrayList<String> rDislikers = input.getDislikers();
@@ -70,6 +70,9 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
                 .ingredients(rIng)
                 .dietaryRestrictions(rDR)
                 .dateCreated(rDate)
+                .likers(rLikers)
+                .dislikers(rDislikers)
+                .reviews(rReviews)
                 .createRecipe();
 
 
@@ -86,13 +89,19 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
 
         RecipeValidator.validateCreateRecipe(recipeToSave);
 
-        // TODO: Assuming the validator above throws the appropriate exception, we can present a
-        //  message of the recipe being successfully created through the presenter. I think that
-        //  the exceptions thrown by the validator above in case of an invalid entry should also
+        // TODO: also need to ensure that the recipe being saved to the recipe repository is valid since other use
+        //  cases assume that if the recipe is not in the repo then they are invalid (the repo should not have any
+        //  invalid recipes)
+
+        // TODO: Assuming the validator above throws the appropriate exception and doesn't allow the code below to
+        //  execute, we can present a message of the recipe being successfully created through the presenter. I think
+        //  that the exceptions thrown by the validator above in case of an invalid entry should also
         //  be passed out through the presenter attribute of this interactor since it's job is communicating
         //  with the UI. Confirm with Roney!!
         repository.create(recipeToSave);
 
-        return presenter.present("Recipe successfully created and uploaded");
+        // need to return the ID of the recipe object that was created
+        String recipeID = recipeToSave.getId();
+        return presenter.getID(recipeID);
     }
 }
