@@ -24,30 +24,6 @@ public class MongoDB {
 
     private static final String uri = "mongodb://localhost:27017";
 
-    private static MongoClient mongoClient;
-
-    public static void main(String[] args) {
-//        db = getReference();
-//        final IdGenerator idGenerator = new JugIdGenerator();
-////            UserModel um = new UserModel(new ObjectId(idGenerator.generate()), "roney", "dsfsdf", "dsfsdf", "sdfsdf", "dsfsdf@fsd.com");
-//        UserModelTest um = new UserModelTest("roney", "dsfsdf", "dsfsdf", "sdfsdf", "dsfsdf@fsd.com");
-////        MongoCollection<UserModelTest> collection = db.getCollection("UserTest", UserModelTest.class);
-//        MongoCollection<Document> collection = db.getCollection("movies");
-//
-//        Bson command = new BsonDocument("ping", new BsonInt64(1));
-//        Document commandResult = db.runCommand(command);
-//        System.out.println("Connected successfully to server.");
-
-//        Document doc1 = new Document("color", "red").append("qty", 5);
-//        InsertOneResult result = collection.insertOne(doc1);
-//        System.out.println("Inserted a document with the following id: "
-//                + result.getInsertedId().asObjectId().getValue());
-//        System.out.println(db);
-//        InsertOneResult result = collection.insertOne(um);
-//        System.out.println("Success! Inserted document id: " + result.getInsertedId());
-//        getReference();
-    }
-
     public static MongoClient getMongoClient() {
         CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
         CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));

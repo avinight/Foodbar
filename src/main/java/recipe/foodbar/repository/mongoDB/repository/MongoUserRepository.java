@@ -4,6 +4,7 @@ import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.InsertOneResult;
 import org.bson.codecs.configuration.CodecProvider;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
@@ -36,8 +37,8 @@ public class MongoUserRepository implements UserRepositoryInterface {
     public void create(User user) {
         try {
             UserModel um = UserMapper.toUserModel(user);
-//            InsertOneResult result = collection.insertOne(um);
-//            System.out.println("Success! Inserted document id: " + result.getInsertedId());
+            InsertOneResult result = collection.insertOne(um);
+            System.out.println("Success! Inserted document id: " + result.getInsertedId());
         } catch (MongoException me) {
             System.err.println("Unable to insert user due to an error: " + me);
         }

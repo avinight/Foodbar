@@ -3,10 +3,12 @@ package recipe.foodbar.repository.mongoDB.repository;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoIterable;
 import com.mongodb.client.model.ReplaceOptions;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
+import org.bson.BsonDocument;
+import org.bson.BsonInt64;
+import org.bson.Document;
 import org.bson.conversions.Bson;
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe;
@@ -25,20 +27,17 @@ public class MongoRecipeRepository implements RecipeRepository {
     MongoCollection<RecipeModel> collection;
 
     public MongoRecipeRepository(MongoDatabase db) {
-//        Bson command = new BsonDocument("ping", new BsonInt64(1));
-//        Document commandResult = db.runCommand(command);
-        System.out.println(db.listCollections());
-        MongoIterable<String> list = db.listCollectionNames();
-        for (String s : list) {
-            System.out.println(s);
-        }
-//        System.out.println("MongoRecipeRepository: Connected successfully to server." + commandResult);
+        Bson command = new BsonDocument("ping", new BsonInt64(1));
+        Document commandResult = db.runCommand(command);
+        System.out.println(this.getClass().getSimpleName() + ": Connected successfully to server." + commandResult);
         collection = db.getCollection("Recipe", RecipeModel.class);
     }
 
     @Override
     public ArrayList<Recipe> getAllRecipes() {
-        return null;
+        List<RecipeModel> recipeModelList = collection.find().into(new ArrayList<>());
+        List<Recipe> recipeList = recipeModelList.stream().map(RecipeMapper::toEntity).collect(Collectors.toList());
+        return (ArrayList<Recipe>) recipeList;
     }
 
     @Override
