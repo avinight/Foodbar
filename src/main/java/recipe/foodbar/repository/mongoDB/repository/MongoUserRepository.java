@@ -5,6 +5,9 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.InsertOneResult;
+import org.bson.BsonDocument;
+import org.bson.BsonInt64;
+import org.bson.Document;
 import org.bson.codecs.configuration.CodecProvider;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
@@ -12,6 +15,7 @@ import org.bson.conversions.Bson;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.repository.mongoDB.MongoDB;
 import recipe.foodbar.repository.mongoDB.mapper.UserMapper;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.repository.mongoDB.model.UserModel;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
@@ -27,11 +31,14 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class MongoUserRepository implements UserRepositoryInterface {
 
-    MongoClient mongoClient = new MongoDB().getMongoClient();
-    CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
-    CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-    MongoDatabase db = mongoClient.getDatabase("FoodBar").withCodecRegistry(pojoCodecRegistry);
-    MongoCollection<UserModel> collection = db.getCollection("User", UserModel.class);
+    MongoCollection<UserModel> collection;
+
+    public MongoUserRepository(MongoDatabase db) {
+        Bson command = new BsonDocument("ping", new BsonInt64(1));
+        Document commandResult = db.runCommand(command);
+        System.out.println(this.getClass().getSimpleName() + ": Connected successfully to server." + commandResult);
+        collection = db.getCollection("Users", UserModel.class);
+    }
 
     @Override
     public void create(User user) {

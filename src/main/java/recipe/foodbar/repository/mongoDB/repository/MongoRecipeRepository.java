@@ -30,7 +30,7 @@ public class MongoRecipeRepository implements RecipeRepository {
         Bson command = new BsonDocument("ping", new BsonInt64(1));
         Document commandResult = db.runCommand(command);
         System.out.println(this.getClass().getSimpleName() + ": Connected successfully to server." + commandResult);
-        collection = db.getCollection("Recipe", RecipeModel.class);
+        collection = db.getCollection("Recipes", RecipeModel.class);
     }
 
     @Override
