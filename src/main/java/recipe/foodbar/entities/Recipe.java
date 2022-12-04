@@ -1,9 +1,4 @@
-package recipe.foodbar.entities.Recipe;
-
-import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.User;
+package recipe.foodbar.entities;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,8 +17,8 @@ public class Recipe {
     private ArrayList<String> instructions;
     private ArrayList<String> dietaryRestrictions;
     private float portionSize;
-    private int likes;
-    private int dislikes;
+    private ArrayList<String> likers;
+    private ArrayList<String> dislikers;
 
     /**
      * Constructs a Recipe with id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated,
@@ -42,7 +37,7 @@ public class Recipe {
      * @param dislikers           The ID of Users who have disliked this recipe.
      * @param reviews             The reviews of the recipe.
      */
-    public Recipe(String id, String title, final User author, float portionSize, ArrayList<String> instructions, Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, int likes, int dislikes) {
+    public Recipe(String id, String title, final User author, float portionSize, ArrayList<String> instructions, Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -50,8 +45,8 @@ public class Recipe {
         this.instructions = instructions;
         this.cuisine = cuisine;
         this.ingredients = ingredients;
-        this.likes = 0;
-        this.dislikes = 0;
+        this.likers = likers;
+        this.dislikers = dislikers;
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
         this.reviews = reviews;
@@ -60,6 +55,7 @@ public class Recipe {
     public static RecipeBuilder builder() {
         return new RecipeBuilder();
     }
+
 
     /**
      * Returns the id of the recipe.
@@ -123,11 +119,11 @@ public class Recipe {
      *
      * @return the instructions of the recipe.
      */
-    public String[] getInstructions() {
+    public ArrayList<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(String[] i) {
+    public void setInstructions(ArrayList<String> i) {
         this.instructions = i;
     }
 
@@ -156,7 +152,7 @@ public class Recipe {
      * @return int likers.size
      */
     public int getLikes() {
-        return likes;
+        return likers.size();
     }
 
     /**
@@ -227,7 +223,7 @@ public class Recipe {
      *
      * @return String[]
      */
-    public String[] getDietaryRestrictions() {
+    public ArrayList<String> getDietaryRestrictions() {
         return dietaryRestrictions;
     }
 
@@ -236,7 +232,7 @@ public class Recipe {
      *
      * @param dr    Dietary Restrictions.
      */
-    public void setDietaryRestrictions(String[] dr) {
+    public void setDietaryRestrictions(ArrayList<String> dr) {
         this.dietaryRestrictions = dr;
     }
 
@@ -314,4 +310,89 @@ public class Recipe {
                 ", review = '" + reviews + '\'' + "}";
     }
 
+    public static class RecipeBuilder {
+        private String id;
+        private Cuisine cuisine;
+        private Date dateCreated;
+        private ArrayList<Review> reviews;
+        private ArrayList<Ingredient> ingredients;
+        private String title;
+        private User author;
+        private ArrayList<String> instructions;
+        private ArrayList<String> dietaryRestrictions;
+        private float portionSize;
+        private ArrayList<String> likers;
+        private ArrayList<String> dislikers;
+
+        RecipeBuilder() {
+        }
+
+        public RecipeBuilder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public RecipeBuilder cuisine(Cuisine cuisine) {
+            this.cuisine = cuisine;
+            return this;
+        }
+
+        public RecipeBuilder dateCreated(Date dateCreated) {
+            this.dateCreated = dateCreated;
+            return this;
+        }
+
+        public RecipeBuilder reviews(ArrayList<Review> reviews) {
+            this.reviews = reviews;
+            return this;
+        }
+
+        public RecipeBuilder ingredients(ArrayList<Ingredient> ingredients) {
+            this.ingredients = ingredients;
+            return this;
+        }
+
+        public RecipeBuilder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public RecipeBuilder author(User author) {
+            this.author = author;
+            return this;
+        }
+
+        public RecipeBuilder instructions(ArrayList<String> instructions) {
+            this.instructions = instructions;
+            return this;
+        }
+
+        public RecipeBuilder dietaryRestrictions(ArrayList<String> dietaryRestrictions) {
+            this.dietaryRestrictions = dietaryRestrictions;
+            return this;
+        }
+
+        public RecipeBuilder portionSize(float portionSize) {
+            this.portionSize = portionSize;
+            return this;
+        }
+
+        public RecipeBuilder likers(ArrayList<String> likers) {
+            this.likers = likers;
+            return this;
+        }
+
+        public RecipeBuilder dislikers(ArrayList<String> dislikers) {
+            this.dislikers = dislikers;
+            return this;
+        }
+
+        public Recipe build() {
+            return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likers, dislikers);
+        }
+
+        public String toString() {
+            return "Recipe.RecipeBuilder(id=" + this.id + ", cuisine=" + this.cuisine + ", dateCreated=" + this.dateCreated + ", reviews=" + this.reviews + ", ingredients=" + this.ingredients + ", title=" + this.title + ", author=" + this.author + ", instructions=" + this.instructions + ", dietaryRestrictions=" + this.dietaryRestrictions + ", portionSize=" + this.portionSize + ", likers=" + this.likers + ", dislikers=" + this.dislikers + ")";
+        }
+    }
 }

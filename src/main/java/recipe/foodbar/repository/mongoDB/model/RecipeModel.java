@@ -22,6 +22,6 @@ public class RecipeModel {
     private final float portionSize;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
-    private int likes;
-    private int dislikes;
+    private ArrayList<String> likers;
+    private ArrayList<String> dislikers;
 }

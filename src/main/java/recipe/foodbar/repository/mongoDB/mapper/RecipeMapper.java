@@ -18,8 +18,8 @@ public class RecipeMapper {
                 recipeModelModel.getDateCreated(),
                 recipeModelModel.getIngredients(),
                 recipeModelModel.getReviews(),
-                recipeModelModel.getLikes(),
-                recipeModelModel.getDislikes());
+                recipeModelModel.getLikers(),
+                recipeModelModel.getDislikers());
     }
 
     @NonNull
