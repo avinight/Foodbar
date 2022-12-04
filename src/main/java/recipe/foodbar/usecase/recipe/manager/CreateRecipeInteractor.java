@@ -49,7 +49,7 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
                 .portionSize(input.getPortionSize())
                 .dietaryRestrictions(input.getDietaryRestrictions())
                 .dateCreated(input.getDateCreated())
-                .createRecipe();
+                .build();
 
         RecipeValidator.validateCreateRecipe(recipeToSave);
 
