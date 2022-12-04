@@ -3,7 +3,6 @@ package recipe.foodbar.usecase.cuisine;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
-import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterOutputBoundary;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 import java.util.ArrayList;

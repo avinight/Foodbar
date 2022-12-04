@@ -1,6 +1,6 @@
 package recipe.foodbar.presenter;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterOutputBoundary;
 
 import java.util.ArrayList;

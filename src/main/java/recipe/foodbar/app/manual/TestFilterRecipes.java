@@ -2,7 +2,7 @@ package recipe.foodbar.app.manual;
 
 import recipe.foodbar.controller.recipe.FilterRecipes;
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.repository.mongo.repository.MongoRecipeRepository;
+import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
 import recipe.foodbar.usecase.cuisine.FilterByCuisine;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
