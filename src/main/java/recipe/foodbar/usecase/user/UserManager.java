@@ -5,10 +5,10 @@
 package recipe.foodbar.usecase.user;
 
 
+import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
-import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class UserManager implements UserCreatorInputBoundary {
 

@@ -1,6 +1,7 @@
-package recipe.foodbar.repository.mongo.model;
+package recipe.foodbar.repository.mongoDB.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
@@ -11,16 +12,16 @@ import java.util.Date;
 
 @Data
 public class RecipeModel {
-    private final String _id;
+    private final ObjectId _id;
     private final String title;
-    private final String userID;
-    private final float portionSize;
-    private final String[] instructions;
+    private final User author;
+    private final ArrayList<String> instructions;
     private final Cuisine cuisine;
-    private final String[] dietaryRestrictions;
+    private final ArrayList<String> dietaryRestrictions;
     private final Date dateCreated;
-    private final ArrayList<Ingredient> ingredients;
-    private final ArrayList<String> likers;
-    private final ArrayList<String> dislikers;
+    private final float portionSize;
     private final ArrayList<Review> reviews;
+    private final ArrayList<Ingredient> ingredients;
+    private int likes;
+    private int dislikes;
 }

@@ -1,13 +1,14 @@
-package recipe.foodbar.repository.mongo.model;
+package recipe.foodbar.repository.mongoDB.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
 
 @Data
 public class UserModel {
-    private final String _id;
+    private final ObjectId _id;
     private final String username;
     private final String password;
     private final String firstName;
