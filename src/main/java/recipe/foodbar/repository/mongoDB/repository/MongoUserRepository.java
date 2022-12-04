@@ -1,9 +1,12 @@
 package recipe.foodbar.repository.mongoDB.repository;
 
 import com.mongodb.MongoException;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.result.InsertOneResult;
+import org.bson.codecs.configuration.CodecProvider;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.repository.mongoDB.MongoDB;
@@ -16,19 +19,25 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.mongodb.MongoClientSettings.getDefaultCodecRegistry;
 import static com.mongodb.client.model.Filters.eq;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class MongoUserRepository implements UserRepositoryInterface {
 
-    MongoDatabase db = MongoDB.getReference();
+    MongoClient mongoClient = new MongoDB().getMongoClient();
+    CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
+    CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
+    MongoDatabase db = mongoClient.getDatabase("FoodBar").withCodecRegistry(pojoCodecRegistry);
     MongoCollection<UserModel> collection = db.getCollection("User", UserModel.class);
 
     @Override
     public void create(User user) {
         try {
             UserModel um = UserMapper.toUserModel(user);
-            InsertOneResult result = collection.insertOne(um);
-            System.out.println("Success! Inserted document id: " + result.getInsertedId());
+//            InsertOneResult result = collection.insertOne(um);
+//            System.out.println("Success! Inserted document id: " + result.getInsertedId());
         } catch (MongoException me) {
             System.err.println("Unable to insert user due to an error: " + me);
         }

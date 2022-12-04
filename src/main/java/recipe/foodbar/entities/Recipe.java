@@ -1,9 +1,4 @@
-package recipe.foodbar.entities.Recipe;
-
-import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.User;
+package recipe.foodbar.entities;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,8 +14,8 @@ public class Recipe {
     private final ArrayList<Ingredient> ingredients;
     private String title;
     private User author;
-    private String[] instructions;
-    private String[] dietaryRestrictions;
+    private ArrayList<String> instructions;
+    private ArrayList<String> dietaryRestrictions;
     private float portionSize;
     private int likes;
     private int dislikes;
@@ -42,9 +37,7 @@ public class Recipe {
      * @param likes               The count of likes for recipe
      * @param dislikes            The count of dislikes for recipe
      */
-    public Recipe(String id, String title, final User author, float portionSize, String[] instructions,
-           Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
-           ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, int likes, int dislikes) {
+    public Recipe(String id, String title, final User author, float portionSize, ArrayList<String> instructions, Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, int likes, int dislikes) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -125,11 +118,11 @@ public class Recipe {
      *
      * @return the instructions of the recipe.
      */
-    public String[] getInstructions() {
+    public ArrayList<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(String[] i) {
+    public void setInstructions(ArrayList<String> i) {
         this.instructions = i;
     }
 
@@ -142,7 +135,10 @@ public class Recipe {
         return cuisine;
     }
 
-    public void setCuisine(Cuisine cuisine) { this.cuisine = cuisine; }
+    public void setCuisine(Cuisine cuisine) {
+        this.cuisine = cuisine;
+    }
+
     /**
      * Returns the rating of the recipe.
      *
@@ -175,16 +171,16 @@ public class Recipe {
      *
      * @return String[]
      */
-    public String[] getDietaryRestrictions() {
+    public ArrayList<String> getDietaryRestrictions() {
         return dietaryRestrictions;
     }
 
     /**
      * Sets the dietary restrictions of the recipe.
      *
-     * @param dr    Dietary Restrictions.
+     * @param dr Dietary Restrictions.
      */
-    public void setDietaryRestrictions(String[] dr) {
+    public void setDietaryRestrictions(ArrayList<String> dr) {
         this.dietaryRestrictions = dr;
     }
 
@@ -283,4 +279,89 @@ public class Recipe {
         return "Recipe{" + "title = " + title + '\'' + ", id = " + id + '\'' + ", author = " + author + '\'' + ", cuisineId = " + cuisine + '\'' + ", likes = " + likes + '\'' + ", dislikes = " + dislikes + '\'' + ", review = " + reviews + '\'' + "}";
     }
 
+    public static class RecipeBuilder {
+        private String id;
+        private Cuisine cuisine;
+        private Date dateCreated;
+        private ArrayList<Review> reviews;
+        private ArrayList<Ingredient> ingredients;
+        private String title;
+        private User author;
+        private ArrayList<String> instructions;
+        private ArrayList<String> dietaryRestrictions;
+        private float portionSize;
+        private int likes;
+        private int dislikes;
+
+        RecipeBuilder() {
+        }
+
+        public RecipeBuilder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public RecipeBuilder cuisine(Cuisine cuisine) {
+            this.cuisine = cuisine;
+            return this;
+        }
+
+        public RecipeBuilder dateCreated(Date dateCreated) {
+            this.dateCreated = dateCreated;
+            return this;
+        }
+
+        public RecipeBuilder reviews(ArrayList<Review> reviews) {
+            this.reviews = reviews;
+            return this;
+        }
+
+        public RecipeBuilder ingredients(ArrayList<Ingredient> ingredients) {
+            this.ingredients = ingredients;
+            return this;
+        }
+
+        public RecipeBuilder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public RecipeBuilder author(User author) {
+            this.author = author;
+            return this;
+        }
+
+        public RecipeBuilder instructions(ArrayList<String> instructions) {
+            this.instructions = instructions;
+            return this;
+        }
+
+        public RecipeBuilder dietaryRestrictions(ArrayList<String> dietaryRestrictions) {
+            this.dietaryRestrictions = dietaryRestrictions;
+            return this;
+        }
+
+        public RecipeBuilder portionSize(float portionSize) {
+            this.portionSize = portionSize;
+            return this;
+        }
+
+        public RecipeBuilder likes(int likes) {
+            this.likes = likes;
+            return this;
+        }
+
+        public RecipeBuilder dislikes(int dislikes) {
+            this.dislikes = dislikes;
+            return this;
+        }
+
+        public Recipe build() {
+            return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likes, dislikes);
+        }
+
+        public String toString() {
+            return "Recipe.RecipeBuilder(id=" + this.id + ", cuisine=" + this.cuisine + ", dateCreated=" + this.dateCreated + ", reviews=" + this.reviews + ", ingredients=" + this.ingredients + ", title=" + this.title + ", author=" + this.author + ", instructions=" + this.instructions + ", dietaryRestrictions=" + this.dietaryRestrictions + ", portionSize=" + this.portionSize + ", likes=" + this.likes + ", dislikes=" + this.dislikes + ")";
+        }
+    }
 }

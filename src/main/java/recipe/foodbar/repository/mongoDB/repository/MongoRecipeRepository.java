@@ -3,13 +3,13 @@ package recipe.foodbar.repository.mongoDB.repository;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoIterable;
 import com.mongodb.client.model.ReplaceOptions;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.conversions.Bson;
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Recipe.Recipe;
-import recipe.foodbar.repository.mongoDB.MongoDB;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.repository.mongoDB.mapper.RecipeMapper;
 import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
@@ -22,8 +22,19 @@ import java.util.stream.Collectors;
 import static com.mongodb.client.model.Filters.eq;
 
 public class MongoRecipeRepository implements RecipeRepository {
-    MongoDatabase db = MongoDB.getReference();
-    MongoCollection<RecipeModel> collection = db.getCollection("Recipe", RecipeModel.class);
+    MongoCollection<RecipeModel> collection;
+
+    public MongoRecipeRepository(MongoDatabase db) {
+//        Bson command = new BsonDocument("ping", new BsonInt64(1));
+//        Document commandResult = db.runCommand(command);
+        System.out.println(db.listCollections());
+        MongoIterable<String> list = db.listCollectionNames();
+        for (String s : list) {
+            System.out.println(s);
+        }
+//        System.out.println("MongoRecipeRepository: Connected successfully to server." + commandResult);
+        collection = db.getCollection("Recipe", RecipeModel.class);
+    }
 
     @Override
     public ArrayList<Recipe> getAllRecipes() {

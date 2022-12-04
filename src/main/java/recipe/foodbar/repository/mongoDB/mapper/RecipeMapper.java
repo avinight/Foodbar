@@ -2,7 +2,7 @@ package recipe.foodbar.repository.mongoDB.mapper;
 
 import lombok.NonNull;
 import org.bson.types.ObjectId;
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 
 public class RecipeMapper {

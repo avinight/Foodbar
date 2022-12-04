@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
@@ -29,7 +29,7 @@ public class CreateRecipe {
                 .portionSize(recipe.getPortionSize())
                 .dietaryRestrictions(recipe.getDietaryRestrictions())
                 .dateCreated(recipe.getDateCreated())
-                .createRecipe();
+                .build();
 
 
         return repository.create(recipeToSave);

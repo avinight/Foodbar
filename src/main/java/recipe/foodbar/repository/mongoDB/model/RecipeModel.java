@@ -15,9 +15,9 @@ public class RecipeModel {
     private final ObjectId _id;
     private final String title;
     private final User author;
-    private final String[] instructions;
+    private final ArrayList<String> instructions;
     private final Cuisine cuisine;
-    private final String[] dietaryRestrictions;
+    private final ArrayList<String> dietaryRestrictions;
     private final Date dateCreated;
     private final float portionSize;
     private final ArrayList<Review> reviews;

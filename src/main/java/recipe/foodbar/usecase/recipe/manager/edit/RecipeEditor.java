@@ -1,7 +1,7 @@
 //package recipe.foodbar.usecase.recipe.manager.edit;
 //
 //import recipe.foodbar.entities.Ingredient;
-//import recipe.foodbar.entities.Recipe.Recipe;
+//import recipe.foodbar.entities.Recipe;
 //import recipe.foodbar.presenter.RecipePresenter;
 //import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 //import recipe.foodbar.usecase.recipe.ds.RecipeResponseModel;
