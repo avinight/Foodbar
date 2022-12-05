@@ -1,7 +1,7 @@
 /*
 The in memory repository which implements the UserRepositoryInterface
  */
-package recipe.foodbar.repository.simpleDB;
+package recipe.foodbar.repository;
 
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
@@ -24,27 +24,29 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
     }
 
     /**
-     * Abstract method for finding a user by their username in the repository
-     *
-     * @param id the String representation of the id
-     * @return to be implemented by classes which implement the interface.
-     */
-    @Override
-    public Optional<User> findById(String id) {
-        return Optional.ofNullable(inMemoryDb.get(id));
-    }
-
-    /**
      * Method for finding a user by their username in the repository
      *
-     * @param username the String representation of the username
+     * @param id the String representation of the id
      * @return The RegisteredUser Object of the user found, or an empty
      * user object if no user was found.
      */
-//    @Override
-//    public Optional<User> findByUsername(final String username) {
-//        return Optional.ofNullable(inMemoryDb.get(username));
-//    }
+    @Override
+    public Optional<User> findById(final String id) {
+        System.out.println(inMemoryDb.get(id));
+        return Optional.ofNullable(inMemoryDb.get(id));
+    }
+
+
+    /**
+     * Method for getting the password of the matchingusername in repository
+     *
+     * @param username the String representation of the username to be checked in the repository
+     * @return the password of the matching user object
+     */
+    @Override
+    public String getPassword(final String username){
+        return inMemoryDb.get(username).getPassword();
+    }
 
     /**
      * Method for finding a user by their email in the repository
@@ -90,18 +92,20 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
     }
 
     /**
-     * Abstract method for getting password
+     * Method for returning a user if they exist by their username
      *
      * @param username the String representation of the username
-     * @return to be implemented
+     * @return user object if it exists, empty user otherwise
      */
     @Override
-    public String getPassword(String username) {
-        return null;
-    }
-
-    @Override
     public Optional<User> getByUsername(String username) {
+        Collection<User> userCollection = inMemoryDb.values();
+        for (User user : userCollection) {
+            if (user.getUsername().equals(username)) {
+                return Optional.of(user);
+            }
+        }
         return Optional.empty();
     }
+
 }

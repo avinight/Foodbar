@@ -16,7 +16,7 @@ import recipe.foodbar.usecase.user.port.IdGenerator;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class User {
+public class UserTest {
     public static void main(String[] args) {
 //        InMemoryUserRepository repo = new InMemoryUserRepository();
 //        MongoRecipeRepository recipeRepo = new MongoRecipeRepository();

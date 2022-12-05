@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.recipe;
+package recipe.foodbar.usecase.recipe.manager;
 
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
@@ -23,8 +23,7 @@ public class RecipeInputData {
 
     public RecipeInputData(String title, final User author, float portionSize, ArrayList<String> instructions,
                            Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
-                           ArrayList<Ingredient> ingredients, ArrayList<String> likers, ArrayList<String> dislikers,
-                           ArrayList<Review> reviews) {
+                           ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
         this.title = title;
         this.author = author;
         this.portionSize = portionSize;
@@ -33,9 +32,9 @@ public class RecipeInputData {
         this.dietaryRestrictions = dietaryRestrictions;
         this.dateCreated = dateCreated;
         this.ingredients = ingredients;
+        this.reviews = reviews;
         this.likers = likers;
         this.dislikers = dislikers;
-        this.reviews = reviews;
     }
 
     public String getTitle() {
