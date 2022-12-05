@@ -8,7 +8,7 @@
     <!--    android:paddingTop="?attr/actionBarSize">-->
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
