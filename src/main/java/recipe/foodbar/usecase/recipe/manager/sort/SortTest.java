@@ -2,7 +2,7 @@ package recipe.foodbar.usecase.recipe.manager.sort;
 
 import org.junit.Before;
 import org.junit.Test;
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 

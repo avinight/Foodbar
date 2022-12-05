@@ -1,8 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.sort;
 
 import recipe.foodbar.presenter.RecipePresenter;
-import recipe.foodbar.repository.mongo.model.RecipeModel;
-import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 public class RecipeSorter extends Sorter implements IRecipeSorter {

@@ -12,17 +12,17 @@ public class RecipeInputData {
     private final String title;
     private final User author;
     private final float portionSize;
-    private final String[] instructions;
+    private final ArrayList<String> instructions;
     private final Cuisine cuisine;
-    private final String[] dietaryRestrictions;
+    private final ArrayList<String> dietaryRestrictions;
     private final Date dateCreated;
     private final ArrayList<Ingredient> ingredients;
     private final ArrayList<String> likers;
     private final ArrayList<String> dislikers;
     private final ArrayList<Review> reviews;
 
-    public RecipeInputData(String title, final User author, float portionSize, String[] instructions,
-                           Cuisine cuisine, String[] dietaryRestrictions, final Date dateCreated,
+    public RecipeInputData(String title, final User author, float portionSize, ArrayList<String> instructions,
+                           Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
                            ArrayList<Ingredient> ingredients, ArrayList<String> likers, ArrayList<String> dislikers,
                            ArrayList<Review> reviews) {
         this.title = title;
@@ -50,7 +50,7 @@ public class RecipeInputData {
         return portionSize;
     }
 
-    public String[] getInstructions() {
+    public ArrayList<String> getInstructions() {
         return instructions;
     }
 
@@ -58,7 +58,7 @@ public class RecipeInputData {
         return cuisine;
     }
 
-    public String[] getDietaryRestrictions() {
+    public ArrayList<String> getDietaryRestrictions() {
         return dietaryRestrictions;
     }
 

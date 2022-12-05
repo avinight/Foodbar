@@ -1,12 +1,13 @@
 package recipe.foodbar.presenter;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterOutputBoundary;
 
 import java.util.ArrayList;
 
 /* Presenter class for recipes filtered by a cuisine
 * */
+
 public class CuisineFilterPresenter implements CuisineFilterOutputBoundary {
 
     /**
