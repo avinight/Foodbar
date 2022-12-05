@@ -7,19 +7,19 @@ import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 
 public class RecipeMapper {
     @NonNull
-    public static Recipe toEntity(RecipeModel recipeModelModel) {
-        return new Recipe(recipeModelModel.get_id().toHexString(),
-                recipeModelModel.getTitle(),
-                recipeModelModel.getAuthor(),
-                recipeModelModel.getPortionSize(),
-                recipeModelModel.getInstructions(),
-                recipeModelModel.getCuisine(),
-                recipeModelModel.getDietaryRestrictions(),
-                recipeModelModel.getDateCreated(),
-                recipeModelModel.getIngredients(),
-                recipeModelModel.getReviews(),
-                recipeModelModel.getLikers(),
-                recipeModelModel.getDislikers());
+    public static Recipe toEntity(RecipeModel recipeModel) {
+        return new Recipe(recipeModel.getId().toHexString(),
+                recipeModel.getTitle(),
+                recipeModel.getAuthor(),
+                recipeModel.getPortionSize(),
+                recipeModel.getInstructions(),
+                recipeModel.getCuisine(),
+                recipeModel.getDietaryRestrictions(),
+                recipeModel.getDateCreated(),
+                recipeModel.getIngredients(),
+                recipeModel.getReviews(),
+                recipeModel.getLikers(),
+                recipeModel.getDislikers());
     }
 
     @NonNull
@@ -33,6 +33,8 @@ public class RecipeMapper {
                 recipe.getDateCreated(),
                 recipe.getPortionSize(),
                 recipe.getReviews(),
-                recipe.getIngredients());
+                recipe.getIngredients(),
+                recipe.getLikers(),
+                recipe.getDislikers());
     }
 }

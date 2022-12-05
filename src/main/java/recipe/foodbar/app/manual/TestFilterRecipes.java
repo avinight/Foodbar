@@ -60,16 +60,18 @@ public class TestFilterRecipes {
 //        Recipe r4 = recipeRepo.create(dumplings);
 //        Recipe r5 = recipeRepo.create(rice);
 
-        CuisineFilterInputBoundary inputBoundary = new FilterByCuisine(recipeRepo);
-        FilterRecipes filterController = new FilterRecipes(inputBoundary);
+//        CuisineFilterInputBoundary inputBoundary = new FilterByCuisine(recipeRepo);
+//        FilterRecipes filterController = new FilterRecipes(inputBoundary);
+//
+//        CuisineFilterData chineseInputData = filterController.data(chineseCuisine);
+//
+//        FilterByCuisine interactor = new FilterByCuisine(recipeRepo);
+//
+//        ArrayList<Recipe> chineseRecipees = interactor.filterByCuisine(chineseInputData);
+//
+//        System.out.println(chineseRecipees);
 
-        CuisineFilterData chineseInputData = filterController.data(chineseCuisine);
-
-        FilterByCuisine interactor = new FilterByCuisine(recipeRepo);
-
-        ArrayList<Recipe> chineseRecipees = interactor.filterByCuisine(chineseInputData);
-
-        System.out.println(chineseRecipees);
+        System.out.println(recipeRepo.getByCuisine(italianCuisine));
 
 
 

@@ -1,15 +1,18 @@
 package recipe.foodbar.entities;
 
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 
+@NoArgsConstructor
 public class User {
 
-    private final String id;
-    private final String username;
-    private final String password;
-    private final String firstName;
-    private final String lastName;
-    private final String email;
+    private String id;
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String email;
     private ArrayList<User> following;
     private ArrayList<User> followers;
 

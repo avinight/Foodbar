@@ -66,9 +66,10 @@ public class MongoRecipeRepository implements RecipeRepository {
 
     @Override
     public ArrayList<Recipe> getByCuisine(Cuisine cuisine) {
-        Bson query = eq("cuisine", cuisine);
+        Bson query = eq("cuisine.name", cuisine.getName());
         List<RecipeModel> recipeModelList = collection.find(query).into(new ArrayList<>());
         List<Recipe> recipeList = recipeModelList.stream().map(RecipeMapper::toEntity).collect(Collectors.toList());
+//        List<Recipe> recipeList = recipeModelList.stream().map(RecipeMapper::toEntity).collect(Collectors.toList());
         return (ArrayList<Recipe>) recipeList;
     }
 
