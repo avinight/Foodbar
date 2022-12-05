@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
         }
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
