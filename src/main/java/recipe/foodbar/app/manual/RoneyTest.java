@@ -37,7 +37,7 @@ public class RoneyTest {
                 .build();
 
         //Create Users (authors)
-        User u1 = new recipe.foodbar.entities.User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", "dsfsdf", "sdfdsf@dsfs.com");
+        User u1 = new recipe.foodbar.entities.User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>());
 
 
         //Create the recipes and add them to recipeRepo

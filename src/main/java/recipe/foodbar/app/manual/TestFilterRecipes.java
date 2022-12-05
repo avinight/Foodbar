@@ -41,7 +41,7 @@ public class TestFilterRecipes {
                 .name("Italian")
                 .build();
 
-        User emoney221 = new User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", "dsfsdf", "sdfdsf@dsfs.com");
+        User emoney221 = new User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>());
 
         Recipe pasta = new Recipe(idGenerator.generate(), "Pasta", emoney221,
                 (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());

@@ -26,7 +26,7 @@ public class RecipeDTO {
         var userWeb = new RecipeDTO();
         userWeb.setId(recipe.getId());
         userWeb.setTitle(recipe.getTitle());
-        userWeb.setAuthor(recipe.getAuthor());
+        userWeb.setAuthor(recipe.getUser());
         userWeb.setPortionSize(recipe.getPortionSize());
         userWeb.setInstructions(recipe.getInstructions());
         userWeb.setCuisine(recipe.getCuisine());
