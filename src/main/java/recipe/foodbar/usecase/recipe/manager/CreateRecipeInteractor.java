@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
@@ -47,11 +47,11 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
         String idNum = idGenerator.generate();
         String rTitle = input.getTitle();
         User rAuthor = input.getAuthor(); // class wasn't imported
-        String[] rInstructions = input.getInstructions();
+        ArrayList<String> rInstructions = input.getInstructions();
         Cuisine rCui = input.getCuisine(); // class wasn't imported
         float rPortion = input.getPortionSize();
-        String[] rGI = input.getInstructions();
-        String[] rDR = input.getDietaryRestrictions();
+        ArrayList<String> rGI = input.getInstructions();
+        ArrayList<String> rDR = input.getDietaryRestrictions();
         ArrayList<Ingredient> rIng = input.getIngredients();
         Date rDate = input.getDateCreated();
         // TODO: the bottom assignment statements assume that at the time of recipe creation, the likes, dislikes are
@@ -73,7 +73,7 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
                 .likers(rLikers)
                 .dislikers(rDislikers)
                 .reviews(rReviews)
-                .createRecipe();
+                .build();
 
 
 //        Recipe recipeToSave = Recipe.builder()
