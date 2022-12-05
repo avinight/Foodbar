@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Foodbar</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_following">Following</string>
+    <string name="title_explore">Explore</string>
     <string name="search_hint">Search Recipe</string>
     <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>

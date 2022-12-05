@@ -5,7 +5,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!--    android:paddingTop="?attr/actionBarSize">-->
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -13,17 +12,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:id="@+id/toolbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            android:background="?attr/colorPrimary"-->
-<!--            android:minHeight="?attr/actionBarSize"-->
-<!--            android:theme="?attr/actionBarTheme"-->
-<!--            app:layout_scrollFlags="scroll|enterAlways"-->
-<!--            tools:layout_editor_absoluteX="0dp"-->
-<!--            tools:layout_editor_absoluteY="0dp" />-->
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"

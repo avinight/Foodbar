@@ -14,12 +14,17 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="recipe.foodbar.android.foodbar.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_following"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="recipe.foodbar.android.foodbar.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_explore"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/createRecipeFragment"
+        android:name="recipe.foodbar.android.foodbar.CreateRecipeFragment"
+        android:label="Create Recipe"
+        tools:layout="@layout/fragment_create_recipe" />
 </navigation>

@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/action_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
 <!--    <item-->
 <!--        android:id="@+id/action_search"-->
@@ -17,6 +17,11 @@
 <!--        app:showAsAction="ifRoom|collapseActionView" />-->
 
     <!-- Settings, should always be in the overflow -->
+    <item
+        android:id="@+id/createRecipeFragment"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="Add"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"

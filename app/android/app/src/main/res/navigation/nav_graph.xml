@@ -3,26 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/LogInFragment">
+
+    <include app:graph="@navigation/mobile_navigation" />
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="recipe.foodbar.android.foodbar.FirstFragment"
+        android:id="@+id/LogInFragment"
+        android:name="recipe.foodbar.android.foodbar.LoginFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_login">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_LogInFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/LogInFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_LogInFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="recipe.foodbar.android.foodbar.SecondFragment"
+        android:id="@+id/RegisterFragment"
+        android:name="recipe.foodbar.android.foodbar.RegisterFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_register">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_LogInFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="recipe.foodbar.android.foodbar.MainActivity"
+        android:label="MainActivity" />
 </navigation>
