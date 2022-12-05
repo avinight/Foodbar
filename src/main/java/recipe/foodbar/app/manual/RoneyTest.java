@@ -42,7 +42,7 @@ public class RoneyTest {
 
         //Create the recipes and add them to recipeRepo
         Recipe chickenAlfredo = new Recipe(idGenerator.generate(), "Chicken Alfredo", u1,
-                (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), 0, 0);
+                (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());
 
         Recipe r1 = recipeRepository.create(chickenAlfredo);
     }
