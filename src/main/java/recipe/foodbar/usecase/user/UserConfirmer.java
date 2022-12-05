@@ -41,10 +41,11 @@ public class UserConfirmer {
 
         }
         if (array[5]) {
-            returnMessage.append("Last Name field is empty, ");
+            returnMessage.append("Email field is empty, ");
         }
         if (!(returnMessage.length() == 0)) {
             returnMessage.deleteCharAt(returnMessage.lastIndexOf(","));
+            returnMessage.deleteCharAt(returnMessage.lastIndexOf(" "));
         }
         return returnMessage.toString();
 
