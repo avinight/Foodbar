@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.user;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;

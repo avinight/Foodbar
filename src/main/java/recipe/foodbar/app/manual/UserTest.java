@@ -1,6 +1,22 @@
 package recipe.foodbar.app.manual;
 
-public class User {
+import recipe.foodbar.controller.recipe.FilterRecipes;
+import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Review;
+import recipe.foodbar.id_generator.jug.JugIdGenerator;
+import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
+import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
+import recipe.foodbar.usecase.cuisine.FilterByCuisine;
+import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
+import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
+import recipe.foodbar.usecase.user.port.IdGenerator;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public class UserTest {
     public static void main(String[] args) {
 //        InMemoryUserRepository repo = new InMemoryUserRepository();
 //        MongoRecipeRepository recipeRepo = new MongoRecipeRepository();
@@ -44,6 +60,17 @@ public class User {
 //        ArrayList<Recipe> filteredRecipes = interactor.filterByCuisine(chineseInputData);
 //
 //        System.out.println(filteredRecipes);
+
+
+
+
+
+
+
+
+
+
+
 
 
 //
