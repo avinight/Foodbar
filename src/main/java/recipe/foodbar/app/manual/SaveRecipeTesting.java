@@ -71,7 +71,7 @@ public class SaveRecipeTesting {
         UserInputData user = accountController.create(username, password, passwordShadow, email);
 
         String userCreationConfirmation = accountController.data.create(user);
-        System.out.println(userRepo.getByUsername("Bartholomew"));
+        System.out.println(userRepo.findByUsername("Bartholomew"));
 
         System.out.println("**********************************************************************************");
         System.out.println("Creating second user");
@@ -84,7 +84,7 @@ public class SaveRecipeTesting {
         UserInputData user2Data = accountController.create(username2, password2, passwordShadow2, email2);
         String userCreationConfirmation2 = accountController.data.create(user2Data);
 
-        System.out.println(userRepo.getByUsername("Bartholomew"));  // TODO: to be fixed as the repo returns null here
+        System.out.println(userRepo.findByUsername("Bartholomew"));  // TODO: to be fixed as the repo returns null here
 
         // fetching the user objects from the userRepo that need to be saved
         Optional<User> user1 = userRepo.findByEmail("a@gmail.com");

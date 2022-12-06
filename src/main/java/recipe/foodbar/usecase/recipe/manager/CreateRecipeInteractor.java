@@ -61,7 +61,7 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary {
         Recipe recipeToSave = Recipe.builder()
                 .id(idNum)
                 .title(rTitle)
-                .author(rAuthor)
+                .user(rAuthor)
                 .instructions(rInstructions)
                 .cuisine(rCui)
                 .portionSize(rPortion)
