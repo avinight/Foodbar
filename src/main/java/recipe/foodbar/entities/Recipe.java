@@ -327,7 +327,7 @@ public class Recipe {
         private ArrayList<Review> reviews;
         private ArrayList<Ingredient> ingredients;
         private String title;
-        private User user;
+        private User author;
         private ArrayList<String> instructions;
         private ArrayList<String> dietaryRestrictions;
         private float portionSize;
@@ -367,8 +367,8 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder user(User author) {
-            this.user = user;
+        public RecipeBuilder author(User author) {
+            this.author = author;
             return this;
         }
 
@@ -398,7 +398,7 @@ public class Recipe {
         }
 
         public Recipe build() {
-            return new Recipe(id, title, user, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likers, dislikers);
+            return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likers, dislikers);
         }
 
         public String toString() {
