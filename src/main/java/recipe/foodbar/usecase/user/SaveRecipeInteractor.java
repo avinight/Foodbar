@@ -44,7 +44,7 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
         String recipeID = inputDS.getRecipeToBeSaved().getId();
 
 
-        Optional<User> saver = userRepo.findByUsername(userID);
+        Optional<User> saver = userRepo.findById(userID);
         Optional<Recipe> recipeToBeSaved = recipeRepo.findById(recipeID);
 
         if (saver.isPresent() && recipeToBeSaved.isPresent()) {

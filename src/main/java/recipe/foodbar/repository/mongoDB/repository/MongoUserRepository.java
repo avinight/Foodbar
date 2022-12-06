@@ -8,7 +8,6 @@ import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.repository.mongoDB.mapper.UserMapper;
 import recipe.foodbar.repository.mongoDB.model.UserModel;

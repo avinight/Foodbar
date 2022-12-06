@@ -8,10 +8,9 @@ import recipe.foodbar.entities.*;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.mongoDB.*;
+
 import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
-import recipe.foodbar.repository.simpleDB.InMemoryRecipeRepository;
-import recipe.foodbar.repository.InMemoryUserRepository;
+
 import recipe.foodbar.repository.mongoDB.repository.*;
 //import recipe.foodbar.repository.mongo.repository.MongoRecipeRepository;
 //import recipe.foodbar.repository.mongo.repository.MongoUserRepository;
@@ -23,20 +22,13 @@ import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.IdGenerator;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
-import recipe.foodbar.entities.*;
 import recipe.foodbar.usecase.user.*;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
 
-import org.junit.*;
-
 import java.util.ArrayList;
 import java.util.Optional;
-
-import static org.junit.Assert.*;
 
 public class SaveRecipeTesting {
 //    @Before
