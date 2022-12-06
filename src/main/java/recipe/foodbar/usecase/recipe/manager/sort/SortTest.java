@@ -6,9 +6,12 @@ import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
-import java.time.ZoneId;
 import java.time.LocalDate;
-import java.util.*;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 public class SortTest {
     RecipeSorter rs;
@@ -16,8 +19,11 @@ public class SortTest {
     Comparator<Recipe> comparator;
     RecipeRepository recipeRepo;
     RecipePresenter rp;
+
     @Before
-    public void setUp() {rs = new RecipeSorter(recipeRepo, rp);}
+    public void setUp() {
+        rs = new RecipeSorter(recipeRepo, rp);
+    }
 
     @Test
     public void testSortBy() {

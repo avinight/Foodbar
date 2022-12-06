@@ -16,10 +16,11 @@ public class RecipeRequestModel {
     private final String[] dietaryRestrictions;
     private final Date dateCreated;
     private final float portionSize;
-    private int likes;
-    private int dislikes;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
+    private int likes;
+    private int dislikes;
+
     public RecipeRequestModel(String id,
                               String title,
                               final User author,
@@ -29,7 +30,7 @@ public class RecipeRequestModel {
                               String[] dietaryRestrictions,
                               final Date dateCreated,
                               ArrayList<Ingredient> ingredients,
-                              ArrayList<Review> reviews){
+                              ArrayList<Review> reviews) {
 
         this.id = id;
         this.title = title;

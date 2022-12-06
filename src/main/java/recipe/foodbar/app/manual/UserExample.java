@@ -1,22 +1,8 @@
 package recipe.foodbar.app.manual;
 
 //import recipe.foodbar.config.ManualConfig;
+
 import recipe.foodbar.usecase.recipe.exception.RecipeAlreadyExistsException;
-
-import recipe.foodbar.controller.recipe.FilterRecipes;
-import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Review;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
-import recipe.foodbar.usecase.cuisine.FilterByCuisine;
-import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
-import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
-import recipe.foodbar.usecase.user.port.IdGenerator;
-import recipe.foodbar.entities.User;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 public class UserExample {
     public static void main(String[] args) throws RecipeAlreadyExistsException {

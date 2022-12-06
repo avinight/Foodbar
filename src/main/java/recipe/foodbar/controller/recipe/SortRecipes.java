@@ -11,7 +11,7 @@ public class SortRecipes {
     /**
      * Constructor for SortRecipes.
      *
-     * @param s  IRecipeSorter
+     * @param s IRecipeSorter
      */
     public SortRecipes(IRecipeSorter s) {
         this.s = s;
@@ -20,6 +20,7 @@ public class SortRecipes {
 
     /**
      * Sorts the
+     *
      * @param order string
      */
     public void sort(String order) {

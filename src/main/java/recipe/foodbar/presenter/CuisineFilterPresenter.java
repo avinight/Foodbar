@@ -6,7 +6,7 @@ import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterOutputBoundary;
 import java.util.ArrayList;
 
 /* Presenter class for recipes filtered by a cuisine
-* */
+ * */
 
 public class CuisineFilterPresenter implements CuisineFilterOutputBoundary {
 
@@ -17,7 +17,7 @@ public class CuisineFilterPresenter implements CuisineFilterOutputBoundary {
      */
     @Override
     public void presentFilteredRecipes(ArrayList<Recipe> recipes) {
-        for (Recipe r: recipes) {
+        for (Recipe r : recipes) {
             System.out.println(recipes);
         }
     }

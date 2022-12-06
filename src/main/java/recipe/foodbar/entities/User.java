@@ -10,7 +10,6 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @ToString
 public class User {
-
     private String id;
     private String username;
     private String password;

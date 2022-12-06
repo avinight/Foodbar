@@ -1,7 +1,6 @@
 package recipe.foodbar.controller.recipe;
 
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
 
@@ -22,6 +21,7 @@ public class FilterRecipes {
 
     /**
      * Creates and returns Cuisine input data
+     *
      * @param cuisine
      * @return
      */

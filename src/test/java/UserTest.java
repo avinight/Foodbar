@@ -1,17 +1,9 @@
 import com.mongodb.client.MongoDatabase;
-import org.bson.BsonDocument;
-import org.bson.BsonInt64;
-import org.bson.Document;
-import org.bson.conversions.Bson;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import recipe.foodbar.controller.user.AccountController;
 import recipe.foodbar.controller.user.AccountPresenter;
-import recipe.foodbar.entities.User;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
 import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
-import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.IdGenerator;
@@ -22,7 +14,7 @@ import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 public class UserTest {
 
     public String accountCreationMethod(String username, String password, String passwordShadow, String email,
-                                        recipe.foodbar.repository.mongoDB.repository.MongoUserRepository repo, IdGenerator idGenerator){
+                                        recipe.foodbar.repository.mongoDB.repository.MongoUserRepository repo, IdGenerator idGenerator) {
 
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
@@ -33,7 +25,7 @@ public class UserTest {
     }
 
     @Test
-    public void usernameDuplicate(){
+    public void usernameDuplicate() {
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
@@ -53,7 +45,6 @@ public class UserTest {
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
 
 
-
         String actual = "Username is taken";
         String expected = accountCreationMethod(usernameTwo, passwordTwo,
                 passwordShadowTwo, emailTwo, repo, idGenerator);
@@ -61,7 +52,7 @@ public class UserTest {
     }
 
     @Test
-    public void passwordsDoNotMatch(){
+    public void passwordsDoNotMatch() {
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
@@ -80,13 +71,11 @@ public class UserTest {
     }
 
     @Test
-    public void allNullEntries(){
+    public void allNullEntries() {
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
         MongoUserRepository repo = new MongoUserRepository(db);
-
-
 
 
         String actual = "Username field is empty, Password field is empty, Password Confirmation field is empty, " +
@@ -96,9 +85,6 @@ public class UserTest {
         System.out.println(expected);
         assert actual.equals(expected);
     }
-
-
-
 
 
 }

@@ -1,6 +1,7 @@
 package recipe.foodbar.usecase.recipe.manager.filter;
 
 import recipe.foodbar.entities.Recipe;
+
 import java.util.ArrayList;
 
 /*Output boundary interface to allow upwards communication of filtered recipes

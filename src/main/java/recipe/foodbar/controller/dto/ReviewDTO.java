@@ -4,8 +4,8 @@ import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 
 public class ReviewDTO {
-    private String recipeId;
     private static final int MAX_LENGTH = 300;
+    private String recipeId;
     private String title;
     private String text;
     private User author;

@@ -1,7 +1,7 @@
 package recipe.foodbar.usecase.recipe.manager.filter;
 
-import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe;
+
 import java.util.ArrayList;
 
 /*interface for usecase interactor*/
