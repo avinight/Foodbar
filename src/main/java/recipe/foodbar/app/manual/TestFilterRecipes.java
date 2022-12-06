@@ -1,18 +1,6 @@
 package recipe.foodbar.app.manual;
 
 import com.mongodb.client.MongoDatabase;
-import recipe.foodbar.controller.recipe.FilterRecipes;
-import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
-import recipe.foodbar.usecase.cuisine.FilterByCuisine;
-import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
-import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
-import recipe.foodbar.usecase.recipe.port.RecipeRepository;
-import com.mongodb.client.MongoDatabase;
-import org.bson.BsonDocument;
-import org.bson.BsonInt64;
-import org.bson.Document;
-import org.bson.conversions.Bson;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.entities.*;
@@ -74,7 +62,6 @@ public class TestFilterRecipes {
         System.out.println(recipeRepo.getByCuisine(italianCuisine));
 
 
-
 //        // Create Cuisine Setup
 //
 //        // Filter Controller Setup
@@ -90,7 +77,6 @@ public class TestFilterRecipes {
 //
 //
 //        //Recipe setup
-
 
 
     }

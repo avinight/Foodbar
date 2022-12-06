@@ -14,7 +14,7 @@ public class EditRecipe {
      * Constructor for EditRecipe
      *
      * @param rm request to edit.
-     * @param e   An editor interface.
+     * @param e  An editor interface.
      */
     public EditRecipe(RecipeModel rm, IRecipeEditor e) {
         this.rm = rm;

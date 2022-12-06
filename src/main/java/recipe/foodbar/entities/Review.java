@@ -1,8 +1,8 @@
 package recipe.foodbar.entities;
 
 public class Review {
-    private final String recipeId;
     private static final int MAX_LENGTH = 300;
+    private final String recipeId;
     private final String title;
     private final String text;
     private final User author;
@@ -34,7 +34,9 @@ public class Review {
         return author;
     }
 
-    public int getMaxLength() { return MAX_LENGTH; }
+    public int getMaxLength() {
+        return MAX_LENGTH;
+    }
 
     @Override
     public String toString() {
@@ -43,8 +45,8 @@ public class Review {
     }
 
     public static class ReviewBuilder {
-        private String recipeId;
         public static final int MAX_LENGTH = 300;
+        private String recipeId;
         private String title;
         private String text;
         private User author;

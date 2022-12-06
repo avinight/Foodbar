@@ -9,5 +9,7 @@ public class CuisineFilterData {
         this.cuisine = cuisine;
     }
 
-    public Cuisine getCuisine() { return this.cuisine; }
+    public Cuisine getCuisine() {
+        return this.cuisine;
+    }
 }
