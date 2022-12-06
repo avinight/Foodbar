@@ -14,7 +14,7 @@ import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 public class UserTest {
 
     public String accountCreationMethod(String username, String password, String passwordShadow, String email,
-                                        recipe.foodbar.repository.mongoDB.repository.MongoUserRepository repo, IdGenerator idGenerator) {
+                                        recipe.foodbar.repository.mongoDB.repository.MongoUserRepository repo, IdGenerator idGenerator){
 
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
@@ -25,7 +25,7 @@ public class UserTest {
     }
 
     @Test
-    public void usernameDuplicate() {
+    public void usernameDuplicate(){
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
@@ -45,14 +45,15 @@ public class UserTest {
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
 
 
-        String actual = "Username is taken";
-        String expected = accountCreationMethod(usernameTwo, passwordTwo,
+
+        String expected = "Username is taken";
+        String actual = accountCreationMethod(usernameTwo, passwordTwo,
                 passwordShadowTwo, emailTwo, repo, idGenerator);
         assert actual.equals(expected);
     }
 
     @Test
-    public void passwordsDoNotMatch() {
+    public void passwordsDoNotMatch(){
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
@@ -65,26 +66,31 @@ public class UserTest {
         String email = "frank978@gmail.com";
 
 
-        String actual = "Passwords do not match";
-        String expected = accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
+        String expected = "Passwords do not match";
+        String actual = accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
         assert actual.equals(expected);
     }
 
     @Test
-    public void allNullEntries() {
+    public void allNullEntries(){
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
         MongoUserRepository repo = new MongoUserRepository(db);
 
 
-        String actual = "Username field is empty, Password field is empty, Password Confirmation field is empty, " +
+
+
+        String expected = "Username field is empty, Password field is empty, Password Confirmation field is empty, " +
                 "Email field is empty";
-        String expected = accountCreationMethod(null, null, null, null,
+        String actual = accountCreationMethod(null, null, null, null,
                 repo, idGenerator);
         System.out.println(expected);
         assert actual.equals(expected);
     }
+
+
+
 
 
 }

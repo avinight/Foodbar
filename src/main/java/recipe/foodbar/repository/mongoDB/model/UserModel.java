@@ -1,7 +1,6 @@
 package recipe.foodbar.repository.mongoDB.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
@@ -17,9 +16,6 @@ public class UserModel {
     private String username;
     private String password;
     private String email;
-    @Builder.Default
-    private ArrayList<User> following = new ArrayList<>();
-    @Builder.Default
-    private ArrayList<User> followers = new ArrayList<>();
-    ;
+    private ArrayList<User> following;
+    private ArrayList<User> followers;
 }

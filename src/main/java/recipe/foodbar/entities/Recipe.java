@@ -8,10 +8,10 @@ import java.util.Date;
  */
 public class Recipe {
     private final String id;
+    private Cuisine cuisine;
     private final Date dateCreated;
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
-    private Cuisine cuisine;
     private String title;
     private User user;
     private ArrayList<String> instructions;
@@ -26,7 +26,7 @@ public class Recipe {
      *
      * @param id                  The id of the recipe.
      * @param title               The title of the recipe.
-     * @param user                The author of the recipe.
+     * @param user              The author of the recipe.
      * @param portionSize         The portion size of the recipe.
      * @param instructions        The instructions of the recipe.
      * @param cuisine             The cuisine of the recipe.
@@ -136,10 +136,7 @@ public class Recipe {
         return cuisine;
     }
 
-    public void setCuisine(Cuisine cuisine) {
-        this.cuisine = cuisine;
-    }
-
+    public void setCuisine(Cuisine cuisine) { this.cuisine = cuisine; }
     /**
      * Returns the rating of the recipe.
      *
@@ -179,7 +176,8 @@ public class Recipe {
         } else if (this.dislikers.contains(voterID)) {
             this.dislikers.remove(voterID);
             this.likers.add(voterID);
-        } else {
+        }
+        else {
             this.likers.add(voterID);
         }
     }
@@ -196,7 +194,8 @@ public class Recipe {
         } else if (this.likers.contains(voterID)) {
             this.likers.remove(voterID);
             this.dislikers.add(voterID);
-        } else {
+        }
+        else {
             this.dislikers.add(voterID);
         }
     }
@@ -231,7 +230,7 @@ public class Recipe {
     /**
      * Sets the dietary restrictions of the recipe.
      *
-     * @param dr Dietary Restrictions.
+     * @param dr    Dietary Restrictions.
      */
     public void setDietaryRestrictions(ArrayList<String> dr) {
         this.dietaryRestrictions = dr;

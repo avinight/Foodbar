@@ -6,6 +6,7 @@ package recipe.foodbar.usecase.user.port;
 import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepositoryInterface {

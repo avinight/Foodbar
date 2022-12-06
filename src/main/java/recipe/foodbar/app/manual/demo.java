@@ -1,5 +1,14 @@
 package recipe.foodbar.app.manual;
 
+import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Review;
+import recipe.foodbar.entities.User;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class demo {
     public static void main(String[] args) {
 //        User junaid = new User("001", "arshadju", "P@ssw0rd!", "Junaid", "Arshad", "junaid.arshad@mail.utoronto.ca");
