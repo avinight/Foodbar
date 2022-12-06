@@ -14,5 +14,5 @@ public interface CuisineFilterOutputBoundary {
      *
      * @param recipes The filtered recipes
      */
-    void presentFilteredRecipes(ArrayList<Recipe> recipes);
+    ArrayList<Recipe> presentFilteredRecipes(ArrayList<Recipe> recipes);
 }
