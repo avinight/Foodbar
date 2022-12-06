@@ -370,7 +370,7 @@ public class Recipe {
             return this;
         }
 
-        public RecipeBuilder user(User author) {
+        public RecipeBuilder user(User user) {
             this.user = user;
             return this;
         }

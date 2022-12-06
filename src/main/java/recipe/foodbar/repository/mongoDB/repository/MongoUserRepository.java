@@ -53,8 +53,8 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public Optional<User> findById(String id) {
-//        Bson query = eq("_id", id);
-        Bson query = eq("_id", new ObjectId(id));
+        Bson query = eq("_id", id);
+//        Bson query = eq("_id", new ObjectId(id));
         Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
         return rm.map(UserMapper::toEntity);
     }
