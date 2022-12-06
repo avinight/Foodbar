@@ -306,23 +306,6 @@ public class Recipe {
             return false;
     }
 
-    /**
-     * Return a string representation of this Recipe.
-     *
-     * @return String
-     */
-    @Override
-    public String toString() {
-        return "Recipe{" +
-                "id = " + id + '\'' +
-                ", title = '" + title + '\'' +
-                ", authorID = '" + user.getId() + '\'' +
-                ", cuisineId = '" + cuisine.toString() + '\'' +
-                ", likes = '" + this.getLikes() + '\'' +
-                ", dislikes = '" + this.getDislikes() + '\'' +
-                ", review = '" + reviews + '\'' + "}";
-    }
-
     public static class RecipeBuilder {
         private String id;
         private Cuisine cuisine;
@@ -402,10 +385,6 @@ public class Recipe {
 
         public Recipe build() {
             return new Recipe(id, title, user, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likers, dislikers);
-        }
-
-        public String toString() {
-            return "Recipe.RecipeBuilder(id=" + this.id + ", cuisine=" + this.cuisine + ", dateCreated=" + this.dateCreated + ", reviews=" + this.reviews + ", ingredients=" + this.ingredients + ", title=" + this.title + ", author=" + this.user + ", instructions=" + this.instructions + ", dietaryRestrictions=" + this.dietaryRestrictions + ", portionSize=" + this.portionSize + ", likers=" + this.likers + ", dislikers=" + this.dislikers + ")";
         }
     }
 }
