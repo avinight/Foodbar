@@ -10,6 +10,7 @@ import recipe.foodbar.entities.User;
 import java.util.ArrayList;
 
 @AllArgsConstructor
+@Builder
 @Data
 @NoArgsConstructor
 public class UserModel {

@@ -5,10 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
 @Builder
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Ingredient {
     private String name;
     private float size;
