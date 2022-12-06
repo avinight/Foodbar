@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
@@ -20,7 +20,7 @@ public class UpdateRecipe {
         Recipe recipeToSave = Recipe.builder()
                 .id(recipe.getId())
                 .title(recipe.getTitle())
-                .author(recipe.getAuthor())
+                .user(recipe.getUser())
                 .instructions(recipe.getInstructions())
                 .cuisine(recipe.getCuisine())
                 .portionSize(recipe.getPortionSize())
@@ -28,7 +28,7 @@ public class UpdateRecipe {
                 .dateCreated(recipe.getDateCreated())
                 .ingredients(recipe.getIngredients())
                 .reviews(recipe.getReviews())
-                .createRecipe();
+                .build();
 
         return repository.create(recipeToSave);
     }

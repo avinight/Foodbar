@@ -6,5 +6,6 @@ import recipe.foodbar.usecase.recipe.ds.RecipeResponseModel;
  * The output boundary for recipes.
  */
 public interface RecipeOut {
-    public default void displayEdited(RecipeResponseModel.ResponseDataType type) {}
+    public default void displayEdited(RecipeResponseModel.ResponseDataType type) {
+    }
 }

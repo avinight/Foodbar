@@ -34,17 +34,11 @@ public class UserConfirmer {
             returnMessage.append("Password Confirmation field is empty, ");
         }
         if (array[3]) {
-            returnMessage.append("First Name field is empty, ");
-        }
-        if (array[4]) {
-            returnMessage.append("Last Name field is empty, ");
-
-        }
-        if (array[5]) {
-            returnMessage.append("Last Name field is empty, ");
+            returnMessage.append("Email field is empty, ");
         }
         if (!(returnMessage.length() == 0)) {
             returnMessage.deleteCharAt(returnMessage.lastIndexOf(","));
+            returnMessage.deleteCharAt(returnMessage.lastIndexOf(" "));
         }
         return returnMessage.toString();
 

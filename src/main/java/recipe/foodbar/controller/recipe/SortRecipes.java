@@ -1,6 +1,5 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.repository.mongo.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.manager.sort.IRecipeSorter;
 
 /**
@@ -12,7 +11,7 @@ public class SortRecipes {
     /**
      * Constructor for SortRecipes.
      *
-     * @param s  IRecipeSorter
+     * @param s IRecipeSorter
      */
     public SortRecipes(IRecipeSorter s) {
         this.s = s;
@@ -21,6 +20,7 @@ public class SortRecipes {
 
     /**
      * Sorts the
+     *
      * @param order string
      */
     public void sort(String order) {

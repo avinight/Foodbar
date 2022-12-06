@@ -1,7 +1,6 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.repository.mongo.model.RecipeModel;
-import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.usecase.recipe.manager.edit.IRecipeEditor;
 
 /**
@@ -15,7 +14,7 @@ public class EditRecipe {
      * Constructor for EditRecipe
      *
      * @param rm request to edit.
-     * @param e   An editor interface.
+     * @param e  An editor interface.
      */
     public EditRecipe(RecipeModel rm, IRecipeEditor e) {
         this.rm = rm;

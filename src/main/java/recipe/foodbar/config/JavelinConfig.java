@@ -1,10 +1,5 @@
 package recipe.foodbar.config;
 
-import recipe.foodbar.encoder.sha256.Sha256PasswordEncoder;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.simpleDB.InMemoryUserRepository;
-
-
 public class JavelinConfig {
 //    private final UserRepository userRepository = new InMemoryUserRepository();
 //    private final IdGenerator idGenerator = new JugIdGenerator();

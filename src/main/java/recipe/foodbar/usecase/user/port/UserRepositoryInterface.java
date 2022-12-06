@@ -6,7 +6,6 @@ package recipe.foodbar.usecase.user.port;
 import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public interface UserRepositoryInterface {
@@ -36,6 +35,14 @@ public interface UserRepositoryInterface {
     Optional<User> findByEmail(String email);
 
     /**
+     * Abstract method for finding a user by their ID in the repository
+     *
+     * @param Id the String representation of the username
+     * @return to be implemented by classes which implement the interface.
+     */
+    Optional<User> findById(String Id);
+
+    /**
      * Abstract method for finding all users in the repository
      *
      * @return to be implemented by classes which implement the interface.
@@ -49,5 +56,4 @@ public interface UserRepositoryInterface {
      * @return to be implemented by classes which implement the interface.
      */
     boolean existsByUsername(String username);
-
 }
