@@ -7,7 +7,7 @@ of other recipe from your fellow users and follow them.
 
 #### Software requirements
 
-- JDK 11
+- JDK 19
 - MonogDB version 6
 
 #### Installing MongoDB on MacOS
@@ -24,7 +24,7 @@ and [Windows](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-wi
 
 ``` shell
 $ java -version
-openjdk version "11.0.16.1" 2022-08-12 LTS
+#openjdk version "19.0.1" 2022-10-18
 ```
 
 #### Starting MongoDB
@@ -48,7 +48,7 @@ mongosh
 #### Create database named recipe
 
 ```shell
-use recipe
+use FoodBar
 ```
 
 #### Running app

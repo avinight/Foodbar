@@ -13,9 +13,10 @@ import recipe.foodbar.entities.User;
 import java.util.ArrayList;
 import java.util.Date;
 
+@AllArgsConstructor
+@Builder
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class RecipeModel {
     private ObjectId id;
     private String title;
