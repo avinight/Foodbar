@@ -1,7 +1,5 @@
 package recipe.foodbar.controller.user.logout;
 
-import recipe.foodbar.usecase.userLogin.UserLoginInput;
-import recipe.foodbar.usecase.userLogin.port.UserLoginInputBoundary;
 import recipe.foodbar.usecase.userLogout.UserLogoutInput;
 import recipe.foodbar.usecase.userLogout.port.UserLogoutInputBoundary;
 
@@ -14,7 +12,7 @@ public class UserLogoutController {
      *
      * @param data the interactor passed in as input boundary object
      */
-    public UserLogoutController(UserLogoutInputBoundary data){
+    public UserLogoutController(UserLogoutInputBoundary data) {
         this.data = data;
     }
 
@@ -25,7 +23,7 @@ public class UserLogoutController {
      * @param cookie String representation of the cookie
      * @return the completed UserLoginInput object
      */
-    public UserLogoutInput create(String cookie){
+    public UserLogoutInput create(String cookie) {
         UserLogoutInput UserLogout = new UserLogoutInput(cookie);
 
         return UserLogout;

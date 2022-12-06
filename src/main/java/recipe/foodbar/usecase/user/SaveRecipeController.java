@@ -7,7 +7,7 @@ public class SaveRecipeController {
 
     public final SaveRecipeInputBoundary inputBoundary;
 
-    public SaveRecipeController(SaveRecipeInputBoundary inputBoundary){
+    public SaveRecipeController(SaveRecipeInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }
 

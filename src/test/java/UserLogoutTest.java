@@ -6,7 +6,6 @@ import recipe.foodbar.controller.user.login.UserLoginController;
 import recipe.foodbar.controller.user.login.UserLoginPresenter;
 import recipe.foodbar.controller.user.logout.UserLogoutController;
 import recipe.foodbar.controller.user.logout.UserLogoutPresenter;
-import recipe.foodbar.entities.User;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryCookieRepository;
@@ -40,7 +39,7 @@ public class UserLogoutTest {
     }
 
     @Test
-    public void userLogoutSuccess(){
+    public void userLogoutSuccess() {
         final IdGenerator idGenerator = new JugIdGenerator();
 
         MongoDatabase db = getMongoDB();
@@ -71,7 +70,7 @@ public class UserLogoutTest {
     }
 
     @Test
-    public void userAlreadyLoggedOut(){
+    public void userAlreadyLoggedOut() {
 
     }
 }

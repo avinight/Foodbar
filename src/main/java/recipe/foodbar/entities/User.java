@@ -25,22 +25,27 @@ public class User {
      * This method return true if the recipe r is already in the list of saved recipes
      *
      * @param r the recipe whose existence in savedRecipes list needs to be checked
-     *
      * @return True iff recipe is in the list of savedRecipes. Returns false otherwise.
      */
-    public boolean containsRecipe(Recipe r){ return this.savedRecipes.contains(r); }
+    public boolean containsRecipe(Recipe r) {
+        return this.savedRecipes.contains(r);
+    }
 
     /**
      * addRecipe adds the recipe being passed in to the user's list of savedRecipes
      *
      * @param recipeToBeSaved The recipe object being saved by the user
      */
-    public void addRecipe(Recipe recipeToBeSaved) { this.savedRecipes.add(recipeToBeSaved); }
+    public void addRecipe(Recipe recipeToBeSaved) {
+        this.savedRecipes.add(recipeToBeSaved);
+    }
 
     /**
      * removes the recipe being passed in from the list of saved recipes
      *
      * @param recipeToBeRemoved the recipe object to be removed from the list of savedRecipes
      */
-    public void removeRecipe(Recipe recipeToBeRemoved) { this.savedRecipes.remove(recipeToBeRemoved); }
+    public void removeRecipe(Recipe recipeToBeRemoved) {
+        this.savedRecipes.remove(recipeToBeRemoved);
+    }
 }

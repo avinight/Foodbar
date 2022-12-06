@@ -13,11 +13,11 @@ public class UserLogout implements UserLogoutBoundary {
     /**
      * Constructor for UserLogout interactor
      *
-     * @param output the output boundary interface
+     * @param output    the output boundary interface
      * @param loginRepo the logged-in users repository
      */
     public UserLogout(UserLoginOutputBoundary output,
-                      LoginRepositoryInterface loginRepo){
+                      LoginRepositoryInterface loginRepo) {
         this.output = output;
         this.loginRepo = loginRepo;
 
@@ -30,10 +30,10 @@ public class UserLogout implements UserLogoutBoundary {
      * @param input the UserLogoutInput object to be passed into the interactor method
      * @return message depending on the success or failure of the removal
      */
-    public String logout(UserLogoutInput input){
+    public String logout(UserLogoutInput input) {
 
         String cookie = input.getCookie();
-        if (loginRepo.findByCookie(cookie).isPresent()){
+        if (loginRepo.findByCookie(cookie).isPresent()) {
 
             loginRepo.remove(cookie);
             return output.message("User Successfully Logged Out");

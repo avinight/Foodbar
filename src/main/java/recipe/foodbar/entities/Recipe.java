@@ -397,8 +397,8 @@ public class Recipe {
         }
 
         @Override
-        public boolean equals(Object o){
-            if(o instanceof Recipe){
+        public boolean equals(Object o) {
+            if (o instanceof Recipe) {
                 Recipe p = (Recipe) o;
                 return this.id.equals(p.getId());
             } else

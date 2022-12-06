@@ -5,10 +5,8 @@ import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
-import recipe.foodbar.usecase.recipe.manager.CreateRecipeInteractor;
 import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -22,7 +20,7 @@ public class CreateRecipeController {
 
     public RecipeInputData createRecipe(String title, final User author, float portionSize, ArrayList<String> instructions,
                                         Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
-                                        ArrayList<Ingredient> ingredients,ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
+                                        ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
         return new RecipeInputData(title, author, portionSize, instructions, cuisine, dietaryRestrictions,
                 dateCreated, ingredients, reviews, likers, dislikers);
     }

@@ -1,8 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager;
 
-import java.util.Optional;
-
-public class CreateRecipePresenter implements CreateRecipeOutputBoundary{
+public class CreateRecipePresenter implements CreateRecipeOutputBoundary {
 
 
     @Override

@@ -23,6 +23,17 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
         inMemoryDb.put(user.getUsername(), user);
     }
 
+    @Override
+    public Optional<User> findByUsername(String username) {
+        Collection<User> userCollection = inMemoryDb.values();
+        for (User user : userCollection) {
+            if (user.getUsername().equals(username)) {
+                return Optional.of(user);
+            }
+        }
+        return Optional.empty();
+    }
+
     /**
      * Abstract method for finding a user by their username in the repository
      *
@@ -87,21 +98,5 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
             }
         }
         return false;
-    }
-
-    /**
-     * Abstract method for getting password
-     *
-     * @param username the String representation of the username
-     * @return to be implemented
-     */
-    @Override
-    public String getPassword(String username) {
-        return null;
-    }
-
-    @Override
-    public Optional<User> getByUsername(String username) {
-        return Optional.empty();
     }
 }

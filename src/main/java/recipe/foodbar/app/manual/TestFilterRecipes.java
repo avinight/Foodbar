@@ -1,8 +1,6 @@
 package recipe.foodbar.app.manual;
 
 import com.mongodb.client.MongoDatabase;
-import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
 import recipe.foodbar.entities.*;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
@@ -29,7 +27,7 @@ public class TestFilterRecipes {
                 .name("Italian")
                 .build();
 
-        User emoney221 = new User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>());
+        User emoney221 = new User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
         Recipe pasta = new Recipe(idGenerator.generate(), "Pasta", emoney221,
                 (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());

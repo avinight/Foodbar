@@ -17,7 +17,7 @@ public class SaveRecipeData {
      * @param recipeGiven The recipe passed in to be saved
      */
 
-    public SaveRecipeData(User saver,Recipe recipeGiven){
+    public SaveRecipeData(User saver, Recipe recipeGiven) {
         this.userSaver = saver;
         this.recipeToBeSaved = recipeGiven;
     }
@@ -26,5 +26,7 @@ public class SaveRecipeData {
         return this.recipeToBeSaved;
     }
 
-    public User getUserSaver() { return this.userSaver; }
+    public User getUserSaver() {
+        return this.userSaver;
+    }
 }

@@ -9,7 +9,7 @@ public class UserLogoutInput {
      *
      * @param cookie String representation of the logged in cookie identifier
      */
-    public UserLogoutInput(String cookie){
+    public UserLogoutInput(String cookie) {
         this.cookie = cookie;
     }
 
@@ -18,7 +18,7 @@ public class UserLogoutInput {
      *
      * @return the String for cookie
      */
-    public String getCookie(){
+    public String getCookie() {
         return this.cookie;
     }
 }

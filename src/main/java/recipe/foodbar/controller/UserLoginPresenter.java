@@ -12,7 +12,7 @@ public class UserLoginPresenter implements UserLoginOutputBoundary {
      * @return return the given message
      */
     @Override
-    public String message(String message){
+    public String message(String message) {
         return message;
     }
 

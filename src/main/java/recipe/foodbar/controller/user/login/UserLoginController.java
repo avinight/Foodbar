@@ -12,7 +12,7 @@ public class UserLoginController {
      *
      * @param data the interactor passed in as input boundary object
      */
-    public UserLoginController(UserLoginInputBoundary data){
+    public UserLoginController(UserLoginInputBoundary data) {
         this.data = data;
     }
 
@@ -24,14 +24,11 @@ public class UserLoginController {
      * @param password String representation of the password
      * @return the completed UserLoginInput object
      */
-    public UserLoginInput create(String username, String password){
+    public UserLoginInput create(String username, String password) {
         UserLoginInput UserLogin = new UserLoginInput(username, password);
 
         return UserLogin;
     }
-
-
-
 
 
 }

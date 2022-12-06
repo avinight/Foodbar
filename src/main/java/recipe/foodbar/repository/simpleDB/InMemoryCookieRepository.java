@@ -1,4 +1,5 @@
 package recipe.foodbar.repository.simpleDB;
+
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.userLogin.port.LoginRepositoryInterface;
 

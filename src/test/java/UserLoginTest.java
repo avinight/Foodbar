@@ -99,7 +99,7 @@ public class UserLoginTest {
     }
 
     @Test
-    public void loginFailedPasswordInvalid(){
+    public void loginFailedPasswordInvalid() {
 
         final IdGenerator idGenerator = new JugIdGenerator();
 

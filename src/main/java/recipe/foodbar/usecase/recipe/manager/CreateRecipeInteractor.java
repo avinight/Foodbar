@@ -1,16 +1,14 @@
 package recipe.foodbar.usecase.recipe.manager;
 
-import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
+import recipe.foodbar.entities.*;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
 import recipe.foodbar.usecase.user.port.IdGenerator;
-import recipe.foodbar.entities.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class CreateRecipeInteractor implements CreateRecipeInputBoundary{
+public class CreateRecipeInteractor implements CreateRecipeInputBoundary {
     private final RecipeRepository repository;
     private final IdGenerator idGenerator;
     private final CreateRecipeOutputBoundary presenter;

@@ -1,7 +1,6 @@
 package recipe.foodbar.controller.user.logout;
 
 
-
 import recipe.foodbar.usecase.userLogout.port.UserLogoutOutputBoundary;
 
 public class UserLogoutPresenter implements UserLogoutOutputBoundary {
@@ -13,7 +12,7 @@ public class UserLogoutPresenter implements UserLogoutOutputBoundary {
      * @return return the given message
      */
     @Override
-    public String message(String message){
+    public String message(String message) {
         return message;
     }
 

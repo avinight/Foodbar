@@ -1,7 +1,7 @@
 package recipe.foodbar.usecase.userLogin;
 
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 import recipe.foodbar.usecase.userLogin.port.LoginRepositoryInterface;
 import recipe.foodbar.usecase.userLogin.port.UserLoginInputBoundary;
 import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
@@ -17,7 +17,7 @@ public class UserLogin implements UserLoginInputBoundary {
 
 
     public UserLogin(UserLoginOutputBoundary output, UserRepositoryInterface userRepo,
-                     LoginRepositoryInterface loginRepo, IdGenerator generator){
+                     LoginRepositoryInterface loginRepo, IdGenerator generator) {
         this.output = output;
         this.userRepo = userRepo;
         this.loginRepo = loginRepo;
@@ -27,7 +27,7 @@ public class UserLogin implements UserLoginInputBoundary {
 
 
     @Override
-    public String login(UserLoginInput input){
+    public String login(UserLoginInput input) {
         String username = input.getUsername();
         String password = input.getPassword();
 
@@ -35,7 +35,7 @@ public class UserLogin implements UserLoginInputBoundary {
 
         if ((userValidator.fullEntries(username, password)) && (userValidator.validateExist(username))
                 && userRepo.findByUsername(username).isPresent() &&
-                userValidator.validatePassword(username, password)){
+                userValidator.validatePassword(username, password)) {
 
 
             String token = this.generator.generate();

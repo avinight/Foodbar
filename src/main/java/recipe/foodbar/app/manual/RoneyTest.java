@@ -5,8 +5,6 @@ import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
 import recipe.foodbar.entities.*;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
@@ -37,7 +35,7 @@ public class RoneyTest {
                 .build();
 
         //Create Users (authors)
-        User u1 = new recipe.foodbar.entities.User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>());
+        User u1 = new recipe.foodbar.entities.User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
 
         //Create the recipes and add them to recipeRepo

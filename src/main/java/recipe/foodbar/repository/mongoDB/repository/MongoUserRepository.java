@@ -42,24 +42,20 @@ public class MongoUserRepository implements UserRepositoryInterface {
         }
     }
 
-    /**
-     * Abstract method for finding a user by their username in the repository
-     *
-     * @param id the String representation of the id
-     * @return to be implemented by classes which implement the interface.
-     */
     @Override
-    public Optional<User> findById(String id) {
-        return Optional.empty();
+    public Optional<User> findByUsername(String username) {
+        Bson query = eq("username", username);
+        Optional<UserModel> um = Optional.ofNullable(collection.find(query)
+                .first());
+        return um.map(UserMapper::toEntity);
     }
 
-//    @Override
-//    public Optional<User> findByUsername(String username) {
-//        Bson query = eq("username", username);
-//        Optional<UserModel> um = Optional.ofNullable(collection.find(query)
-//                .first());
-//        return um.map(UserMapper::toEntity);
-//    }
+    @Override
+    public Optional<User> findById(String id) {
+        Bson query = eq("_id", id);
+        Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
+        return rm.map(UserMapper::toEntity);
+    }
 
     @Override
     public Optional<User> findByEmail(String email) {
@@ -79,21 +75,5 @@ public class MongoUserRepository implements UserRepositoryInterface {
     @Override
     public boolean existsByUsername(String username) {
         return collection.countDocuments(eq("username", username)) > 0;
-    }
-
-    /**
-     * Abstract method for getting password
-     *
-     * @param username the String representation of the username
-     * @return to be implemented
-     */
-    @Override
-    public String getPassword(String username) {
-        return null;
-    }
-
-    @Override
-    public Optional<User> getByUsername(String username) {
-        return Optional.empty();
     }
 }

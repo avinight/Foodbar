@@ -3,11 +3,9 @@ The interface laying in the usecase layer that allows the usecase layer to inter
  */
 package recipe.foodbar.usecase.user.port;
 
-import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public interface UserRepositoryInterface {
@@ -39,10 +37,10 @@ public interface UserRepositoryInterface {
     /**
      * Abstract method for finding a user by their ID in the repository
      *
-     * @param ID the String representation of the username
+     * @param Id the String representation of the username
      * @return to be implemented by classes which implement the interface.
      */
-    Optional<User> findByID(String ID);
+    Optional<User> findById(String Id);
 
     /**
      * Abstract method for finding all users in the repository
@@ -58,9 +56,4 @@ public interface UserRepositoryInterface {
      * @return to be implemented by classes which implement the interface.
      */
     boolean existsByUsername(String username);
-
-    void saveRecipe(Recipe recipe);
-
-    void unsaveRecipe(Recipe recipe);
-
 }
