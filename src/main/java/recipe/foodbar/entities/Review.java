@@ -40,8 +40,7 @@ public class Review {
 
     @Override
     public String toString() {
-        return String.format("%s by %s: %s", title, author.getId(), text);
-        // change getId() to getUsername() once arthur is done his stuff
+        return String.format("%s by %s: %s", title, author.getUsername(), text);
     }
 
     public static class ReviewBuilder {

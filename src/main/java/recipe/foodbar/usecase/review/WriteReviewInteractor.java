@@ -3,16 +3,17 @@ package recipe.foodbar.usecase.review;
 import recipe.foodbar.controller.dto.ReviewDTO;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.repository.mongoDB.model.RecipeModel;
+import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.exception.CharLimitException;
 import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
 import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class WriteReviewInteractor implements ReviewInputBoundary {
-    private final RecipeModel recipeModel;
+    private final RecipeRepository recipeRepo;
     private final String recipeId;
 
-    public WriteReviewInteractor(RecipeModel recipeModel, IdGenerator idGenerator, String recipeId) {
-        this.recipeModel = recipeModel;
+    public WriteReviewInteractor(RecipeRepository recipeRepo, IdGenerator idGenerator, String recipeId) {
+        this.recipeRepo = recipeRepo;
         this.recipeId = recipeId;
     }
 
@@ -27,7 +28,7 @@ public class WriteReviewInteractor implements ReviewInputBoundary {
                 .text(reviewDTO.getText())
                 .author(reviewDTO.getAuthor())
                 .build();
-        recipeModel.getReviews().add(reviewToSave);
+        recipeRepo.findById(recipeId).get().addReview(reviewToSave);
         return reviewToSave;
     }
 }

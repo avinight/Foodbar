@@ -294,6 +294,10 @@ public class Recipe {
         }
     }
 
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
     /**
      * Return a string representation of this Recipe.
      *
