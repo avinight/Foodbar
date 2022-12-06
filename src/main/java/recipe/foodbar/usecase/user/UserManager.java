@@ -46,8 +46,6 @@ public class UserManager implements UserCreatorInputBoundary {
         String password = input.getPassword();
         String passwordShadow = input.getPasswordShadow();
         String email = input.getEmail();
-        String firstName = input.getFirstName();
-        String lastName = input.getLastName();
 
         Boolean[] nullChecks = UserChecker.checkNullEntries(input);
 
@@ -56,7 +54,7 @@ public class UserManager implements UserCreatorInputBoundary {
 
         //if code works fix the password parameter
         if (nullChecks[0] || nullChecks[1] || nullChecks[2] ||
-                nullChecks[3] || nullChecks[4] || nullChecks[5]) {
+                nullChecks[3]) {
             return output.present(UserConfirmer.userInformationNull(nullChecks));
 
         } else if (!(UserChecker.checkPasswordMatch(password, passwordShadow))) {
