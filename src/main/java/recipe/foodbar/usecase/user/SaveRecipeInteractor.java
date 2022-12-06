@@ -38,12 +38,13 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
      */
     @Override
     public String saveRecipe(SaveRecipeData inputDS) {
-//        String userID = inputDS.getUserSaver().getId();
+        String userID = inputDS.getUserSaver().getId();
 //         TODO: might need to change the lines below
-        String userID = inputDS.getUserSaver().getUsername();
+//        String userID = inputDS.getUserSaver().getUsername();
         String recipeID = inputDS.getRecipeToBeSaved().getId();
 
 
+//        Optional<User> saver = userRepo.findByUsername(userID);
         Optional<User> saver = userRepo.findById(userID);
         Optional<Recipe> recipeToBeSaved = recipeRepo.findById(recipeID);
 
@@ -75,7 +76,8 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
 
         // the lines below implicitly assume that the repo contains user and recipe objects which are valid and
         // that invalid user and recipe objects are not added to the repo.
-        Optional<User> saver = userRepo.findByUsername(userID);
+        //        Optional<User> saver = userRepo.findByUsername(userID);
+        Optional<User> saver = userRepo.findById(userID);
         Optional<Recipe> recipeToBeSaved = recipeRepo.findById(recipeID);
 
         if (saver.isPresent() && recipeToBeSaved.isPresent()) {

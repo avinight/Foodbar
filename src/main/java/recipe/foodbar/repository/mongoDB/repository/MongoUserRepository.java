@@ -56,8 +56,8 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public Optional<User> findById(String id) {
-        Bson query = eq("_id", id);
-//        Bson query = eq("_id", new ObjectId(id));
+//        Bson query = eq("_id", id);
+        Bson query = eq("_id", new ObjectId(id));
         Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
         return rm.map(UserMapper::toEntity);
     }
@@ -86,7 +86,7 @@ public class MongoUserRepository implements UserRepositoryInterface {
     @Override
     public User update(User user) {
         UserModel rm = UserMapper.toUserModel(user);
-        Bson query = eq("_id", user.getId());
+        Bson query = eq("_id", new ObjectId(user.getId()));
         ReplaceOptions opts = new ReplaceOptions().upsert(true);
         UpdateResult result = collection.replaceOne(query, rm, opts);
 //        Todo: Remove console println, do we need to return Recipe?
