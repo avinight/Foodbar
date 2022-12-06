@@ -50,6 +50,13 @@ public interface UserRepositoryInterface {
     ArrayList<User> findAllUsers();
 
     /**
+     * Update the user object after one of its attributes has been answered
+     * @param user The user object that needs to be udpated
+     * @return the user object that was updated
+     */
+    User update(User user);
+
+    /**
      * Abstract method for finding if a user exists by their username
      *
      * @param username the String representation of the username

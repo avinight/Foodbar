@@ -60,6 +60,7 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
             } else {
                 // if recipe is not in the list of saved recipes then we save it and return the message below
                 saverUser.addRecipe(recipe);
+                userRepo.update(saverUser);
                 return presenterInterface.present("Recipe successfully saved");
             }
         }
@@ -86,6 +87,7 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
                 // since the recipe that needs to be saved in is in the list of savedRecipes we can successfully
                 // remove it and return a message reporting the success of recipe being unsaved
                 saverUser.removeRecipe(recipe);
+                userRepo.update(saverUser);
                 return presenterInterface.present("Recipe successfully unsaved");
             } else {
                 // if recipe is not in the list of saved recipes then there's nothing to un-save, and we report

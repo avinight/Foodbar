@@ -22,12 +22,12 @@ public class User {
     private ArrayList<Recipe> savedRecipes = new ArrayList<Recipe>();
 
 
-    /**
-     * This method returns the list of savedRecipes saved by the user object
-     *
-     * @return the list of recipes saved by this user
-     */
-    public ArrayList<Recipe> getSavedRecipes() { return this.savedRecipes; }
+//    /**
+//     * This method returns the list of savedRecipes saved by the user object
+//     *
+//     * @return the list of recipes saved by this user
+//     */
+//    public ArrayList<Recipe> getSavedRecipes() { return this.savedRecipes; }
 
 
     /**

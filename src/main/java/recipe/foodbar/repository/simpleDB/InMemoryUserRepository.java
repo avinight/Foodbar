@@ -83,6 +83,17 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
         return new ArrayList<>(inMemoryDb.values());
     }
 
+    /**
+     * Update the user object after one of its attributes has been answered
+     *
+     * @param user The user object that needs to be udpated
+     * @return the user object that was updated
+     */
+    @Override
+    public User update(User user) {
+        return null;
+    }
+
 
     /**
      * Method for finding if a user exists by their username
