@@ -58,7 +58,7 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
             if (saverUser.containsRecipe(recipe)){
                 return presenterInterface.present("Recipe is already saved");
                 // TODO: ensure that .equals() is implemented in class User
-            } else if (recipe.getAuthor().equals(saverUser)) {
+            } else if (recipe.getUser().equals(saverUser)) {
                 return presenterInterface.present("You can't save a recipe that you have created");
             }
             else {

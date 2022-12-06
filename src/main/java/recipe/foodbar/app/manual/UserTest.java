@@ -1,6 +1,6 @@
 package recipe.foodbar.app.manual;
 
-public class User {
+public class UserTest {
     public static void main(String[] args) {
 //        InMemoryUserRepository repo = new InMemoryUserRepository();
 //        MongoRecipeRepository recipeRepo = new MongoRecipeRepository();
