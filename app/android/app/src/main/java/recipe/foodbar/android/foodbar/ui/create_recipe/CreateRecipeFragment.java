@@ -1,4 +1,4 @@
-package recipe.foodbar.android.foodbar;
+package recipe.foodbar.android.foodbar.ui.create_recipe;
 
 import android.os.Bundle;
 
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import recipe.foodbar.android.foodbar.databinding.FragmentCreateRecipeBinding;
-import recipe.foodbar.android.foodbar.databinding.FragmentRegisterBinding;
 
 public class CreateRecipeFragment extends Fragment {
 

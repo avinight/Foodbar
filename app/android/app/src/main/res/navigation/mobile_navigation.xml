@@ -28,7 +28,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/createRecipeFragment"
-        android:name="recipe.foodbar.android.foodbar.CreateRecipeFragment"
+        android:name="recipe.foodbar.android.foodbar.ui.create_recipe.CreateRecipeFragment"
         android:label="Create Recipe"
         tools:layout="@layout/fragment_create_recipe" />
 </navigation>

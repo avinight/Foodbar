@@ -1,9 +1,7 @@
-package recipe.foodbar.android.foodbar;
+package recipe.foodbar.android.foodbar.ui.register;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -11,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import recipe.foodbar.android.foodbar.R;
 import recipe.foodbar.android.foodbar.databinding.FragmentRegisterBinding;
 
 public class RegisterFragment extends Fragment {

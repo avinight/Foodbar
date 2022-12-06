@@ -1,4 +1,4 @@
-package recipe.foodbar.android.foodbar;
+package recipe.foodbar.android.foodbar.ui.login;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,12 +8,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavGraph;
-import androidx.navigation.NavHostController;
-import androidx.navigation.NavOptions;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import recipe.foodbar.android.foodbar.R;
 import recipe.foodbar.android.foodbar.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {

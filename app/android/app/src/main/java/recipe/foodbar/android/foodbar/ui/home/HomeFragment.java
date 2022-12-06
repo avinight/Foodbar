@@ -4,16 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
-import recipe.foodbar.android.foodbar.R;
-import recipe.foodbar.android.foodbar.RegisterFragment;
 import recipe.foodbar.android.foodbar.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
