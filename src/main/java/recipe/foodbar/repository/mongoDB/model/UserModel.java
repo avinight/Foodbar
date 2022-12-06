@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
@@ -22,5 +23,6 @@ public class UserModel {
     private ArrayList<User> following = new ArrayList<>();
     @Builder.Default
     private ArrayList<User> followers = new ArrayList<>();
-    ;
+    @Builder.Default
+    private ArrayList<Recipe> savedRecipes = new ArrayList<Recipe>();
 }

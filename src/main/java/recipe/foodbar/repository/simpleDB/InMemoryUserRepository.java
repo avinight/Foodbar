@@ -34,16 +34,16 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
         return Optional.empty();
     }
 
-    /**
-     * Abstract method for finding a user by their username in the repository
-     *
-     * @param id the String representation of the id
-     * @return to be implemented by classes which implement the interface.
-     */
-    @Override
-    public Optional<User> findById(String id) {
-        return Optional.ofNullable(inMemoryDb.get(id));
-    }
+//    /**
+//     * Abstract method for finding a user by their username in the repository
+//     *
+//     * @param id the String representation of the id
+//     * @return to be implemented by classes which implement the interface.
+//     */
+//    @Override
+//    public Optional<User> findById(String id) {
+//        return Optional.ofNullable(inMemoryDb.get(id));
+//    }
 
     /**
      * Abstract method for finding a user by their username in the repository
@@ -111,19 +111,19 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
         return false;
     }
 
-    /**
-     * Abstract method for getting password
-     *
-     * @param username the String representation of the username
-     * @return to be implemented
-     */
-    @Override
-    public String getPassword(String username) {
-        return null;
-    }
-
-    @Override
-    public Optional<User> getByUsername(String username) {
-        return Optional.empty();
-    }
+//    /**
+//     * Abstract method for getting password
+//     *
+//     * @param username the String representation of the username
+//     * @return to be implemented
+//     */
+//    @Override
+//    public String getPassword(String username) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Optional<User> getByUsername(String username) {
+//        return Optional.empty();
+//    }
 }

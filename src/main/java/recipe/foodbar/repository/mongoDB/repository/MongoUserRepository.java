@@ -8,6 +8,7 @@ import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.repository.mongoDB.mapper.UserMapper;
 import recipe.foodbar.repository.mongoDB.model.UserModel;
@@ -52,7 +53,8 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public Optional<User> findById(String id) {
-        Bson query = eq("_id", id);
+//        Bson query = eq("_id", id);
+        Bson query = eq("_id", new ObjectId(id));
         Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
         return rm.map(UserMapper::toEntity);
     }

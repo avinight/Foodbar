@@ -21,6 +21,15 @@ public class User {
     @Builder.Default
     private ArrayList<Recipe> savedRecipes = new ArrayList<Recipe>();
 
+
+    /**
+     * This method returns the list of savedRecipes saved by the user object
+     *
+     * @return the list of recipes saved by this user
+     */
+    public ArrayList<Recipe> getSavedRecipes() { return this.savedRecipes; }
+
+
     /**
      * This method return true if the recipe r is already in the list of saved recipes
      *

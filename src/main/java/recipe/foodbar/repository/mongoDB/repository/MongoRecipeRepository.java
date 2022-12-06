@@ -10,6 +10,7 @@ import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.repository.mongoDB.mapper.RecipeMapper;
@@ -75,7 +76,8 @@ public class MongoRecipeRepository implements RecipeRepository {
 
     @Override
     public Optional<Recipe> findById(String id) {
-        Bson query = eq("_id", id);
+//        Bson query = eq("_id", id);
+        Bson query = eq("_id", new ObjectId(id));
         Optional<RecipeModel> rm = Optional.ofNullable(collection.find(query).first());
         return rm.map(RecipeMapper::toEntity);
     }

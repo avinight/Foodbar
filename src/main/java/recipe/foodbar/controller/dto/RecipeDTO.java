@@ -119,7 +119,7 @@ public class RecipeDTO {
         return Recipe.builder()
                 .id(id)
                 .title(title)
-                .author(author)
+                .user(author)
                 .portionSize(portionSize)
                 .instructions(instructions)
                 .cuisine(cuisine)

@@ -73,18 +73,6 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary {
                 .reviews(rReviews)
                 .build();
 
-
-//        Recipe recipeToSave = Recipe.builder()
-//                .id(idGenerator.generate())
-//                .title(input.getTitle())
-//                .author(input.getAuthor())
-//                .instructions(input.getInstructions())
-//                .cuisine(input.getCuisine())
-//                .portionSize(input.getPortionSize())
-//                .dietaryRestrictions(input.getDietaryRestrictions())
-//                .dateCreated(input.getDateCreated())
-//                .createRecipe();
-
         RecipeValidator.validateCreateRecipe(recipeToSave);
 
         // TODO: also need to ensure that the recipe being saved to the recipe repository is valid since other use

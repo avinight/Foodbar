@@ -20,7 +20,7 @@ public class UpdateRecipe {
         Recipe recipeToSave = Recipe.builder()
                 .id(recipe.getId())
                 .title(recipe.getTitle())
-                .author(recipe.getUser())
+                .user(recipe.getUser())
                 .instructions(recipe.getInstructions())
                 .cuisine(recipe.getCuisine())
                 .portionSize(recipe.getPortionSize())

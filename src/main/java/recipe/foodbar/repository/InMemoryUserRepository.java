@@ -24,6 +24,17 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
     }
 
     /**
+     * Abstract method for finding a user by their username in the repository
+     *
+     * @param username the String representation of the username
+     * @return to be implemented by classes which implement the interface.
+     */
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return Optional.empty();
+    }
+
+    /**
      * Method for finding a user by their username in the repository
      *
      * @param id the String representation of the id
@@ -37,16 +48,16 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
     }
 
 
-    /**
-     * Method for getting the password of the matchingusername in repository
-     *
-     * @param username the String representation of the username to be checked in the repository
-     * @return the password of the matching user object
-     */
-    @Override
-    public String getPassword(final String username){
-        return inMemoryDb.get(username).getPassword();
-    }
+//    /**
+//     * Method for getting the password of the matchingusername in repository
+//     *
+//     * @param username the String representation of the username to be checked in the repository
+//     * @return the password of the matching user object
+//     */
+//    @Override
+//    public String getPassword(final String username){
+//        return inMemoryDb.get(username).getPassword();
+//    }
 
     /**
      * Method for finding a user by their email in the repository
@@ -97,15 +108,15 @@ public class InMemoryUserRepository implements UserRepositoryInterface {
      * @param username the String representation of the username
      * @return user object if it exists, empty user otherwise
      */
-    @Override
-    public Optional<User> getByUsername(String username) {
-        Collection<User> userCollection = inMemoryDb.values();
-        for (User user : userCollection) {
-            if (user.getUsername().equals(username)) {
-                return Optional.of(user);
-            }
-        }
-        return Optional.empty();
-    }
-
+//    @Override
+//    public Optional<User> getByUsername(String username) {
+//        Collection<User> userCollection = inMemoryDb.values();
+//        for (User user : userCollection) {
+//            if (user.getUsername().equals(username)) {
+//                return Optional.of(user);
+//            }
+//        }
+//        return Optional.empty();
+//    }
+//
 }
