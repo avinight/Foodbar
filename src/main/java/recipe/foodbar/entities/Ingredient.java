@@ -1,14 +1,12 @@
 package recipe.foodbar.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @Builder
 @Data
 @NoArgsConstructor
+@ToString
 public class Ingredient {
     private String name;
     private float size;

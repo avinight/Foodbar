@@ -1,11 +1,14 @@
 package recipe.foodbar.entities;
 
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * The recipe class.
  */
+@ToString
 public class Recipe {
     private final String id;
     private final Date dateCreated;
@@ -295,8 +298,8 @@ public class Recipe {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(o instanceof Recipe){
+    public boolean equals(Object o) {
+        if (o instanceof Recipe) {
             Recipe p = (Recipe) o;
             return this.id.equals(p.getId());
         } else
@@ -401,9 +404,6 @@ public class Recipe {
             return new Recipe(id, title, author, portionSize, instructions, cuisine, dietaryRestrictions, dateCreated, ingredients, reviews, likers, dislikers);
         }
 
-        public String toString() {
-            return "Recipe.RecipeBuilder(id=" + this.id + ", cuisine=" + this.cuisine + ", dateCreated=" + this.dateCreated + ", reviews=" + this.reviews + ", ingredients=" + this.ingredients + ", title=" + this.title + ", author=" + this.user + ", instructions=" + this.instructions + ", dietaryRestrictions=" + this.dietaryRestrictions + ", portionSize=" + this.portionSize + ", likers=" + this.likers + ", dislikers=" + this.dislikers + ")";
-        }
 
         @Override
         public boolean equals(Object o) {
