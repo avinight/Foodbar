@@ -13,7 +13,7 @@ public class Recipe {
     private final ArrayList<Review> reviews;
     private final ArrayList<Ingredient> ingredients;
     private String title;
-    private User author;
+    private User user;
     private ArrayList<String> instructions;
     private ArrayList<String> dietaryRestrictions;
     private float portionSize;
@@ -26,7 +26,7 @@ public class Recipe {
      *
      * @param id                  The id of the recipe.
      * @param title               The title of the recipe.
-     * @param author              The author of the recipe.
+     * @param user              The author of the recipe.
      * @param portionSize         The portion size of the recipe.
      * @param instructions        The instructions of the recipe.
      * @param cuisine             The cuisine of the recipe.
@@ -37,10 +37,10 @@ public class Recipe {
      * @param dislikers           The ID of Users who have disliked this recipe.
      * @param reviews             The reviews of the recipe.
      */
-    public Recipe(String id, String title, final User author, float portionSize, ArrayList<String> instructions, Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
+    public Recipe(String id, String title, final User user, float portionSize, ArrayList<String> instructions, Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated, ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
         this.id = id;
         this.title = title;
-        this.author = author;
+        this.user = user;
         this.portionSize = portionSize;
         this.instructions = instructions;
         this.cuisine = cuisine;
@@ -84,12 +84,12 @@ public class Recipe {
      *
      * @return the author of the recipe.
      */
-    public User getAuthor() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
-    public void setAuthor(User ue) {
-        this.author = ue;
+    public void setUser(User ue) {
+        this.user = ue;
     }
 
     /**
@@ -312,7 +312,7 @@ public class Recipe {
         return "Recipe{" +
                 "id = " + id + '\'' +
                 ", title = '" + title + '\'' +
-                ", authorID = '" + author.getId() + '\'' +
+                ", authorID = '" + user.getId() + '\'' +
                 ", cuisineId = '" + cuisine.toString() + '\'' +
                 ", likes = '" + this.getLikes() + '\'' +
                 ", dislikes = '" + this.getDislikes() + '\'' +

@@ -24,12 +24,10 @@ public class UserFactory {
      *
      * @param username String representation for the username
      * @param password String representation for the password
-     * @param first    String representation for the firstname
-     * @param last     String representation for the lastname
      * @param email    String representation for the email
      */
-    public void createAccount(String id, String username, String password, String first, String last, String email) {
-        User user = new User(id, username, password, first, last, email);
+    public void createAccount(String id, String username, String password, String email) {
+        User user = User.builder().id(id).username(username).password(password).email(email).build();
         repo.create(user);
         //code to add the user to the repository
         //

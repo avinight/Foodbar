@@ -18,7 +18,7 @@ import java.util.Date;
 public class RecipeModel {
     private ObjectId id;
     private String title;
-    private User author;
+    private User user;
     private ArrayList<String> instructions;
     private Cuisine cuisine;
     private ArrayList<String> dietaryRestrictions;

@@ -10,7 +10,7 @@ public class RecipeMapper {
     public static Recipe toEntity(RecipeModel recipeModel) {
         return new Recipe(recipeModel.getId().toHexString(),
                 recipeModel.getTitle(),
-                recipeModel.getAuthor(),
+                recipeModel.getUser(),
                 recipeModel.getPortionSize(),
                 recipeModel.getInstructions(),
                 recipeModel.getCuisine(),
@@ -26,7 +26,7 @@ public class RecipeMapper {
     public static RecipeModel toUserModel(Recipe recipe) {
         return new RecipeModel(new ObjectId(recipe.getId()),
                 recipe.getTitle(),
-                recipe.getAuthor(),
+                recipe.getUser(),
                 recipe.getInstructions(),
                 recipe.getCuisine(),
                 recipe.getDietaryRestrictions(),

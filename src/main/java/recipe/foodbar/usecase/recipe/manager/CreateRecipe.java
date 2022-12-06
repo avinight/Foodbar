@@ -23,7 +23,7 @@ public class CreateRecipe {
         Recipe recipeToSave = Recipe.builder()
                 .id(idGenerator.generate())
                 .title(recipe.getTitle())
-                .author(recipe.getAuthor())
+                .author(recipe.getUser())
                 .instructions(recipe.getInstructions())
                 .cuisine(recipe.getCuisine())
                 .portionSize(recipe.getPortionSize())

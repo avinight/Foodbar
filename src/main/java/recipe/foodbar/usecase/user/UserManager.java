@@ -70,7 +70,7 @@ public class UserManager implements UserCreatorInputBoundary {
         } else {
 
             //creation of the account and added to the repository
-            repoFactory.createAccount(id, username, password, firstName, lastName, email);
+            repoFactory.createAccount(id, username, password, email);
 
             return output.present("UserCreation Successful, no problems encountered.");
         }
