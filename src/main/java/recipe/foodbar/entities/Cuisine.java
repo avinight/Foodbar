@@ -1,9 +1,6 @@
 package recipe.foodbar.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 
@@ -14,6 +11,7 @@ import java.util.ArrayList;
 public class Cuisine {
     private String name;
     private String id;
-    private ArrayList<Recipe> recipes;
+    @Builder.Default
+    private ArrayList<Recipe> recipes = new ArrayList<>();
 }
 

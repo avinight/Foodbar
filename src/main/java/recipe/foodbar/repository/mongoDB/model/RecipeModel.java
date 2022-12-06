@@ -1,6 +1,7 @@
 package recipe.foodbar.repository.mongoDB.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
@@ -24,8 +25,12 @@ public class RecipeModel {
     private ArrayList<String> dietaryRestrictions;
     private Date dateCreated;
     private float portionSize;
-    private ArrayList<Review> reviews;
-    private ArrayList<Ingredient> ingredients;
-    private ArrayList<String> likers;
-    private ArrayList<String> dislikers;
+    @Builder.Default
+    private ArrayList<Review> reviews = new ArrayList<>();
+    @Builder.Default
+    private ArrayList<Ingredient> ingredients = new ArrayList<>();
+    @Builder.Default
+    private ArrayList<String> likers = new ArrayList<>();
+    @Builder.Default
+    private ArrayList<String> dislikers = new ArrayList<>();
 }

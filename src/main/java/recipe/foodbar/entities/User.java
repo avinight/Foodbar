@@ -14,6 +14,8 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private ArrayList<User> following;
-    private ArrayList<User> followers;
+    @Builder.Default
+    private ArrayList<User> following = new ArrayList<>();
+    @Builder.Default
+    private ArrayList<User> followers = new ArrayList<>();
 }
