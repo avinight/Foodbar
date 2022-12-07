@@ -2,6 +2,7 @@ package recipe.foodbar.app.manual;
 
 import com.mongodb.client.MongoDatabase;
 import recipe.foodbar.entities.*;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
 import recipe.foodbar.usecase.user.port.IdGenerator;
