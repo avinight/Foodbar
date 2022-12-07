@@ -1,9 +1,13 @@
 package recipe.foodbar.usecase.recipe.manager.sort;
 
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
-public class RecipeSorter extends Sorter implements IRecipeSorter {
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class RecipeSorter implements IRecipeSorter {
 
     private final RecipeRepository recipeRepo;
     private final RecipePresenter rp;
@@ -14,13 +18,13 @@ public class RecipeSorter extends Sorter implements IRecipeSorter {
         this.rp = rp;
     }
 
+    /**
+     * @return
+     */
     @Override
-    public void sortByCuisine() {
-        this.recipeRepo.getAllRecipes().sort(new CuisineComparator());
-    }
-
-    @Override
-    public void sortByRating() {
-        this.recipeRepo.getAllRecipes().sort(new RatingComparator());
+    public ArrayList<Recipe> sortBy(Comparator<Recipe> comparator) {
+        ArrayList<Recipe> recipes = this.recipeRepo.getAllRecipes();
+        recipes.sort(comparator);
+        return recipes;
     }
 }
