@@ -18,7 +18,7 @@ public class WriteReviewInteractor implements ReviewInputBoundary {
 
     @Override
     public Review writeReview(ReviewDTO reviewDTO) {
-        if (reviewDTO.getText().length() > Review.ReviewBuilder.MAX_LENGTH) {
+        if (reviewDTO.getText().length() > Review.MAX_LENGTH) {
             throw new CharLimitException("The review exceeds the character limit!");
         }
         Review reviewToSave = Review.builder()

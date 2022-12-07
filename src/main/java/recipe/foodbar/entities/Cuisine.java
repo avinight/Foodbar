@@ -10,8 +10,8 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @ToString
 public class Cuisine {
-    private String name;
     private String id;
+    private String name;
     @Builder.Default
     private ArrayList<Recipe> recipes = new ArrayList<>();
 }

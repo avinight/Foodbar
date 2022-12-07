@@ -3,14 +3,18 @@ package recipe.foodbar.repository.mongoDB.repository;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.ReplaceOptions;
 import com.mongodb.client.result.InsertOneResult;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
+import recipe.foodbar.repository.mongoDB.mapper.RecipeMapper;
 import recipe.foodbar.repository.mongoDB.mapper.UserMapper;
+import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.repository.mongoDB.model.UserModel;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
 
@@ -53,8 +57,8 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public Optional<User> findById(String id) {
-        Bson query = eq("_id", id);
-//        Bson query = eq("_id", new ObjectId(id));
+//        Bson query = eq("_id", id);
+        Bson query = eq("_id", new ObjectId(id));
         Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
         return rm.map(UserMapper::toEntity);
     }
@@ -72,6 +76,23 @@ public class MongoUserRepository implements UserRepositoryInterface {
         List<UserModel> userModelList = collection.find().into(new ArrayList<>());
         List<User> userList = userModelList.stream().map(UserMapper::toEntity).collect(Collectors.toList());
         return (ArrayList<User>) userList;
+    }
+
+    /**
+     * Update the user object after one of its attributes has been answered
+     *
+     * @param user The user object that needs to be udpated
+     * @return the user object that was updated
+     */
+    @Override
+    public User update(User user) {
+        UserModel rm = UserMapper.toUserModel(user);
+        Bson query = eq("_id", new ObjectId(user.getId()));
+        ReplaceOptions opts = new ReplaceOptions().upsert(true);
+        UpdateResult result = collection.replaceOne(query, rm, opts);
+//        Todo: Remove console println, do we need to return Recipe?
+        System.out.println(result);
+        return user;
     }
 
     @Override
