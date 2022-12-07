@@ -19,7 +19,7 @@ public class RecipeSorter implements IRecipeSorter {
     }
 
     /**
-     * @return
+     * @return Recipe View
      */
     @Override
     public ArrayList<Recipe> sortBy(Comparator<Recipe> comparator) {
