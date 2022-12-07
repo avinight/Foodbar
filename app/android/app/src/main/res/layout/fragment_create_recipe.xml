@@ -70,9 +70,47 @@
             android:id="@+id/cusine_auto_complete_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:dropDownHeight="wrap_content"
             android:layout_weight="1"
+            android:dropDownHeight="wrap_content"
             android:hint="Cuisine"
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ingredients_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cusine_text_input_layout" />
+
+    <Button
+        android:id="@+id/remove_ingredient_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:text="Remove Ingredient"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients_list_view"
+        />
+
+    <Button
+        android:id="@+id/add_ingredient_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Ingredient"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients_list_view"
+        />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

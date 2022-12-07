@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavGraph;
 import androidx.navigation.NavOptions;
@@ -49,30 +51,53 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        addMenuProvider(new MenuProvider() {
+            @Override
+            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+                menuInflater.inflate(R.menu.top_menu, menu);
+                MenuItem searchItem = menu.findItem(R.id.action_search);
+                SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(Context.SEARCH_SERVICE);
+
+                SearchView searchView = null;
+                if (searchItem != null) {
+                    searchView = (SearchView) searchItem.getActionView();
+                }
+                if (searchView != null) {
+                    searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
+                }
+            }
+
+            @Override
+            public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+                return NavigationUI.onNavDestinationSelected(menuItem, navController)
+                        || MainActivity.super.onOptionsItemSelected(menuItem);
+            }
+        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.top_menu, menu);
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.top_menu, menu);
+//
+//        MenuItem searchItem = menu.findItem(R.id.action_search);
+//        SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(Context.SEARCH_SERVICE);
+//
+//        SearchView searchView = null;
+//        if (searchItem != null) {
+//            searchView = (SearchView) searchItem.getActionView();
+//        }
+//        if (searchView != null) {
+//            searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
+//        }
+//        return true;
+//    }
 
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(Context.SEARCH_SERVICE);
-
-        SearchView searchView = null;
-        if (searchItem != null) {
-            searchView = (SearchView) searchItem.getActionView();
-        }
-        if (searchView != null) {
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return NavigationUI.onNavDestinationSelected(item, navController)
-                || super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        return NavigationUI.onNavDestinationSelected(item, navController)
+//                || super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {
