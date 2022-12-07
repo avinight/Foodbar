@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.user;
 
-import recipe.foodbar.usecase.user.UserInputData;
+import recipe.foodbar.usecase.user.ds.UserInputData;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 
 /*
@@ -9,7 +9,7 @@ import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
  */
 
 
-public class AccountController {
+public class AccountCreation {
 
     public final UserCreatorInputBoundary data;
 
@@ -19,7 +19,7 @@ public class AccountController {
      *
      * @param data representing the given UserCreatorInputBoundary object
      */
-    public AccountController(UserCreatorInputBoundary data) {
+    public AccountCreation(UserCreatorInputBoundary data) {
         this.data = data;
 
     }
