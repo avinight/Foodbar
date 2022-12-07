@@ -1,6 +1,9 @@
 package recipe.foodbar.controller.recipe;
 
 import recipe.foodbar.usecase.recipe.manager.sort.IRecipeSorter;
+import recipe.foodbar.usecase.recipe.manager.sort.comparators.CuisineComparator;
+import recipe.foodbar.usecase.recipe.manager.sort.comparators.DateComparator;
+import recipe.foodbar.usecase.recipe.manager.sort.comparators.RatingComparator;
 
 /**
  * A controller to sort recipes.
@@ -26,11 +29,11 @@ public class SortRecipes {
     public void sort(String order) {
         switch (order) {
             case "by_rating":
-                s.sortByRating();
+                s.sortBy(new RatingComparator());
             case "by_cuisine":
-                s.sortByCuisine();
+                s.sortBy(new CuisineComparator());
             case "by_date_created":
-                s.sortByDate();
+                s.sortBy(new DateComparator());
         }
     }
 
