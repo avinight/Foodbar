@@ -184,6 +184,7 @@ public class SaveRecipeTesting {
         SaveRecipeData dataForUnsaving = saveRecipeController.saveRecipe(user2.get(), recipe1);
         String unsaveRecipeConfirmation = saveRecipeController.inputBoundary.unsaveRecipe(dataForUnsaving);
 
+        user2 = userRepo.findById(user2.get().getId());
         ArrayList<Recipe> testResult4 = user2.get().getSavedRecipes();
 
         System.out.println("\n 5. Test when user tries to un-save a recipe that they haven't saved");
