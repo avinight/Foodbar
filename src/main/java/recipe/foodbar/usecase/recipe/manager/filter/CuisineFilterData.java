@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.filter;
 
-import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 
 public class CuisineFilterData {
     private Cuisine cuisine;
