@@ -7,12 +7,13 @@ public class Review {
     private final String text;
     private final User author;
 
-    private Review(String recipeId, String title, String text, User author) {
+    public Review(String recipeId, String title, String text, User author) {
         this.recipeId = recipeId;
         this.title = title;
         this.text = text;
         this.author = author;
     }
+
 
     public static ReviewBuilder builder() {
         return new ReviewBuilder();
