@@ -125,6 +125,10 @@ public class Recipe {
         }
     }
 
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
     /**
      * Adds new ingredients to the ingredients ArrayList.
      *
