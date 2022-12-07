@@ -166,7 +166,8 @@ public class SaveRecipeTesting {
 
         SaveRecipeData dataForSaving2 = saveRecipeController.saveRecipe(user2.get(), recipe1);
         String saveRecipeConfirmation2 = saveRecipeController.inputBoundary.saveRecipe(dataForSaving2);
-        user2 = userRepo.findById(user2.get().getId());
+        String userIDData = user2.get().getId();
+        user2 = userRepo.findById(userIDData);
 
         ArrayList<Recipe> testResult2 = user2.get().getSavedRecipes();
 //        Recipe testResult2Recipe = testResult2.get(0);
