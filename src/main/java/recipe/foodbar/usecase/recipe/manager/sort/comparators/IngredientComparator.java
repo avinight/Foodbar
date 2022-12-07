@@ -1,11 +1,9 @@
-package recipe.foodbar.usecase.recipe.manager.sort.comparators;
+package recipe.foodbar.usecase.recipe.manager.sort;
 
-import recipe.foodbar.entities.Ingredient.Ingredient;
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Ingredient;
+import recipe.foodbar.entities.Recipe;
 
-import java.util.Comparator;
-
-public class IngredientComparator implements Comparator<Recipe> {
+public class IngredientComparator extends AbstractComparator {
     /**
      * @param r1 the first object to be compared.
      * @param r2 the second object to be compared.
@@ -28,9 +26,9 @@ public class IngredientComparator implements Comparator<Recipe> {
             }
         }
 
-        if(s1 == null || s2 == null) {
-            return String.CASE_INSENSITIVE_ORDER.compare(s1, s2);}
-        else {
+        if (s1 == null || s2 == null) {
+            return String.CASE_INSENSITIVE_ORDER.compare(s1, s2);
+        } else {
             return String.CASE_INSENSITIVE_ORDER.compare(r1.getTitle(), r2.getTitle());
         }
     }

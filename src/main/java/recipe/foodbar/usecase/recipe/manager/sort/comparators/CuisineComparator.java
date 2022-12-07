@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.sort.comparators;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 
 import java.util.Comparator;
 

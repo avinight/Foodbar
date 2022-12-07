@@ -5,10 +5,10 @@
 package recipe.foodbar.usecase.user;
 
 
+import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;
 import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
-import recipe.foodbar.usecase.user.port.IdGenerator;
 
 public class UserManager implements UserCreatorInputBoundary {
 
@@ -46,8 +46,6 @@ public class UserManager implements UserCreatorInputBoundary {
         String password = input.getPassword();
         String passwordShadow = input.getPasswordShadow();
         String email = input.getEmail();
-        String firstName = input.getFirstName();
-        String lastName = input.getLastName();
 
         Boolean[] nullChecks = UserChecker.checkNullEntries(input);
 
@@ -56,7 +54,7 @@ public class UserManager implements UserCreatorInputBoundary {
 
         //if code works fix the password parameter
         if (nullChecks[0] || nullChecks[1] || nullChecks[2] ||
-                nullChecks[3] || nullChecks[4] || nullChecks[5]) {
+                nullChecks[3]) {
             return output.present(UserConfirmer.userInformationNull(nullChecks));
 
         } else if (!(UserChecker.checkPasswordMatch(password, passwordShadow))) {
@@ -70,7 +68,7 @@ public class UserManager implements UserCreatorInputBoundary {
         } else {
 
             //creation of the account and added to the repository
-            repoFactory.createAccount(id, username, password, firstName, lastName, email);
+            repoFactory.createAccount(id, username, password, email);
 
             return output.present("UserCreation Successful, no problems encountered.");
         }

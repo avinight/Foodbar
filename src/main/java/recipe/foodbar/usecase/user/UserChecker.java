@@ -48,8 +48,6 @@ public class UserChecker {
         array[1] = false;
         array[2] = false;
         array[3] = false;
-        array[4] = false;
-        array[5] = false;
         if (userInput.getUsername() == null) {
             array[0] = true;
         }
@@ -62,15 +60,8 @@ public class UserChecker {
 
 
         }
-        if (userInput.getFirstName() == null) {
-            array[3] = true;
-
-        }
-        if (userInput.getLastName() == null) {
-            array[4] = true;
-        }
         if (userInput.getEmail() == null) {
-            array[5] = true;
+            array[3] = true;
 
         }
         return array;

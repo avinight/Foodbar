@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.recipe.manager.sort.comparators;
 
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 
 import java.util.Comparator;
 
@@ -14,6 +14,7 @@ public class RatingComparator implements Comparator<Recipe> {
      * Compares its two arguments for order.  Returns a negative integer,
      * zero, or a positive integer as the first argument is less than, equal
      * to, or greater than the second.
+     *
      * @param r1 the first object to be compared.
      * @param r2 the second object to be compared.
      * @return a negative integer, zero, or a positive integer as the

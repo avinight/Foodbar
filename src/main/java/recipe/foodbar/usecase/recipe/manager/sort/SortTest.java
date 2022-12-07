@@ -2,16 +2,16 @@ package recipe.foodbar.usecase.recipe.manager.sort;
 
 import org.junit.Before;
 import org.junit.Test;
-import recipe.foodbar.entities.Cuisine.Cuisine;
-import recipe.foodbar.entities.Ingredient.Ingredient;
-
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.presenter.RecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
-import java.time.ZoneId;
 import java.time.LocalDate;
-import java.util.*;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 public class SortTest {
     RecipeSorter rs;
@@ -19,8 +19,11 @@ public class SortTest {
     Comparator<Recipe> comparator;
     RecipeRepository recipeRepo;
     RecipePresenter rp;
+
     @Before
-    public void setUp() {rs = new RecipeSorter(recipeRepo, rp);}
+    public void setUp() {
+        rs = new RecipeSorter(recipeRepo, rp);
+    }
 
     @Test
     public void testSortBy() {
@@ -34,23 +37,23 @@ public class SortTest {
 //                .firstName("john")
 //                .build();
 
-        var italianCuisine = Cuisine.builder()
+        var italianCuisine = recipe.foodbar.entities.Cuisine.builder()
                 .name("Italian")
                 .build();
 
-        var frenchCuisine = Cuisine.builder()
+        var frenchCuisine = recipe.foodbar.entities.Cuisine.builder()
                 .name("French")
                 .build();
 
-        var pastaDough = Ingredient.builder()
+        var pastaDough = recipe.foodbar.entities.Ingredient.builder()
                 .name("Basic Egg Pasta Dough")
                 .size(1)
-                .createIngredient();
+                .build();
 
-        var cheese = Ingredient.builder()
+        var cheese = recipe.foodbar.entities.Ingredient.builder()
                 .name("Parmigiano Reggiano")
                 .size(1.25F)
-                .createIngredient();
+                .build();
 
 //        var recipe1 = Recipe.builder()
 //                .author(user1)

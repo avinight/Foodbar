@@ -1,10 +1,11 @@
 package recipe.foodbar.controller.dto;
 
-import recipe.foodbar.entities.Cuisine.Cuisine;
-import recipe.foodbar.entities.Recipe.Recipe;
+import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class RecipeDTO {
@@ -12,11 +13,11 @@ public class RecipeDTO {
     private String title;
     private User author;
     private float portionSize;
-    private String[] instructions;
+    private ArrayList<String> instructions;
     private Cuisine cuisine;
     private int likes;
     private int dislikes;
-    private String[] dietaryRestrictions;
+    private ArrayList<String> dietaryRestrictions;
     private Date dateCreated;
     private Review[] reviews;
 //    private Ingredient[] ingredients
@@ -25,7 +26,7 @@ public class RecipeDTO {
         var userWeb = new RecipeDTO();
         userWeb.setId(recipe.getId());
         userWeb.setTitle(recipe.getTitle());
-        userWeb.setAuthor(recipe.getAuthor());
+        userWeb.setAuthor(recipe.getUser());
         userWeb.setPortionSize(recipe.getPortionSize());
         userWeb.setInstructions(recipe.getInstructions());
         userWeb.setCuisine(recipe.getCuisine());
@@ -66,11 +67,11 @@ public class RecipeDTO {
         this.portionSize = portionSize;
     }
 
-    public String[] getInstructions() {
+    public ArrayList<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(String[] instructions) {
+    public void setInstructions(ArrayList<String> instructions) {
         this.instructions = instructions;
     }
 
@@ -98,11 +99,11 @@ public class RecipeDTO {
         this.dislikes = dislikes;
     }
 
-    public String[] getDietaryRestrictions() {
+    public ArrayList<String> getDietaryRestrictions() {
         return dietaryRestrictions;
     }
 
-    public void setDietaryRestrictions(String[] dietaryRestrictions) {
+    public void setDietaryRestrictions(ArrayList<String> dietaryRestrictions) {
         this.dietaryRestrictions = dietaryRestrictions;
     }
 
@@ -118,12 +119,12 @@ public class RecipeDTO {
         return Recipe.builder()
                 .id(id)
                 .title(title)
-                .author(author)
+                .user(author)
                 .portionSize(portionSize)
                 .instructions(instructions)
                 .cuisine(cuisine)
                 .dietaryRestrictions(dietaryRestrictions)
                 .dateCreated(dateCreated)
-                .createRecipe();
+                .build();
     }
 }

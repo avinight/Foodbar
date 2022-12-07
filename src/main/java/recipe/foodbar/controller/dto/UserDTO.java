@@ -14,8 +14,6 @@ public class UserDTO {
         userWeb.setId(User.getId());
         userWeb.setEmail(User.getEmail());
         // do not map password
-        userWeb.setLastName(User.getLastName());
-        userWeb.setFirstName(User.getFirstName());
         return userWeb;
     }
 

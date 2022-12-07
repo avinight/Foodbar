@@ -32,15 +32,12 @@ public class AccountController {
      * @param username       The String representation of the username
      * @param password       The String representation of the password
      * @param passwordShadow The String representation of the second entry of the password
-     * @param firstName      The String representation of the first name
-     * @param lastName       The String representation of the last name
      * @param email          The String representation of the email
      * @return the completed UserInputData object
      */
-    public UserInputData create(String username, String password, String passwordShadow,
-                                String firstName, String lastName, String email) {
+    public UserInputData create(String username, String password, String passwordShadow, String email) {
         UserInputData userInput = new UserInputData(username, password,
-                passwordShadow, firstName, lastName, email);
+                passwordShadow, email);
 
         return userInput;
     }
