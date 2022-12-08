@@ -16,6 +16,15 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary {
     private final IdGenerator idGenerator;
     private final CreateRecipeOutputBoundary presenter;
 
+    /**
+     * Constructor for saveRecipeInteractor object which takes in both the presenterInterface and the
+     * repository interface object
+     *
+     * @param userRepository the UserRepositoryInterface to access the data in the outermost layer
+     * @param recipeRepository the RecipeRepositoryInterface to access the data in the outermost layer
+     * @param idGenerator id generator which will generate a random ID for the recipe
+     * @param presenter the output boundary interface implemented by the presenter
+     */
     public CreateRecipeInteractor(RecipeRepository recipeRepository, UserRepository userRepository, IdGenerator idGenerator, CreateRecipeOutputBoundary presenter) {
         this.recipeRepository = recipeRepository;
         this.userRepository = userRepository;
@@ -23,6 +32,12 @@ public class CreateRecipeInteractor implements CreateRecipeInputBoundary {
         this.presenter = presenter;
     }
 
+    /**
+     * Creates a recipe, validates that it correctly formatted, and then saves it to the repo
+     * @param input input data from the controller
+     *
+     * @return returns string message from presenter
+     */
     @Override
     public String create(RecipeInputData input) {
         if (userRepository.findById(input.getUserId()).isPresent()) {
