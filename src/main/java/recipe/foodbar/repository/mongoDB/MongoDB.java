@@ -23,20 +23,6 @@ public class MongoDB {
 
     private static final String uri = "mongodb://localhost:27017";
 
-    public static MongoClient getMongoClient() {
-        CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
-        CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-        MongoClient mongoClient = MongoClients.create(
-                MongoClientSettings.builder()
-                        .applyConnectionString(new ConnectionString(uri))
-                        .codecRegistry(pojoCodecRegistry)
-                        .build());
-        Bson command = new BsonDocument("ping", new BsonInt64(1));
-        Document commandResult = mongoClient.getDatabase("FoodBar").runCommand(command);
-        System.out.println("MongoDB: Connected successfully to server." + commandResult);
-        return mongoClient;
-    }
-
     public static MongoDatabase getMongoDB() {
         CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
         CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
@@ -46,6 +32,9 @@ public class MongoDB {
                         .codecRegistry(pojoCodecRegistry)
                         .build());
         MongoDatabase db = mongoClient.getDatabase("FoodBar");
+        Bson command = new BsonDocument("ping", new BsonInt64(1));
+        Document commandResult = mongoClient.getDatabase("FoodBar").runCommand(command);
+        System.out.println("MongoDB: Connected successfully to server." + commandResult);
         return db;
     }
 

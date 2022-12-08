@@ -24,7 +24,7 @@ public class UserLoginController {
      * @param password String representation of the password
      * @return the completed UserLoginInput object
      */
-    public UserLoginInput create(String username, String password) {
+    public UserLoginInput login(String username, String password) {
         UserLoginInput UserLogin = new UserLoginInput(username, password);
 
         return UserLogin;

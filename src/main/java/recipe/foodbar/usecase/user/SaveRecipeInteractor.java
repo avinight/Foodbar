@@ -3,14 +3,14 @@ package recipe.foodbar.usecase.user;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.Optional;
 
 public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
 
     private final SaveRecipeOutputBoundary presenterInterface;
-    private final UserRepositoryInterface userRepo;
+    private final UserRepository userRepo;
     private final RecipeRepository recipeRepo;
 
     /**
@@ -20,7 +20,7 @@ public class SaveRecipeInteractor implements SaveRecipeInputBoundary {
      * @param presenterInterface SaveRecipeOutputBoundary interface so that use case can call the presenter
      * @param userRepo           the UserRepositoryInterface to access the data in the outermost layer
      */
-    public SaveRecipeInteractor(SaveRecipeOutputBoundary presenterInterface, UserRepositoryInterface userRepo,
+    public SaveRecipeInteractor(SaveRecipeOutputBoundary presenterInterface, UserRepository userRepo,
                                 RecipeRepository recipeRepo) {
         this.presenterInterface = presenterInterface;
         this.userRepo = userRepo;

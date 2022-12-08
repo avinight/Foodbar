@@ -5,9 +5,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * The recipe class.
- */
+
 @AllArgsConstructor
 @Builder
 @Data
@@ -123,6 +121,15 @@ public class Recipe {
         } else {
             this.dislikers.add(voterID);
         }
+    }
+
+    /**
+     * Adds a review to this Recipe.
+     *
+     * @param review review to be added to recipe
+     */
+    public void addReview(Review review) {
+        this.reviews.add(review);
     }
 
     /**

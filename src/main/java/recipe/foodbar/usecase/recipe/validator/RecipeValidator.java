@@ -1,17 +1,24 @@
 package recipe.foodbar.usecase.recipe.validator;
 
+import lombok.NoArgsConstructor;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 
+@NoArgsConstructor
 public class RecipeValidator {
 
-    private RecipeValidator() {
-
-    }
-
+    /**
+     * validates recipe by ensuring the data isn't nonsensical.
+     * -recipe object cannot be null
+     * -title cannot be blank
+     * -portion size cannot be 0 or lower
+     * -instructions should not be empty
+     * -cuisine should not be null
+     * @param recipe recipe to be validated
+     */
     public static void validateCreateRecipe(final Recipe recipe) {
         if (recipe == null) throw new RecipeValidationException("Recipe should not be null.");
         if (isBlank(recipe.getTitle())) throw new RecipeValidationException("Title should not be null.");

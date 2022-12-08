@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LogInFragment">
+
+    <include app:graph="@navigation/mobile_navigation" />
+
+    <fragment
+        android:id="@+id/LogInFragment"
+        android:name="recipe.foodbar.android.foodbar.ui.login.LoginFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LogInFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/LogInFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_LogInFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="recipe.foodbar.android.foodbar.ui.register.RegisterFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_RegisterFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment"
+            app:popUpTo="@id/LogInFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="recipe.foodbar.android.foodbar.MainActivity"
+        android:label="MainActivity" />
+</navigation>

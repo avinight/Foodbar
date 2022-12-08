@@ -1,27 +1,42 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
 import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
 
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class CreateRecipeController {
 
-    public final CreateRecipeInputBoundary inputBoundary;
+    public final CreateRecipeInputBoundary data;
 
+    /**
+     * Controller in the interface adapter layer.
+     *
+     * @param inputBoundary The input boundary
+     */
     public CreateRecipeController(CreateRecipeInputBoundary inputBoundary) {
-        this.inputBoundary = inputBoundary;
+        this.data = inputBoundary;
     }
 
-    public RecipeInputData createRecipe(String title, final User author, float portionSize, ArrayList<String> instructions,
-                                        Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
-                                        ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
-        return new RecipeInputData(title, author, portionSize, instructions, cuisine, dietaryRestrictions,
-                dateCreated, ingredients, reviews, likers, dislikers);
+    /**
+     * The method which will create String containing InputData for the recipe.
+     *
+     * @param title String title of recipe
+     * @param userId String user id of author
+     * @param portionSize portion size of recipe
+     * @param instructions instructions for the recipe
+     * @param cuisine Cuisine that this recipe corresponds to
+     * @param dietaryRestrictions Dietary restrictions imposed on this recipe
+     * @param ingredients The ingredient objects for this recipe
+     *
+     * @return Completed Recipe Data object
+     */
+    public String createRecipe(String title, String userId, float portionSize, ArrayList<String> instructions,
+                               String cuisine, ArrayList<String> dietaryRestrictions, ArrayList<Ingredient> ingredients) {
+        RecipeInputData recipeData = new RecipeInputData(title, userId, portionSize, instructions, cuisine, dietaryRestrictions, ingredients);
+
+        return data.create(recipeData);
     }
 }

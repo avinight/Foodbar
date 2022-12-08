@@ -6,7 +6,7 @@ import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 
 import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
@@ -19,9 +19,9 @@ public class UserTest {
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
         AccountController accountController = new AccountController(data);
-        UserInputData user = accountController.create(username, password, passwordShadow, email);
+        //UserInputData user = accountController.create(username, password, passwordShadow, email);
 
-        return accountController.data.create(user);
+        return accountController.create(username, password, passwordShadow, email);
     }
 
     @Test

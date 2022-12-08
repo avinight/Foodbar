@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="recipe.foodbar.android.foodbar.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_createRecipeFragment"
+            app:destination="@id/createRecipeFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_authActivity2"
+            app:destination="@id/authActivity2"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="recipe.foodbar.android.foodbar.ui.dashboard.DashboardFragment"
+        android:label="@string/title_following"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="recipe.foodbar.android.foodbar.ui.notifications.NotificationsFragment"
+        android:label="@string/title_explore"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/createRecipeFragment"
+        android:name="recipe.foodbar.android.foodbar.ui.create_recipe.CreateRecipeFragment"
+        android:label="Create Recipe"
+        tools:layout="@layout/fragment_create_recipe" >
+        <action
+            android:id="@+id/action_createRecipeFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <activity
+        android:id="@+id/authActivity2"
+        android:name="recipe.foodbar.android.foodbar.AuthActivity"
+        android:label="activity_auth"
+        tools:layout="@layout/activity_auth" />
+</navigation>

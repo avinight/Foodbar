@@ -1,7 +1,7 @@
 package recipe.foodbar.id_generator.jug;
 
 import org.bson.types.ObjectId;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 
 public class JugIdGenerator implements IdGenerator {
 
