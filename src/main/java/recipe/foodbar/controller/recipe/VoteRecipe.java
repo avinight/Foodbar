@@ -5,7 +5,7 @@ import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 
 public class VoteRecipe {
 

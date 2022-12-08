@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
 

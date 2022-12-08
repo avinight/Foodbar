@@ -1,6 +1,6 @@
 package recipe.foodbar.repository.simpleDB;
 
-import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 import recipe.foodbar.usecase.cuisine.port.CuisineRepository;
 
 import java.util.HashMap;

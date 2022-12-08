@@ -1,6 +1,7 @@
 package recipe.foodbar.entities;
 
 import lombok.*;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 
 import java.util.ArrayList;
 import java.util.Date;

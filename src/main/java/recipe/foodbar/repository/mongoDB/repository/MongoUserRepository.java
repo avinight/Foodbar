@@ -12,11 +12,9 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
-import recipe.foodbar.repository.mongoDB.mapper.RecipeMapper;
 import recipe.foodbar.repository.mongoDB.mapper.UserMapper;
-import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.repository.mongoDB.model.UserModel;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +23,7 @@ import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.eq;
 
-public class MongoUserRepository implements UserRepositoryInterface {
+public class MongoUserRepository implements UserRepository {
 
     MongoCollection<UserModel> collection;
 
@@ -57,10 +55,13 @@ public class MongoUserRepository implements UserRepositoryInterface {
 
     @Override
     public Optional<User> findById(String id) {
-//        Bson query = eq("_id", id);
-        Bson query = eq("_id", new ObjectId(id));
-        Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
-        return rm.map(UserMapper::toEntity);
+        try {
+            Bson query = eq("_id", new ObjectId(id));
+            Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
+            return rm.map(UserMapper::toEntity);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
@@ -90,9 +91,8 @@ public class MongoUserRepository implements UserRepositoryInterface {
         Bson query = eq("_id", new ObjectId(user.getId()));
         ReplaceOptions opts = new ReplaceOptions().upsert(true);
         UpdateResult result = collection.replaceOne(query, rm, opts);
-//        Todo: Remove console println, do we need to return Recipe?
         System.out.println(result);
-        return user;
+        return findById(user.getId()).get();
     }
 
     @Override
