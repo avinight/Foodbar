@@ -20,7 +20,7 @@ public class JavelinApplication {
 //        User
         app.post("/api/register", userController.createUser);
         app.post("/api/login", userController.loginUser);
-        app.get("/logout", userController.logoutUser);
+        app.get("/api/logout", userController.logoutUser);
 
 //        Recipe
         app.post("/api/recipe", recipeController.createRecipe);

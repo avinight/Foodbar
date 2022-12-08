@@ -25,7 +25,7 @@ import retrofit2.Response;
 public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding binding;
-    APIInterface apiInterface;
+    private APIInterface apiInterface;
 
     @Override
     public View onCreateView(

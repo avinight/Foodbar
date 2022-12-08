@@ -1,5 +1,6 @@
 package recipe.foodbar.app.rest;
 
+import io.javalin.http.BadRequestResponse;
 import io.javalin.http.Handler;
 import io.javalin.http.UnauthorizedResponse;
 import recipe.foodbar.controller.user.AccountController;
@@ -8,6 +9,8 @@ import recipe.foodbar.controller.user.logout.UserLogoutController;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.userLogin.UserLoginInput;
 import recipe.foodbar.usecase.userLogout.UserLogoutInput;
+
+import java.util.Objects;
 
 public class JavelinUserController {
 
@@ -25,7 +28,11 @@ public class JavelinUserController {
         UserInputData user = ctx.bodyAsClass(UserInputData.class);
         String creationStatus = accountController.data.create(user);
         System.out.println(creationStatus);
-        ctx.json(creationStatus);
+        if (Objects.equals(creationStatus, "UserCreation Successful, no problems encountered.")){
+            ctx.json(user);
+        } else {
+            throw new BadRequestResponse(creationStatus);
+        }
     };
 
     public static Handler loginUser = ctx -> {
@@ -35,7 +42,7 @@ public class JavelinUserController {
         switch (loginStatus) {
             case "login Failed: Invalid Password", "login Failed: User Does Not Exist" ->
                     throw new UnauthorizedResponse(loginStatus);
-            default -> ctx.cookie("session", loginStatus, 4 * 60 * 60 * 1000);
+            default -> ctx.json(userLoginInput).cookie("session", loginStatus, 4 * 60 * 60 * 1000);
         }
     };
 
