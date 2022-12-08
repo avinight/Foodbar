@@ -26,7 +26,7 @@ public class APIClient {
                 .build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://reqres.in")
+                .baseUrl("localhost:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

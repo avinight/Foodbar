@@ -18,6 +18,7 @@ public class JavelinReviewController {
     public static Handler createReview = ctx -> {
         ReviewInputData inputData = ctx.bodyAsClass(ReviewInputData.class);
         System.out.println(inputData);
+        inputData.setUserId(ctx.cookie("session"));
         ReviewOutputData outputData = writeReviewInteractor.writeReview(inputData);
         if (Objects.equals(outputData.getStatus(), "Review saved successfully")) {
             ctx.result("Success");

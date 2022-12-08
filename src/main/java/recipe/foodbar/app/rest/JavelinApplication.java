@@ -18,14 +18,14 @@ public class JavelinApplication {
 //        app.get("hello", ctx -> ctx.html("Hello World"));
 
 //        User
-        app.post("/register", userController.createUser);
-        app.post("/login", userController.loginUser);
+        app.post("/api/register", userController.createUser);
+        app.post("/api/login", userController.loginUser);
         app.get("/logout", userController.logoutUser);
 
 //        Recipe
-        app.post("/recipe", recipeController.createRecipe);
+        app.post("/api/recipe", recipeController.createRecipe);
 
 //        Review
-        app.post("/review", reviewController.createReview);
+        app.post("/api/review", reviewController.createReview);
     }
 }
