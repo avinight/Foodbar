@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface LoginRepositoryInterface {
 
     /**
-     * Method for adding a logged in user to the repository
+     * Method for adding a logged-in user to the repository
      * @param user given user object
      * @param cookie given String cookie
      */
