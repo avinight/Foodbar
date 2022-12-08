@@ -11,6 +11,7 @@ public class JavelinApplication {
         JavelinConfig javelinConfig = new JavelinConfig();
         JavelinUserController userController = new JavelinUserController(javelinConfig.getAccountController(), javelinConfig.getUserLoginController(), javelinConfig.getUserLogoutController());
         JavelinRecipeController recipeController = new JavelinRecipeController(javelinConfig.getCreateRecipeController());
+        JavelinReviewController reviewController = new JavelinReviewController(javelinConfig.getWriteInteractor());
 
         var app = Javalin.create().get("/", ctx -> ctx.result("Hello World!")).start(8080);
 
@@ -22,7 +23,9 @@ public class JavelinApplication {
         app.get("/logout", userController.logoutUser);
 
 //        Recipe
-//        app.get("/user", javelinUserController.getUser);
         app.post("/recipe", JavelinRecipeController.createRecipe);
+
+//        Review
+        app.post("/review", JavelinReviewController.createReview);
     }
 }

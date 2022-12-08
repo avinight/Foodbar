@@ -55,10 +55,13 @@ public class MongoUserRepository implements UserRepository {
 
     @Override
     public Optional<User> findById(String id) {
-//        Bson query = eq("_id", id);
-        Bson query = eq("_id", new ObjectId(id));
-        Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
-        return rm.map(UserMapper::toEntity);
+        try {
+            Bson query = eq("_id", new ObjectId(id));
+            Optional<UserModel> rm = Optional.ofNullable(collection.find(query).first());
+            return rm.map(UserMapper::toEntity);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
@@ -88,9 +91,8 @@ public class MongoUserRepository implements UserRepository {
         Bson query = eq("_id", new ObjectId(user.getId()));
         ReplaceOptions opts = new ReplaceOptions().upsert(true);
         UpdateResult result = collection.replaceOne(query, rm, opts);
-//        Todo: Remove console println, do we need to return Recipe?
         System.out.println(result);
-        return user;
+        return findById(user.getId()).get();
     }
 
     @Override

@@ -8,7 +8,6 @@ import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 @AllArgsConstructor
 @Data
