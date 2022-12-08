@@ -59,6 +59,8 @@ public class JavelinConfig {
     ReviewOutputBoundary outputBoundary = new ReviewPresenter();
     WriteReviewInteractor interactor = new WriteReviewInteractor(recipeRepository, userRepository, outputBoundary);
     ReviewController reviewController = new ReviewController(interactor);
+//    Get Recipe by Cuisine
+
 
 
     public AccountController getAccountController() {

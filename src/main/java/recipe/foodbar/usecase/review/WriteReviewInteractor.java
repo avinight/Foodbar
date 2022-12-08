@@ -29,7 +29,7 @@ public class WriteReviewInteractor implements ReviewInputBoundary {
                 recipe.addReview(reviewToSave);
                 recipeRepository.update(recipe);
                 System.out.println("Review saved successfully");
-                return outputBoundary.present(reviewToSave, "review saved successfully");
+                return outputBoundary.present(reviewToSave, "Review saved successfully");
             }
         }
         return outputBoundary.present(new Review(), "review not saved");

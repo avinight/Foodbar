@@ -23,9 +23,9 @@ public class JavelinApplication {
         app.get("/logout", userController.logoutUser);
 
 //        Recipe
-        app.post("/recipe", JavelinRecipeController.createRecipe);
+        app.post("/recipe", recipeController.createRecipe);
 
 //        Review
-        app.post("/review", JavelinReviewController.createReview);
+        app.post("/review", reviewController.createReview);
     }
 }
