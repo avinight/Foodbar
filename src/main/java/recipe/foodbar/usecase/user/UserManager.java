@@ -42,10 +42,10 @@ public class UserManager implements UserCreatorInputBoundary {
     @Override
     public String create(UserInputData input) {
         String id = idGenerator.generate();
-        String username = input.username();
-        String password = input.password();
-        String passwordShadow = input.passwordShadow();
-        String email = input.email();
+        String username = input.getUsername();
+        String password = input.getPassword();
+        String passwordShadow = input.getPasswordShadow();
+        String email = input.getEmail();
 
         Boolean[] nullChecks = UserChecker.checkNullEntries(input);
 

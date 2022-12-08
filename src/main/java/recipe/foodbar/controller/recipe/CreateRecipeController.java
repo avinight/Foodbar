@@ -1,27 +1,20 @@
 package recipe.foodbar.controller.recipe;
 
-import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
-import recipe.foodbar.entities.Review;
-import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
 import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CreateRecipeController {
 
-    public final CreateRecipeInputBoundary inputBoundary;
+    public final CreateRecipeInputBoundary data;
 
     public CreateRecipeController(CreateRecipeInputBoundary inputBoundary) {
-        this.inputBoundary = inputBoundary;
+        this.data = inputBoundary;
     }
 
-    public RecipeInputData createRecipe(String title, final User author, float portionSize, ArrayList<String> instructions,
-                                        Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
-                                        ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
-        return new RecipeInputData(title, author, portionSize, instructions, cuisine, dietaryRestrictions,
-                dateCreated, ingredients, reviews, likers, dislikers);
+    public RecipeInputData createRecipe(String title, String userId, float portionSize, ArrayList<String> instructions, String cuisine, ArrayList<String> dietaryRestrictions, ArrayList<Ingredient> ingredients) {
+        return new RecipeInputData(title, userId, portionSize, instructions, cuisine, dietaryRestrictions, ingredients);
     }
 }

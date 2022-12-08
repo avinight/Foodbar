@@ -13,7 +13,6 @@ public class JavelinUserController {
 
     private static AccountController accountController;
     private static UserLoginController userLoginController;
-
     private static UserLogoutController userLogoutController;
 
     public JavelinUserController(AccountController accountController, UserLoginController userLoginController, UserLogoutController userLogoutController) {
@@ -22,10 +21,6 @@ public class JavelinUserController {
         JavelinUserController.userLogoutController = userLogoutController;
     }
 
-    public static Handler getUser = ctx -> {
-        System.out.println("createUser is called");
-//        ctx.json(ctx.cookie("session"));
-    };
     public static Handler createUser = ctx -> {
         UserInputData user = ctx.bodyAsClass(UserInputData.class);
         String creationStatus = accountController.data.create(user);

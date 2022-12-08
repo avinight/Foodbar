@@ -48,19 +48,19 @@ public class UserChecker {
         array[1] = false;
         array[2] = false;
         array[3] = false;
-        if (userInput.username() == null) {
+        if (userInput.getUsername() == null) {
             array[0] = true;
         }
-        if (userInput.password() == null) {
+        if (userInput.getPassword() == null) {
             array[1] = true;
 
         }
-        if (userInput.passwordShadow() == null) {
+        if (userInput.getPasswordShadow() == null) {
             array[2] = true;
 
 
         }
-        if (userInput.email() == null) {
+        if (userInput.getEmail() == null) {
             array[3] = true;
 
         }
@@ -76,7 +76,7 @@ public class UserChecker {
     public boolean checkUserTaken(UserInputData userInput) {
         List<User> allUsers = repo.findAllUsers();
         for (User user : allUsers) {
-            if (user.getUsername().equals(userInput.username())) {
+            if (user.getUsername().equals(userInput.getUsername())) {
                 return true;
             }
 
