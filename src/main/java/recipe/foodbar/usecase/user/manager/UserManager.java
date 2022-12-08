@@ -2,7 +2,7 @@
  * using all the separate classes to run the necessary code for the use case
  */
 
-package recipe.foodbar.usecase.user;
+package recipe.foodbar.usecase.user.manager;
 
 
 import recipe.foodbar.usecase.user.port.IdGenerator;

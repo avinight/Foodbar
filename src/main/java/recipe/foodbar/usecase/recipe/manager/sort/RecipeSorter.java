@@ -11,7 +11,6 @@ public class RecipeSorter implements IRecipeSorter {
 
     private final RecipeRepository recipeRepo;
     private final RecipePresenter rp;
-
     /* Depends on DAI */
     public RecipeSorter(RecipeRepository recipeRepo, RecipePresenter rp) {
         this.recipeRepo = recipeRepo;
