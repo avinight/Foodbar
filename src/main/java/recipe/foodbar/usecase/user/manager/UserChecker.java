@@ -2,17 +2,16 @@
 Class to check the validity of the information provided and return the results
  */
 
-package recipe.foodbar.usecase.user.manager;
+package recipe.foodbar.usecase.user;
 
 import recipe.foodbar.entities.User;
-import recipe.foodbar.usecase.user.ds.UserInputData;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.List;
 
 public class UserChecker {
 
-    private final UserRepositoryInterface repo;
+    private final UserRepository repo;
 
 
     /**
@@ -20,7 +19,7 @@ public class UserChecker {
      *
      * @param repo the interface representing a repository with methods.
      */
-    public UserChecker(UserRepositoryInterface repo) {
+    public UserChecker(UserRepository repo) {
         this.repo = repo;
 
     }

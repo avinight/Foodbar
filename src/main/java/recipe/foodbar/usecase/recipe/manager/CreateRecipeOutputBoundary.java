@@ -1,10 +1,8 @@
 package recipe.foodbar.usecase.recipe.manager;
 
-import java.util.Optional;
-
 public interface CreateRecipeOutputBoundary {
 
-    String getConfirmationMessage();
+    String present(String message);
 
     String getID(String recipeID);
 }

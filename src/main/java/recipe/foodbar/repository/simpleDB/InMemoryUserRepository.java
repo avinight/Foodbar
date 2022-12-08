@@ -4,11 +4,11 @@ The in memory repository which implements the UserRepositoryInterface
 package recipe.foodbar.repository.simpleDB;
 
 import recipe.foodbar.entities.User;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.*;
 
-public class InMemoryUserRepository implements UserRepositoryInterface {
+public class InMemoryUserRepository implements UserRepository {
 
     private final Map<String, User> inMemoryDb = new HashMap<>();
 

@@ -10,13 +10,14 @@ import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryCookieRepository;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.userLogin.UserLogin;
 import recipe.foodbar.usecase.userLogin.UserLoginInput;
 import recipe.foodbar.usecase.userLogin.port.LoginRepositoryInterface;
 import recipe.foodbar.usecase.userLogin.port.UserLoginInputBoundary;
 import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
+
 
 import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
@@ -27,9 +28,9 @@ public class UserLoginTest {
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
         AccountController accountController = new AccountController(data);
-        UserInputData user = accountController.create(username, password, passwordShadow, email);
+        //UserInputData user = accountController.create(username, password, passwordShadow, email);
 
-        accountController.data.create(user);
+        accountController.create(username, password, passwordShadow, email);
     }
 
     @Test
@@ -48,10 +49,9 @@ public class UserLoginTest {
 
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(username, password);
+        UserLoginInput userLoginInput = userLoginController.login(username, password);
         String cookie = userLoginController.data.login(userLoginInput);
 
         System.out.println(loginRepositoryInterface.findByCookie(cookie));
@@ -88,10 +88,9 @@ public class UserLoginTest {
 
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(null, null);
+        UserLoginInput userLoginInput = userLoginController.login(null, null);
         String actual = userLoginController.data.login(userLoginInput);
         String expected = "login Failed: Missing Entries";
 
@@ -114,10 +113,9 @@ public class UserLoginTest {
 
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create("Frank100", "Scarface");
+        UserLoginInput userLoginInput = userLoginController.login("Frank100", "Scarface");
         String actual = userLoginController.data.login(userLoginInput);
         String expected = "login Failed: Invalid Password";
 

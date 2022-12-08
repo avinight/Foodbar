@@ -58,12 +58,10 @@ public class MongoRecipeRepository implements RecipeRepository {
     public Recipe update(Recipe recipe) {
         RecipeModel rm = RecipeMapper.toUserModel(recipe);
         Bson query = eq("_id", new ObjectId(recipe.getId()));
-//        Bson query = eq("_id", recipe.getId());
         ReplaceOptions opts = new ReplaceOptions().upsert(true);
         UpdateResult result = collection.replaceOne(query, rm, opts);
-//        Todo: Remove console println, do we need to return Recipe?
         System.out.println(result);
-        return recipe;
+        return findById(recipe.getId()).get();
     }
 
     @Override
@@ -77,9 +75,12 @@ public class MongoRecipeRepository implements RecipeRepository {
 
     @Override
     public Optional<Recipe> findById(String id) {
-//        Bson query = eq("_id", id);
-        Bson query = eq("_id", new ObjectId(id));
-        Optional<RecipeModel> rm = Optional.ofNullable(collection.find(query).first());
-        return rm.map(RecipeMapper::toEntity);
+        try {
+            Bson query = eq("_id", new ObjectId(id));
+            Optional<RecipeModel> rm = Optional.ofNullable(collection.find(query).first());
+            return rm.map(RecipeMapper::toEntity);
+        } catch (Exception e){
+            return Optional.empty();
+        }
     }
 }

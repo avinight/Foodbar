@@ -1,16 +1,14 @@
 package recipe.foodbar.usecase.recipe.validator;
 
+import lombok.NoArgsConstructor;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.exception.RecipeValidationException;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 
+@NoArgsConstructor
 public class RecipeValidator {
-
-    private RecipeValidator() {
-
-    }
 
     public static void validateCreateRecipe(final Recipe recipe) {
         if (recipe == null) throw new RecipeValidationException("Recipe should not be null.");

@@ -14,6 +14,4 @@ public interface UserCreatorInputBoundary {
      * @return String value to be passed through to the AccountPresenter
      */
     String create(UserInputData input);
-
-
 }
