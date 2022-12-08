@@ -56,10 +56,9 @@ public class UserLogoutTest {
 
         //Logging in the user
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(username, password);
+        UserLoginInput userLoginInput = userLoginController.login(username, password);
         String cookie = userLoginController.data.login(userLoginInput);
 
 

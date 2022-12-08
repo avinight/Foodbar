@@ -9,7 +9,7 @@ public class JavelinApplication {
 
     public static void main(String[] args) {
         JavelinConfig javelinConfig = new JavelinConfig();
-        JavelinUserController userController = new JavelinUserController(javelinConfig.getAccountController());
+        JavelinUserController userController = new JavelinUserController(javelinConfig.getAccountController(), javelinConfig.getUserLoginController(), javelinConfig.getUserLogoutController());
         var app = Javalin.create().get("/", ctx -> ctx.result("Hello World!")).start(8080);
 
 //        app.get("hello", ctx -> ctx.html("Hello World"));
@@ -17,7 +17,8 @@ public class JavelinApplication {
 //        User
 //        app.get("/user", JavelinUserController.getUser);
         app.post("/register", userController.createUser);
-        app.post("/login", userController.)
+        app.post("/login", userController.loginUser);
+        app.get("/logout", userController.logoutUser);
 
 //        Recipe
 //        app.get("/user", javelinUserController.getUser);

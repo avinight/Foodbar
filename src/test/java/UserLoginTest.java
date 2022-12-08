@@ -49,10 +49,9 @@ public class UserLoginTest {
 
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(username, password);
+        UserLoginInput userLoginInput = userLoginController.login(username, password);
         String cookie = userLoginController.data.login(userLoginInput);
 
         System.out.println(loginRepositoryInterface.findByCookie(cookie));
@@ -89,10 +88,9 @@ public class UserLoginTest {
 
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(null, null);
+        UserLoginInput userLoginInput = userLoginController.login(null, null);
         String actual = userLoginController.data.login(userLoginInput);
         String expected = "login Failed: Missing Entries";
 
@@ -115,10 +113,9 @@ public class UserLoginTest {
 
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
         accountCreationMethod(username, password, passwordShadow, email, repo, idGenerator);
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
-                loginRepositoryInterface, idGenerator);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create("Frank100", "Scarface");
+        UserLoginInput userLoginInput = userLoginController.login("Frank100", "Scarface");
         String actual = userLoginController.data.login(userLoginInput);
         String expected = "login Failed: Invalid Password";
 
