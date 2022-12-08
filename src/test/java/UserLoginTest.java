@@ -27,9 +27,9 @@ public class UserLoginTest {
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
         AccountController accountController = new AccountController(data);
-        UserInputData user = accountController.create(username, password, passwordShadow, email);
+        //UserInputData user = accountController.create(username, password, passwordShadow, email);
 
-        accountController.data.create(user);
+        accountController.create(username, password, passwordShadow, email);
     }
 
     @Test
