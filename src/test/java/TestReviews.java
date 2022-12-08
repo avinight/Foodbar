@@ -32,11 +32,12 @@ import java.util.Date;
 
 import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
-public class TestReviews {
+public class  TestReviews {
     MongoDatabase db = getMongoDB();
     MongoRecipeRepository recipeRepo = new MongoRecipeRepository(db);
 
     final IdGenerator idGenerator = new JugIdGenerator();
+
 
     @Test
     public void testRecipeExists() {
@@ -60,7 +61,7 @@ public class TestReviews {
                 .followers(new ArrayList<User>())
                 .following(new ArrayList<User>())
                 .build();
-        String recipeID = "638e886d2aaa9312bfd0d283";
+        String recipeID = "63912cd06d217e48bf8cffcd";
         ReviewInputData inputData = reviewController.data(recipeID, "DUMPLINGS F***ING SUCK",
                 "This dumpling recipe sucks2. Followed the instructions, ended up buying Amouranth merch", author1);
 

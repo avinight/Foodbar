@@ -29,9 +29,9 @@ public class TestFilterRecipes {
 
         User emoney221 = new User(idGenerator.generate(), "dsfsdf", "dsfdsf", "dsfsdf", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
-        Recipe pasta = new Recipe(idGenerator.generate(), "Pasta", emoney221,
-                (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());
         Recipe pizza = new Recipe(idGenerator.generate(), "Pizza", emoney221,
+                (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());
+        Recipe pasta = new Recipe(idGenerator.generate(), "Pasta", emoney221,
                 (float) 1.0, new ArrayList<String>(), italianCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());
         Recipe generalTao = new Recipe(idGenerator.generate(), "General Tao", emoney221,
                 (float) 1.0, new ArrayList<String>(), chineseCuisine, new ArrayList<String>(), new Date(), new ArrayList<Ingredient>(), new ArrayList<Review>(), new ArrayList<String>(), new ArrayList<String>());
