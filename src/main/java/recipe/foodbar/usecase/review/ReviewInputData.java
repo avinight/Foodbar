@@ -1,8 +1,6 @@
 package recipe.foodbar.usecase.review;
 
-import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
-import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
 
 public class ReviewInputData {
     private String recipeId;

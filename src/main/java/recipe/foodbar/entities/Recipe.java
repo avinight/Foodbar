@@ -62,7 +62,7 @@ public class Recipe {
         for (Ingredient ingredient : ingredients) {
             ingredient.setSize(portionSize * ingredient.getSize());
         }
-    }
+     }
 
     /**
      * Returns the rating of the recipe.
@@ -124,6 +124,8 @@ public class Recipe {
             this.dislikers.add(voterID);
         }
     }
+
+    public void addReview(Review review) {this.reviews.add(review);}
 
     /**
      * Adds new ingredients to the ingredients ArrayList.
