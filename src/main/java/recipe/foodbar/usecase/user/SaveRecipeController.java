@@ -12,7 +12,17 @@ public class SaveRecipeController {
     }
 
 
-    public SaveRecipeData saveRecipe(User saver, Recipe recipeGiven) {
-        return new SaveRecipeData(saver, recipeGiven);
+//    public SaveRecipeData saveRecipe(User saver, Recipe recipeGiven) {
+//        return new SaveRecipeData(saver, recipeGiven);
+//    }
+
+    public String saveRecipe(User saver, Recipe recipeGiven){
+        SaveRecipeData dataToSave = new SaveRecipeData(saver, recipeGiven);
+        return inputBoundary.saveRecipe(dataToSave);
+    }
+
+    public String unsaveRecipe(User saver, Recipe recipeGiven){
+        SaveRecipeData dataToUnsave = new SaveRecipeData(saver, recipeGiven);
+        return inputBoundary.unsaveRecipe(dataToUnsave);
     }
 }

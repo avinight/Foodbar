@@ -18,10 +18,20 @@ public class CreateRecipeController {
         this.inputBoundary = inputBoundary;
     }
 
-    public RecipeInputData createRecipe(String title, final User author, float portionSize, ArrayList<String> instructions,
-                                        Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
-                                        ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
-        return new RecipeInputData(title, author, portionSize, instructions, cuisine, dietaryRestrictions,
-                dateCreated, ingredients, reviews, likers, dislikers);
+//    public RecipeInputData createRecipe(String title, final User author, float portionSize, ArrayList<String> instructions,
+//                                        Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
+//                                        ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String> likers, ArrayList<String> dislikers) {
+//        return new RecipeInputData(title, author, portionSize, instructions, cuisine, dietaryRestrictions,
+//                dateCreated, ingredients, reviews, likers, dislikers);
+//    }
+
+    public String createRecipe(String title, final User author, float portionSize, ArrayList<String> instructions,
+                               Cuisine cuisine, ArrayList<String> dietaryRestrictions, final Date dateCreated,
+                               ArrayList<Ingredient> ingredients, ArrayList<Review> reviews, ArrayList<String>
+                                       likers, ArrayList<String> dislikers) {
+        RecipeInputData recipeData = new RecipeInputData(title, author, portionSize, instructions, cuisine,
+                dietaryRestrictions, dateCreated, ingredients, reviews, likers, dislikers);
+
+        return inputBoundary.create(recipeData);
     }
 }
