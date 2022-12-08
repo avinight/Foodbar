@@ -8,7 +8,7 @@ import recipe.foodbar.entities.User;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public interface UserRepositoryInterface {
+public interface UserRepository {
 
 
     /**

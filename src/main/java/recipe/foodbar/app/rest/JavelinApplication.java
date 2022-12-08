@@ -4,22 +4,23 @@ import io.javalin.Javalin;
 import recipe.foodbar.config.JavelinConfig;
 
 public class JavelinApplication {
-
-    private final JavelinConfig javelinConfig = new JavelinConfig();
 //    private final UserController userController = new UserController(javelinConfig.createUser(), javelinConfig.findUser(), javelinConfig.loginUser());
 //    private final VertxUserController controller = new VertxUserController(userController);
 
     public static void main(String[] args) {
-        var app = Javalin.create(/*config*/).get("/", ctx -> ctx.result("Hello World")).start(8080);
+        JavelinConfig javelinConfig = new JavelinConfig();
+        JavelinUserController userController = new JavelinUserController(javelinConfig.getAccountController());
+        var app = Javalin.create().get("/", ctx -> ctx.result("Hello World!")).start(8080);
 
 //        app.get("hello", ctx -> ctx.html("Hello World"));
 
 //        User
-        app.get("/user", JavelinUserController.getUser);
-        app.post("/user", JavelinUserController.createUser);
+//        app.get("/user", JavelinUserController.getUser);
+        app.post("/register", userController.createUser);
+        app.post("/login", userController.)
 
 //        Recipe
-//        app.get("/user", JavelinUserController.getUser);
+//        app.get("/user", javelinUserController.getUser);
 //        app.post("/user", JavelinUserController.createUser);
     }
 }

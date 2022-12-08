@@ -21,7 +21,6 @@ public class AccountController {
      */
     public AccountController(UserCreatorInputBoundary data) {
         this.data = data;
-
     }
 
 
@@ -38,9 +37,6 @@ public class AccountController {
     public UserInputData create(String username, String password, String passwordShadow, String email) {
         UserInputData userInput = new UserInputData(username, password,
                 passwordShadow, email);
-
         return userInput;
     }
-
-
 }

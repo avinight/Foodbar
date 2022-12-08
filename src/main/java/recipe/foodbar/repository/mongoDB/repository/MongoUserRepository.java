@@ -12,11 +12,9 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
-import recipe.foodbar.repository.mongoDB.mapper.RecipeMapper;
 import recipe.foodbar.repository.mongoDB.mapper.UserMapper;
-import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 import recipe.foodbar.repository.mongoDB.model.UserModel;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +23,7 @@ import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.eq;
 
-public class MongoUserRepository implements UserRepositoryInterface {
+public class MongoUserRepository implements UserRepository {
 
     MongoCollection<UserModel> collection;
 

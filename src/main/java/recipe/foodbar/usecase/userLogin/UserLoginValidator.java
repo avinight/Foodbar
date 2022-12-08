@@ -1,16 +1,16 @@
 package recipe.foodbar.usecase.userLogin;
 
 import recipe.foodbar.entities.User;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.Objects;
 import java.util.Optional;
 
 public class UserLoginValidator {
 
-    private final UserRepositoryInterface repo;
+    private final UserRepository repo;
 
-    public UserLoginValidator(UserRepositoryInterface repo) {
+    public UserLoginValidator(UserRepository repo) {
         this.repo = repo;
     }
 

@@ -5,13 +5,13 @@ Class to check the validity of the information provided and return the results
 package recipe.foodbar.usecase.user;
 
 import recipe.foodbar.entities.User;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.List;
 
 public class UserChecker {
 
-    private final UserRepositoryInterface repo;
+    private final UserRepository repo;
 
 
     /**
@@ -19,7 +19,7 @@ public class UserChecker {
      *
      * @param repo the interface representing a repository with methods.
      */
-    public UserChecker(UserRepositoryInterface repo) {
+    public UserChecker(UserRepository repo) {
         this.repo = repo;
 
     }
@@ -48,19 +48,19 @@ public class UserChecker {
         array[1] = false;
         array[2] = false;
         array[3] = false;
-        if (userInput.getUsername() == null) {
+        if (userInput.username() == null) {
             array[0] = true;
         }
-        if (userInput.getPassword() == null) {
+        if (userInput.password() == null) {
             array[1] = true;
 
         }
-        if (userInput.getPasswordShadow() == null) {
+        if (userInput.passwordShadow() == null) {
             array[2] = true;
 
 
         }
-        if (userInput.getEmail() == null) {
+        if (userInput.email() == null) {
             array[3] = true;
 
         }
@@ -76,7 +76,7 @@ public class UserChecker {
     public boolean checkUserTaken(UserInputData userInput) {
         List<User> allUsers = repo.findAllUsers();
         for (User user : allUsers) {
-            if (user.getUsername().equals(userInput.getUsername())) {
+            if (user.getUsername().equals(userInput.username())) {
                 return true;
             }
 
