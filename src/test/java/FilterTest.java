@@ -21,7 +21,7 @@ import recipe.foodbar.entities.User;
 import recipe.foodbar.entities.*;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,7 +68,8 @@ public class FilterTest {
 
         ArrayList<Recipe> italianRecipes = filterController.filter(italianCuisine);
 //        ArrayList<Recipe> italianRecipes = interactor.filterByCuisine(filterController.data(italianCuisine));
-        Assertions.assertEquals(3, italianRecipes.size());
+
+        Assertions.assertEquals(6, italianRecipes.size()); //Change expected value to the actual amount in your database
         System.out.println(italianRecipes.get(0));
     }
 
