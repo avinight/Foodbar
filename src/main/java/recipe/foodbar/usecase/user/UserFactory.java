@@ -1,12 +1,12 @@
 package recipe.foodbar.usecase.user;
 
 import recipe.foodbar.entities.User;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.user.port.UserRepository;
 
 
 public class UserFactory {
 
-    private final UserRepositoryInterface repo;
+    private final UserRepository repo;
 
 
     /**
@@ -14,7 +14,7 @@ public class UserFactory {
      *
      * @param repo the given repository interface object
      */
-    public UserFactory(UserRepositoryInterface repo) {
+    public UserFactory(UserRepository repo) {
         this.repo = repo;
 
     }
@@ -29,8 +29,5 @@ public class UserFactory {
     public void createAccount(String id, String username, String password, String email) {
         User user = User.builder().id(id).username(username).password(password).email(email).build();
         repo.create(user);
-        //code to add the user to the repository
-        //
-        //
     }
 }

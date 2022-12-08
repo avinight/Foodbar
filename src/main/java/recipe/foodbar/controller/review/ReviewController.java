@@ -11,7 +11,7 @@ public class ReviewController {
         this.f = f;
     }
 
-    public ReviewInputData data(String recipeID, String title, String text, User author) {
+    public ReviewInputData data(String recipeID, String title, String text, String author) {
         return new ReviewInputData(recipeID, title, text, author);
     }
 
