@@ -27,7 +27,8 @@ public class EditRecipe {
     }
 
     /**
-     * Edits this recipe.
+     * Edits a recipe.
+     *
      */
     public void edit() {
         e.editTitle(this.rm);
