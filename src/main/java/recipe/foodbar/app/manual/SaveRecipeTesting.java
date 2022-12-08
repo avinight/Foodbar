@@ -21,7 +21,7 @@ import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 import recipe.foodbar.usecase.user.*;
 
 import java.util.Arrays;

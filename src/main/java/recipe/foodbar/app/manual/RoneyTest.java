@@ -8,7 +8,7 @@ import org.bson.conversions.Bson;
 import recipe.foodbar.entities.*;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Date;

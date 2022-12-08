@@ -10,7 +10,7 @@ import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryCookieRepository;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.userLogin.UserLogin;
 import recipe.foodbar.usecase.userLogin.UserLoginInput;

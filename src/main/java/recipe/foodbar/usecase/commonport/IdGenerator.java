@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.recipe.port;
+package recipe.foodbar.usecase.commonport;
 
 public interface IdGenerator {
     String generate();

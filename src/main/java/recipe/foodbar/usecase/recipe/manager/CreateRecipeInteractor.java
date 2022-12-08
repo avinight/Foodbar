@@ -3,7 +3,7 @@ package recipe.foodbar.usecase.recipe.manager;
 import recipe.foodbar.entities.*;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.recipe.validator.RecipeValidator;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Date;
