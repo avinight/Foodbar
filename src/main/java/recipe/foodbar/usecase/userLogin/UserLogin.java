@@ -16,6 +16,14 @@ public class UserLogin implements UserLoginInputBoundary {
     private final IdGenerator generator;
 
 
+    /**
+     * Constructor for UserLogin
+     *
+     * @param output the UserLoginOutputBoundary interface object to be implemented by the presenter
+     * @param userRepo the user repository to be used and kept record of
+     * @param loginRepo the login repository to be used and kept record of
+     * @param generator the IdGenrator used
+     */
     public UserLogin(UserLoginOutputBoundary output, UserRepositoryInterface userRepo,
                      LoginRepositoryInterface loginRepo, IdGenerator generator) {
         this.output = output;
@@ -26,6 +34,12 @@ public class UserLogin implements UserLoginInputBoundary {
     }
 
 
+    /**
+     * Method of UserLogin that logs the user in
+     *
+     * @param input the UserLoginInput object containing all important information
+     * @return the expected message through the output boundary
+     */
     @Override
     public String login(UserLoginInput input) {
         String username = input.getUsername();

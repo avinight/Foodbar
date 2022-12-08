@@ -57,6 +57,11 @@ public class UserInputData {
     }
 
 
+    /**
+     * getter function for the email
+     *
+     * @return the email variable
+     */
     public String getEmail() {
         return this.email;
     }
