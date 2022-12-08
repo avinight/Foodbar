@@ -22,17 +22,32 @@ import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
 import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class UserLoginTest {
+
+    /**
+     * AccountCreationMethod function that runs the creation of a user given parameters for tests
+     *
+     * @param username String representation of username
+     * @param password String representation of password
+     * @param passwordShadow String representation of passwordShadow
+     * @param email String representation of email
+     * @param repo given repository for user
+     * @param idGenerator given idGenerator for user
+     * @return created user object
+     */
     public void accountCreationMethod(String username, String password, String passwordShadow, String email,
                                       MongoUserRepository repo, IdGenerator idGenerator) {
 
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
         AccountController accountController = new AccountController(data);
-        UserInputData user = accountController.create(username, password, passwordShadow, email);
 
-        accountController.data.create(user);
+        accountController.create(username, password, passwordShadow, email);
     }
 
+
+    /**
+     * Test to see if user can successfully login
+     */
     @Test
     public void loginCheck() {
 
@@ -52,8 +67,7 @@ public class UserLoginTest {
         UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
                 loginRepositoryInterface, idGenerator);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(username, password);
-        String cookie = userLoginController.data.login(userLoginInput);
+        String cookie = userLoginController.login(username, password);
 
         System.out.println(loginRepositoryInterface.findByCookie(cookie));
         System.out.println(repo.findByUsername("Frank98"));
@@ -73,6 +87,10 @@ public class UserLoginTest {
 
     }
 
+
+    /**
+     * Test to see if user login fails due to missing entries
+     */
     @Test
     public void loginFailMissingEntries() {
 
@@ -92,13 +110,16 @@ public class UserLoginTest {
         UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
                 loginRepositoryInterface, idGenerator);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create(null, null);
-        String actual = userLoginController.data.login(userLoginInput);
+        String actual = userLoginController.login(null, null);
         String expected = "login Failed: Missing Entries";
 
         assert actual.equals(expected);
     }
 
+
+    /**
+     * Test to see if user login fails with invalid password correctly
+     */
     @Test
     public void loginFailedPasswordInvalid() {
 
@@ -118,8 +139,7 @@ public class UserLoginTest {
         UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
                 loginRepositoryInterface, idGenerator);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.create("Frank100", "Scarface");
-        String actual = userLoginController.data.login(userLoginInput);
+        String actual = userLoginController.login("Frank100", "Scarface");
         String expected = "login Failed: Invalid Password";
 
         assert actual.equals(expected);

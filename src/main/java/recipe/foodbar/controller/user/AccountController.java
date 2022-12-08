@@ -35,11 +35,11 @@ public class AccountController {
      * @param email          The String representation of the email
      * @return the completed UserInputData object
      */
-    public UserInputData create(String username, String password, String passwordShadow, String email) {
+    public String create(String username, String password, String passwordShadow, String email) {
         UserInputData userInput = new UserInputData(username, password,
                 passwordShadow, email);
 
-        return userInput;
+        return data.create(userInput);
     }
 
 
