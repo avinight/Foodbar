@@ -6,6 +6,7 @@ import recipe.foodbar.android.foodbar.api.model.CreateReview;
 import recipe.foodbar.android.foodbar.api.model.UserLogin;
 import recipe.foodbar.android.foodbar.api.model.UserRegister;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

@@ -27,12 +27,10 @@
         android:name="recipe.foodbar.android.foodbar.ui.register.RegisterFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_register">
-
         <action
-            android:id="@+id/action_LogInFragment_to_mainActivity"
-            app:destination="@id/mainActivity"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_RegisterFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment"
+            app:popUpTo="@id/LogInFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"

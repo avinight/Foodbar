@@ -9,4 +9,13 @@ public class CreateRecipe {
     public String cuisine;
     public ArrayList<String> dietaryRestrictions;
     public ArrayList<Ingredient> ingredients;
+
+    public CreateRecipe(String title, float portionSize, ArrayList<String> instructions, String cuisine, ArrayList<String> dietaryRestrictions, ArrayList<Ingredient> ingredients) {
+        this.title = title;
+        this.portionSize = portionSize;
+        this.instructions = instructions;
+        this.cuisine = cuisine;
+        this.dietaryRestrictions = dietaryRestrictions;
+        this.ingredients = ingredients;
+    }
 }

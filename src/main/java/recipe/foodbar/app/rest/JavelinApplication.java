@@ -13,14 +13,14 @@ public class JavelinApplication {
         JavelinRecipeController recipeController = new JavelinRecipeController(javelinConfig.getCreateRecipeController());
         JavelinReviewController reviewController = new JavelinReviewController(javelinConfig.getWriteInteractor());
 
-        var app = Javalin.create().get("/", ctx -> ctx.result("Hello World!")).start(8080);
+        var app = Javalin.create().get("/", ctx -> ctx.result("Hello World!")).start(4040);
 
 //        app.get("hello", ctx -> ctx.html("Hello World"));
 
 //        User
         app.post("/api/register", userController.createUser);
         app.post("/api/login", userController.loginUser);
-        app.get("/logout", userController.logoutUser);
+        app.get("/api/logout", userController.logoutUser);
 
 //        Recipe
         app.post("/api/recipe", recipeController.createRecipe);

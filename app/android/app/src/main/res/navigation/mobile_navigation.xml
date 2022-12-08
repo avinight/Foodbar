@@ -13,6 +13,10 @@
         <action
             android:id="@+id/action_navigation_home_to_createRecipeFragment"
             app:destination="@id/createRecipeFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_authActivity2"
+            app:destination="@id/authActivity2"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -34,6 +38,11 @@
         <action
             android:id="@+id/action_createRecipeFragment_to_navigation_home"
             app:destination="@id/navigation_home"
-            app:popUpTo="@id/navigation_home" />
+            app:popUpToInclusive="false" />
     </fragment>
+    <activity
+        android:id="@+id/authActivity2"
+        android:name="recipe.foodbar.android.foodbar.AuthActivity"
+        android:label="activity_auth"
+        tools:layout="@layout/activity_auth" />
 </navigation>

@@ -3,12 +3,15 @@ Class for the input data passed through to the usecase interactor of usercreatio
  */
 package recipe.foodbar.usecase.user;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class UserInputData {
 
-    private final String username;
-    private final String password;
-    private final String passwordShadow;
-    private final String email;
+    private String username;
+    private String password;
+    private String passwordShadow;
+    private String email;
 
 
     /**

@@ -9,12 +9,12 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
 
-<!--    <item-->
-<!--        android:id="@+id/action_search"-->
-<!--        android:icon="@drawable/ic_search"-->
-<!--        android:title="@string/action_search"-->
-<!--        app:actionViewClass="android.support.v7.widget.SearchView"-->
-<!--        app:showAsAction="ifRoom|collapseActionView" />-->
+    <!--    <item-->
+    <!--        android:id="@+id/action_search"-->
+    <!--        android:icon="@drawable/ic_search"-->
+    <!--        android:title="@string/action_search"-->
+    <!--        app:actionViewClass="android.support.v7.widget.SearchView"-->
+    <!--        app:showAsAction="ifRoom|collapseActionView" />-->
 
     <!-- Settings, should always be in the overflow -->
     <item
@@ -22,6 +22,10 @@
         android:icon="@drawable/ic_baseline_add_24"
         android:title="Add"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_logout"
+        android:title="logout"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
