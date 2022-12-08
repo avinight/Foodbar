@@ -23,7 +23,7 @@ public class EditRecipe {
     }
 
     /**
-     * Edits the portion size of a recipe.
+     * Edits this recipe.
      */
     public void edit() {
         e.editTitle(this.rm);
