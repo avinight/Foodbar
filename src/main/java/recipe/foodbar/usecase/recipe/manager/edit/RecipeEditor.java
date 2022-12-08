@@ -16,9 +16,6 @@ public class RecipeEditor implements IRecipeEditor {
     private final RecipeRepository recipeRepo;
     private final RecipePresenter rp;
 
-    /* TODO: Make this take in request model and output response model and depend on output boundary
-     */
-
     /**
      * Constructor for the RecipeEditor class, initializes a RecipeEditor.
      *
@@ -93,8 +90,10 @@ public class RecipeEditor implements IRecipeEditor {
     }
 
     /**
-     * @param rm
-     * @return
+     * Edits the instructions of a Recipe object.
+     *
+     * @param rm the request model.
+     * @return true if successfully edited instructions
      */
     @Override
     public boolean editInstructions(RecipeRequestModel rm) {
