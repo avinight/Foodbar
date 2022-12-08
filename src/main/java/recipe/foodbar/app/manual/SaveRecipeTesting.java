@@ -2,33 +2,32 @@ package recipe.foodbar.app.manual;
 
 import com.mongodb.client.MongoDatabase;
 import recipe.foodbar.controller.recipe.CreateRecipeController;
-import recipe.foodbar.controller.user.AccountController;
-import recipe.foodbar.controller.user.AccountPresenter;
-import recipe.foodbar.entities.*;
+
+import recipe.foodbar.entities.Cuisine.Cuisine;
+import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Recipe;
+import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
-
-import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
-
-import recipe.foodbar.repository.mongoDB.repository.*;
-//import recipe.foodbar.repository.mongo.repository.MongoRecipeRepository;
-//import recipe.foodbar.repository.mongo.repository.MongoUserRepository;
+import recipe.foodbar.presenter.AccountPresenter;
+import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
+import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInteractor;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipePresenter;
 import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
-import recipe.foodbar.usecase.user.UserInputData;
-import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
-import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user.*;
-
-import java.util.Arrays;
-import java.util.Date;
+import recipe.foodbar.usecase.user.ds.UserInputData;
+import recipe.foodbar.usecase.user.manager.UserManager;
+import recipe.foodbar.usecase.user.port.IdGenerator;
+import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.Optional;
+
+import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class SaveRecipeTesting {
 //    @Before

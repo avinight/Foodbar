@@ -5,6 +5,8 @@
 package recipe.foodbar.usecase.user.manager;
 
 
+import recipe.foodbar.usecase.user.ds.UserConfirmer;
+import recipe.foodbar.usecase.user.ds.UserInputData;
 import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;

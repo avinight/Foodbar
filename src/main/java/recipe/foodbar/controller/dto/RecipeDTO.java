@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.dto;
 
-import recipe.foodbar.entities.Cuisine;
+import recipe.foodbar.entities.Cuisine.Cuisine;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
