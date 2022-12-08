@@ -8,12 +8,13 @@ import recipe.foodbar.entities.*;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
 import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
+import recipe.foodbar.usecase.commonport.IdGenerator;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipeInteractor;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipePresenter;
 import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
 import recipe.foodbar.usecase.user.*;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+//import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import static junit.framework.TestCase.assertEquals;
 
@@ -50,7 +51,7 @@ public class SaveRecipeTest {
 
     // Recipe creation controller and presenter
     CreateRecipePresenter createRecipePresenter = new CreateRecipePresenter();
-    CreateRecipeInputBoundary recipeData = new CreateRecipeInteractor(recipeRepo, idGenerator, createRecipePresenter);
+    CreateRecipeInputBoundary recipeData = new CreateRecipeInteractor(recipeRepo, userRepo, idGenerator, createRecipePresenter);
     CreateRecipeController recipeController = new CreateRecipeController(recipeData);
 
     // creating presenter and controllers for saving recipe. prerequisite steps(only need to be done once)
@@ -124,12 +125,13 @@ public class SaveRecipeTest {
 
         String idNum = idGenerator.generate();
         String rTitle = "curry";
-        User rAuthor = user1.get();
+        String authorID = user1.get().getId();
         float rPortionSize = (float) 2.55;
 
         ArrayList<String> instructions = new ArrayList<>(Arrays.asList("idk bro. add salt. do the rest idk"));
 //        instructions.add(0, "idk bro. add salt. do the rest idk");
-        Cuisine cui = Cuisine.builder().id(idGenerator.generate()).name("Indian").build();
+        String cui = Cuisine.builder().id(idGenerator.generate()).name("Indian").build().getName();
+//        String cusine =
         ArrayList<String> dr = new ArrayList<>(Arrays.asList("Vegan", "Halal"));
         Date rDate = new Date();
         ArrayList<Ingredient> ing = new ArrayList<>();
@@ -144,8 +146,8 @@ public class SaveRecipeTest {
 //                rDate, ing, rReviews, rLikers, rDislikers);
 
 //      The line below creates the recipe object using the CreateRecipeInteractor and saves it to the repo
-        String recipeID = recipeController.createRecipe(rTitle, rAuthor, rPortionSize, instructions, cui, dr,
-                rDate, ing, rReviews, rLikers, rDislikers);
+        String recipeID = recipeController.createRecipe(rTitle, authorID, rPortionSize, instructions, cui, dr,
+                ing);
         Optional<Recipe> recipeFromRepo = recipeRepo.findById(recipeID);
         Recipe recipe1 = recipeFromRepo.get();
         assertEquals(recipe1.getTitle(), rTitle);
@@ -196,7 +198,7 @@ public class SaveRecipeTest {
 
         ArrayList<String> instructions = new ArrayList<>(Arrays.asList("idk bro. add salt. do the rest idk"));
 //        instructions.add(0, "idk bro. add salt. do the rest idk");
-        Cuisine cui = Cuisine.builder().id(idGenerator.generate()).name("Indian").build();
+        String cui = Cuisine.builder().id(idGenerator.generate()).name("Indian").build().getName();
         ArrayList<String> dr = new ArrayList<>(Arrays.asList("Vegan", "Halal"));
         Date rDate = new Date();
         ArrayList<Ingredient> ing = new ArrayList<>();
@@ -211,8 +213,8 @@ public class SaveRecipeTest {
 //                rDate, ing, rReviews, rLikers, rDislikers);
 
 //      The line below creates the recipe object using the CreateRecipeInteractor and saves it to the repo
-        String recipeID = recipeController.createRecipe(rTitle, rAuthor, rPortionSize, instructions, cui, dr,
-                rDate, ing, rReviews, rLikers, rDislikers);
+        String recipeID = recipeController.createRecipe(rTitle, rAuthor.getId(), rPortionSize, instructions, cui, dr,
+                ing);
         Optional<Recipe> recipeFromRepo = recipeRepo.findById(recipeID);
         Recipe recipe1 = recipeFromRepo.get();
         assertEquals(recipe1.getTitle(), rTitle);
