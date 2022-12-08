@@ -4,8 +4,8 @@ public class CreateRecipePresenter implements CreateRecipeOutputBoundary {
 
 
     @Override
-    public String getConfirmationMessage() {
-        return "Recipe successfully saved";
+    public String present(String message) {
+        return message;
     }
 
     @Override

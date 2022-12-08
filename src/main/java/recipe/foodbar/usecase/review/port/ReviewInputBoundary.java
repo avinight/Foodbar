@@ -2,7 +2,8 @@ package recipe.foodbar.usecase.review.port;
 
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.usecase.review.ReviewInputData;
+import recipe.foodbar.usecase.review.ReviewOutputData;
 
 public interface ReviewInputBoundary {
-    Review writeReview(ReviewInputData data);
+    ReviewOutputData writeReview(ReviewInputData data);
 }
