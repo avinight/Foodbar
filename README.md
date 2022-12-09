@@ -8,7 +8,9 @@ of other recipe from your fellow users and follow them.
 #### Software requirements
 
 - JDK 19
-- MonogDB version 6
+- MonogDB version 6 (Optional, I have also included DB url for cloud instance or you can use the local)
+- Andorid Studio Dolphin 2021.3.1
+- Mongo Compass (Optional, but helps you visualize the data stored in DB)
 
 #### Installing MongoDB on MacOS
 
@@ -39,12 +41,6 @@ brew services start mongodb-community@6.0
 brew services stop mongodb-community@6.0
 ```
 
-#### Start MongoDB Shell
-
-```shell
-mongosh
-```
-
 #### Create database named recipe
 
 ```shell
@@ -58,3 +54,5 @@ git clone https://github.com/CSC207-2022F-UofT/course-project-group-92.git
 cd course-project-group-92
 ./gradlew run
 ```
+Or alternatively running the recipe.foodbar.app.rest.JavelinApplication starts the webserver.
+Makesure MongoDB is running before.

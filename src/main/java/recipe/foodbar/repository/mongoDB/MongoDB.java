@@ -24,10 +24,14 @@ public class MongoDB {
     /**
      * Mongo DB class responsible for creating MongoDB instance.
      * Change the uri to mongoDB instance, if not using the default
-     * **/
-    private static final String uri = "mongodb://localhost:27017";
+     **/
 
     public static MongoDatabase getMongoDB() {
+        if (System.getProperty("MONGO_DB_URI") != null) {
+            final String uri = System.getProperty("MONGO_DB_URI");
+        } else {
+            final String uri = "mongodb://localhost:27017";
+        }
         CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
         CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
         MongoClient mongoClient = MongoClients.create(

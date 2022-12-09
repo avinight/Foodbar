@@ -12,5 +12,10 @@ jobs:
     name: Autograding
     runs-on: ubuntu-latest
     steps:
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.SuperSecret }}
+        run: |
+          example-command "$MONGO_DB_URI"
       - uses: actions/checkout@v2
       - uses: education/autograding@v1

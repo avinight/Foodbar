@@ -34,7 +34,7 @@ dependencies {
 }
 
 application {
-    mainClass = 'recipe.foodbar.app.manual.UserExample'
+    mainClass = 'recipe.foodbar.app.rest.JavelinApplication'
 }
 
 test {
