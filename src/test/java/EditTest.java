@@ -1,5 +1,5 @@
 import com.mongodb.client.MongoDatabase;
-import org.bson.types.ObjectId;
+
 import org.junit.jupiter.api.Test;
 import recipe.foodbar.controller.recipe.CreateRecipeController;
 import recipe.foodbar.controller.recipe.EditRecipe;
@@ -7,7 +7,7 @@ import recipe.foodbar.controller.user.AccountController;
 import recipe.foodbar.entities.Cuisine;
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
+
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
 import recipe.foodbar.presenter.AccountPresenter;
 import recipe.foodbar.presenter.RecipePresenter;
@@ -28,7 +28,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
 
-import static junit.framework.TestCase.assertEquals;
 import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class EditTest {
@@ -48,34 +47,9 @@ public class EditTest {
 
     @Test
     public void testSetPortionSize() {
-        // creating the same users as the one in the previous testcase but with different names
-        String username = "toby";
-        String password = "123";
-        String firstName = "tobias";
-        String lastName = "razor";
-        String passwordShadow = "123";
-        String email = "a24@gmail.com";
-        // the line below formats the data into a format that can be used by the use case interactor
-//        UserInputData user = accountController.create(username, password, passwordShadow, email);
-        String userCreationConfirmation = accountController.create(username, password, passwordShadow, email);
-
-        String username3 = "Toby2";
-        String password3 = "1232";
-        String firstName3 = "tobias2";
-        String lastName3 = "razor2";
-        String passwordShadow3 = "1232";
-        String email3 = "a242@gmail.com";
-        String userCreationConfirmation3 = accountController.create(username3, password3, passwordShadow3, email3);
-
-        // fetching user objects that can create the recipes
-        Optional<User> user1 = userRepo.findByEmail("a24@gmail.com");
-        Optional<User> user2 = userRepo.findByEmail("a242@gmail.com");
-        Optional<User> userTest = userRepo.findByEmail("aaa@gmail.com");
-        // check that userTest doesn't exist in the repo.
 
         String idNum = idGenerator.generate();
         String rTitle = "curry";
-        String authorID = user1.get().getId();
         float rPortionSize = (float) 2.55;
 
         ArrayList<String> instructions = new ArrayList<>(Arrays.asList("idk bro. add salt. do the rest idk"));
@@ -88,22 +62,40 @@ public class EditTest {
         Ingredient ing1 = new Ingredient("Potatoes", 69);
         ing.add(ing1);
 
-        String recipeID = user1.get().getSavedRecipes().
-        Optional<Recipe> recipeFromRepo = recipeRepo.findById(recipeID);
+        Recipe recipeToSave = Recipe.builder()
+                .id(idNum)
+                .title(rTitle)
+                .instructions(instructions)
+                .cuisine(Cuisine.builder().id(idGenerator.generate()).name(cui).build())
+                .portionSize(rPortionSize)
+                .dietaryRestrictions(dr)
+                .ingredients(ing)
+                .dateCreated(rDate)
+                .build();
+
+        recipeRepo.create(recipeToSave);
+
+        Optional<Recipe> recipeFromRepo = recipeRepo.findById(recipeToSave.getId());
        if(recipeFromRepo.isPresent()){
         Recipe recipe1 = recipeFromRepo.get();}
 
         RecipeRequestModel rm = new RecipeRequestModel();
-        rm.setId(recipeID);
+        rm.setId(recipeToSave.getId());
+        rm.setTitle(recipeToSave.getTitle());
+        rm.setInstructions(recipeToSave.getInstructions());
+        rm.setCuisine(recipeToSave.getCuisine());
         rm.setPortionSize(3);
+        rm.setDietaryRestrictions(recipeToSave.getDietaryRestrictions());
+        rm.setIngredients(recipeToSave.getIngredients());
 
         RecipePresenter presenter = new RecipePresenter();
         IRecipeEditor inputboundary = new RecipeEditor(recipeRepo, presenter);
         EditRecipe controller = new EditRecipe(rm, inputboundary, presenter);
         controller.edit();
 
-        System.out.println(recipeFromRepo.get().getPortionSize());
-        assert recipeFromRepo.get().getPortionSize() == 3;
+        Optional<Recipe> recipeFromRepo2 = recipeRepo.findById(recipeToSave.getId());
+        System.out.println(recipeFromRepo2.get().getPortionSize());
+        assert recipeFromRepo2.get().getPortionSize() == 3;
     }
 }
 
