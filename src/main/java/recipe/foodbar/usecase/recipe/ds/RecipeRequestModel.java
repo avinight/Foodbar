@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-import recipe.foodbar.entities.Cuisine.Cuisine;
+import recipe.foodbar.entities.Cuisine;
+
 import recipe.foodbar.entities.Ingredient;
 import recipe.foodbar.entities.Review;
 import recipe.foodbar.entities.User;
@@ -18,7 +19,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class RecipeRequestModel {
-    private ObjectId id;
+    private String id;
     private String title;
     private Cuisine cuisine;
     private ArrayList<String> instructions;

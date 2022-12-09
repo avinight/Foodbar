@@ -1,19 +1,19 @@
 import com.mongodb.client.MongoDatabase;
 import org.junit.jupiter.api.Test;
 import recipe.foodbar.controller.user.AccountController;
-import recipe.foodbar.controller.user.AccountPresenter;
+
 import recipe.foodbar.controller.user.login.UserLoginController;
 import recipe.foodbar.controller.user.login.UserLoginPresenter;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
+import recipe.foodbar.presenter.AccountPresenter;
 import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryCookieRepository;
-import recipe.foodbar.usecase.user.UserInputData;
-import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.user.port.IdGenerator;
+
+import recipe.foodbar.usecase.commonport.IdGenerator;
+import recipe.foodbar.usecase.user.manager.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.userLogin.UserLogin;
-import recipe.foodbar.usecase.userLogin.UserLoginInput;
 import recipe.foodbar.usecase.userLogin.port.LoginRepositoryInterface;
 import recipe.foodbar.usecase.userLogin.port.UserLoginInputBoundary;
 import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;

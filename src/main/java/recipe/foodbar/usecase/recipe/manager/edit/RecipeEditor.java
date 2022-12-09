@@ -35,7 +35,8 @@ public class RecipeEditor implements IRecipeEditor {
     @Override
     public void editPortionSize(RecipeRequestModel rm) {
         /* Must check that the id exists and is valid, otherwise throw an exception*/
-        recipeRepo.findById(rm.getId().toString()).get().modifyIngredients((int) rm.getPortionSize());
+        if(recipeRepo.findById(rm.getId()).isPresent()){
+        recipeRepo.findById(rm.getId()).get().modifyIngredients((int) rm.getPortionSize()); }
 
         /* Create a response model and display */
         rp.displayEdited(RecipeEditedResponseModel.ResponseDataType.EDIT);
@@ -48,7 +49,10 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public void editTitle(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.getId().toString()).get().setTitle(rm.getTitle());
+        if(recipeRepo.findById(rm.getId()).isPresent()){
+            recipeRepo.findById(rm.getId()).get().setTitle(rm.getTitle());
+        }
+
     }
 
     /**
@@ -58,7 +62,9 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public void editCuisine(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.getId().toString()).get().setCuisine(rm.getCuisine());
+        if(recipeRepo.findById(rm.getId()).isPresent()){
+            recipeRepo.findById(rm.getId()).get().setCuisine(rm.getCuisine());
+        }
     }
 
     /**
@@ -68,7 +74,9 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public void editDietaryRestrictions(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.getId().toString()).get().setDietaryRestrictions(rm.getDietaryRestrictions());
+        if(recipeRepo.findById(rm.getId()).isPresent()) {
+            recipeRepo.findById(rm.getId()).get().setDietaryRestrictions(rm.getDietaryRestrictions());
+        }
     }
 
     /**
@@ -78,6 +86,7 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public boolean editIngredients(RecipeRequestModel rm) {
+        if(recipeRepo.findById(rm.getId()).isPresent()){
         Recipe rr = recipeRepo.findById(rm.getId().toString()).get();
         for (Ingredient ingredient : rm.getIngredients()){
             if (!rr.getIngredients().contains(ingredient) && rm.getIngredients().contains(ingredient)) {
@@ -87,6 +96,8 @@ public class RecipeEditor implements IRecipeEditor {
             }
         }
         return true;
+        }
+        return false;
     }
 
     /**
@@ -97,7 +108,8 @@ public class RecipeEditor implements IRecipeEditor {
      */
     @Override
     public boolean editInstructions(RecipeRequestModel rm) {
-        recipeRepo.findById(rm.getId().toString()).get().setInstructions(rm.getInstructions());
+        if(recipeRepo.findById(rm.getId()).isPresent()){
+        recipeRepo.findById(rm.getId()).get().setInstructions(rm.getInstructions());}
         return true;
     }
 }

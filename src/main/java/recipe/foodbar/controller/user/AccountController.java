@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.user;
 
-import recipe.foodbar.usecase.user.UserInputData;
+import recipe.foodbar.usecase.user.ds.UserInputData;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 
 /*

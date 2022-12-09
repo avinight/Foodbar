@@ -1,6 +1,6 @@
 package recipe.foodbar.usecase.cuisine.port;
 
-import recipe.foodbar.entities.Cuisine.Cuisine;
+import recipe.foodbar.entities.Cuisine;
 
 import java.util.Optional;
 

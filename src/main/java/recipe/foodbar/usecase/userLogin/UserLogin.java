@@ -1,7 +1,8 @@
 package recipe.foodbar.usecase.userLogin;
 
-import recipe.foodbar.usecase.user.port.IdGenerator;
-import recipe.foodbar.usecase.user.port.UserRepositoryInterface;
+import recipe.foodbar.usecase.commonport.IdGenerator;
+
+import recipe.foodbar.usecase.user.port.UserRepository;
 import recipe.foodbar.usecase.userLogin.port.LoginRepositoryInterface;
 import recipe.foodbar.usecase.userLogin.port.UserLoginInputBoundary;
 import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
@@ -10,7 +11,7 @@ import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
 public class UserLogin implements UserLoginInputBoundary {
 
     private final UserLoginOutputBoundary output;
-    private final UserRepositoryInterface userRepo;
+    private final UserRepository userRepo;
     private final LoginRepositoryInterface loginRepo;
 
     private final IdGenerator generator;
@@ -23,7 +24,7 @@ public class UserLogin implements UserLoginInputBoundary {
      * @param loginRepo given loginRepo object
      * @param generator given idGenerator
      */
-    public UserLogin(UserLoginOutputBoundary output, UserRepositoryInterface userRepo,
+    public UserLogin(UserLoginOutputBoundary output, UserRepository userRepo,
                      LoginRepositoryInterface loginRepo, IdGenerator generator) {
         this.output = output;
         this.userRepo = userRepo;
