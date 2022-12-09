@@ -56,3 +56,8 @@ cd course-project-group-92
 ```
 Or alternatively running the recipe.foodbar.app.rest.JavelinApplication starts the webserver.
 Makesure MongoDB is running before.
+
+#### Running Android App
+
+Open Android Studio and open folder course-project-92/app
+Run the app, use the the emulator as the app needs to connect to localhost for server
