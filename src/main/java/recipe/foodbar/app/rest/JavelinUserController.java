@@ -24,17 +24,23 @@ public class JavelinUserController {
         JavelinUserController.userLogoutController = userLogoutController;
     }
 
+    /**
+     * Handles /api/user path which creates a user when called
+     */
     public static Handler createUser = ctx -> {
         UserInputData user = ctx.bodyAsClass(UserInputData.class);
         String creationStatus = accountController.data.create(user);
         System.out.println(creationStatus);
-        if (Objects.equals(creationStatus, "UserCreation Successful, no problems encountered.")){
+        if (Objects.equals(creationStatus, "UserCreation Successful, no problems encountered.")) {
             ctx.json(user);
         } else {
             throw new BadRequestResponse(creationStatus);
         }
     };
 
+    /**
+     * Handles /api/login path which lets user login
+     */
     public static Handler loginUser = ctx -> {
         UserLoginInput userLoginInput = ctx.bodyAsClass(UserLoginInput.class);
         String loginStatus = userLoginController.data.login(userLoginInput);
@@ -46,6 +52,9 @@ public class JavelinUserController {
         }
     };
 
+    /**
+     * Handles /api/logout path which lets user logout
+     */
     public static Handler logoutUser = ctx -> {
         String logoutStatus = userLogoutController.data.logout(new UserLogoutInput(ctx.cookie("session")));
         ctx.removeCookie("session");

@@ -10,6 +10,9 @@ import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
 
+/**
+ * UserModel used as an input object to MongoDB
+ */
 @AllArgsConstructor
 @Builder
 @Data

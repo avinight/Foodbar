@@ -8,6 +8,9 @@ import recipe.foodbar.usecase.review.WriteReviewInteractor;
 
 import java.util.Objects;
 
+/**
+ * Review REST Controller
+ */
 public class JavelinReviewController {
     static WriteReviewInteractor writeReviewInteractor;
 
@@ -15,6 +18,9 @@ public class JavelinReviewController {
         JavelinReviewController.writeReviewInteractor = writeReviewInteractor;
     }
 
+    /**
+     * Handles /api/recipe path which creates a recipe when called
+     */
     public static Handler createReview = ctx -> {
         ReviewInputData inputData = ctx.bodyAsClass(ReviewInputData.class);
         System.out.println(inputData);

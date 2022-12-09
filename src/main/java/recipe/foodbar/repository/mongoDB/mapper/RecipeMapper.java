@@ -5,6 +5,9 @@ import org.bson.types.ObjectId;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.repository.mongoDB.model.RecipeModel;
 
+/**
+ * Responsible for mapping between Recipe Entity and Recipe Input Object for DB
+ */
 public class RecipeMapper {
     @NonNull
     public static Recipe toEntity(RecipeModel recipeModel) {

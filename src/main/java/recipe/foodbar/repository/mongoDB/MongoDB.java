@@ -18,9 +18,13 @@ import static com.mongodb.MongoClientSettings.getDefaultCodecRegistry;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
+
 @NoArgsConstructor
 public class MongoDB {
-
+    /**
+     * Mongo DB class responsible for creating MongoDB instance.
+     * Change the uri to mongoDB instance, if not using the default
+     * **/
     private static final String uri = "mongodb://localhost:27017";
 
     public static MongoDatabase getMongoDB() {
@@ -37,5 +41,4 @@ public class MongoDB {
         System.out.println("MongoDB: Connected successfully to server." + commandResult);
         return db;
     }
-
 }

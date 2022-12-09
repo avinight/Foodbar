@@ -5,6 +5,9 @@ import org.bson.types.ObjectId;
 import recipe.foodbar.entities.User;
 import recipe.foodbar.repository.mongoDB.model.UserModel;
 
+/**
+ * Responsible for mapping between User Entity and User Input Object for DB
+ */
 public class UserMapper {
 
     @NonNull

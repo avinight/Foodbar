@@ -23,10 +23,16 @@ import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.eq;
 
+/**
+ * MongoUserRepository implements UserRepository for MongoDB
+ */
 public class MongoUserRepository implements UserRepository {
 
     MongoCollection<UserModel> collection;
 
+    /**
+     * @param db takes in MongoDatabase instance so User collection can be created
+     */
     public MongoUserRepository(MongoDatabase db) {
         Bson command = new BsonDocument("ping", new BsonInt64(1));
         Document commandResult = db.runCommand(command);
@@ -34,6 +40,11 @@ public class MongoUserRepository implements UserRepository {
         collection = db.getCollection("Users", UserModel.class);
     }
 
+    /**
+     * Method responsible for inserting User to Repository
+     *
+     * @param user the provided RegisteredUser object
+     */
     @Override
     public void create(User user) {
         try {
@@ -45,6 +56,10 @@ public class MongoUserRepository implements UserRepository {
         }
     }
 
+    /**
+     * @param username the String representation of the username
+     * @return an optional User if the User is found by username
+     */
     @Override
     public Optional<User> findByUsername(String username) {
         Bson query = eq("username", username);
@@ -53,6 +68,10 @@ public class MongoUserRepository implements UserRepository {
         return um.map(UserMapper::toEntity);
     }
 
+    /**
+     * @param id the String representation of the username
+     * @return an optional User if the User is found by id
+     */
     @Override
     public Optional<User> findById(String id) {
         try {
@@ -64,6 +83,10 @@ public class MongoUserRepository implements UserRepository {
         }
     }
 
+    /**
+     * @param email the String representation of the username
+     * @return an optional User if the User is found by email
+     */
     @Override
     public Optional<User> findByEmail(String email) {
         Bson query = eq("email", email);
@@ -72,6 +95,9 @@ public class MongoUserRepository implements UserRepository {
         return um.map(UserMapper::toEntity);
     }
 
+    /**
+     * @return return an ArrayList of Users in the repository
+     */
     @Override
     public ArrayList<User> findAllUsers() {
         List<UserModel> userModelList = collection.find().into(new ArrayList<>());
@@ -95,6 +121,10 @@ public class MongoUserRepository implements UserRepository {
         return findById(user.getId()).get();
     }
 
+    /**
+     * @param username the String representation of the username
+     * @return true or false based on user exist in repository or not
+     */
     @Override
     public boolean existsByUsername(String username) {
         return collection.countDocuments(eq("username", username)) > 0;

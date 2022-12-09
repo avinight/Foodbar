@@ -24,9 +24,16 @@ import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.eq;
 
+/**
+ * MongoRecipeRepository implements RecipeRepository for MongoDB
+ */
 public class MongoRecipeRepository implements RecipeRepository {
     MongoCollection<RecipeModel> collection;
 
+    /**
+     * Constructor responsible for creating Recipe collection
+     * @param db MongoDatabase instance
+     */
     public MongoRecipeRepository(MongoDatabase db) {
         Bson command = new BsonDocument("ping", new BsonInt64(1));
         Document commandResult = db.runCommand(command);
@@ -34,6 +41,11 @@ public class MongoRecipeRepository implements RecipeRepository {
         collection = db.getCollection("Recipes", RecipeModel.class);
     }
 
+    /**
+     * Method resposible getting all users from DB
+     *
+     * @return ArrayList of Recipe
+     */
     @Override
     public ArrayList<Recipe> getAllRecipes() {
         List<RecipeModel> recipeModelList = collection.find().into(new ArrayList<>());
@@ -41,6 +53,10 @@ public class MongoRecipeRepository implements RecipeRepository {
         return (ArrayList<Recipe>) recipeList;
     }
 
+    /**
+     * @param recipe recipe to be created
+     * @return the created Recipe Object
+     */
     @Override
     public Recipe create(Recipe recipe) {
         try {
@@ -50,10 +66,13 @@ public class MongoRecipeRepository implements RecipeRepository {
         } catch (MongoException me) {
             System.err.println("Unable to insert user due to an error: " + me);
         }
-//        Todo: Remove returning Recipe after creating Recipe
         return recipe;
     }
 
+    /**
+     * @param recipe the recipe to be updated
+     * @return the updated Recipe Object
+     */
     @Override
     public Recipe update(Recipe recipe) {
         RecipeModel rm = RecipeMapper.toUserModel(recipe);
@@ -64,6 +83,10 @@ public class MongoRecipeRepository implements RecipeRepository {
         return findById(recipe.getId()).get();
     }
 
+    /**
+     * @param cuisine cuisine to search for
+     * @return ArrayList of all recipe that match a particular cuisine
+     */
     @Override
     public ArrayList<Recipe> getByCuisine(Cuisine cuisine) {
         Bson query = eq("cuisine.name", cuisine.getName());
@@ -73,6 +96,10 @@ public class MongoRecipeRepository implements RecipeRepository {
         return (ArrayList<Recipe>) recipeList;
     }
 
+    /**
+     * @param id recipe id
+     * @return an Optional if matched recipe is found
+     */
     @Override
     public Optional<Recipe> findById(String id) {
         try {

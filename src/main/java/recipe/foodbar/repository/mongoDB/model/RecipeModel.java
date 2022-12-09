@@ -12,7 +12,9 @@ import recipe.foodbar.entities.User;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * Recipe used as an input object to MongoDB
+ */
 @AllArgsConstructor
 @Builder
 @Data

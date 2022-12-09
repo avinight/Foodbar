@@ -21,7 +21,6 @@ import recipe.foodbar.usecase.recipe.manager.CreateRecipeInteractor;
 import recipe.foodbar.usecase.recipe.manager.CreateRecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.WriteReviewInteractor;
-import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
 import recipe.foodbar.usecase.review.port.ReviewOutputBoundary;
 import recipe.foodbar.usecase.user.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
@@ -34,6 +33,9 @@ import recipe.foodbar.usecase.userLogout.UserLogout;
 import recipe.foodbar.usecase.userLogout.port.UserLogoutInputBoundary;
 import recipe.foodbar.usecase.userLogout.port.UserLogoutOutputBoundary;
 
+/**
+ * JavelinConfig class responsible for passing the required repository, presenter, idgenerator to each REST controller
+ */
 public class JavelinConfig {
     MongoDatabase db = MongoDB.getMongoDB();
     private final UserRepository userRepository = new MongoUserRepository(db);
@@ -60,7 +62,6 @@ public class JavelinConfig {
     WriteReviewInteractor interactor = new WriteReviewInteractor(recipeRepository, userRepository, outputBoundary);
     ReviewController reviewController = new ReviewController(interactor);
 //    Get Recipe by Cuisine
-
 
 
     public AccountController getAccountController() {
