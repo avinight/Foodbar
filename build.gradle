@@ -5,22 +5,23 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(19)
     }
 }
 
 android {
-    namespace 'foodbar'
+    namespace 'app.foodbar'
     compileSdk 33
 
     defaultConfig {
-        applicationId "foodbar"
+        applicationId "app.foodbar"
         minSdk 30
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -31,54 +32,51 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility = '14'
+        targetCompatibility = '14'
     }
 
     buildFeatures {
         viewBinding true
         dataBinding true
     }
+    
+    packagingOptions {
+        pickFirst 'org/eclipse/jetty/http/encoding.properties'
+        pickFirst 'META-INF/LICENSE.md'
+        pickFirst 'META-INF/NOTICE.md'
+    }
 }
 
 projects {
     repositories {
-//        mavenCentral()
+    //    mavenCentral()
     }
     group 'foodbar'
     version 'unspecified'
 }
 
-//dependencyResolutionManagement {
-//    repositories {
-//        google()
-//        mavenCentral()
-//        // Add your custom repositories here
-//    }
-//}
 dependencies {
-    implementation(
-            'commons-codec:commons-codec:1.15',
-            'org.apache.commons:commons-lang3:3.12.0',
-            'io.javalin:javalin:5.2.0',
-            "com.fasterxml.jackson.core:jackson-databind:2.14.0",
-            'org.mongodb:mongodb-driver-sync:4.8.0',
-            'org.slf4j:slf4j-simple:2.0.4',
-            'junit:junit:4.13.2'
-    )
-    testImplementation(
-            'org.mongodb:mongodb-driver-sync:4.8.0',
-            'org.junit.jupiter:junit-jupiter:5.9.0'
-    )
+    // implementation(
+    //         'commons-codec:commons-codec:1.15',
+    //         'org.apache.commons:commons-lang3:3.12.0',
+    //         'io.javalin:javalin:5.2.0',
+    //         "com.fasterxml.jackson.core:jackson-databind:2.14.0",
+    //         'org.mongodb:mongodb-driver-sync:4.8.0',
+    //         'org.slf4j:slf4j-simple:2.0.4',
+    //         'junit:junit:4.13.2'
+    // )
+    // testImplementation(
+    //         'org.mongodb:mongodb-driver-sync:4.8.0',
+    //         'org.junit.jupiter:junit-jupiter:5.9.0'
+    // )
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.google.android.material:material:1.8.0-alpha03'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
     implementation 'androidx.navigation:navigation-ui:2.5.3'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.8.0-alpha03'
     implementation 'androidx.annotation:annotation:1.5.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.google.code.gson:gson:2.10'
@@ -89,22 +87,27 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10"
+    implementation 'com.android.support:multidex:1.0.3'
+        
     // Other dependencies
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
-//application {
+// application {
 //    mainClass = 'recipe.foodbar.app.manual.UserExample'
-//}
+// }
 
-//test {
+// test {
 //    useJUnitPlatform()
 //    testLogging {
 //        events "passed", "skipped", "failed"
 //    }
-//}
+// }
 
-//repositories {
+// repositories {
 //    mavenCentral()
-//}
+// }

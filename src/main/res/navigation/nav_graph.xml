@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/LogInFragment"
-        android:name="recipe.foodbar.android.foodbar.ui.login.LoginFragment"
+        android:name="app.foodbar.ui.login.LoginFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_login">
 
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/RegisterFragment"
-        android:name="recipe.foodbar.android.foodbar.ui.register.RegisterFragment"
+        android:name="app.foodbar.ui.register.RegisterFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_register">
         <action
@@ -34,6 +34,6 @@
     </fragment>
     <activity
         android:id="@+id/mainActivity"
-        android:name="recipe.foodbar.android.foodbar.MainActivity"
+        android:name="app.foodbar.MainActivity"
         android:label="MainActivity" />
 </navigation>
