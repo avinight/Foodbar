@@ -1,21 +1,20 @@
 import com.mongodb.client.MongoDatabase;
 //import org.junit.After;
 //import org.junit.Before;
-import recipe.foodbar.controller.recipe.CreateRecipeController;
-import recipe.foodbar.controller.user.AccountController;
-import recipe.foodbar.controller.user.AccountPresenter;
+import foodbar.controller.recipe.CreateRecipeController;
+import foodbar.controller.user.AccountController;
+import foodbar.controller.user.AccountPresenter;
 import recipe.foodbar.entities.*;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
-import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
-import recipe.foodbar.usecase.commonport.IdGenerator;
-import recipe.foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
-import recipe.foodbar.usecase.recipe.manager.CreateRecipeInteractor;
-import recipe.foodbar.usecase.recipe.manager.CreateRecipePresenter;
-import recipe.foodbar.usecase.recipe.manager.RecipeInputData;
+import foodbar.id_generator.jug.JugIdGenerator;
+import foodbar.repository.mongoDB.repository.MongoRecipeRepository;
+import foodbar.repository.mongoDB.repository.MongoUserRepository;
+import foodbar.usecase.commonport.IdGenerator;
+import foodbar.usecase.recipe.manager.CreateRecipeInputBoundary;
+import foodbar.usecase.recipe.manager.CreateRecipeInteractor;
+import foodbar.usecase.recipe.manager.CreateRecipePresenter;
 import recipe.foodbar.usecase.user.*;
 //import recipe.foodbar.usecase.user.port.IdGenerator;
-import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
+import foodbar.usecase.user.port.UserCreatorInputBoundary;
 import static junit.framework.TestCase.assertEquals;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import static junit.framework.TestCase.assertEquals;
 
-import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
+import static foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class SaveRecipeTest {
 //    @Before

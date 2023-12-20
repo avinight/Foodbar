@@ -1,20 +1,19 @@
 import com.mongodb.client.MongoDatabase;
 import org.junit.jupiter.api.Test;
-import recipe.foodbar.controller.user.AccountController;
-import recipe.foodbar.controller.user.AccountPresenter;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
-import recipe.foodbar.usecase.user.UserInputData;
-import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.commonport.IdGenerator;
-import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
+import foodbar.controller.user.AccountController;
+import foodbar.controller.user.AccountPresenter;
+import foodbar.id_generator.jug.JugIdGenerator;
+import foodbar.repository.mongoDB.repository.MongoUserRepository;
+import foodbar.usecase.user.UserManager;
+import foodbar.usecase.commonport.IdGenerator;
+import foodbar.usecase.user.port.UserCreatorInputBoundary;
 
-import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
+import static foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class UserTest {
 
     public String accountCreationMethod(String username, String password, String passwordShadow, String email,
-                                        recipe.foodbar.repository.mongoDB.repository.MongoUserRepository repo, IdGenerator idGenerator) {
+                                        MongoUserRepository repo, IdGenerator idGenerator) {
 
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);

@@ -1,29 +1,28 @@
 import com.mongodb.client.MongoDatabase;
 import org.junit.jupiter.api.Test;
-import recipe.foodbar.controller.user.AccountController;
-import recipe.foodbar.controller.user.AccountPresenter;
-import recipe.foodbar.controller.user.login.UserLoginController;
-import recipe.foodbar.controller.user.login.UserLoginPresenter;
-import recipe.foodbar.controller.user.logout.UserLogoutController;
-import recipe.foodbar.controller.user.logout.UserLogoutPresenter;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
-import recipe.foodbar.repository.simpleDB.InMemoryCookieRepository;
-import recipe.foodbar.usecase.user.UserInputData;
-import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.commonport.IdGenerator;
-import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
-import recipe.foodbar.usecase.userLogin.UserLogin;
-import recipe.foodbar.usecase.userLogin.UserLoginInput;
-import recipe.foodbar.usecase.userLogin.port.LoginRepositoryInterface;
-import recipe.foodbar.usecase.userLogin.port.UserLoginInputBoundary;
-import recipe.foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
-import recipe.foodbar.usecase.userLogout.UserLogout;
-import recipe.foodbar.usecase.userLogout.UserLogoutInput;
-import recipe.foodbar.usecase.userLogout.port.UserLogoutInputBoundary;
-import recipe.foodbar.usecase.userLogout.port.UserLogoutOutputBoundary;
+import foodbar.controller.user.AccountController;
+import foodbar.controller.user.AccountPresenter;
+import foodbar.controller.user.login.UserLoginController;
+import foodbar.controller.user.login.UserLoginPresenter;
+import foodbar.controller.user.logout.UserLogoutController;
+import foodbar.controller.user.logout.UserLogoutPresenter;
+import foodbar.id_generator.jug.JugIdGenerator;
+import foodbar.repository.mongoDB.repository.MongoUserRepository;
+import foodbar.repository.simpleDB.InMemoryCookieRepository;
+import foodbar.usecase.user.UserManager;
+import foodbar.usecase.commonport.IdGenerator;
+import foodbar.usecase.user.port.UserCreatorInputBoundary;
+import foodbar.usecase.userLogin.UserLogin;
+import foodbar.usecase.userLogin.UserLoginInput;
+import foodbar.usecase.userLogin.port.LoginRepositoryInterface;
+import foodbar.usecase.userLogin.port.UserLoginInputBoundary;
+import foodbar.usecase.userLogin.port.UserLoginOutputBoundary;
+import foodbar.usecase.userLogout.UserLogout;
+import foodbar.usecase.userLogout.UserLogoutInput;
+import foodbar.usecase.userLogout.port.UserLogoutInputBoundary;
+import foodbar.usecase.userLogout.port.UserLogoutOutputBoundary;
 
-import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
+import static foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class UserLogoutTest {
 

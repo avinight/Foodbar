@@ -2,26 +2,25 @@ import com.mongodb.client.MongoDatabase;
 import org.junit.jupiter.api.Test;
 import static junit.framework.TestCase.assertEquals;
 
-import recipe.foodbar.controller.review.ReviewController;
+import foodbar.controller.review.ReviewController;
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.presenter.ReviewPresenter;
-import recipe.foodbar.repository.mongoDB.MongoDB;
-import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
-import recipe.foodbar.entities.Recipe;
-import recipe.foodbar.entities.User;
+import foodbar.presenter.ReviewPresenter;
+import foodbar.repository.mongoDB.repository.MongoRecipeRepository;
+import foodbar.entities.Recipe;
+import foodbar.entities.User;
 import recipe.foodbar.entities.*;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
-import recipe.foodbar.usecase.review.ReviewInputData;
-import recipe.foodbar.usecase.review.ReviewOutputData;
-import recipe.foodbar.usecase.review.WriteReviewInteractor;
-import recipe.foodbar.usecase.review.port.ReviewInputBoundary;
-import recipe.foodbar.usecase.review.port.ReviewOutputBoundary;
-import recipe.foodbar.usecase.commonport.IdGenerator;
+import foodbar.id_generator.jug.JugIdGenerator;
+import foodbar.repository.mongoDB.repository.MongoUserRepository;
+import foodbar.usecase.review.ReviewInputData;
+import foodbar.usecase.review.ReviewOutputData;
+import foodbar.usecase.review.WriteReviewInteractor;
+import foodbar.usecase.review.port.ReviewInputBoundary;
+import foodbar.usecase.review.port.ReviewOutputBoundary;
+import foodbar.usecase.commonport.IdGenerator;
 
 import java.util.ArrayList;
 
-import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
+import static foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class  TestReviews {
     MongoDatabase db = getMongoDB();

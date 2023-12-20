@@ -2,19 +2,19 @@ import com.mongodb.client.MongoDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static junit.framework.TestCase.assertEquals;
-import recipe.foodbar.controller.recipe.FilterRecipes;
+import foodbar.controller.recipe.FilterRecipes;
 import recipe.foodbar.entities.Cuisine;
-import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
-import recipe.foodbar.usecase.cuisine.FilterByCuisine;
-import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
-import recipe.foodbar.entities.Recipe;
+import foodbar.repository.mongoDB.repository.MongoRecipeRepository;
+import foodbar.usecase.cuisine.FilterByCuisine;
+import foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
+import foodbar.entities.Recipe;
 import recipe.foodbar.entities.*;
-import recipe.foodbar.id_generator.jug.JugIdGenerator;
-import recipe.foodbar.usecase.commonport.IdGenerator;
+import foodbar.id_generator.jug.JugIdGenerator;
+import foodbar.usecase.commonport.IdGenerator;
 
 import java.util.ArrayList;
 
-import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
+import static foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class FilterTest {
     MongoDatabase db = getMongoDB();
