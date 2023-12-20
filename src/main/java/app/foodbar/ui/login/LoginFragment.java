@@ -42,13 +42,19 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d("LoginFragment", "onClick: login button clicked");
-                Log.d("LoginFragment", binding.usernameTextInputEditText.getText().toString() + binding.passwordTextInputEditText.getText().toString());
-                UserLogin loginUser = new UserLogin(binding.usernameTextInputEditText.getText().toString(), binding.passwordTextInputEditText.getText().toString());
+                Log.d("LoginFragment",
+                        binding.usernameTextInputEditText.getText().toString() +
+                                binding.passwordTextInputEditText.getText().toString());
+
+                UserLogin loginUser = new UserLogin(
+                        binding.usernameTextInputEditText.getText().toString(),
+                        binding.passwordTextInputEditText.getText().toString());
+
                 Call<UserLogin> call = apiInterface.loginUser(loginUser);
                 call.enqueue(new Callback<UserLogin>() {
                     @Override
                     public void onResponse(Call<UserLogin> call, Response<UserLogin> response) {
-                        if(response.errorBody() != null) {
+                        if (response.errorBody() != null) {
                             Toast.makeText(getActivity(), "Login failed, incorrect username or password", Toast.LENGTH_SHORT).show();
                         } else {
                             Log.d("LoginFragment ", "onResponse: ");
